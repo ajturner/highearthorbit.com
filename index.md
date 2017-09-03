@@ -22,6 +22,8 @@ Andrew is the author of "Introduction to Neogeography" and "Trends in Where2.0".
 
 #### rocket scientist
 
+![Aerial Drone](https://farm8.staticflickr.com/7558/15685514648_7f2f76b05c_z_d.jpg)
+
 Andrew received his Bachelors of Science in Aerospace Engineering and Computer Science from the University of Virginia in Charlottesville. His undergraduate thesis was designing a semi-autonomous control system for a robotic, solar-powered, high-altitude airship.
 
 Andrew received his Masters of Science in Aerospace Engineering from Virginia Tech in Blacksburg. His graduate thesis focused on machine-learning, neural networks for autonomous, self-healing spacecraft control systems. He also built an [open-source, spacecraft simulation framework, Open-SESSAME](http://github.com/spacecraft).
@@ -29,3 +31,10 @@ Andrew received his Masters of Science in Aerospace Engineering from Virginia Te
 #### brewer, trombonist, father
 
 Andrew lives with is wife and two children in Capitol Hill, DC. He loves the history and culture of the United States of America capital and the close neighborhoods and families of the city.
+
+
+## my work
+
+- [Videos of my talks](https://www.youtube.com/playlist?list=PLJN4HgE09_NTKB8WYsGL8_1AIPfu0eemF)
+
+![3d printed neighborhood](https://farm6.staticflickr.com/5695/23321259832_038609cff4_z_d.jpg =855px)
