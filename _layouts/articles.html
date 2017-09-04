@@ -4,8 +4,19 @@ hide_edit_link: true
 active_path: articles
 ---
 
+
+
 <div class="col-xs-12 col-sm-3">
   {% include _nav_sidebar.html %}
+  <!--
+  <h3>Categories</h3>
+   <ul class="categories">
+  {% for category in site.categories %}
+    {% assign t = category | first %}
+    {% assign posts = category | last %}
+    <li>{{t | downcase | replace:" ","-" }} has {{ posts | size }} posts</li>
+  {% endfor %}
+  </ul> -->
 </div>
 <div class="col-xs-12 col-sm-9">
 

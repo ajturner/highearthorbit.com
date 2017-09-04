@@ -5,11 +5,13 @@ banner: https://farm8.staticflickr.com/7348/11452221493_8523f98888_b_d.jpg
 active_path: posts
 ---
 
-
+<section itemscope itemtype="http://schema.org/Blog">
+  <article itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
 <div class="col-xs-12 col-sm-9">
-  <h2>{{ page.title }}</h2>
-
-   {{ content }}
+  <h2 itemprop="name">{{ page.title }}</h2>
+    <div itemprop="articleText">
+     {{ content }}
+    </div>
    <div class="PageNavigation">
      {% if page.previous.url %}
        <a class="prev" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
@@ -22,9 +24,9 @@ active_path: posts
 
 <div class="col-xs-12 col-sm-3">
    <h3>About this article</h3>
-   written on {{ page.date | date_to_string }} <br/>
+   written on <span itemprop="datePublished" content="{{ page.date | date_to_xmlschema}}">{{ page.date | date: '%B %e, %Y' }}</span><br/>
 
-   posted in {{ page.categories }}
+   posted in <span itemprop="keywords">{{ page.categories }}</span>
 
    <a href="#topofpage" class="btn btn-link" style="bottom: 10px; position: fixed;">Back to Top</a>
 
@@ -38,6 +40,8 @@ active_path: posts
     <a href="#topofpage" class="btn btn-link" style="bottom: 10px; position: fixed;">Back to Top</a>
   </div> -->
 </div>
+</article>
+</section>
 
 
   </div>

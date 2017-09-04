@@ -13,13 +13,13 @@ Andrew Turner is the Director and CTO of the [Esri R&amp;D in Washington, DC](ht
 
 Andrew is a prolific software developer, publishing most of his work as [open-source code](https://github.com/ajturner) and he often speaks to audiences on the vision and benefits of collaborative code building.
 
-Andrew is an elected Charter Member the Open-Source Geospatial Foundation (OSGeo), the OpenStreetMap Foundation.
+Andrew is an elected Charter Member the [Open-Source Geospatial Foundation (OSGeo)](http://www.osgeo.org/), the [OpenStreetMap Foundation](http://wiki.openstreetmap.org/wiki/Foundation) and the [Open Web Foundation](http://www.openwebfoundation.org/).
 
-Andrew is the co-founder of Crisiscommons, a global community of technology volunteers that support humanitarian assistant in disasters.  
+Andrew is the co-founder of [CrisisCommons](https://crisiscommons.org/), a global community of technology volunteers that support humanitarian assistant in disasters.  
 
 #### writer
 
-Andrew is the author of "Introduction to Neogeography" and "Trends in Where2.0". He has published articles in Make Magazine, Linux Journal, MacTech, and numerous other civic and technical publications. He blogs personal perspectives at [highearthorbit.com](http://highearthorbit.com) and [Twitter @ajturner](https://twitter.com/ajturner), his work-related projects at [Esri Insider](https://blogs.esri.com/esri/esri-insider/author/ajturner/) and [ArcGIS Blog](https://blogs.esri.com/esri/arcgis/author/ajturner/).
+Andrew is the author of ["Introduction to Neogeography"](http://shop.oreilly.com/product/9780596529956.do) and ["Where2.0: The State of the Geospatial Web"](http://shop.oreilly.com/product/9780596522568.do). He has published articles in Make Magazine, Linux Journal, MacTech, and numerous other civic and technical publications. He blogs personal perspectives at [highearthorbit.com](http://highearthorbit.com) and [Twitter @ajturner](https://twitter.com/ajturner), his work-related projects at [Esri Insider](https://blogs.esri.com/esri/esri-insider/author/ajturner/) and [ArcGIS Blog](https://blogs.esri.com/esri/arcgis/author/ajturner/).
 
 #### rocket scientist
 
@@ -36,6 +36,7 @@ Andrew lives with is wife and two children in Capitol Hill, DC. He loves the his
 
 ## my work
 
+- [LinkedIn profile](https://www.linkedin.com/in/ajturner/)
 - [Videos of my talks](https://www.youtube.com/playlist?list=PLJN4HgE09_NTKB8WYsGL8_1AIPfu0eemF)
 
 ![3d printed neighborhood](https://farm6.staticflickr.com/5695/23321259832_038609cff4_z_d.jpg =855px)
