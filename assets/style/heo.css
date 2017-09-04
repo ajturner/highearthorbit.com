@@ -12,6 +12,18 @@
   color:white;
   text-shadow:2px 2px #333;
 }
+.bgimage .hero-content {
+  height: 450px; /* Same as bgimage */
+}
+.bgimage .hero-content cite {
+  position: absolute;
+  bottom: 0px;
+  right: 20px;
+  text-transform: none;
+}
+.bgimage .hero-content cite a {
+  color: white;
+}
 
 .row {
   padding-top: 20px;

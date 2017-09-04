@@ -24,7 +24,10 @@ active_path: home
       <div class="container-fluid">
         {% include _nav.html %}
         <div class="row" style="">
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="hero-content col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            {% if page.banner_cite %}
+              <cite>{{ page.banner_cite }}</cite>
+            {% endif %}
             <!-- <h5></h5>
             <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
             <p><a href="#" class="btn btn-primary btn-large">Learn more »</a></p> -->
@@ -45,10 +48,10 @@ active_path: home
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
   <footer>
-    <div class="container-fluid">
+    <div class="container">
       <div class="row" style="">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          &copy;{{ site.time | date: '%y' }} - Andrew Turner.
+          &copy;{{ site.time | date: '%Y' }} - Andrew Turner.
           Licensed as CreativeCommons-Attribution content.
         </div>
       </div>
