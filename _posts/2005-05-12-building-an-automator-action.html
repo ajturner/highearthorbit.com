@@ -1,0 +1,45 @@
+---
+layout: post
+status: publish
+published: true
+title: Building an Automator Action
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 207
+wordpress_url: http://highearthorbit.com/building-an-automator-action/
+date: '2005-05-12 19:05:44 -0400'
+date_gmt: '2005-05-13 00:05:44 -0400'
+categories:
+- Programming
+- Apple
+tags: []
+comments: []
+---
+<p>In the interest of working more with <a href='http://geobloggers.com'>GeoBloggers</a> and <a href='http://flickr.com'>Flickr</a> - as well as my own interests in geolocation, I'm writing some <a href='http://apple.com/automator/'>Automator</a> actions. You gotta pay the toll to the bot. </p>
+<p>I'm trying to create a photograph workflow that will archive images, apply EXIF copyright as well as geographic location, and then archive.</p>
+<p>The tough part, obviously, is the geographic location. The rest was already all done by many small gnomes at 1 infinite loop. I've already written an <a href='http://highearthorbit.com/projects/applescript/GeoExif.tgz'>GeoExif Applescript</a> that a user would select images in iPhoto, run this applescript, and then fill in the location information <em>piece by piece</em>. Tedious, no?</p>
+<p>Anyways, building automator workflows is *incredibly* easy (well, except for sometimes getting the actions between other actions. sometimes the current actions just are little *too* friendly and all huggly and whatnot and then this "View Results" action's gotta be like 'hey, I wanna piece of this text'). </p>
+<p>Just add the "Run Applescript" action to your workflow. A small, but illustrative example of what the applescript looks like for an automator action:</p>
+<pre>
+on run {input_items, parameters}<br />
+	if input_items is not {} then<br />
+		set myPrefix to "prefix_"<br />
+		repeat with item in input_items<br />
+			set (name of item) to myPrefix & (name of item)<br />
+		end repeat<br />
+	else<br />
+	end if<br />
+	return input_items<br />
+end run<br />
+</pre></p>
+<p>To dissect: first we declare we want the <code>input_items</code> which are the magically river of data coming into and out of the connectors in automator actions. What <em>type</em> this input_items is automagically determined for you by the Applescript automator action. If you were writing your own action in XCode2 you would need to specify the acceptable types in your <code>InfoPList.strings</code> file. </p>
+<p>So, first we see if this <code>input_items</code> has anything in it. If not (e.g. you didn't connect the input in Automator) then the array is empty and our <code>else</code> block gets run. If you *have* connected the input, then the array isn't empty and we start doing stuff with the input. </p>
+<p>You may want to setup some stuff before the loop (such as setting a prefix variable), after which you just do <code>repeat with item in input_items</code> to begin recursing through all of the incoming objects. You can access the parameters of the object and whatnot to your heart's desire. </p>
+<p>When you're done playing with the objects, just return them, or some semblence of your results, out to. This will get passed onto other actions.</p>
+<p>Yay! you've written an automator action, yay!</p>

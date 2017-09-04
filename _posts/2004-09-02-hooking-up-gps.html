@@ -1,0 +1,27 @@
+---
+layout: post
+status: publish
+published: true
+title: Hooking up GPS
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 26
+wordpress_url: http://highearthorbit.com/?p=26
+date: '2004-09-02 22:15:46 -0400'
+date_gmt: '2004-09-03 02:15:46 -0400'
+categories:
+- Technology
+- Programming
+- Apple
+tags: []
+comments: []
+---
+<p>If you're trying to hook up your GPS unit (in my case,  a Garmin eTrex) to your mac, it's worth it to (1) buy the <a href='http://www.keyspan.com/products/usb/USA19HS/'>Keyspan USA-19HS serial-usb adapter</a> - it just *works* and (2) make sure your GPS is in Garmin (or appropriate) mode, and not just NMEA if the application you're using to communicate expects the Garmin Serial protocol. Yeah, that was about a day of 'debugging'. It was compounded by the fact that <a href='http://www.macstumbler.com/'>MacStumbler</a> can accept the NMEA protocol, and so would actually mark the acceess points it found, and therefore I didn't think anything was wrong.</p>
+<p>In the end, however, the connection works terrifically. <a href='http://gpsbabel.sourceforge.net/'>GPSBabel</a> works (both in GUI form and in command line form) as well as <a href='http://www.chimoosoft.com/gpsconnect.html'>GPSConnect</a> and <a href='http://www.chimoosoft.com/terrabrowser.html'>Terrabrowser</a>, both by <a href='http://www.chimoosoft.com'>Chimoosoft</a>.</p>
+<p>I want a decent Photo-GPS linking application. If only Terrabrowser was open-source I wouldn't be tempted to make my own solution from the ground up.</p>

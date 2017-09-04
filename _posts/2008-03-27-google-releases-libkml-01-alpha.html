@@ -1,0 +1,67 @@
+---
+layout: post
+status: publish
+published: true
+title: Google releases libkml 0.1 alpha
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 1014
+wordpress_url: http://highearthorbit.com/google-releases-libkml-01-alpha/
+date: '2008-03-27 12:36:22 -0400'
+date_gmt: '2008-03-27 16:36:22 -0400'
+categories:
+- Google
+- KML
+tags:
+- Google
+- KML
+- bsd
+- kmlogc
+- libkml
+- ogckml
+comments:
+- id: 162608
+  author: Michael Ashbridge
+  author_email: kml.mashbridge@gmail.com
+  author_url: http://libkml.googlecode.com
+  date: '2008-03-27 15:09:42 -0400'
+  date_gmt: '2008-03-27 19:09:42 -0400'
+  content: It is, in fact, _ALPHA_ software. Not ALHPA, as originally printed. I was
+    really trying for "ALPACA software", which would give it the ability to provide
+    a source of clothing material as well, but I might have to leave that for v0.2.
+- id: 162631
+  author: Timmie
+  author_email: timmichelsen@gmx-topmail.de
+  author_url: ''
+  date: '2008-03-27 18:16:36 -0400'
+  date_gmt: '2008-03-27 22:16:36 -0400'
+  content: "Good news this new library.\r\nCreatings KML from businesss apps such
+    as spreadsheets will be eased up.\r\n\r\nAbout your lib{geo}:\r\nTake a look at
+    GDAL/OGR:\r\nhttp://www.gdal.org/\r\n\r\nThese are opensource
+    libraries that can convert nearly envery geo format."
+---
+<p>At the <a href="http://www.opengeospatial.org/event/0803tc" title="March 2008 OGC Technical Committee Meeting | OGC&Acirc;&reg;">OGC Technical Committee meeting</a> today in St. Louis, Google pushed out the initial release of an <a href="http://code.google.com/p/libkml/" title="libkml Google Code homepage">open-source library for parsing and publishing KML</a>. Read more about it on the <a href="http://google-opensource.blogspot.com/2008/03/introducing-libkml-library-for-reading.html" title="Google Open Source Blog: Introducing libkml: a library for reading, writing, and manipulating KML">Google Open Source Blog</a>.</p>
+<p><a href="http://code.google.com/p/libkml/" title="libkml Google Code homepage">libkml</a> was originally "announced" about 6 months ago as part of the kick-off of the standardization of KML within the <a href="http://www.opengeospatial.org/" title="Welcome to the OGC Website | OGC&Acirc;&reg;">OGC</a>.</p>
+<p>libkml is interesting in several ways. <a href="http://code.google.com/apis/kml/documentation/" title="KML Documentation Introduction - KML - Google Code">KML</a> itself is <em>just</em> an XML specification for geographic data. Nothing really special compared to other XML formats. However, as I've championed there is a big difference between types of developers that use and read schemas, and those that use libraries or simple examples and documentation to implement parsers or tools. This is justified in that developers (both consumers and producers as <a href="http://blog.earthbrowser.com/2007/09/libkml-wtf.html" title="EarthBrowser: libkml: wtf?">discussed here</a>) are usually trying to solve some other problem and want to use a format like KML merely as a mechanism to publish and visualize their information. By providing a stable and full-featured library, developers are free to build tools around the library without having to deal with the intricacies and issues of the format itself. </p>
+<p>Similarly to the effect of opening the standardization of KML to the OGC effected other organizations like Microsoft to embrace the format - an open-source library also encourages other implementations, or competitors, of KML applications. Google is primarily in the business of data organization and search - so the more tools that publish or utilize a format they can then index is a win. </p>
+<p>Another implication of libkml is that a single library can grow with versions and features, again freeing the developer from having to track future versions or bug fixes to the format.</p>
+<p>Lastly, libkml is written to be fast - which is essential for handling large KML documents, realtime visualization, and potentially even mobile/limited-resource clients. However, how small libkml can be made is left to be seen.</p>
+<p>As <a href="http://code.google.com/u/kml.mashbridge/" title="Google Code User: kml.mashbridge">Michael Ashbridge</a> pointed out, this is a very "alpha release, not Beta in the Google sense". In fact, in the documentation there is the very clear disclaimer: "THIS IS ALHPA SOFTWARE. Expect changes. We do not yet recommend use in production code." </p>
+<p>There are still a number of features that are not yet implemented that are forthcoming, or can be accomplished by the broader community. They're looking for feedback from developers on the interface and functionality. The library is C++, with SWIG bindings currently in Ruby, Java, Python, Perl and PHP. There are examples for developers to <a href="http://code.google.com/p/libkml/wiki/UserGuide01x" title="UserGuide01x - libkml - Google Code">get up and running quickly</a>.</p>
+<p>It's released under the <a href="http://www.opensource.org/licenses/bsd-license.php" title="Open Source Initiative OSI - The BSD License:Licensing | Open Source Initiative">new BSD license</a>. It is meant to be as open as possible for developers to use in both open-source and closed-source projects without worrying about interference with other licenses. </p>
+<p>It's great to see Google pushing on the open-{<a href="http://www.google.com/cse?cx=015986126177484454297%3Apfmwlvdl42y&amp;cof=FORID%3A0&amp;q=geo&amp;sa=Search" title="- Google Search">source</a>,<a href="http://www.opengeospatial.org/projects/groups/kml2.2swg" title="KML 2.2 SWG | OGC&Acirc;&reg;">format</a>} in geospatial. They've obviously done a lot to raise public awareness of placemarking and geospatial data with <a href="http://maps.google.com/" title="Google Maps">GoogleMaps</a> and <a href="http://earth.google.com/" title="Google Earth">GoogleEarth</a> - they're now engaging the GIS community and helping them.</p>
+<p>Hopefully people, at least developers and users in the know, can soon stop referring to KML strictly as "GoogleEarth format" or "GoogleEarth Layer".</p>
+<h3>Dealing with Reality</h3><br />
+An issue <a href="http://mapufacture.com" title="Mapufacture">we</a> commonly run into is the reality that there are a lot of KML and other data sources in the wild that are malformed. There is the common response "it works in GoogleMaps, why doesn't it work elsewhere?" </p>
+<p>libkml is able to handle, to some extext, 'bad' KML, but is very strict in outputting KML that is generated using the DOM API in the library. Hopefully this generally raises the quality of available KML. </p>
+<h3>lib{geo}</h3><br />
+A potential extension to libkml that excites me would be the ability ingest a KML document and publish it out as other formats such as <a href="http://www.georss.org/" title="GeoRSS | GeoRSS ::  Geographically Encoded Objects for RSS feeds">GeoRSS</a> or <a href="http://en.wikipedia.org/wiki/Geography_Markup_Language" title="Geography Markup Language - Wikipedia, the free encyclopedia">GML</a>. Especially if a higher-level interface was built onto libkml that abstracted away the specifics of KML and instead provided an interface for general geometry (and feature) creation and manipulation. </p>
+<p>Unfortunately since my laptop hard drive died last week, I don't have a development machine to build and play with this yet. But I expect to use this library in a number of projects.</p>
+<p><a href="http://code.google.com/p/libkml/" title="Google Code Project: libkml">Google Code Project: libkml</a>.</p>
+<p>GEOPRESS_LOCATION(St. Louis, MO)</p>

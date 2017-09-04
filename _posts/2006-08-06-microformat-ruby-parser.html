@@ -1,0 +1,78 @@
+---
+layout: post
+status: publish
+published: true
+title: Microformat Ruby Parser
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 489
+wordpress_url: http://highearthorbit.com/microformat-ruby-parser/
+date: '2006-08-06 13:42:51 -0400'
+date_gmt: '2006-08-06 18:42:51 -0400'
+categories:
+- Programming
+- Ruby
+tags: []
+comments:
+- id: 42570
+  author: Semantic Web Links 08-08-06 at pixelsebi&#8217;s repository
+  author_email: ''
+  author_url: http://pixelsebi.com/2006-08-08/semantic-web-links-08-08-06/
+  date: '2006-08-08 04:27:44 -0400'
+  date_gmt: '2006-08-08 09:27:44 -0400'
+  content: "[...] Microformats Ruby Parser - F&Atilde;&frac14;r alle Ruby J&Atilde;&frac14;nger
+    sicherlich einen Blick wert (Frank?) [...]"
+- id: 45442
+  author: Labnotes &raquo; Microformat Ruby Parser
+  author_email: ''
+  author_url: http://blog.labnotes.org/2006/08/06/microformat-ruby-parser/
+  date: '2006-08-28 22:51:38 -0400'
+  date_gmt: '2006-08-29 03:51:38 -0400'
+  content: "[...] Check out what Andrew is doing for Microformat parsing: Now, there
+    is a base-class Microformat that provides a structure for any sub-class to be
+    created that specifies a Microformat that you want to parse. [...]"
+---
+<p>With help from <a href='http://blog.labnotes.org/'>Assaf</a>, I've generalized the <a href='http://microformats.org/wiki'>Microformat</a> parsers even more. Now, there is a base-class <code>Microformat</code> that provides a structure for any sub-class to be created that specifies a Microformat that you want to parse.</p>
+<p>It's not robust, in that it assumes that the important information is actually in the text of the tag, and nothing is in any of the tag's attributes. This should probably be added, where the properties would be an array that specify if the value comes from text or a named attribute.</p>
+<pre>
+<code><br />
+class Microformat < Scraper::Base  def self.properties(*symbols)<br />
+    symbols.each do |symbol|<br />
+      html_class = symbol.to_s.gsub(/_/, "-")<br />
+      process ".#{html_class}", symbol=>["abbr@title", "a@href", :text]<br />
+    end<br />
+  end<br />
+end</p>
+<p>class Geo < Microformat<br />
+  properties :latitude, :longitude<br />
+end<br />
+class Adr < Microformat<br />
+  properties :post_office_box,<br />
+    :extended_address,<br />
+    :street_address,<br />
+    :locality,<br />
+    :region,<br />
+    :postal_code,<br />
+    :country_name<br />
+end<br />
+</code><br />
+</pre></p>
+<p>To use you just have a generalized scraper:</p>
+<pre>
+<code><br />
+class Location < Scraper::Base   array :geos<br />
+  array :adrs<br />
+  process ".adr", :adrs => Adr<br />
+  process ".geo", :geos => Geo<br />
+  result :geos, :adrs<br />
+end<br />
+</code></pre></p>
+<p>which will now return an object with a <code>.geos</code> and <code>.adrs</code> for <a href='http://microformats.org/wiki/geo'>geo</a> and <a href='http://microformats.org/wiki/adr'>adr</a> attributes, respectively. </p>
+<p><strong>Updated</strong>: Assaf pointed out that he added the ability to pull out the correct data if the microformat was stored in an abbr vs. a span.<br />
+<code>process ".#{html_class}", symbol=>["abbr@title", "a@href", :text]</code></p>

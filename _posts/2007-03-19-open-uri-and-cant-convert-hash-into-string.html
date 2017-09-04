@@ -1,0 +1,90 @@
+---
+layout: post
+status: publish
+published: true
+title: open-uri and can't convert Hash into String
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 786
+wordpress_url: http://highearthorbit.com/open-uri-and-cant-convert-hash-into-string/
+date: '2007-03-19 00:03:06 -0400'
+date_gmt: '2007-03-19 04:03:06 -0400'
+categories:
+- Programming
+- Ruby
+tags: []
+comments:
+- id: 78649
+  author: Peter
+  author_email: peter@rubyrailways.com
+  author_url: http://scrubyt.org
+  date: '2007-03-20 09:36:09 -0400'
+  date_gmt: '2007-03-20 13:36:09 -0400'
+  content: Or you can use something like <a>scRUBYt!</a> - basic authentication
+    is not yet supported in the present version, but will be added with the next release.
+- id: 208641
+  author: Andy Watts
+  author_email: andywatts@yahoo.com
+  author_url: ''
+  date: '2008-10-23 15:07:45 -0400'
+  date_gmt: '2008-10-23 19:07:45 -0400'
+  content: "Googled and got your post.\r\n/doh.  I forgot to require 'open-uri'\r\nThankyou."
+- id: 272564
+  author: rob
+  author_email: rob@sixtyton.com
+  author_url: ''
+  date: '2009-09-09 05:35:38 -0400'
+  date_gmt: '2009-09-09 09:35:38 -0400'
+  content: "DUDE!\r\n\r\nThank god I googled this issue...such a rookie mistake...I
+    can't believe I wasted 30 minutes trying to debug otherwise perfect code.\r\n\r\nThanks
+    so much!"
+- id: 278962
+  author: When open-uri can&#8217;t convert Hash into String &#8212; another time
+    it happens &laquo; catapult-creative.com
+  author_email: ''
+  author_url: http://www.catapult-creative.com/2009/10/25/when-open-uri-cant-convert-hash-into-string-another-time-it-happens/
+  date: '2009-10-25 20:20:24 -0400'
+  date_gmt: '2009-10-26 00:20:24 -0400'
+  content: "[...] It&#8217;s not calling the part you might think &#8212; the piece
+    where it asks if the name can be converted to a string and if it conforms to a
+    loose URI regex pattern. It&#8217;s instead calling it with the original, version
+    of open, the one that the Kernel class provides so you can easily open files and
+    URLs (but without all the tasty options given you by OpenURI). This error gets
+    thrown unhelpfully by Kernel when you try to use open outside the context of OpenURI
+    (as this guy points out). [...]"
+- id: 279444
+  author: Pat
+  author_email: ericstratton@disposeamail.com
+  author_url: http://www.moviepoke.com
+  date: '2009-10-29 10:03:24 -0400'
+  date_gmt: '2009-10-29 14:03:24 -0400'
+  content: Thank you!  I ran into a very similar problem (can't convert URI::HTTP
+    into String) b/c I'd forgotten to require open-uri.  /doh indeed.
+- id: 294573
+  author: Anders Carlsen
+  author_email: anders@bodeval.dk
+  author_url: http://weblog.codebehind.dk
+  date: '2010-02-16 11:24:22 -0500'
+  date_gmt: '2010-02-16 15:24:22 -0500'
+  content: "obvius\r\nthanks :-)"
+- id: 330533
+  author: Bashar
+  author_email: bashar.abdullah@gmail.com
+  author_url: ''
+  date: '2010-10-09 04:40:00 -0400'
+  date_gmt: '2010-10-09 08:40:00 -0400'
+  content: YEP... Worked as you hoped for :)
+---
+<p>I'm posting this in hopes that search engines grab it and put it at the top of their list when other poor soul's run into this problem.</p>
+<p>If you're trying to grab a web resource using <a href="http://www.ruby-doc.org/stdlib/libdoc/open-uri/rdoc/classes/OpenURI.html">Open-URI</a>, and you are using basic authentication (username/password) then you'll need to make sure to <code>require 'open-uri'</code> or you'll get:</p>
+<pre>
+open("http://example.com/site", :http_basic_authentication => ["username", "password"])<br />
+TypeError: can't convert Hash into String<br />
+</pre></p>
+<p>Of course, then you toss some yummy <a href="http://code.whytheluckystiff.net/hpricot/" title="Hpricot">Hpricot</a> into the mix for parsing/scraping the good bits of the HTML.</p>

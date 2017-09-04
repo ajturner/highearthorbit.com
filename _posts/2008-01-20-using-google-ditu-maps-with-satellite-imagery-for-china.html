@@ -1,0 +1,75 @@
+---
+layout: post
+status: publish
+published: true
+title: Using Google Ditu maps with Satellite imagery for China
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 996
+wordpress_url: http://highearthorbit.com/using-google-ditu-maps-with-satellite-imagery-for-china/
+date: '2008-01-20 21:18:02 -0500'
+date_gmt: '2008-01-21 01:18:02 -0500'
+categories:
+- Maps
+- Chinese
+- Mapstraction
+- OpenStreetMap
+tags:
+- openstreetmap googleditu googlemaps mapstraction erikwi
+comments:
+- id: 145412
+  author: Vanja
+  author_email: vax@hi.htnet.hr
+  author_url: ''
+  date: '2008-01-29 17:00:11 -0500'
+  date_gmt: '2008-01-29 21:00:11 -0500'
+  content: "Hi!\r\n\r\nSorry to barge in on you like this, but I've been poking around
+    mapstraction for a while, and there are a bunch of questions I just can't seem
+    to find an answer to. Anyway, I've even tried to find the mailing list but to
+    no avail. The one referenced on http://mapstraction.com/trac does
+    not exist. So, if you could be so kind to nudge me in the right direction, that
+    would be great!\r\n\r\nThank you for your time!\r\nKind regards, Vanja"
+- id: 145510
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2008-01-29 23:53:16 -0500'
+  date_gmt: '2008-01-30 03:53:16 -0500'
+  content: "Hi Vanja - sorry about the confusion. I updated the front page of Mapstraction.com,
+    but not the rest of the trac and wiki. \r\n\r\nThe mailing list has moved to:\r\nhttp://lists.mapstraction.com/listinfo.cgi/mapstraction-mapstraction.com\r\n\r\nDefinitely
+    send any/all your questions to the list and we'll help  you out.\r\n\r\n"
+- id: 190654
+  author: karl
+  author_email: karl_f@hotmail.com
+  author_url: ''
+  date: '2008-06-23 07:08:15 -0400'
+  date_gmt: '2008-06-23 11:08:15 -0400'
+  content: "Hi,\r\nI noticed in your Beijing example that the streets in the ditu
+    maps don't line up properly with the streets in the satellite imagery. Is there
+    some way to apply an offset, so that they line up better?\r\nthanks!"
+- id: 190664
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2008-06-23 08:58:44 -0400'
+  date_gmt: '2008-06-23 12:58:44 -0400'
+  content: "@karl - the problem is that the tilesets are in different coordinate reference
+    systems. This is the method of converting the spherical latitude & longitude to
+    a flat image. \r\n\r\nGoogle Ditu uses  B-54 (Guass-Krueger), while Google Maps
+    is a Spherical Mercator, or \"Web Mercator\" known as EPSG:3785 \r\n\r\nSo what
+    has to happen is a warping would occur to get the two images to overlay properly."
+---
+<p><a href="http://dret.typepad.com" title="dretblog">Erik Wilde</a> was <a href="http://dret.typepad.com/dretblog/2008/01/mapping-china.html" title="dretblog: Mapping China">pointing out the disparities between Google Maps and Google Ditu, or their Chinese version of maps</a>. However, Google Ditu doesn't have satellite imagery. </p>
+<p>There are several easy ways to fix this. The first was to look at the Ditu tiles, and confirm they are the same as Google's nominal tiling scheme. Which means you can add the China Street tiles as a simple GTileLayerOverlay with Google Maps standard satellite view underneath. This was incredibly easy with Mapstraction and I <a href="http://mapsomething.com/demo/mapstraction/china.html" title="China Map overlay using Mapstraction">put up a demo here</a>.</p>
+<p><a href="http://www.flickr.com/photos/ajturner/2208066242/" title="China Map overlay using Mapstraction by Andrew Turner, on Flickr"><img src="http://farm3.static.flickr.com/2322/2208066242_79666e5eb3.jpg" width="500" height="440" alt="China Map overlay using Mapstraction" /></a></p>
+<p>For bonus points I even added a <a href="http://spanring.eu/blog/2007/06/27/local-traffic-information/" title="Local traffic information &laquo; Austria, &Ouml;AMTC, Feed, GeoRSS, Interoperability, KML, Mobile, Syndication, Traffic information &laquo; Christian Spanring">Mapufacture syndicated feed</a> of Erik's venues for LocWeb2008 and nearby Wikipedia articles from Geonames. </p>
+<h3>The other way</h3><br />
+The terms of how mixing Google's various tiles together isn't clear.  So the other way to address his issue is to use the freely available data. </p>
+<p>Namely, <a href="http://www.openstreetmap.org/" title="OpenStreetMap">OpenStreetMap</a> for roads, <a href="http://openaerialmap.org/" title="A Free View of the World -- OpenAerialMap">OpenAerialMap</a> or other remote imagery, and run in OpenLayers. <a href="http://mapsomething.com/demo/mapstraction/china_osm.html#" title="China Map overlay using OSM, OAM, OL">Here is the same map done with open data and open source</a>. The resolution or completeness isn't there yet, but you can see where it's going and the ability to be use the information as you want is very appealing.</p>
+<p><a href="http://www.flickr.com/photos/ajturner/2208126616/" title="China Map overlay using OSM, OAM, OL by Andrew Turner, on Flickr"><img src="http://farm3.static.flickr.com/2091/2208126616_8226fee4a8.jpg" width="500" height="360" alt="China Map overlay using OSM, OAM, OL" /></a></p>

@@ -1,0 +1,91 @@
+---
+layout: post
+status: publish
+published: true
+title: Bluelogger GPS
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 328
+wordpress_url: http://highearthorbit.com/bluelogger-gps/
+date: '2006-05-03 12:03:00 -0400'
+date_gmt: '2006-05-03 17:03:00 -0400'
+categories:
+- Technology
+- Geolocation
+- Gadgets
+- Open-Source
+- Howto
+tags: []
+comments:
+- id: 8440
+  author: gelbfuessler
+  author_email: gelbfuessler@hotmail.com
+  author_url: ''
+  date: '2006-05-06 16:31:11 -0400'
+  date_gmt: '2006-05-06 21:31:11 -0400'
+  content: Take a look at <a href="http://yafll.com/articles/gadgets_and_gizmos/963.html"
+    rel="nofollow"> http://yafll.com/articles/gadgets_and_gizmos/963.html
+    </a>
+- id: 8598
+  author: Josh
+  author_email: fh2level@gmail.com
+  author_url: http://n54n3.com
+  date: '2006-05-11 01:45:43 -0400'
+  date_gmt: '2006-05-11 06:45:43 -0400'
+  content: "I am trying to use gpsbabel to convert my BlueLogger .gpl file to .gpx
+    but when you select the input file I do not see a .gpl under file type therefore
+    unable to select my file. Any suggestions on what I might be doing wrong?\r\nThank
+    you\r\n"
+---
+<p>For the past several months I've been playing with the <a href="http://www.delorme.com/bluelogger/">Delorme Bluelogger GPS</a>. It's a very nice GPS receiver in its own right, but has the unique feature (for BT receivers) of including onboard logging. This is an <em>great</em> feature as it allows me to turn on the unit, toss it in my bag (somewhere on top, so it can still get a view of the sky) and forget about it. I don't need to grab multiple devices, such as the receiver and a PDA or computer in order to receive and store my GPS waypoints.</p>
+<p>This article will give a short overview of how to use the BlueLogger for a variety of applications. I use it primarily for geolocating photographs, but it's also nice for any location-based activity. </p>
+<p>The Bluelogger comes with the following:</p>
+<ul>
+<li>Bluelogger device</li>
+<li>Carrying case (with belt loop)</li>
+<li>Car charger</li>
+<li>Wall charger</li>
+<li>Charging stand (can work with either car or wall charger)</li>
+<li>Bluelogger Windows software</li><br />
+</ul></p>
+<h2>Connecting to GPS</h2><br />
+To connect to the Bluelogger, you will need a bluetooth adapter. Many computers now come with bluetooth built-in or as an add-on option. If this isn't the case, I would recommend the <a href="http://www.amazon.com/exec/obidos/redirect?link_code=ur2&tag=httphigheacom-20&camp=1789&creative=9325&path=http%3A%2F%2Fwww.amazon.com%2Fgp%2Fproduct%2FB00006B7DB%3Fv%3Dglance%2526n%3D172282">D-Link DBT-120</a><img src="http://www.assoc-amazon.com/e/ir?t=httphigheacom-20&amp;l=ur2&amp;o=1" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />. It's probably the <em>only</em> D-Link product I can recommend, but I've had great luck with them, and never run into any device that it hasn't worked with (and I have had problems with other BT adapters, especially on my Mac).</p>
+<p>Once you have a bluetooth adapter, you will need to setup a connection to the device by pairing them. See your devices'/operating systems' manuals on how to do this.</p>
+<p>A very slick option is to run <a href="http://gpsd.berlios.de/">gpsd</a>, which is a service-daemon running in the background that allows multiple connections to the single GPS device. Normally, only 1 software instance can connect at a time. With GPSd, you can "serve" your location. What would be really cool is to have GPSd be able to connect in with Geolocation by IP or Wifi as well as an actual GPS device to seamlessly switch between location technique.</p>
+<p><a href="http://www.versiontracker.com/dyn/moreinfo/macosx/24559">GPSUtility</a> is a nice, compact, graphical GPS application for Mac OS X. It can connect either directly to the GPS bluetooth port, or via gpsd. You can view location, satellite strengths, verbose NMEA output, and speed. </p>
+<p><a href="http://kismac.binaervarianz.de/">KisMac</a>, while not a GPS-specific applicaiton, has excellent GPS support. <a href="http://kismac.binaervarianz.de/">KisMac</a> is actually a wireless stumbler, which can also mark the latitude, longitude, and strength of detected networks and plot these on a map.</p>
+<h2>Storing & Viewing tracks</h2><br />
+The Bluelogger software (currently Windows only) can export the tracks as GPL files. <a href="http://www.gpsbabel.org/">GPSBabel</a> can convert these to a more useful format, such as GPX, which an XML format for GPS data. </p>
+<p>Since using the bluelogger usually entails turning it on and off often, the entire track log will contain many separate trips. <a href="http://www.gpsbabel.org/">GPSBabel</a> supports splitting up tracks based on a time separation. Each segment will be a self-contained track. </p>
+<p>The following example will convert a GPL file to a <a href='http://www.topografix.com/gpx_resources.asp'>GPX</a> file, and make a individual track for any separation of 4 hours between points. </p>
+<pre>
+<code><br />
+$ gpsbabel<br />
+  -i gpl -f Track_2005_11_23.gpl<br />
+  -x track,pack,split=4h,title="LOG # %c"<br />
+  -o gpx -F Track_2005_11_23.gpx<br />
+</code><br />
+</pre></p>
+<h2>Displaying tracks</h2><br />
+There are several options for displaying your tracks:</p>
+<p><a href="http://highearthorbit.com/projects/map/tracks.html">GPX Tracks</a></p>
+<p><a href="http://www.obviously.com/gis/gpx_loader.html">GPXLoader</a></p>
+<ul>
+<li><a href="http://highearthorbit.com/projects/map/tracks.js">GPX Tracks HTML file</a></li><br />
+</ul></p>
+<h2>GPS and Nokia 770</h2><br />
+<a href='http://thoughtfix.blogspot.com'>ThoughtFix</a> has a fairly comprehensive tutorial on <a href='http://thoughtfix.blogspot.com/2006/02/howto-bluetooth-gps-and-gpsdrive-on.html'>setting up GPSDrive with a Bluetooth GPS receiver</a>. They went with the i-Blue High Sensitivity Bluetooth GPS, which looks like a nice unit, but lacks logging.</p>
+<h2>Resources</h2></p>
+<ul>
+<li><a href="http://www.gpsnavx.com/index.php?page=NMEA">NMEA Protocol fields</a></li>
+<li><a href='http://dave.runningland.com/grunninglogs/'>GPS Running Log -> GoogleMap on website</a></li>
+<li><a href='http://www.chebucto.ns.ca/~rakerman/geocode-photos.html'>Geocode Photos</a></li>
+<li><a href='http://www.robogeo.com/home/'>RoboGeo</a> Windows photo-geocoding</li>
+<li><a href='http://oziphototool.alistairdickie.com/'>OziPhotoTool</a></li><br />
+</ul></p>

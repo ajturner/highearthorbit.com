@@ -1,0 +1,62 @@
+---
+layout: post
+status: publish
+published: true
+title: RubyCocoa
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 487
+wordpress_url: http://highearthorbit.com/rubycocoa/
+date: '2006-08-04 10:17:53 -0400'
+date_gmt: '2006-08-04 15:17:53 -0400'
+categories:
+- Programming
+- Apple
+- Ruby
+- Applescript
+- Mac OS X
+tags: []
+comments:
+- id: 85425
+  author: jkh
+  author_email: jkh@apple.com
+  author_url: ''
+  date: '2007-05-22 17:58:41 -0400'
+  date_gmt: '2007-05-22 21:58:41 -0400'
+  content: RubyCocoa is far from stagnant - check out the 0.11 release which just
+    went out today.  There are a huge number of changes!
+- id: 85426
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2007-05-22 18:06:55 -0400'
+  date_gmt: '2007-05-22 22:06:55 -0400'
+  content: "Hi JKH - I'm on the RubyCocoa mailing list and have seen the flurry of
+    activity. I'll try out the new release when I get a moment.\r\n\r\nI have run
+    into a problem where RubyCocoa has prevented me from running ZenTest for Ruby
+    on Rails development. Specifically, when I run 'autotest' I get:\r\n\r\n<blockquote>\r\nloading
+    rspec_rails_autotest\r\n/Library/Frameworks/RubyCocoa.framework/Versions/A/Resources/ruby/osx/objc/oc_import.rb:157:
+    [BUG] Bus Error\r\nruby 1.8.5 (2006-12-04) [i686-darwin8.8.2]\r\n</blockquote>\r\n\r\nAny
+    Ideas?"
+---
+<p><a href='http://rubycocoa.sourceforge.net/' title='RubyCocoa bridge'>RubyCocoa</a> is a bridge between the Mac OS X Cocoa Framework API that makes it callable from Ruby code. You can create applications, objects, call Mac OS X Services. You can even call Applescript:</p>
+<pre><code><br />
+require 'osx/cocoa'<br />
+include OSX<br />
+def speak (str)<br />
+  str.gsub! (/"/, '\"')<br />
+  src = %(say "#{str}")<br />
+  NSAppleScript.alloc.initWithSource(src).executeAndReturnError(nil)<br />
+end<br />
+speak "Hello World!"<br />
+speak "Kon nich Wah. Ogan key desu ka?"<br />
+</code></pre></p>
+<p><a href='http://blog.bleything.ne' title='Ben Bleything blog'>Ben Bleything</a> submitted a talk to RubyConf, titled "<a href='http://blog.bleything.net/pages/harmonize'>Harmonize: Exploiting RubyCocoa and Sync Services for Fun and Profit</a>"  where he discusses making a wrapper around the SyncAPI in Ruby. (<a href='http://blog.bleything.net/articles/2006/08/04/introducing-harmonize' title='blethythingblog: Introducing Harmonize'>blog post introducing Harmonize</a>) </p>
+<p><a href='http://rubycocoa.sourceforge.net/' title='RubyCocoa bridge'>RubyCocoa</a> looks like it may have stagnated a little as the last release was November 2005, but perhaps with such a renewed interest in <a href='http://radar.oreilly.com/archives/2006/07/ruby_book_sales_pass_perl.html' title="O'Reilly: Ruby Book Sales Pass Perl ">Ruby</a>, and Mac OS X gaining popularity, perhaps new life with be breathed into it. Projects such as <a href='http://www.syncbridge.com/' title='SyncBridge'>SyncBridge</a> and <a href='http://blog.bleything.net/pages/harmonize' title='Harmonize homepage'>Harmonize</a> also obviously help. </p>
+<p><strong>Update</strong>: Check out the very good examples and information at <a href='http://www.rubycocoa.com/'>RubyCocoa.com</a>, including how to <a href='http://www.rubycocoa.com/appleremote/1'>use your Apple Remote from RubyCocoa</a> .</p>

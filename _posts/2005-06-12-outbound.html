@@ -1,0 +1,28 @@
+---
+layout: post
+status: publish
+published: true
+title: Outbound
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 226
+wordpress_url: http://highearthorbit.com/outbound/
+date: '2005-06-12 11:10:06 -0400'
+date_gmt: '2005-06-12 16:10:06 -0400'
+categories:
+- Travel
+tags: []
+comments: []
+---
+<p>Waiting in the airport for the first leg of my outbound flight to sunny (no really, long sun) Scandinavia. I'll be abroad for 2 weeks getting as much Viking culture and Fjords as I can. </p>
+<p>I'm trying out a new project, <a href='http://highearthorbit.com/projects/location/'>Location</a>, based on <a href='http://crschmidt.net/'>crschmidt</a>'s work with cellphone/python uploading of location, but taken several steps further. I can mark/log locations as I travel, store their waypoints, some tag info, pictures, etc. Interested parties can track my progress, or, in the future, write up logs of towns/cities for other travels (similar to <a href='http://openguides.org/'>OpenGuides</a>, but more geolocation oriented).</p>
+<p>There are several mechanisms at work. I can run a python script on my phone which I enter my current location. This in turn is uploaded to my server and stored, along with the cell node information, time, log entry, etc. I can also employ the use of a basic html/php page to make new waypoints and log entries.</p>
+<p>These entries are then plotted on a <a href='http://stuff.rancidbacon.com/gmaps-standalone/'>Googlemap </a> using a dynamically generated XML document of the all locations, locations in a region, by tag, or just for a single location. Images are stored and reference via Flickr (since it is cheap storage, easily marked/uploaded, and already thumbnails). PHP binds this all together and MySQL serves as the data store.</p>
+<p>I'm still working on some ideas with it, including making notes that will later automatically show up on my cellphone (e.g. walk into a bar, get a message to myself/friend that says "Try their IPA!") Also want to make this accessible via SMS for those without python on their phones.</p>
+<p>Give it a try <a href='http://highearthorbit.com/projects/location/'>here</a>.</p>

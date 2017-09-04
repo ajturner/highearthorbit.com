@@ -3,6 +3,7 @@ layout: post
 title:  "Open Data needs Local Analysis"
 date:   2015-10-28 13:55:46 -0400
 categories: government
+banner: https://farm6.staticflickr.com/5695/23321259832_ff7503d5d9_h_d.jpg
 ---
 
 Open Data exists for a purpose. From point of capture, to publication and analysis, data seek to be used to make better decisions. By making the data open, more people can participate in that analysis and decision making process. Particular to government and community, the more people can understand, collaborate and reach consensus, the better the likely outcome.

@@ -1,0 +1,64 @@
+---
+layout: post
+status: publish
+published: true
+title: How high?
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 872
+wordpress_url: http://highearthorbit.com/how-high/
+date: '2007-06-12 17:59:54 -0400'
+date_gmt: '2007-06-12 21:59:54 -0400'
+categories:
+- Engineering
+- Neogeography
+tags: []
+comments:
+- id: 88610
+  author: Leszek Pawlowicz
+  author_email: leszekmp@gmail.com
+  author_url: http://freegeotools.com
+  date: '2007-06-12 20:59:39 -0400'
+  date_gmt: '2007-06-13 00:59:39 -0400'
+  content: "My experience with creating sea level rise simulations:\r\n\r\nhttp://freegeotools.blogspot.com/2007/04/sea-level-rise-storm-surge-and-flooding.html\r\n\r\nhttp://freegeotools.blogspot.com/2007/05/high-resolution-sea-level-rise-flooding.html\r\n\r\nshowed
+    me that the building height data is not \"washed out\" in SRTM. Using SRTM data
+    for a flooding simulation of Manhattan results in less flooding than using standard
+    NED data that conforms to the ground, because the building heights skew the SRTM
+    data. Those results are even more pronounced for a low flat area like South Florida;
+    GTOPO30 data shows average land elevations of less than a meter in the Miami area,
+    while SRTM30 data shows elevations of 4-8 meters."
+- id: 94952
+  author: Jonathan Stott
+  author_email: jonathan@jstott.me.uk
+  author_url: http://www.earthtools.org
+  date: '2007-07-12 18:58:46 -0400'
+  date_gmt: '2007-07-12 22:58:46 -0400'
+  content: "Hi, Thanks for the EarthTools.org mention! I notice that Leszek mentions
+    that buildings skew the SRTM data - this is an obvious artifact of the data being
+    acquired using radar from a space shuttle. A good example is in London: http://www.earthtools.org/map/51.50468231156/-0.013475418090820312/14/0/Contour/
+    - a small mountain exists (about 30m high) around Canary Wharf and the Dome on
+    the other side of the river (near North Greenwich) is picked out nicely by the
+    10m contour line!\r\n\r\nSadly no better free data exists for the UK. Better data
+    does exist for America (and Canada), but it will take me a while to process it
+    and integrate it with the SRTM data."
+- id: 200069
+  author: Versicherungen vergleichen
+  author_email: info@versicherung-informieren.de
+  author_url: http://versicherung-informieren.de/
+  date: '2008-08-29 19:45:50 -0400'
+  date_gmt: '2008-08-29 23:45:50 -0400'
+  content: Thanks, you wrote wonderfull.
+---
+<p>Ever need to know the altitude at a given location on the Earth?</p>
+<p>Well, there are several free resources to the rescue:</p>
+<p>EarthTools has a <a href="http://www.earthtools.org/webservices.htm#height" title="EarthTools Webservices: Height">webservice</a> that covers the US and Europe using the <abbr title="Shuttle Radar Topography Mission">SRTM</abbr> data. Given a latitude/longitude it returns the height above sea-level in feet and meters. (found from <a href="http://quakr.blogspot.com/" title="Quakr blog">Quakr Viewr</a>)</p>
+<p>Geonames offers <a href="http://www.geonames.org/export/" title="Geonames Export">two services</a> using the SRTM data, and also the GTOPO30 from the USGS. Geonames gets bonus points for also returning the results in JSON. Geonames also uses a larger dataset - lands within 60 degrees north and 56 degrees south.</p>
+<p>As "points" become rather ubiquitous among neogeographers/web-mappers, they're moving into more complex geometries and especially 3D space. Having access to data means it is very easy to tie into services and applications. For example, making a hiking profile given just 2-d ground waypoints.</p>
+<p>You can <a href="http://www2.jpl.nasa.gov/srtm/cbanddataproducts.html">download the data</a> yourself to do whatever you want with it. Perhaps make yourself a very cool, high-res 3D model of the earth. </p>
+<p>It's not clear how accurate the data is. The reports seem to say within 9m vertical accuracy. But I assume this is measuring the "surface" that the Shuttle saw - so that would include roof tops. But with smoothing/filtering, would this be washed out to represent an average 'ground height'?</p>

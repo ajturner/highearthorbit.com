@@ -1,0 +1,81 @@
+---
+layout: post
+status: publish
+published: true
+title: 'HowTo: work around GoogleAPI single directory limit'
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 244
+wordpress_url: http://highearthorbit.com/howto-work-around-googleapi-single-directory-limit/
+date: '2005-08-01 08:42:59 -0400'
+date_gmt: '2005-08-01 13:42:59 -0400'
+categories:
+- Programming
+- Maps
+- Web
+tags: []
+comments:
+- id: 5710
+  author: ramin
+  author_email: ramin@fierymill.net
+  author_url: http://randomfire.fierymill.net/
+  date: '2005-08-02 14:22:55 -0400'
+  date_gmt: '2005-08-02 19:22:55 -0400'
+  content: Well, you could just have the iframe source pass the width and height as
+    a part of the parameters and output them in the iframe document. That would be
+    a simple and elegant solution.
+- id: 5728
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2005-08-03 12:19:21 -0400'
+  date_gmt: '2005-08-03 17:19:21 -0400'
+  content: "I'm not sure I know exactly what you mean. I could do:\r\n\r\n<code>\r\n<iframe
+    src='page.php?height=200&width=200' height='200px' width='200px'/>\r\n</code>\r\n\r\nWhich
+    is what I've actually done on my pages, but this still does repeat the height
+    &amp; width. Is there a <em>slicker</em> way?"
+---
+<p>The GoogleAPI, when publicly released as version 1, required the use of an API key that is assigned to a user on a <em>per directory</em> basis. What this means is that the particular GoogleMap API key can only be used in that particularly directory on a website and not any other directory. For example, a key generated for <code>highearthorbit.com/maps/</code> would not work for </p>
+<ul>
+<li><code>highearthorbit.com/</code></li>
+<li><code>highearthorbit.com/projects/location</code></li>
+<li><code>www.highearthorbit.com/</code></li>
+<li><code>www.highearthorbit.com/maps/</code></li><br />
+</ul></p>
+<p>This is particularly a problem when your website uses rewrites to make <em>per-tee</em> urls for posts instead of the ?p=141. Each post looks like a separate directory and therefore the sidebar with map you see to your right (if you're not viewing the RSS feed) doesn't work.</p>
+<p>The work around for this is to place the GoogleMap in an iframe, which is an <em>inline frame</em> and acts as a window to another webpage. That webpage is just a GoogleMap that sits at the base directory of your website. Any other page can now include that GoogleMap by using a single API-key.</p>
+<p>To illustrate, your webpage would include the following html where appropriate:</p>
+<p><code><iframe src="http://highearthorbit.com/googleMapFrame.php?lat=42<br />
+&amp;lon=-120" height="200px" width="200px" frameborder="No" scrolling="No"></iframe></code></p>
+<p>The corresponding googleMapFrame.php is just a wrapper around the GoogleMap call and code. This file needs to reside in the directory where you generated your API-key:</p>
+<p><code><br />
+<html><br/><br />
+<head><br/><br />
+<script src="http://maps.google.com/maps?file=api&amp;v=1&amp;<br />
+key=YourKeyHere" type="text/javascript"></script>^M<br/><br />
+<body><br/></p>
+<div id="googlemap" style="width:200px;height:200px;"><br/><br />
+<script type="text/javascript"><br/><br />
+<br/><br />
+// Create a map with small controls<br/><br />
+myMap = new GMap ( document.getElementById ( "googlemap" )  ) ;<br/><br />
+myMap.centerAndZoom ( new GPoint ( <?=$_GET['lon']?>,  <?=$_GET['lat']?> ) ,  4 ) ;<br/><br />
+myMap.addControl ( new GSmallMapControl (  )  ) ;<br/><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/><br />
+// Add the location marker passed in via the url<br/><br />
+var point = new GPoint ( <?=$_GET['lon']?>,  <?=$_GET['lat']?> ) ;<br/><br />
+var marker = new GMarker ( point ) ;<br/><br />
+myMap.addOverlay ( marker ) ;<br/><br />
+</script><br/><br />
+</head><br/><br />
+</body><br/><br />
+</html><br />
+</code></p>
+<p>That's all you have to do. This work around actually has the nice effect of making adding a GoogleMap to the website very easy. I don't have to worry about including the initial GMap javascript include, or creating a div container and then calling the javascript code. I just put the iframe whereever I want it on the page and *poof!*, there it is.</p>
+<p>It would also be a good idea to add the ability to set the size of the GoogleMap (and iframe) on a per page basis, and do multiple waypoints, tracks etc. Essentially a fully functional mini-api wrapper around the larger GoogleMap API. </p>

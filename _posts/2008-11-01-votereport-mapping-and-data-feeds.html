@@ -1,0 +1,125 @@
+---
+layout: post
+status: publish
+published: true
+title: VoteReport mapping and data feeds
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 1129
+wordpress_url: http://highearthorbit.com/votereport-mapping-and-data-feeds/
+date: '2008-11-01 14:40:10 -0400'
+date_gmt: '2008-11-01 18:40:10 -0400'
+categories:
+- Project
+- GeoRSS
+- OpenSearch
+- KML
+- Community
+tags:
+- KML
+- NPR
+- OpenSearch
+- Community
+- election
+- election2008
+- twittervotereport
+- votereport
+- democracy
+- GeoRSS
+- geojson
+- davetroy
+- opendata
+- unitedstates
+comments:
+- id: 209970
+  author: Sean Wohltman
+  author_email: seanwohltman@google.coom
+  author_url: http://www.google.com
+  date: '2008-11-01 18:48:18 -0400'
+  date_gmt: '2008-11-01 22:48:18 -0400'
+  content: "Andrew, fantastic job - putting the network link on a tour is something
+    that should be done everywhere possible on election day, and I'll make sure its
+    done at the Reston Google Office's lobby. \r\n\r\nMay want to tie in some sort
+    of color-coded feed as the networks start to call states, and if a large volume
+    of tweets are coming in, filter the top tweets not just by time, but by the geocoding
+    result to the states of particular interest. \r\n\r\ni.e , If Ohio is in a tight
+    race for contention, start filtering the feed to show time-relevant Ohio tweets
+    until the state is called. \r\n\r\nAlso, is it too late to try to tie the tweets
+    to the actual polling locations? \r\n\r\nKind of odd to see tweets popping up
+    in the middle of interstates because that's where the geocoding returns. \r\n\r\n~Sean"
+- id: 210412
+  author: James Baker
+  author_email: jbaker@tableausoftware.com
+  author_url: http://www.tableausoftware.com
+  date: '2008-11-04 14:19:24 -0500'
+  date_gmt: '2008-11-04 18:19:24 -0500'
+  content: I'm trying to suck down the JSON data, and I'm not getting much.  Sometimes
+    I'll get ~15K (5-10 tweets), sometimes an empty file.  Is this supposed to be
+    streaming data?  I can't seem to get anything using dtstart.  I'm trying to download
+    *everything* for analysis; is this intended, and the site just overwhelmed?
+- id: 210451
+  author: James Baker
+  author_email: jbaker@tableausoftware.com
+  author_url: http://www.tableausoftware.com
+  date: '2008-11-04 19:04:00 -0500'
+  date_gmt: '2008-11-04 23:04:00 -0500'
+  content: Well, so much for day-of analysis.  I'd love to do a day-after analysis,
+    if a download of the entire tweet stream could be made available.
+- id: 210576
+  author: James Baker
+  author_email: jbaker@tableausoftware.com
+  author_url: http://www.tableausoftware.com
+  date: '2008-11-05 18:33:32 -0500'
+  date_gmt: '2008-11-05 22:33:32 -0500'
+  content: "I'm starting to feel a bit awkward about being in an echo chamber here...
+    I guess I'll finish out my little saga.\r\n\r\nFound the count/page params
+    from the OpenSearch xml, but there are still problems with the json response code
+    path.  The largest count= # I've gotten to work is 8400 (there are 11,000 tweets
+    total) - anything above that seems to push the server beyond a timeout and it
+    returns nothing.\r\n\r\nBreaking up the request into several pages is also failing:
+    \ For example, http://votereport.us/reports?count=1000&amp;page=11
+    works while adding \".json\" to that reports request returns nothing.\r\n\r\nI'm
+    posting here because this post is newer than anything on the wiki - are none of
+    the project developers paying attention?  I'm trying to do some visual analysis
+    and then bring more attention to this project.  I'd also like to redistribute
+    the (flattened and abridged) CSV version of the data I'll be analyzing - which
+    seems to be in line with the spirit of this project, but it'd be nice to confirm
+    that with someone."
+- id: 210862
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2008-11-07 15:40:14 -0500'
+  date_gmt: '2008-11-07 19:40:14 -0500'
+  content: "Sorry - for some reason my blog wasn't emailing me with your comments.
+    I apologize! Also, things were quite hectic around the day.\r\n\r\nFirst off -
+    the HTML page is using hAtom, so well structured if you wanted to parse that.
+    Also, you could grab the KML files in count of 4000 over 3 pages: reports.kml?page=1&count=4000&live=1\r\n\r\nLooks
+    like the JSON is throwing an error. I'll look at it."
+---
+<p><img src="http://highearthorbit.com/wp-content/uploads/2008/11/twitter-report.png" width="278" height="78" alt="twitter-report.png" style="float:right; padding-top:5px; padding-bottom:5px; padding-left:5px;" />Over the past two weeks I've been working with a great team of people helping to build VoteReport - an open public reporting system to be used during the 2008 US Election to track the situation as citizens cast their ballots. The simple goal is to make it easy for anyone to send in a report describing the wait time, overall rating and any complications that are impairing their ability to participate in the election. For more information check out <a href="http://twittervotereport.com" title="Twitter Vote Report &Acirc;&raquo; Home">http://twittervotereport.com</a>.</p>
+<p><a href="http://davetroy.com/" title="Software, the Web, Entrepreneurship and Economics &acirc;&euro;&rdquo; Dave Troy: Fueled By Randomness">Dave Troy</a> has put together a solid backend that is aggregating together Twitter, SMS, voice, iPhone and Android native applications, and even YouTube. Others have built the iPhone specific applications. I've been working on the mapping and data sharing side of the project. The first goal was to provide a number of mechanisms to share the data that we're gathering with everyone. Additional mashups and visualizations are free to use the data streams to pull all the data that <a href="http://twittervotereport.com">VoteReport</a> itself has - so definitely go wild with your ideas. A quick breakdown of what's available:</p>
+<dl>
+<dt><a href="http://www.opensearch.org/" title="Home - OpenSearch">OpenSearch</a> - <code>http://votereport.us/opensearch.xml</code></dt></p>
+<dd>This is the OpenSearch description document that outlines all of the feeds and various filters that you can use when getting to the data. Always check this as we'll update it with new parameters or data streams. In addition, the various responses discussed below include OpenSearch styling pagination so you can walk through the entire database of reports without having to drink right from the firehose. This also includes the <a href="http://www.opensearch.org/Specifications/OpenSearch/Extensions/Time/1.0/Draft_1" title="Specifications/OpenSearch/Extensions/Time/1.0/Draft 1 - OpenSearch">OpenSearch-Time</a> extension.</dd></p>
+<dt><a href="http://code.google.com/apis/kml/documentation/" title="KML Documentation Introduction - KML - Google Code">KML</a> - <code>http://votereport.us/reports.kml</code></dt></p>
+<dd>Getting the reports.kml will give a Network Link - this is useful for <a href="http://earth.google.com/" title="Google Earth">GoogleEarth</a> and other KML clients to automatically update every 60 seconds with new reports. You can append <code>live=1</code> to get the full KML document. I have included all the useful attributes in the <code>ExtendedData</code> element of all the Placemarks. Each Placemark also has an id for easy reference.</dd></p>
+<dt><a href="http://georss.org/" title="GeoRSS | GeoRSS :: Geographically Encoded Objects for RSS feeds">GeoRSS</a>-Atom - <code>http://votereport.us/reports.atom</code></dt></p>
+<dd>Just want to subscribe to the feed in your RSS reader, this feed is useful for getting updates.</dd></p>
+<dt><a href="http://wiki.geojson.org/" title="Main Page - GeoJSON">GeoJSON</a> - <code>http://votereport.us/reports.json</code></dt></p>
+<dd>JSON is super nice for doing client-side mashups and visualization. This is what the <a href="http://votereport.us/reports/map" title="VoteReport">VoteReport Map</a> itself is using. It includes a lot of information for each report, including reporter, icon, location.</dd><br />
+</dl></p>
+<p>All of these feeds even can take a <code>dtstart=</code> with an ISO-8601 date for getting reports after a certain time (and optionally <code>dtend=</code> for getting time-bounds of reports). A useful geographic filter is to use <code>state=</code> with the capitalized two-letter state code to just get reports within a state. So for example <a href="http://votereport.us/reports.atom?state=VA" title="#votereport - Virginia">http://votereport.us/reports.atom?state=VA</a> is a GeoRSS feed of reports in Virginia. As I mentioned, I did build a quick map that you can view at <a href="http://votereport.us/reports/map" title="VoteReport">http://votereport.us/reports/map</a>.</p>
+<p>We're continuing to build it out with new features as more data comes in. You can easily embed the map in your site using (and optionally remove the <code>state=</code>):</p>
+<div style="width: 100%; background-color: #BBBBBB; border: 1px solid black;">
+  <code><iframe src="http://votereport.us/reports/map?state=VA" frameborder="0" class="stream" width="535" height="500" scrolling="no" ></iframe></code><br />
+</div></p>
+<p>The difficulty with creating more visualizations is the lack of pre-election data. This system has been built to primarily capture a huge amount of valuable information for one day. We're not sure before hand what this data will look like, coverage or attributes. Typically visualizations are made by exploring and <em>playing</em> with the data to see what emerges. In this case, we're making estimates (and guiding via the tutorials) on what data we'd like. Therefore, the map itself has simple mechanisms for styling markers based on the user-supplied report. But the data is far to dispersed so far for something like a heatmap.</p>
+<p>Fortunately, the team consists of a large number of public advocates that are spreading the word which should encourage more citizens to use the system and contribute both good and bad reports. Andy Carvin of NPR put together this <a href="http://npr.org/votereport" title="Vote Report: Help NPR Identify Voting Problems : NPR">NPR coverage</a>, and we've also received coverage from <a href="http://swampland.blogs.time.com/2008/10/31/tweet-the-vote" title="Swampland - TIME.com &Acirc;&raquo; Blog Archive Tweet the Vote! &Acirc;&laquo;">Time</a>, <a href="http://www.huffingtonpost.com/sarah-granger/online-assistance-arrives_b_139360.html" title="Sarah Granger: Online Assistance Arrives to Combat Voting Hurdles, Glitches and Dirty Tricks">Huffington Post</a>, <a href="http://thecaucus.blogs.nytimes.com/2008/10/27/tweet-your-voting-moment/" title="Tweet Your Voting Moment - The Caucus Blog - NYTimes.com">New York Times</a>, <a href="http://www.techcrunch.com/2008/10/30/tweet-the-vote-no-digg-the-vote-no-youtube-the-vote-oh-just-vote/" title="Tweet the Vote. No, Digg The Vote. No, YouTube the Vote. Oh, . . . Just Vote.">TechCrunch</a> and even <a href="http://www.cnewmark.com/2008/10/protecting-your.html" title="cnewmark: Protecting your vote using Net technolgies">Craig Newmark</a>. Check out the <a href="http://twittervotereport.com/press/" title="Twitter Vote Report &Acirc;&raquo; Press Room">TVR press page</a> for more coverage links.</p>
+<p>And if you would like to help contribute to the project, check out the <a href="http://votereport.pbwiki.com/" title="Twitter Vote Report Wiki / FrontPage">VoteReport Wiki</a>. I imagine there will also be a number of post-election visualizations and analysis to come out of the reports.</p>

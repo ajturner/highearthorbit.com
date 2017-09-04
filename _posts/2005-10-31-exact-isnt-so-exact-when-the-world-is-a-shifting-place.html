@@ -1,0 +1,32 @@
+---
+layout: post
+status: publish
+published: true
+title: Exact isn't so exact when the world is a shifting place
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 303
+wordpress_url: http://highearthorbit.com/exact-isnt-so-exact-when-the-world-is-a-shifting-place/
+date: '2005-10-31 07:49:34 -0500'
+date_gmt: '2005-10-31 12:49:34 -0500'
+categories:
+- Geolocation
+tags: []
+comments: []
+---
+<p><a href='georss.org'>GeoRSS</a> is in active development of a 'first-draft' specification for defining geographic location in an XML standard. All current activity is via the <a href='http://lists.eogeo.org/mailman/listinfo/georss'>GeoRSS Mailing List</a>, but you can find some teasers, and previous works, at the <a href='http://brainoff.com/worldkit/doc/rss.php'>WorldKit geoRSS definition</a>.</p>
+<p>One interesting problem that has arisen on the mailing list, as well as in the formulation of this new standard, is the problem of <em>increasing accuracy</em>. Using WAAS, DGPS, and the next generation GPS, it may/will be possible to get centimeter and sub-centimeter accuracy. This is very exciting for doing precise control & tracking, augmented reality (mount miniature sensors to a set of glasses to have pertinent meta-data overlaid on the world). Think having keys that know how close you are to your car (without requiring the RFID that is used in my Prius). </p>
+<p>In typical engineering fashion, this sounds terrific, but misses a now glaring problem: continental drift. </p>
+<p>The rate of continental drift is a couple of centimeters per year. Even at this <em>glacial</em> rate, GPS measurements of a location quickly become abherrent. However, this usually isn't a problem for many applications. If I am driving to a store given it's latitude and longitude, it will be several millenia before drift alone even moves the position outside of the store walls. I think I'll still find the store.</p>
+<p>But it doesn't alleviate the problem that marking positions using latitude and longitude still is error prone. Lat/Lon should always include a datum, like WGS84, that demarcates what system the coordinates are using. However, this is still setting future users up for necessary conversions (which will be nonlinear) when they try to find an exact location an have to extrapolate forward through time.</p>
+<p>Furthermore, there are even larger problems of landslides, earthquakes, etc. that quickly move a location.</p>
+<p>A possible solution is to use, or include, canonical naming of locations. For example, while 38.89859N latitude, 77.036474W longitude works very well for programs and exact location, <em>1600 Pennsylvania Ave, Washington DC</em> isn't subject to drift or earthquake. It's like a <em>pointer</em> to an exact geographic location. The data that the pointer refers to is allowed to change, but the pointer itself is <b>const</b>.</p>
+<p>Another option is to use a technique developed long-ago by land-surveyors where a local origin is defined and subsequent measurements are based off of that. The local origin can be canonical or extrapolated to a current position, but the relative coordinates can match to that origin.</p>
+<p>For example, I could exactly map out my property and house to very exact measurements and reference it to the SW corner of my property. That SW corner can then be referred to the township reference system or the larger WGS84 reference system. </p>
+<p>Geographic tagging of data is becoming more prevalent to the general public, and fortunately there are many professionals and amateurs thinking through the best solutions for the future. I hope they take all factors into account and design a long-term solution.</p>

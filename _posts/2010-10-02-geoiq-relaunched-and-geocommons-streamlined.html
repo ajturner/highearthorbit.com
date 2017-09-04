@@ -1,0 +1,29 @@
+---
+layout: post
+status: publish
+published: true
+title: GeoIQ relaunched and GeoCommons streamlined
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 1422
+wordpress_url: http://highearthorbit.com/geoiq-relaunched-and-geocommons-streamlined/
+date: '2010-10-02 09:00:55 -0400'
+date_gmt: '2010-10-02 13:00:55 -0400'
+categories:
+- GeoCommons
+tags:
+- GeoCommons
+comments: []
+---
+<p><a href="http://geocommons.com" target="new"><img src="http://highearthorbit.com/wp-content/uploads/2010/10/GeoCommons-tm.jpg" width="350" height="202" alt="GeoCommons.png" style="float:right; padding-top:5px; padding-bottom:5px; padding-left:5px;" /></a>This week was many months in the making. Since Spring of this year, the engineering team at FortiusOne has been very hard at work writing a major refactor of GeoIQ, the underlying platform behind <a href="http://geocommons.com/" title="GeoCommons">GeoCommons</a>. Originally, GeoIQ was actually <strong>three</strong> web applications that communicated to one another over HTTP REST interfaces. In many ways it was an elegant solution but also an element of pre-mature architecture. HTTP is not a good medium for very high-rate communications and we found a lot of redundant code in the corresponding Finder, Maker, and Core applications. Besides this, the separation of functionality was a decent user experience detriment. Besides the plaform refactoring we also had a major refactoring of the visualization of (the app formerly known as) Maker.</p>
+<p>The end result is a much more streamlined, and maintainable platform. On Sunday we deployed this update to <a href="http://geocommons.com">GeoCommons</a> and already you can see an improvement. In addition, implemented a number of new capabilities that we'll be rolling out over the next few weeks. The first one we've released is temporal visualization. Similar to spatial panning of the geographic area, you can now pan and animate through time as well. We've extended the brewer process to ask users to let us know which attributes to use in the visualization. More on that to come.</p>
+<p>Another major effort of our work in relaunching the GeoIQ platform was sharing an early edition of the <a href="http://geocommons.com/help/Developer_API" title="GeoCommons">GeoIQ API</a>. <a href="http://blog.programmableweb.com/2010/09/29/geoiq-relaunches-with-first-location-analytics-platform/" title="GeoIQ Relaunches with First Location Analytics Platform">ProgrammableWeb</a> covered the news and highlighted the data management, thematic visualization, and analysis methods that are available. It is all based on REST so should be straight-forward for developers to dive in and start building applications. We've also completely wrapped the Map visualization with a JavaScript interface for control on the interactivity and styling of the map and controls. You can now programmatically create your choropleth maps with animated twitter streams - or whatever you want - in a few lines of code.</p>
+<p>We already have a number of clients building on our API, so we thought the rest of the World should too. You'll start seeing some <em>major</em> organizations launching GeoIQ enabled sites and tools in the next few months - prepare for an onslaught of open geodata and collaboration.</p>
+<p>Give the new <a href="http://geocommons.com/" title="GeoCommons">GeoCommons</a> a try. We're excited to <a href="http://getsatisfaction.com/geocommons" title="Community-powered support for GeoCommons">hear your feedback</a>, ideas, and thoughts on additional things we should be providing for you.</p>
+<p>GEOPRESS_LOCATION(Boston, MA)</p>

@@ -1,0 +1,41 @@
+---
+layout: post
+status: publish
+published: true
+title: Macs agaga
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 465
+wordpress_url: http://highearthorbit.com/macs-agaga/
+date: '2006-07-19 07:25:44 -0400'
+date_gmt: '2006-07-19 12:25:44 -0400'
+categories:
+- Technology
+- Apple
+tags: []
+comments: []
+---
+<p>So I love me some Macs. I'm a switcher from a long-time DOS/Windows user 4.333 years ago (see sad tale of Jabberwocky). However, as much as I promote Mac OS X and all that is glorious about it, it is still not without its faults. </p>
+<p><em>Snark</em> my dual 1.8G5 decides that he wants to shutdown <em>right now</em>, and there's no convincing him otherwise. Of course, he does tell me this in several languages, which is very considerate of him.</p>
+<p>And when I finally force Snark come back to life, he greets me with useful bits of information</p>
+<pre><code><br />
+panic(cpu 0 caller 0x000A4754): attempt to interlock mutex (0x04AA9FD8) failed on mutex lock</p>
+<p>Latest stack backtrace for cpu 0:<br />
+      Backtrace:<br />
+         0x00095718 0x00095C30 0x0002683C 0x000A4754<br />
+         0x0025F918 0x0025EF28 0x002689F4 0x00268090<br />
+         0x002AAF98 0x000ABF30 0x33000000<br />
+Proceeding back via exception chain:<br />
+   Exception state (sv=0x3B0BEC80)<br />
+      PC=0x90046060; MSR=0x0000F030; DAR=0xF058AEC4; DSISR=0x42000000;<br />
+      LR=0x90045E20; R1=0xF058ABE0; XCP=0x00000030 (0xC00 - System call)</p>
+<p>Kernel version:<br />
+Darwin Kernel Version 8.7.0: Fri May 26 15:20:53 PDT 2006; root:xnu-792.6.76.obj~1/RELEASE_PPC<br />
+</code></pre></p>
+<p>I'll get right on that.</p>

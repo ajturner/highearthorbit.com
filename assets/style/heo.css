@@ -17,9 +17,8 @@
   padding-top: 20px;
 }
 
-.navbar {
+.navbar, footer {
   background-color: rgba(30,30,30,0.8);
-  background-op
   color: white;
   border: none;
 }
@@ -29,4 +28,33 @@
 }
 .navbar a, .navbar-default .navbar-brand, .navbar-default .navbar-nav li a.active, .navbar-default .navbar-nav li.active a {
   color: white;
+}
+body {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.post-footer, .post-footer a {
+  background-color: rgba(30,30,30,0.8);
+  color: white;
+  border: none;
+
+}
+
+.PageNavigation {
+  font-size: 14px;
+  display: block;
+  width: auto;
+  overflow: hidden;
+}
+
+.PageNavigation a {
+  display: block;
+  width: 50%;
+  float: left;
+  margin: 1em 0;
+}
+
+.PageNavigation .next {
+  text-align: right;
 }

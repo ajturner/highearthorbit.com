@@ -1,0 +1,47 @@
+---
+layout: post
+status: publish
+published: true
+title: Better than Virtual PC
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 258
+wordpress_url: http://highearthorbit.com/better-than-virtual-pc/
+date: '2005-08-24 07:43:34 -0400'
+date_gmt: '2005-08-24 12:43:34 -0400'
+categories:
+- Technology
+- Apple
+- Mobile
+tags: []
+comments: []
+---
+<p>I frequently telecommute (or would ethercommute be more appropriate? WOIP - work over IP) and have no windows machines on my person or at my abode. However, much of my work work involves (nay, requires) the use of Windows boxxen.</p>
+<p>While VNC as a remote interface to a computer desktop is very nice and all (yay Bell Labs), it is not fast enough for most work. It also really bogs the server machine down (which is especially important when doing remote compiles and running intensive processes).</p>
+<p>Instead, I have been incredibly impressed with Microsoft's <a href="http://www.microsoft.com/windowsxp/downloads/tools/rdclientdl.mspx">Remote Desktop Connection</a> is a desktop viewing service that is built into Windows XP with clients available for all versions of Windows (post '95) as well as a <a href="http://www.microsoft.com/mac/otherproducts/otherproducts.aspx?pid=remotedesktopclient">client for Mac OS X</a>.</p>
+<p>What RDC lets me do is sit on my G5 at home, connect to my internal work network and view the Windows desktop of any of my work machines in a window on my G5 within Mac OS X. What is really suprising is the speed of RDC. It is only slightly more sluggish than working directly at the keyboard of the remote Windows machine.</p>
+<p>Due to security, our only open connection at work is via SSH. Therefore, I have to 'tunnel' my RDC connection through SSH, which doesn't slow the connection down much at all (and that's without using compression on the SSH connection - need to try that out)</p>
+<p>To remotely connect up an RDC session via ssh, perform the following from your client machine (assuming you have SSH installed, which most decent OS's do - Windows of course does not by default, get yourself WinSSH) </p>
+<p><code>ssh -L 3389:remotemachinename:3389 -p 12345 username@remoteserver</code></p>
+<p>This command does the following:</p>
+<ol>
+<li>Connect to the remote server, <code>remoteserver</code> with the username <code>username</code></li>
+<li>Connects to the SSH service on the remote server at port <em>12345</em> (you don't have your ssh running on port 22 do you? tsk-tsk)</li>
+<li>Forwards port 3389 (which is what RDC uses) to the targeted remote machine on the work internal network. 'Forwarding' means that any data that heads to port 3389 from your machine will be transported - tunneled - to that remote machine instead</li><br />
+</ol></p>
+<p>Then you need to start Remote Desktop Connection and choose <em>localhost</em> as the remote machine to connect to. Soon you will be greeted by the necessary, if blueish, Windows XP login screen.</p>
+<p>Resources</p>
+<ul>
+<li><a href="http://www.microsoft.com/windowsxp/downloads/tools/rdclientdl.mspx">Remote Desktop Connection client for Windows</a></li>
+<li><a href="http://www.microsoft.com/mac/otherproducts/otherproducts.aspx?pid=remotedesktopclient">Remote Desktop Connection client for Mac OS X</a></li>
+<li><a href="http://www.realvnc.com/">RealVNC</a> - VNC Server and Client for Windows</li>
+<li><a href="http://www.tightvnc.com/">TightVNC</a> - Windows and Unix, GPL'd server & client</li>
+<li><a href="http://www.redstonesoftware.com/vnc.html">OSXVnc</a> - VNC server for Mac OS X</li>
+<li><a href="http://sourceforge.net/projects/cotvnc/">Chicken of the VNC</a> - VNC client for Mac OS X</li><br />
+</ul></p>

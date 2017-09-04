@@ -1,0 +1,123 @@
+---
+layout: post
+status: publish
+published: true
+title: Taking remote imagery offline to Nigeria
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 1204
+wordpress_url: http://highearthorbit.com/?p=1204
+date: '2009-03-08 19:50:29 -0400'
+date_gmt: '2009-03-08 23:50:29 -0400'
+categories:
+- Standards
+tags:
+- Data
+- Africa
+- wms
+- imagery
+- raster
+- nigeria
+- googleearth
+- qgis
+comments:
+- id: 232223
+  author: Ben Truscello
+  author_email: btruscello@in.itiative.org
+  author_url: http://in.itiative.org
+  date: '2009-03-09 09:14:11 -0400'
+  date_gmt: '2009-03-09 13:14:11 -0400'
+  content: "Andrew,\r\n\r\nThis is definitely an issue we recently experienced in
+    Tanzania and Kenya. I appreciate your points, especially that \"even when there
+    is data, it&acirc;&euro;&trade;s still very difficult to find and utilize.\" I
+    know VE offers offline content through 3rd party resellers, like i-Cubed, but
+    am afraid to ask about the costs. I hope the discussion continues as I am sure
+    this is a common issue for folks working offline or in remote regions.\r\n\r\nThanks
+    for sharing,\r\nBen"
+- id: 232246
+  author: Andrew
+  author_email: andrew@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2009-03-09 11:39:31 -0400'
+  date_gmt: '2009-03-09 15:39:31 -0400'
+  content: "@Sean had trouble posting this - so putting it in for him:\r\n\r\n---\r\nThis
+    sounds like a great project for some organization, maybe openaerialmap or an NGO,
+    to apply for a Google Grant through Google.org.\r\n\r\nhttp://www.google.org/projects.html\r\n\r\nI
+    think this is a great candidate for deploying Google Earth Portable servers on
+    energy efficient USB drives:\r\n\r\nhttp://earth.google.com/enterprise/deployment_options.html\r\n\r\nWhich
+    will be more stable and blow you way past he 2GB cache limit. \r\n\r\nImagery
+    is still going to be an issue, but again, a grant could help. \r\n\r\nWRT to your
+    WMS scraping, Not that I'm condoning it, but I'll admit that logs at JPL in November
+    probably would reveal that this tool, if you make a few changes to create geotiffs
+    with some gdal intervention, works wondefully for grabbing very large areas via
+    WMS in small tiles automatically:\r\n\r\nhttp://webak.upce.cz/~uozp/mapgrab/mapgrab.html\r\n\r\nSean"
+- id: 232249
+  author: Ian Turton
+  author_email: ijturton@gmail.com
+  author_url: ''
+  date: '2009-03-09 11:55:40 -0400'
+  date_gmt: '2009-03-09 15:55:40 -0400'
+  content: "Without trying to open up the whole OGC/Rest discussion - isn't the
+    fact that you got a landsat7 file instead of a landstat7.xml file just a sign
+    you don't have firefox configured correctly. It works fine for me (since I use
+    OGC WMS servers alot I configured my mimetypes to recognize capabiltities documents
+    and open them in an XML editor just like word docs and other odd formats I use
+    a lot).\r\n\r\nAs for Sean's comment about WMS scraping I'm pretty sure that JPL
+    provide a tile service to save people trashing the server by doing this.  See
+    http://onearth.jpl.nasa.gov/tiled.html for more details.\r\n\r\nIan"
+- id: 236528
+  author: Todd Huffman
+  author_email: oddboy@gmail.com
+  author_url: http://toddhuffman.pbwiki.com
+  date: '2009-03-27 03:34:22 -0400'
+  date_gmt: '2009-03-27 07:34:22 -0400'
+  content: "Thanks for putting this into a blog post!  I've pointed several people
+    to it in Afghanistan.  OpenAerialMap has decent coverage of Afghanistan from the
+    Rampant Lion data.  http://www.openaerialmap.org/datasource/9/\r\n\r\nI'm
+    working on finding better data from the Rampant Lion II project to put into OAM...\r\n\r\nTo
+    paraphrase Gibson... 'the data is here, it's just not evenly distributed (yet)'."
+---
+<p>This weekend I was pinged by <a href="http://www.vim-vigor.net/" title="Hip-hop Recursion, You can't Stop. You won't Stop.">Todd Huffman</a> regarding a colleague that is deploying to Los, Nigeria and in search of some good remote imagery to take along.</p>
+<p>There were several issues he quickly ran into. Currently imagery is not easy to find for the non-geo expert. The primary interface the broad public is using GoogleEarth which has started doing some nice things with imagery such as time and history. <a href="http://highearthorbit.com/wp-content/uploads/2009/03/jos-nigeria-google-earth.jpg"><img src="http://highearthorbit.com/wp-content/uploads/2009/03/jos-nigeria-google-earth-tm.jpg" width="271" height="187" alt="Jos Nigeria" style="float:right; padding-top:5px; padding-bottom:5px; padding-left:5px;" /></a></p>
+<p>The second requirement was the ability to run "offline". Obviously he isn't going to have any kind of bandwidth for downloading new imagery in the field. GoogleEarth allows you to increase your cache size, and you can "pre-fly" an area to grab data. You could then store this cache (on my machine it is located at /Users/ajturner/Library/Caches/Google Earth) and burn to a DVD or USB stick if you had to move it to another machine.</p>
+<h3>Let's do the 'right' thing</h3></p>
+<p>However, obviously the above solution is bending the terms of service. Probably not a large concern when you're deploying to the middle of Nigeria - but all the same, DigitalGlobe probably wouldn't be too happy if you started sharing this imagery.</p>
+<p><a href="http://highearthorbit.com/wp-content/uploads/2009/03/jos-nigeria-openaerialmap.jpg"><img src="http://highearthorbit.com/wp-content/uploads/2009/03/jos-nigeria-openaerialmap-tm.jpg" width="271" height="177" alt="Jos Nigeria - OAM" style="float:right; padding-top:5px; padding-bottom:5px; padding-left:5px;" /></a>So my next suggestion was to look for some other source of data - the first of which came to mind is <a href="http://www.openaerialmap.org/" title="A Free View of the World -- OpenAerialMap">OpenAerialMap</a>. The imagery isn't <a href="http://openaerialmap.org/map/?zoom=10&amp;lat=9.95155&amp;lon=8.88794&amp;layers=BT" title="OpenAerialMap - Jos, Nigeria">nearly as good here,</a> is still under questionable terms of service from iCubed, and is served to the user in tiles. Granted OpenAerialMap is a very new, and as of yet under-served tool. But there are some very valuable lessons from this use case to apply in building out OAM and similar imagery sharing services.</p>
+<p>To get the OAM imagery offline there are a few simple approaches. One would be to setup a script to walk the tile pyramid and save the tiles locally. Then use TileCache to serve these off of a disk to a local OpenLayers instance. Not bad - but many new gears and prone to be difficult to maintain.</p>
+<h3>Peek under the covers</h3></p>
+<p>So I began investigating the underlying datasource. Zooming way in to Jos reveals that the imagery is being served by a <a href="http://www.opengeospatial.org/standards/wms" title="Web Map Service | OGC&Acirc;&reg;">WMS</a> - a Web Mapping Service.</p>
+<p>Clicking on the i-Cubed Landsat copyright link you get the <a href="http://openaerialmap.hypercube.telascience.org/datasource/1/" title="i-Cubed Landsat OpenAerialMap metadata">metadata page</a>. The imagery is from 2007 - so not very old, and a very helpful "License: Unknown", but with a note that the license issue is being worked on. Under "More information" there is now a valuable link to the WMS "Capabilities Document".</p>
+<pre lang="bash">
+<code>http://hypercube.telascience.org/cgi-bin/landsat7?<br />
+request=GetCapabilities&amp;Service=WMS&amp;Version=1.1.1</code></pre></p>
+<p></p>
+<p>If you are not familiar with <a href="http://www.opengeospatial.org/" title="Welcome to the OGC Website | OGC&Acirc;&reg;">OGC</a> services, the common recipe is that any service provides a GetCapabilities method. This method will return a service definition that tells you what types of data, format, versions, and more that this particular service provides. Unfortunately, in most browsers clicking on the link downloads a "landsat7" file which does nothing to tell the client (your computer and applications) what kind of file it is. Simple point in why RESTful url's are much nicer for users. I would have liked to see a landsat7.xml at the very least.</p>
+<p>Looking into the file, you can see a number of links proscribed the various methods. However, another problem with OGC Services is that they never actually link to the method or description. In fact, there are 13 pointers to <code>http://hypercube.telascience.org/cgi-bin/landsat7?</code> - the client (developer, application, etc.) is expected to have read the OGC specification document to know that they need to append the <code>request=</code>, and <code>version=</code> and potentially a number of other parameters to actual call that method.</p>
+<p>Anyways, <a href="http://www.slideshare.net/cappelaere/restful-ogc-services" title="RESTful OGC Services">RESTful OGC</a> services are a <a href="http://crschmidt.net/blog/255/ogc-investigates-rest-forks-out-cash/" title="Technical Ramblings &Acirc;&raquo; Blog Archive &Acirc;&raquo; OGC Investigates REST, Forks out Cash">bigger</a> <a href="http://groups.google.com/group/geo-web-rest/" title="Geo-Web-REST | Google Groups">discussion</a> and here we were just focusing on getting imagery before deploying.</p>
+<p><a href="http://highearthorbit.com/wp-content/uploads/2009/03/jos-nigeria-qgis.jpg"><img src="http://highearthorbit.com/wp-content/uploads/2009/03/jos-nigeria-qgis-tm.jpg" width="271" height="188" alt="Jos Nigeria - QGIS" style="float:right; padding-top:5px; padding-bottom:5px; padding-left:5px;" /></a>The next step is to pull out <a href="http://www.qgis.org/" title="Welcome to the Quantum GIS Project">QGIS</a>, and add the WMS URL. You have the option of several layers. Global is good for finding the region and zooming in - and then you can use the <em>original</em> layer for higher-resolution imagery.</p>
+<p>Of course, we could have just used a the WMS URL to GET the image directly - that is, if you know your WMS spec by heart:</p>
+<pre lang="bash">
+<code>curl "http://hypercube.telascience.org/cgi-bin/landsat7?<br />
+request=GetMap&amp;Service=WMS&amp;Version=1.1.1<br />
+&amp;LAYERS=original&amp;STYLES=&amp;SRS=EPSG:4326<br />
+&amp;WIDTH=512&amp;HEIGHT=512<br />
+&amp;FORMAT=image/jpeg<br />
+&amp;BBOX=9.9,8.8,10,8.9">landsat.jpg</code><br />
+</pre><a href="http://highearthorbit.com/wp-content/uploads/2009/03/jos-nigeria-topomap.png"><img src="http://highearthorbit.com/wp-content/uploads/2009/03/jos-nigeria-topomap-tm.jpg" width="271" height="271" alt="Jos Nigeria - Topomap" style="float:right; padding-top:5px; padding-bottom:5px; padding-left:5px;" /></a></p>
+<p>And for more, non-imagery, maps - there is Harvard's new <a href="http://cga-3.hmdc.harvard.edu/africamap/" title="AfricaMap">AfricaMap</a>. It points to 46 topographic and historic basemaps that would be useful to download to a drive an use in the field. For example, to get a topomap:</p>
+<pre lang="bash" style="width: 300px">
+<code>curl "http://cga-3.hmdc.harvard.edu/cgi-bin/mapserv?<br />
+map=/opt/CGA/data/img/uscomp.map<br />
+&amp;request=GetMap&amp;Service=WMS&amp;Version=1.1.1<br />
+&amp;LAYERS=ONC&amp;STYLES=&amp;SRS=EPSG:4326<br />
+&amp;WIDTH=512&amp;HEIGHT=512<br />
+&amp;FORMAT=image/png<br />
+&amp;BBOX=8,8,10,10">topomap.png</code><br />
+</pre></p>
+<p>So the answer was - there is some data out there, definitely not as high quality and resolution as the proprietary datasets. And even when there is data, it's still very difficult to find and utilize. Vector data is finally becoming common (to find, search, and create) but there are still large steps to make raster data as easy to use for non-experts.</p>

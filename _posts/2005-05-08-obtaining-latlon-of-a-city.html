@@ -1,0 +1,45 @@
+---
+layout: post
+status: publish
+published: true
+title: Obtaining Lat/Lon of a City
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 199
+wordpress_url: http://highearthorbit.com/obtaining-latlon-of-a-city/
+date: '2005-05-08 17:23:44 -0400'
+date_gmt: '2005-05-08 22:23:44 -0400'
+categories:
+- Geolocation
+tags: []
+comments:
+- id: 5496
+  author: Mikel
+  author_email: mikel_maron@yahoo.com
+  author_url: http://brainoff.com/worldkit/
+  date: '2005-05-09 02:49:30 -0400'
+  date_gmt: '2005-05-09 07:49:30 -0400'
+  content: "\r\ngeocoder.us has its own rest interface, querying a TIGER database
+    for US address geolocation.\r\n\r\nhttp://geocoder.us/help/\r\n\r\nthe
+    rest interface to the geocoder at brainoff.com queries a local copy of  the GeoNet
+    Names Database"
+---
+<p><a href='http://brainoff.com/worldkit/geocoder/'>Geocoder</a> was developed by Mikel Maron at <a href='http://brainoff.com'>Worldkit</a>. It's an interface to <a href='http://geocoder.us/'>geocoder.us</a> that provides th e latitude/longitude of any city via a REST interface.</p>
+<p>What this means is, it's possible to send an HTTP query to the worldkit interface and receive the latitude and longitude via an RDF response. This is very slick for being able to get and plot lat/lon of a city given only it's name. I have already been doing this via large files from CAIDA on my own projects, but providing this REST interface may make it nicer to distribute on mobile platforms or quicker integrate into new projects/desktop apps.</p>
+<p>The interface is:<br />
+<code>http://brainoff.com/worldkit/geocoder/rest/?city=Northville,MI,US</code><br />
+followed by the response</p>
+<pre>
+   <rdf :RDF xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><br />
+     <geo:Point><br />
+         <geo:long>-83.43243<br />
+         <geo:lat>42.41729<br />
+        </geo><br />
+   </rdf><br />
+</pre></p>

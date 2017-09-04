@@ -1,0 +1,46 @@
+---
+layout: post
+status: publish
+published: true
+title: Gaze into my Aja(x)
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 297
+wordpress_url: http://highearthorbit.com/gaze-into-my-ajax/
+date: '2005-10-19 13:21:12 -0400'
+date_gmt: '2005-10-19 18:21:12 -0400'
+categories:
+- Programming
+- Geolocation
+- Web
+- Open-Source
+- Javascript
+tags: []
+comments:
+- id: 7341
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2005-10-19 20:40:40 -0400'
+  date_gmt: '2005-10-20 01:40:40 -0400'
+  content: Test comment
+---
+<p>I wanted to make the Gaze lookup service an Asynchronous call (AJAX<br />
+without the X), but the problem lies in not typically being allowed to<br />
+make async calls to a non-local host. Therefore, I wrapped up the Gaze<br />
+service in a little PHP code (gaze-rest.php) that has the same API as<br />
+the actual gaze service, but acts like a 'local service'.</p>
+<p><a href='http://highearthorbit.com/projects/geocode/geocode.html'>http://highearthorbit.com/projects/geocode/geocode.html</a></p>
+<p>The page then makes a Javascript call, which gets the values from the<br />
+form and makes the async call. The returned value is put in the<br />
+textarea.</p>
+<p>Right now I hardcoded the US and GB, but plan on extending it to<br />
+actually dynamically fill the options via a find_places_get_countries<br />
+call to Gaze.</p>
+<p>The source is available as a link at the bottom of the page.</p>

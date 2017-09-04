@@ -1,0 +1,55 @@
+---
+layout: post
+status: publish
+published: true
+title: Setting up and Testing Rails apps on Mac OS X
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 414
+wordpress_url: http://highearthorbit.com/setting-up-and-testing-rails-apps-on-mac-os-x/
+date: '2006-05-21 10:07:00 -0400'
+date_gmt: '2006-05-21 15:07:00 -0400'
+categories:
+- Programming
+- Apple
+- Web
+- Rails
+tags: []
+comments: []
+---
+<p>I've been rapidly prototyping and developing a lot of Ruby on Rails applications. I don't want to run lots of WebBrick servers, or configure lighty. I'd rather just use apache for local development, which is much quicker and doesn't involve ports, and explicitly running stand-alone servers.</p>
+<p>The instructions below are the quick, and bare-bones steps needed to get a rails app up for development on a Mac OS X machine. </p>
+<h3>Create your rails application</h3><br />
+<code>$ rails ~/Projects/myapp</code></p>
+<h3>Edit your apache config file</h3><br />
+You need to setup your apache to know how to handle the <em>/myapp</em> URL request. Put the following at the bottom of your <em>httpd.conf</em> file.</p>
+<p><em>/etc/httpd/httpd.conf</em></p>
+<pre><code><br />
+FastCgiServer /Users/username/Projects/myapp/public/dispatch.fcgi<br />
+    -idle-timeout 120 -initial-env RAILS_ENV=development -processes 1<br />
+Alias /myapp/ "/Users/username/Projects/myapp/public/"<br />
+Alias /myapp "/Users/username/Projects/myapp/public/"</p>
+<p><directory /Users/username/Projects/myapp/public/><br />
+&nbsp;&nbsp;Options ExecCGI FollowSymLinks<br />
+&nbsp;&nbsp;AllowOverride all<br />
+&nbsp;&nbsp;Order allow, deny<br />
+&nbsp;&nbsp;Allow from all<br />
+</directory><br />
+</code></pre></p>
+<h3>Restart Apache</h3><br />
+After you've edited the file, you need to restart apache:<br />
+<code>$ sudo apachectl graceful</code></p>
+<h3>Set the rails base address</h3><br />
+Now you need to let rails know what the base address is for the URL's:<br />
+<em>~/Projects/myapp/public/.htaccess</em><br />
+<code><br />
+RewriteBase /myapp<br />
+</code></p>
+<h3>Test that it works</h3><br />
+Navigate your browser to <em>http://localhost/myapp</em>, and you should see the happy <strong>Welcome aboard</strong></p>

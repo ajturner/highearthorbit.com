@@ -1,0 +1,56 @@
+---
+layout: post
+status: publish
+published: true
+title: Where is OpenID Mobile?
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 966
+wordpress_url: http://highearthorbit.com/where-is-openid-mobile/
+date: '2007-10-16 10:42:34 -0400'
+date_gmt: '2007-10-16 14:42:34 -0400'
+categories:
+- Mobile
+tags: []
+comments:
+- id: 115939
+  author: a work on process &raquo; links for 2007-10-18
+  author_email: ''
+  author_url: http://jystewart.net/process/2007/10/links-for-2007-10-18/
+  date: '2007-10-18 00:22:20 -0400'
+  date_gmt: '2007-10-18 04:22:20 -0400'
+  content: "[...] High Earth Orbit &Acirc;&raquo; Blog Archive &Acirc;&raquo; Where
+    is OpenID Mobile? Good question (tags: authentication mapufacture mobile mobileweb
+    oauth openid) [...]"
+- id: 115940
+  author: a work on process &raquo; links for 2007-10-18
+  author_email: ''
+  author_url: http://jystewart.net/process/2007/10/links-for-2007-10-18/
+  date: '2007-10-18 00:22:20 -0400'
+  date_gmt: '2007-10-18 04:22:20 -0400'
+  content: "[...] High Earth Orbit &Acirc;&raquo; Blog Archive &Acirc;&raquo; Where
+    is OpenID Mobile? Good question (tags: authentication mapufacture mobile mobileweb
+    oauth openid) [...]"
+- id: 335927
+  author: Simmeon
+  author_email: simmeon@gmail.com
+  author_url: http://simmeon.co.uk
+  date: '2010-11-06 11:49:36 -0400'
+  date_gmt: '2010-11-06 15:49:36 -0400'
+  content: OpenID, is the new revolution, slowly taking over the way we log in on
+    websites. Im using it on mine atm at the users love it.
+---
+<p><img id="image967" src="http://highearthorbit.com/wp-content/uploads/2007/10/openid_mobile.png" alt="OpenID Mobile" align="right" hspace="5px"/>I just recently finished developing another website application with a mobile client (will post about it shortly) and ran into the common annoyance of how to deal with logging into your account from your mobile.  </p>
+<p>For <a href="http://mapufacture.com/about/mobile" title="Mapufacture Mobile">Mapufacture Mobile</a> we require the user to login once, and after that we recognize their handset and don't require login. This new site supports OpenID (coming to Mapufacture soon too), which isn't really an option on the mobile handset. The client is through <a href="http://www.where.com/" title="WHERE&trade; &raquo: loading...">uLocate's WHERE platform</a>, so sharing a session cookie from a browser isn't an option. </p>
+<p>Also add on to that the similar problem of having to remember dozens of usernames and passwords for different services, while you're out and about, and have a limited screen &amp; keypad.  </p>
+<p>This seems to be exactly what OpenID was made for. I should be able to register my device to OpenID (phone number, SMS verification, simple web client) and from then on, have a single sign-in on my mobile that then authenticates any service on that connection. </p>
+<h3>OpenID Personal Directory</h3><br />
+Not only that, but I should be able to log into OpenID Mobile and have a bookmarked list of these services. So once I login, I can pull up my blog posting, twitter, email, phonebook, etc. </p>
+<p>I haven't entirely thought through the mechanics. The concept is simple enough for web-capable phones using WebKit (iPhone) or Opera or whatever. However, how do you provide this on devices or for users that don't have a web browser - and also enable the entire phone, not just web apps or <a href="http://www.laurent-michel.net/articles/2007/10/14/openid-mobile" title="Laurent Michel's blog | OpenID mobile">WAP sites as Laurent points out</a>. </p>
+<p>Perhaps this is where <a href="http://oauth.net/" title="OAuth &mdash; An open protocol to allow secure API authentication in a simple and standard method from desktop and web applications.">OAuth</a> comes in. OpenID servers should provide OAuth capability. This way anyone can request a validation token that works with other OAuth or OpenID sites from my actual OpenID provider. </p>

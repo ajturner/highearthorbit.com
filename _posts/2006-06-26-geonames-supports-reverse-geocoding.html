@@ -1,0 +1,108 @@
+---
+layout: post
+status: publish
+published: true
+title: GeoNames supports reverse geocoding
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 440
+wordpress_url: http://highearthorbit.com/geonames-supports-reverse-geocoding/
+date: '2006-06-26 08:21:04 -0400'
+date_gmt: '2006-06-26 13:21:04 -0400'
+categories:
+- Technology
+- Programming
+- Geolocation
+- Howto
+tags: []
+comments:
+- id: 26904
+  author: marc
+  author_email: marc@geonames.org
+  author_url: http://www.geonames.org
+  date: '2006-06-27 01:38:09 -0400'
+  date_gmt: '2006-06-27 06:38:09 -0400'
+  content: "Andrew, \r\n\r\nGeonames is testing right now two new reverse geocoding
+    web services. The new services are far more specific and return the street, an
+    educated guess for the street number and the closest intersection.\r\nFor your
+    lat/lng the service returns  \"Spring Dr.\" as the nearest street and \"Spring
+    Dr. / Orchard Dr\" as the nearest intersection :\r\n\r\nhttp://www.geonames.org/maps/reverse-geocoder.html\r\n\r\nMarc"
+- id: 26939
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2006-06-27 07:41:46 -0400'
+  date_gmt: '2006-06-27 12:41:46 -0400'
+  content: "Thanks Marc, I knew I had run across the other service, but couldn't find
+    the URL when I was writing the blog post.\r\n\r\nGeoNames is a great service.
+    \ Thanks!"
+- id: 91049
+  author: iwezbhvnwm
+  author_email: ynnbv@rueqyxy.com
+  author_url: http://iwezbhvnwm.com
+  date: '2007-06-20 20:52:57 -0400'
+  date_gmt: '2007-06-21 00:52:57 -0400'
+  content: Hello! Good Site! Thanks you! gjdxaiouywcrc
+- id: 311053
+  author: tom buckley
+  author_email: buckley.tom@gmail.com
+  author_url: ''
+  date: '2010-05-11 22:57:50 -0400'
+  date_gmt: '2010-05-12 02:57:50 -0400'
+  content: just came across this while trying to look up addresses for the walkscore
+    api.  thanks guys
+- id: 313963
+  author: Joel Divekar
+  author_email: joel.divekar@gmail.com
+  author_url: ''
+  date: '2010-05-30 09:59:10 -0400'
+  date_gmt: '2010-05-30 13:59:10 -0400'
+  content: "Hi  Andrew\r\n\r\nI am looking for a reverse geo coder api (online) to
+    get area / street info on basis of lat &amp; lng info. Is GeoNames having
+    any open / free api which can be querried online?\r\n\r\nRegards\r\n\r\nJoel\r\nMumbai,
+    India"
+- id: 314189
+  author: Andrew
+  author_email: andrew@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2010-05-31 22:31:39 -0400'
+  date_gmt: '2010-06-01 02:31:39 -0400'
+  content: 'Hi Joel - yes, you can check out GeoNames'' web services here: http://www.geonames.org/export/ws-overview.html'
+---
+<p><a href='http://www.geonames.org/'>GeoNames</a> is YAG (yet another geocoder), but behind the curtains lie many cool features. The most unique of which is a reverse geocoder. </p>
+<p>Reverse geocoding is converting Latitude & Longitude to a place name. This is the other side of the mirror from traditional geocoding, which converts a place name into latitude & longitude. Why would someone want to reverse geocode you ask? With reverse geocoding you can convert your GPS tracklogs into meaningful locations easily, or allow users to click on a map and get back actual location of where they're clicking.</p>
+<p>The <a href='http://www.geonames.org/export/'>GeoNames API</a> provides an interface for getting nearby postal codes, country, or most specific: place names.</p>
+<h2>Example</h2><br />
+HighEarthOrbit offices: <code>http://ws.geonames.org/findNearbyPlaceName?lat=42.4266&lng=-83.4931&style=full</code></p>
+<p>returns:</p>
+<pre>
+<geonames><br />
+  <geoname><br />
+    <name>Northville</name><br />
+    <lat>42.43111</lat><br />
+    <lng>-83.48333</lng><br />
+    <geonameid>5003956</geonameid><br />
+    <countrycode>US</countrycode><br />
+    <countryname>United States</countryname><br />
+    <fcl>P</fcl><br />
+    <fcode>PPL</fcode><br />
+    <fclname>city, village,...</fclname><br />
+    <fcodename>populated place</fcodename></p>
+<population>6360</population><br />
+    <elevation>252</elevation><br />
+    <admincode1>MI</admincode1><br />
+    <adminname1>Michigan</adminname1><br />
+    <admincode2 /><br />
+    <adminname2 /><br />
+  </geoname><br />
+</geonames><br />
+</pre></p>
+<h2>The whole geo-enchilada</h2><br />
+Lastly, to make you really feel warm and good inside, the GeoNames database is provided for direct download under a <a href='http://creativecommons.org/licenses/by/2.5/'>Creative Commons Attribution license</a>. Yum, free data. </p>
+<p>See <a href='http://geonames.wordpress.com/2006/06/25/tiger-line-reverse-geocoder/'>the GeoNames Blog post</a> about it.</p>

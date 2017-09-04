@@ -1,6 +1,6 @@
 ---
 layout: home
-banner: https://farm8.staticflickr.com/7354/10076943304_550568fcc2_o_d.jpg
+banner: https://farm4.staticflickr.com/3725/11452152846_986013a25d_b_d.jpg
 ---
 
 ## personal website of Andrew J. Turner

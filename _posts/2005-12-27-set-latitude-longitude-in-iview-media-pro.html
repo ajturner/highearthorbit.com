@@ -1,0 +1,107 @@
+---
+layout: post
+status: publish
+published: true
+title: Set Latitude & Longitude of photos in iView Media Pro
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 337
+wordpress_url: http://highearthorbit.com/set-latitude-longitude-in-iview-media-pro/
+date: '2005-12-27 23:08:56 -0500'
+date_gmt: '2005-12-28 04:08:56 -0500'
+categories:
+- Programming
+- Apple
+- Photography
+- Open-Source
+- Applescript
+tags: []
+comments:
+- id: 7708
+  author: Greg
+  author_email: scratch@linkline.com
+  author_url: ''
+  date: '2006-03-12 13:07:07 -0500'
+  date_gmt: '2006-03-12 18:07:07 -0500'
+  content: "It might be better if it read any existing data and put that in the window.\r\n\r\nAlso
+    a check to see if exiftool exists and a note if it doesn't (if one just copied
+    the script to another computer or whatever or they forgot to read the directions)."
+- id: 7716
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2006-03-13 23:00:44 -0500'
+  date_gmt: '2006-03-14 04:00:44 -0500'
+  content: Good suggestions - I'll see about adding those.
+- id: 45471
+  author: High Earth Orbit &raquo; Blog Archive &raquo; Flickr Mapping - baked in
+    Goodness
+  author_email: ''
+  author_url: http://highearthorbit.com/flickr-mapping-baked-in-goodness/
+  date: '2006-08-29 06:34:27 -0400'
+  date_gmt: '2006-08-29 11:34:27 -0400'
+  content: "[...] Overall it&#8217;s a very good user experience. It&#8217;s nice
+    now that mapping is baked-right-into Flickr, which means quicker adoption rate,
+    and easier to get going with your mapping (rather than being relegated to various
+    mapping utilities and scripts) [...]"
+- id: 109553
+  author: Dane
+  author_email: blake@hailmail.net
+  author_url: http://www.danespringmeyer.com
+  date: '2007-09-20 16:32:22 -0400'
+  date_gmt: '2007-09-20 20:32:22 -0400'
+  content: "Hi Andrew.\r\n Great script. I bumped into it because I've been stuck
+    trying to manipulate exif data in iView using applescript alone. It's easy to
+    script the manipulation of annotations data, but it seems really tricky to do
+    so with exif data (within iView). I ran into one script that manipulates the capture
+    date without a seperate tool like exiftool (http://downloads.iview-multimedia.com//scripts/ShiftCaptureDate.sit)
+    but I've been unable to get it to work with altitude, which is the exif info I
+    am seeking to set/edit/add.\r\n\r\nAnyway, I took your script and modified
+    it to 1) read existing GPS coordinates and then fetch via the geonames web service
+    the cooresponding altitude (via a clumsy safari gui scripting hack). I also modified
+    the script so that it would process all selected items in the open iView catalog.
+    I'm just learning applescript so I'd be interested in improvements. I'll post
+    the script in another next response to this thread.\r\n\r\nDane"
+- id: 109568
+  author: Dane
+  author_email: blake@hailmail.net
+  author_url: http://www.danespringmeyer.com
+  date: '2007-09-20 17:54:25 -0400'
+  date_gmt: '2007-09-20 21:54:25 -0400'
+  content: "The modified script mentioned earlier can be downloaded from here:\r\n\r\nhttp://danespringmeyer.com/exif_altitude_from_lat_long.zip"
+- id: 346573
+  author: Dave14
+  author_email: Dave19@gmail.com
+  author_url: ''
+  date: '2011-01-02 00:55:42 -0500'
+  date_gmt: '2011-01-02 04:55:42 -0500'
+  content: But I digress.
+---
+<p>I'm making the transition to a much more stable, usable, and tool-rich photo management tool, <a href="">iView Media Pro 3</a>. I got tired of dealing with the <strong>incredibly</strong> slow interface to iPhoto thanks to Apple's incapable handling & testing of EXIF metadata in storing to their library.</p>
+<p>But I digress.</p>
+<h3>Behold, there was scripting</h3><br />
+... and it was good.</p>
+<p>I had written an Applescript to <a href="http://highearthorbit.com/289/">set the latitude & longitude</a> (and other location info) to selected photos in iPhoto. iPhoto was often beligerent and required a restart of the iPhoto (and possible database recreation) to read the location information (which was viewable in the "info" panel).</p>
+<p>iView puts the location info as a user-editable set of fields in the EXIF data fields. Users can set city, region, country, etc. But for whatever reason, they are unable to change the latitude & longitude.</p>
+<p>I paired down my iPhoto script to just handle latitude & longitude and handle getting the file name from iView. The tough part was how to get from the iView example <em>selected_images</em> to a useful POSIX path to feed to <a href="http://www.sno.phy.queensu.ca/~phil/exiftool/">exiftool</a>. This code does the trick.</p>
+<pre><code><br />
+set selectedID to selected_images(1)<br />
+if selectedID = {} then<br />
+	display dialog "No photos selected"<br />
+	return<br />
+end if</p>
+<p>repeat with this_photo in selectedID<br />
+	set photo_path to path of this_photo<br />
+	set the image_file to the POSIX path of photo_path<br />
+</code></pre></p>
+<h3>Installing & Using the script</h3><br />
+<a href="http://highearthorbit.com/wp-images/iViewLocation_latitude.jpg"><img src='http://highearthorbit.com/wp-images/thumb-iViewLocation_latitude.jpg' alt='iView Location Plugin - User Entry' align="right" hspace="10px"/></a><a href="http://highearthorbit.com/projects/applescript/SetLatLon.zip">Download the script here</a> and expand it in your <em>~/Library/Application Support/iView/Plug-ins/Scripts</em> folder and then reload iView.  You will also need <a href="http://www.sno.phy.queensu.ca/~phil/exiftool/">exiftool</a>, as it is the real magic behind the smoke & mirrors.</p>
+<p>To use the script, select whatever photos you want to apply the <em>same</em> location information to. Then go to the "Scripts" icon in the menu bar, and choose the "Set Lat/Lon" script. Enter the latitude, longitude, and altitude in decimal format, pressing "OK" after each field. Wait a little while, and then a dialog will tell you how many photos were processed.</p>
+<p><a href='http://highearthorbit.com/wp-images/iViewLocation_post_export.jpg' ><img src='http://highearthorbit.com/wp-images/thumb-iViewLocation_post_export.jpg' alt='iView Location Plugin - Post Export' align="right" hspace="10px"/></a>Back in iView, you should see the latitude & longitude information in the right side-bar. You can also turn on lat/lon view in the thumbnail view by pressing <em>Command-J</em> and selecting "Latitude" "Longitude" "Altitude". You may need to press <em>Command-B</em> to rebuild the thumbnail to have the info show up the first time (or on updates). </p>
+<p>When exporting images (say to <a href="http://flickr.com">flickr!</a>), your geo-annotated data will stay intact and can then be <a href="http://geobloggers.com">mapped</a> (or <a href='http://www.flickrmap.com/'>mapped</a>).</p>

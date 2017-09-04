@@ -1,0 +1,178 @@
+---
+layout: post
+status: publish
+published: true
+title: GeoRSS Location Collections?
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 755
+wordpress_url: http://highearthorbit.com/georss-location-collections/
+date: '2007-02-27 15:18:07 -0500'
+date_gmt: '2007-02-27 19:18:07 -0500'
+categories:
+- Technology
+- GeoRSS
+- Neogeography
+tags: []
+comments:
+- id: 76382
+  author: TomL
+  author_email: tom.lester@yahoo.com
+  author_url: http://crimelog.org
+  date: '2007-02-27 16:20:26 -0500'
+  date_gmt: '2007-02-27 20:20:26 -0500'
+  content: I would use such functionality. My site has a feed of recent location events
+    grouped by day. I initially wanted to use GeoRSS for the group of locations but
+    could not as you explain above.
+- id: 76409
+  author: Allan Doyle
+  author_email: adoyle@eogeo.org
+  author_url: http://think.random-stuff.org
+  date: '2007-02-27 23:02:31 -0500'
+  date_gmt: '2007-02-28 03:02:31 -0500'
+  content: "Well, do you want to describe an \"item\", which is what RSS consists
+    of, or do you wan to describe \"data\" which is what a collection of NZ pics or
+    location events seems to be? Why not post a GML or whatever file at the end of
+    the day or at the end of the trip, and point a GeoRSS item at that? If you start
+    trying to be able to stuff every imaginable construct inside, you will wind up
+    with a complex beast that satisfies no one. \r\n\r\nThat said, I'm all in favor
+    of some kind of extensibility mechanism like the SMTP X- headers that let you
+    toss in anything you want. Just don't expect to have everyone be able to use/generate/parse
+    them. As long as you could strip out the X- elements and still have a valid feed,
+    go for it. But don't try to crosss the 80/20 line unless you have 80% of the
+    people with you. The recent GeoRSS vote of maybe 2% of people thinking they really
+    wanted that feature was not very compelling."
+- id: 76415
+  author: Dave Brondsema
+  author_email: dave@brondsema.net
+  author_url: http://brondsema.net/
+  date: '2007-02-27 23:41:22 -0500'
+  date_gmt: '2007-02-28 03:41:22 -0500'
+  content: "Given an example like yours, where you're trying to associate locations
+    with specific parts of your content, microformats seem the way to go.  However,
+    you say that they don't let you specify the association very well.  How so?  I
+    think something like this would work (based on the example at http://microformats.org/wiki/geo):\r\n\r\n\r\n
+    \ We went to foo bar (at \r\n <abbr title=\"37.408183\">N 37&Acirc;&deg; 24.491</abbr>
+    \r\n <abbr title=\"-122.13855\">W 122&Acirc;&deg; 08.313</abbr>)\r\n\r\n\r\nor
+    if you don't want to display the coordinate information visually:\r\n\r\n\r\n
+    \ We went to foo bar\r\n 37.386013-122.082932\r\n\r\n\r\nThis is more general-purpose
+    than georss: you can use it anywhere you have HTML content, not just Atom, RDF,
+    or RSS."
+- id: 76417
+  author: Dave Brondsema
+  author_email: dave@brondsema.net
+  author_url: http://brondsema.net/
+  date: '2007-02-27 23:43:50 -0500'
+  date_gmt: '2007-02-28 03:43:50 -0500'
+  content: "It'd be nice if there were some formatting instructions by your comment
+    box, so I know what's allowed and how to get a code sample like this to work.
+    \ Trying again, using curly braces:\r\n\r\n{div class=\"geo\"}\r\n  We went to
+    foo bar (at \r\n {abbr class=\"latitude\" title=\"37.408183\"}N 37&Acirc;&deg;
+    24.491{/abbr} \r\n {abbr class=\"longitude\" title=\"-122.13855\"}W 122&Acirc;&deg;
+    08.313{/abbr})\r\n{/div}\r\n\r\nor if you don't want to display the coordinate
+    information visually:\r\n\r\n{div class=\"geo\"}\r\n  We went to foo bar\r\n {span
+    class=\"latitude\" style=\"display:none\"}37.386013{/span}{span class=\"longitude\"
+    style=\"display:none\"}-122.082932{/span}\r\n{/div}"
+- id: 76418
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2007-02-27 23:57:10 -0500'
+  date_gmt: '2007-02-28 03:57:10 -0500'
+  content: "Dave - I haven't had it confirmed from the \"powers that be\" in Microformats
+    that your suggestion is valid. However, I agree that it should be and handles
+    the idea of adding the content to a location. \r\n\r\nAllan - I think for one
+    that is raising the discussion too high a level for what people, in the end, want
+    to do. This is typically the problem with people describing the \"Semantic Web\"
+    and \"ontologies\" and then the actual person creating a blog or a mashup site.
+    :)\r\n\r\nHowever, you do have a good point. But I believe that users want to
+    create an \"item\" that has \"data\". They are writing about a single item (news
+    story) that has data (locations in the news). I actually don't understand how
+    your GML example works. But it also sounds complex and multifaceted, which slows/blocks
+    adoption (see XFN/FOAF) whereas embedding rel=\"coworker met\" is very easy
+    directly in the text (HTML or RSS) I am creating.\r\n\r\n"
+- id: 76458
+  author: Allan Doyle
+  author_email: adoyle@eogeo.org
+  author_url: http://think.random-stuff.org
+  date: '2007-02-28 09:51:20 -0500'
+  date_gmt: '2007-02-28 13:51:20 -0500'
+  content: 'Forget the semantic distinction between "item" and "data", and forget
+    the bit about GML. What I really want to say is what Mikel said in the GeoRSS
+    list - "Small pieces, loosely joined, of simple targeted vocabularies." - i.e.
+    don''t put so much into any one spec that it sinks under its own weight. '
+- id: 76467
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2007-02-28 11:20:25 -0500'
+  date_gmt: '2007-02-28 15:20:25 -0500'
+  content: "True - but how to accomodate users who have actual, now, use cases that
+    want to meet the standard if possible (so people can use their data), or do something
+    that will be supported (or easily changed to) in the future?\r\n\r\nBut you're
+    right, which is why Geonames is good, puts the entire spec/gazeteer into that
+    spec, so someone that needs that functionality can dive into. \r\n\r\nSo maybe
+    the FAQ on GeoRSS would really turn into \"recipes\" based on use-cases. E.g.
+    You want to do <em>this</em>, use <em>these...</em>"
+- id: 77197
+  author: Scot
+  author_email: highearthorbit@mcsweeney-roberts.co.uk
+  author_url: http://scotsgeolog.blogspot.com/
+  date: '2007-03-07 19:02:05 -0500'
+  date_gmt: '2007-03-07 23:02:05 -0500'
+  content: "I need exactly that functionality. I'm trying to turn traffic data (in
+    tpegML format) into Atom with geoRSS embedded data. With tpegML, a single traffic
+    message can contain 2 points (it might allow for more, I'm not sure though and
+    I've only seen 2 points at once so far) - for example if there's an accident between
+    junctions 9 and 10 of a motorway,  then there will be 2 points - one for each
+    junction. So this is definitely a case of 1 item with multiple points.\r\n\r\nI
+    even came across this post by searching Google, looking to see if multiple points
+    was possible or not. My back up plan if it's not possible (and it appears it's
+    not) is to use a line, but that certainly does feel wrong."
+- id: 79080
+  author: James
+  author_email: james.manners@gmail.com
+  author_url: http://james.manners.net.au
+  date: '2007-03-26 09:25:52 -0400'
+  date_gmt: '2007-03-26 13:25:52 -0400'
+  content: "I'm came across this discussion today and it is something I have been
+    thinking about for a while now.  \r\n\r\nI use the geopress plugin on my blog
+    and many times I have wished that I could associate multiple locations to a single
+    entry.  A simple example is I write a blog post on our weekend travels and we
+    went to x, y and z.  Currently, I am only limited to geotagging one location but
+    wish, oh how I wish, I could tag multiple locations.  It would increase the power
+    of GeoRSS to me by more accurately locating posts."
+---
+<p>There is a discussion that crops up every once in awhile on the GeoRSS mailing list whether it is useful or appropriate to support 'multiple locations' in a single RSS item. </p>
+<p>For example, currently you can only embed a single point, line, or polygon in GeoRSS Simple: </p>
+<p><code></p>
+<pre>
+<georss:point>45.256 -71.92</georss:point><br />
+</pre><br />
+</code></p>
+<p>GML adds a bunch of features, but "location collection" still isn't one of them. </p>
+<p>What this means is, every item can have one, and only one, location. But what happens if you are, for example, writing about all of the hospitals in a city, or telling about your trip and a couple of hikes or cities you visited?</p>
+<p>I would like to see something along the lines of this as a <em>pseudo-example</em>:</p>
+<pre><code><br />
+<entry><br />
+     <title>Visiting New Zealand</title></p>
+<summary>We had a great time in
+<div id="Auckland">Auckland</a> and
+<div id="Hokitika">Hokitika</a>.</summary><br />
+     <georss:where><br />
+          <georss:point references="Auckland">-38.333332,176.00</georss:point><br />
+          <georss:point references="Hokitika">-42.709,170.97</georss:point><br />
+     <georss:where><br />
+</entry><br />
+</code></pre></p>
+<p>GeoRSS doesnt' currently support that type of functionality. The current solution is to put each of these locations in a separate item, but that isn't really coincident with the idea that you're writing a single 'item'. </p>
+<p>Another possible solution is to use Microformats within the post content to actually markup the locations or tracks, but that doesn't really solve the problem since Microformat adr and geo have a hard time specifying the associated content, and it definitely doesn't handle complex geometries like line or polygon. </p>
+<p>GeoRSS is an open-standard, it is live and changing, and open for discussion. However, like any decent standard it is built on what users want and use. And working with GeoPress, I've been constantly, and pleasantly, surprised what some people are using geoblogs for that I wouldn't have originally thought of.</p>
+<h3>SMS your vote in now</h3><br />
+So my question to you is, do you see a need for this type of functionality? What do you currently do? Or am I just chasing an arbitrary idea?</p>

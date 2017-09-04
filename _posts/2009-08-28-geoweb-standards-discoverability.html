@@ -1,0 +1,84 @@
+---
+layout: post
+status: publish
+published: true
+title: GeoWeb Standards - Discoverability
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 1303
+wordpress_url: http://highearthorbit.com/geoweb-standards-discoverability/
+date: '2009-08-28 12:55:49 -0400'
+date_gmt: '2009-08-28 16:55:49 -0400'
+categories:
+- Neogeography
+- Standards
+tags:
+- Neogeography
+comments:
+- id: 271209
+  author: Sean Gillies
+  author_email: sean.gillies@gmail.com
+  author_url: http://sgillies.net
+  date: '2009-08-31 08:03:12 -0400'
+  date_gmt: '2009-08-31 12:03:12 -0400'
+  content: I shouldn't take this kind of bait, but as I recall, I was *mocking* the
+    idea of icons.
+- id: 273154
+  author: Stefan
+  author_email: sfkeller@hsr.ch
+  author_url: http://www.gis.hsr.ch
+  date: '2009-09-13 19:33:53 -0400'
+  date_gmt: '2009-09-13 23:33:53 -0400'
+  content: "Nice blog! I'm open and keen to any simple solutions for webcrawlers and
+    for humans. Please correct me, if I understand you wrong: \r\n\r\nFor webcrawlers
+    you propose embedding Atom-links in HTML and behind these Atom-Links there is
+    a GeoRSS/Atom-File containing Atom link relation types, which indicate related
+    services and even OGC services. \r\n\r\n=> I like that, though I think we still
+    need to get consensus about Atom link relation types for OGC services, don't we?\r\n\r\nFor
+    humans, you propose to agree on a geotag, we need to agree upon. \r\n=> Does this
+    mean, you propose to make a different geotag icon e.g. for every single OGC Service
+    WMS, WFS, etc.?\r\n\r\n-S. \r\n\r\nP.S. In Fall 2008 there was the OGC Geospatial
+    Search Summit. Is there any activity at OGC and between the former invited members?"
+---
+<p>We have a rich history of geography, cartography and GIS that is currently tucked away in top drawers, intranets, and repositories that may not stay online when we most need the data. How do we expose these huge troves of data in a way that can be utilized across various domains. The GeoWeb is all part of the same web, <a href="http://en.wikipedia.org/wiki/Semantic_Web" title="Semantic Web - Wikipedia, the free encyclopedia">semantic</a>, <a href="http://en.wikipedia.org/wiki/Sensor_Web" title="Sensor Web - Wikipedia, the free encyclopedia">sensor</a>, social, (and <a href="http://www.interplanetaryweb.com/" title="Home of Interplanetary Web">interplanetary</a>). So it is vital at the GeoWeb align itself with the web and the multitude of sources and endpoints that the web is reaching into.</p>
+<p>There are many possible solutions, and a few that are within easy grasp that we can build our tools to encompass, and develop practices that encourage utilization of these solutions while still moving forward onto better ones as the GeoWeb matures. So we'll take a few articles to look at specific solutions.</p>
+<h3>Discoverability</h3></p>
+<p>Perhaps the most prevalent issue, and the one that is most easily addressable, is the findability and discovery of geodata on the web. <a href="http://randommarkers.blogspot.com/2009/07/thoughts-on-geoweb-standards.html" title="Random Markers: Thoughts on GeoWeb Standards">Mano Marks</a> reflected this same sentiment in his blog post on standards.</p>
+<p>In thinking about discoverability, there are several primary use cases to consider: Machine crawling, Human discovery, and Tool discovery. Providing data via just a single mechanism means that it doesn't get utilized and consumed to it's potential and so somewhere along the chain of utilization it will be a burden to actually incorporate into a workflow.</p>
+<h3>Think of the machines</h3></p>
+<p>Machine crawling is the ability for any spider to walk links, find data, metadata, and formats automatically. It's what Google, or <a href="http://geonetwork-opensource.org/" title="GeoNetwork opensource">GeoNetwork</a> does to find and register data sources.</p>
+<p>There was recently a discussion on <a href="http://geowanking.org/pipermail/geowanking_geowanking.org/2009-August/024645.html" title="[Geowanking] Better auto-discovery in the Geo-Web through ">auto-discovery in the GeoWeb</a> suggesting the use of robots.txt, sitemaps, or embedded META tags in HTML pages.</p>
+<p><img src="http://highearthorbit.com/wp-content/uploads/2009/08/Link-to-Data-1.jpg" width="415" height="323" alt="Link to Data-1.jpg" style="float: right; padding-top: 5px; padding-bottom: 5px; padding-left: 5px;" />Consider how a spider would get to a site: it follows a link to a geospatial portal from some blog, resource, or directly entered as a good place to get data. It does a GET request on the root homepage, "/" which most likely returns the index.html equivalent. The program then parses through that for links or additional information.</p>
+<p>If the spider knows about them, then it may ask for a sitemap.xml or robots.txt. But nothing in the original page request noted that this potentially very complete listing of data was there. This problem is the equivalent of an application having to know that it needs to ask for a <a href="http://en.wikipedia.org/wiki/Web_Feature_Service" title="Web Feature Service - Wikipedia, the free encyclopedia">GetCapabilities</a> or other method to even discover what is available. Too much implicit knowledge of the specification is required for a program to easily discover new data and services.</p>
+<p>What the program does see are these links that can contain information such as a link to a list of available resources. The simplest is a link to the Atom or RSS feed that can simply be a paginated list of all the resources available to the application. Within Atom, there is then the ability to link to various representations of that data in different formats. So applications are able to take the most appropriate format based on what they can consume.</p>
+<p>Several years ago I first <a href="http://highearthorbit.com/a-proposal-georss-kml/" title="A Proposal &acirc;&euro;&ldquo; GeoRSS &amp; KML :: High Earth Orbit">proposed how KML and GeoRSS</a> could easily support one another via cross-links and with HTML documents. Atom has very nice <code>rel</code> and <code>type</code> attributes that allow for linking to all sorts of different representations. You can even <a href="http://blog.mapufacture.com/2007/08/14/kml-modules-services/" title="KML Modules: Services :: mapufacture blog">link to OGC services</a> like WMS and WFS using atom links.</p>
+<p>Of particular interest here are looking at the currently approved list of <a href="http://tools.ietf.org/html/draft-nottingham-http-link-header-06#section-6.2" title="draft-nottingham-http-link-header-06 - Web Linking">Atom link relation types</a> that provide basic semantics for telling you how what this link means. Is it another page? just related? It's a limited set, but one that covers an approachable majority case for developers to begin using.</p>
+<p>For example, mechanisms like <a href="http://www.opensearch.org/" title="Home - OpenSearch">OpenSearch</a>, specified in a <code>rel="search"</code>, simply notify the application that here is a service that it can query to get at additional resources. And with <a href="http://www.opensearch.org/Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1" title="Specifications/OpenSearch/Extensions/Geo/1.0/Draft 1 - OpenSearch">OpenSearch-Geo</a>, a geoweb crawler can query information within a specific location or bounding area.</p>
+<h3>Humans need data too</h3></p>
+<p>Crawlers are great, they provide a say to pull together information into various other sites and tools to provide customized interfaces to users. However, within any site or tool, how should we expose geodata in a way that humans can easily use for whatever purposes the may have.</p>
+<p>Again, links have become a very well understood concept on the Web. That underlined blue line states "beyond me lies an unspecified amount of information about <u>this topic</u>". However, these links typically imply that they will open another human readable HTML page in the browser. A problem caused by links to media such as geospatial data is that the content behind a link may not be just text, it could be an image, audio, movie, KML, database, or a service. Clicking on that link relies on the browser interpreting the MIME-type (remember the point about how vital mime-types are?) and opening the application the user has specified, or left as default.</p>
+<p>So consider what this means for generic media. Clicking open a link to an image probably just opens the image in your browser, or opening a movie loads an embedded video player. Geodata browsers, however, probably doesn't have the same install base as say, Quicktime. Except perhaps GoogleEarth. The Web has become much more comfortable with clicking on a KML link and seeing Google Earth open up and show the data on a globe.</p>
+<p>But something very vital often exists with a link to KML data - a recognizable icon that notifies the user (as they learn) that it is a file that will open in Google Earth, or another KML viewer. This is the same as the very widely used RSS icon.</p>
+<p>I discussed this idea before about the <a href="http://highearthorbit.com/geotag-icon/" title="Geotag Icon :: High Earth Orbit" rel="me">geotag icon</a> showing various other formats - and now sites like <a href="http://www.data.gov/catalog/raw/category/0/agency/0/filter/Environment/type/xcke/sort//page/1/count/25" title="Data.gov - Raw Data Catalog">Data.gov</a> actually show the various data format options.</p>
+<p style="text-align: left;"><a href="http://highearthorbit.com/wp-content/uploads/2009/08/Data.gov-Raw-Data-Catalog-1.jpg"><img src="http://highearthorbit.com/wp-content/uploads/2009/08/Data.gov-Raw-Data-Catalog-1-tm.jpg" width="450" height="46" alt="Data.gov - Raw Data Catalog-1.jpg" style="padding-top: 5px; padding-bottom: 5px; padding-left: 5px;" /></a></p>
+<p>So what we need for GeoWeb standards are some visual representation to people that they are can clink on <u>this link</u> and open a spatial relational database, or an OGC service, and perhaps have some confidence that there is an application that will provide them a useful way to access the data. (and I'm still waiting for <a href="http://sgillies.net/blog/" title="Sean Gillies Blog">Sean Gillies'</a> ISO and Dublin Core icons)</p>
+<p>Of course, we should also employ emergent interfaces that show users the type of data links that are appropriate for them based on their profile or registered MIME-type handlers.</p>
+<h3>Man-Machine hybrids</h3></p>
+<p>So we have discovery links for machine crawlers to register and harvest geodata, and links for humans to click on to follow to data and within data. However, this can easily become overwhelming to need to click through to every link. Imagine if browsing Flickr through lynx.</p>
+<p>Browsers already do a lot to assist users in finding relevant extra pieces of data in a page. RSS autodisovery links show up in URL bars notifying our feed readers that we can subscribe to this page. OpenSearch allows someone to embed this search into their browsers (most of them at least) to easily search the repository later.</p>
+<h3>The decreasing cost of links</h3></p>
+<p>These various approaches for different needs and use cases are all very well aligned. They don't rely on additional external files that we need to make sure stay up to date or that tools are built to <em>just know</em> that the file can be found at a pre-defined location. Links cost next to nothing, mostly measured in bandwidth sizes, but provide a wealth of accessibility and discovery of geospatial data. Especially data in formats that make sense depending on the tools and use cases for different problems.</p>
+<p>Of course, links alone don't address all the needs of the evolving GeoWeb, they merely provide for the integration of geospatial data with the rest of the web. An important, necessary, but not entirely sufficient first step. We need to consider the actual uses and interfaces of these standards, archival, synchronization, conflation and more.</p>
+<ol>
+<li><a href="http://highearthorbit.com/geoweb-standards-intro//" title="HighEarthOrbit: GeoWeb standards, where we are">Introduction</a></li>
+<li><a href="http://highearthorbit.com/geoweb-standards-where-we-are/" title="HighEarthOrbit: GeoWeb standards, where we are">Where We Are</a></li>
+<li><a href="http://highearthorbit.com/geoweb-standards-current-problems/">Problems</a></li>
+<li><a href="http://highearthorbit.com/geoweb-standards-where-we-need-to-go/">Where We Need to Go</a></li>
+<li><a href="http://highearthorbit.com/geoweb-standards-discoverability/">Solutions: Discoverability</a></li><br />
+</ol></p>

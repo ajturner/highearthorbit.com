@@ -1,0 +1,80 @@
+---
+layout: post
+status: publish
+published: true
+title: 'KML 3 Kick-off, Module: Core'
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 906
+wordpress_url: http://highearthorbit.com/kml-3-kick-off-module-core/
+date: '2007-08-03 12:57:02 -0400'
+date_gmt: '2007-08-03 16:57:02 -0400'
+categories:
+- KML
+tags: []
+comments:
+- id: 99784
+  author: 'High Earth Orbit &raquo; Blog Archive &raquo; KML 3 Kick-off, Module: Metadata'
+  author_email: ''
+  author_url: http://highearthorbit.com/kml-3-kick-off-module-metadata/
+  date: '2007-08-07 12:26:02 -0400'
+  date_gmt: '2007-08-07 16:26:02 -0400'
+  content: "[...] This is especially important using the concept of modules that allow
+    KML implementations to only include pertinent areas of functionality. If a mobile
+    phone client want to display markers, but isn&#8217;t going to use Metadata it
+    shouldn&#8217;t be required to implement the complex Schema parsing just to get
+    at the markers. [...]"
+- id: 100180
+  author: Charlie
+  author_email: highearthorbit@charlie.okeefe.name
+  author_url: ''
+  date: '2007-08-09 18:47:15 -0400'
+  date_gmt: '2007-08-09 22:47:15 -0400'
+  content: "<blockquote>In addition, providing the current Atom support allows for
+    attribution and other interesting things for linking to HTML and GeoRSS.</blockquote>\r\n\r\nDoes
+    this mean a future kml document can be \"subscribed to\" by current Atom-feed
+    readers? Or would the feed readers need to be updated?"
+- id: 100183
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2007-08-09 19:31:04 -0400'
+  date_gmt: '2007-08-09 23:31:04 -0400'
+  content: "@Charlie - see my <a href=\"http://highearthorbit.com/a-proposal-georss-kml/\"
+    title=\"HighEarthOrbit: A Proposal for GeoRSS and KML\" rel=\"me\" rel=\"nofollow\">post
+    about GeoRSS and KML</a>. KML itself wouldn't be \"subscribable\" - as KML
+    is just a document format. However, KML would prescribe a way to designate a \"feed\"
+    that included updates to the source of the KML document. That way, you could download
+    a KML document that included the current data, and then subscribe to the GeoRSS
+    (Atom) feed that would publish updates to add onto the collection of geographies
+    in the KML.\r\n\r\nFeed Readers could decide to implement KML parsing if they
+    wanted to, but more useful would be if they supported GeoRSS parsing and display.
+    \r\n\r\n"
+- id: 101014
+  author: 'mapufacture &raquo; KML Modules: Services'
+  author_email: ''
+  author_url: http://blog.mapufacture.com/2007/08/14/kml-modules-services/
+  date: '2007-08-14 10:07:56 -0400'
+  date_gmt: '2007-08-14 14:07:56 -0400'
+  content: "[...] So far I&#8217;ve covered the modules: Core, Styling, and Metadata.
+    Another important one is the Services module. This defines how KML can link to
+    external resources like OpenSearch, WFS, WMS, or others. [...]"
+---
+<p>The KML Core module includes the minimal subset of KML that would be expected for any implementation. Currently the elements of KML that would exist in Core include:</p>
+<p>kml, Document, atom, Folder, Placemark, Link (and NetworkLink?), ScreenOverlay, TimeStamp, Geometry (see below)</p>
+<p>This list was derived from the current <a href="http://code.google.com/apis/kml/documentation/kml_tags_21.html" title="Google Code: KML 2.1 Reference">KML 2.1 tags</a> and signifies the general concepts we're hoping to have in KML Core - allow a user to express location, time, and possibly link to another KML document or service. In addition, providing the current <a href="http://www.atomenabled.org/" title="AtomEnabled.org">Atom</a> support allows for attribution and other <a href="http://highearthorbit.com/a-proposal-georss-kml/" title="HighEarthOrbit: A Proposal for GeoRSS and KML">interesting things for linking to HTML and GeoRSS</a>.</p>
+<h3>Geometry Markup</h3><br />
+A couple of nearly given plans were laid out for for revisions to KML. The first is the markup of the geometry. OGC is well known for GML, and there are many tools that publish and consume GML. Having yet another geometry markup seems to be redundant and confusing. Therefore, KML 3 will use a minimal version of GML, <a href="http://www.ogcnetwork.net/gml-sf" title="OGCNetwork: GML Simple Features Profile">GML Simple Features Profile</a>. You can follow that link to the specification - but good luck finding an actual simple example or description of what it is. </p>
+<p>To summarize, here is an example of a KML 2.2 point, and a GML Simple point:</p>
+<pre>
+<Point><coordinates>lon, lat[, alt]</coordinates></Point>        </p>
+<p><gml:Point><gml:pos>lat lon [alt]</gml:pos></gml:Point><br />
+</pre></p>
+<p>It's mostly a simple markup difference. There is also the possibility that the <em>gml:</em> namespace prefix would be dropped and just be part of KML. GML provides for specifying the coordinate reference system (CRS), but for KML it is currently assumed to be EPSG4326 - that is to say, what you probably normally use for your map applications and off of your GPS receiver. Later I'll put up a full comparison between all the current KML geometry markup and its comparable markup in GML. </p>
+<p>Being a fan of simple markups myself (see <a href="http://georss.org/simple" title="GeoRSS Simple">GeoRSS Simple</a>), as a developer I also understand that having a single (and simple) markup makes implementation and maintenance easier. KML already had embedded tags for locations and used a GML 2 like markup - so switching to GML 3 is fairly straight-forward.</p>

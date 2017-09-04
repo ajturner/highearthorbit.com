@@ -1,0 +1,48 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Answer: SQLite in Applescript'
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 212
+wordpress_url: http://highearthorbit.com/212/
+date: '2005-05-16 10:58:24 -0400'
+date_gmt: '2005-05-16 15:58:24 -0400'
+categories:
+- Programming
+- Apple
+tags: []
+comments: []
+---
+<p><img src='http://highearthorbit.com/wp-images/applescriptdataevents4le.png' alt='Applescript SQL Diagram' align='right' hspace='10px' vspace='10px' />Thanks to responses on a <a href='http://bbs.applescript.net/viewtopic.php?id=12697'>post  thread</a> I made over at <a href='http://macscripter.net/'>MacScripter</a> I now have a lead on integrating SQLite db's into my applescripts. </p>
+<p>b.visser discovered:</p>
+<blockquote><p>
+There is a faceless app called 'Database Events'. You can find it by opening a new dictionary from the file menu.<br />
+</blockquote></p>
+<p>Special thanks to <a href='http://www.winforums.org/'>guardian34</a>, a little diagram and applescript example helps illustrate the point. </p>
+<pre>
+set theFolder to choose folder<br />
+tell application "Database Events"<br />
+   set theDB to make new database &Acirc;&not;<br />
+       with properties {name:"Test", location:theFolder}<br />
+   tell theDB<br />
+       set theRecord to make new record &Acirc;&not;<br />
+           with properties {name:"SomeRecord", id:1}<br />
+   end tell<br />
+   tell theRecord<br />
+       set field1 to make new field &Acirc;&not;<br />
+           with properties {name:"ID", value:1}<br />
+       set field2 to make new field &Acirc;&not;<br />
+           with properties {name:"Name", value:"foo"}<br />
+   end tell</p>
+<p>   return {(value of field1), (value of field2)}<br />
+end tell<br />
+</pre></p>
+<p>Unfortunately, I don't have a cool script/CSS design for prettifying Applescript code, so you'll have to deal with the monochromed type. </p>

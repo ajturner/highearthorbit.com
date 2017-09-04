@@ -1,0 +1,85 @@
+---
+layout: post
+status: publish
+published: true
+title: Adding SpeechRecognition to your OS X App
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 284
+wordpress_url: http://highearthorbit.com/adding-speechrecognition-to-your-os-x-app/
+date: '2005-09-29 16:46:50 -0400'
+date_gmt: '2005-09-29 21:46:50 -0400'
+categories:
+- Programming
+- Apple
+- Cocoa
+tags: []
+comments: []
+---
+<p><a href='http://www.apple.com/macosx/features/speech/'>Mac OS X</a> has long had (rumor has it in the dark days of pre-X) excellent speech recognition and speech output capability. There is no training involved, it just works. The OS supports it, many apps support it. It's great.</p>
+<p>To enable speech, go to the <em>Speech</em> preference pane (you know the drill, <Cmd>-<Space>, <em>Spe</em>, <Enter>) and give it a drive. Great commands like "What time is it?", "Tell me a joke", or "switch to finder". Ok, so those aren't great. People really just think you're weird for shouting at your computer.</p>
+<p>What I'm here to tell you to day, avid reader (yes singular, "Hi!") is that it is incredibly easy to add this capability to your own Cocoa applications.</p>
+<p><a href='http://developer.apple.com/documentation/Cocoa/Conceptual/Speech/Articles/RecognizeSpeech.html'>Apple's Developer Docs: Speech</a> presents that basics, but leaves out a couple of <em>important</em> points.</p>
+<p>1) Insert an <code>NSSpeechRecognizer</code> in your apps/class' interface definition (hint: it's the .h file)</p>
+<pre>
+<code><br />
+	NSSpeechRecognizer* recog;<br />
+</code><br />
+</pre></p>
+<p>2) Intialize the recognizer and specify the commands your app is looking for:</p>
+<pre>
+<code><br />
+- (id)init {<br />
+    self = [super init];<br />
+    if (self) {<br />
+        NSArray *cmds = [NSArray arrayWithObjects:@"Forward",<br />
+                @"Stop", @"Left", @"Right", @"Backwards", @"Roll over", nil];<br />
+        recog = [[NSSpeechRecognizer alloc] init]; // recog is an ivar<br />
+        [recog setCommands:cmds];<br />
+        [recog setDelegate:self];<br />
+    }<br />
+    return self;<br />
+}<br />
+</code><br />
+</pre></p>
+<p>In this example I used the great commands, "Forward", "Stop", and "Roll over". ;)</p>
+<p>3) Add the <code>speechRecognizer:</code> method which is what gets called by the system speech recognizer trying to figure out if your app knows what to do with the user's jabbering:</p>
+<pre>
+<code><br />
+- (void)speechRecognizer:(NSSpeechRecognizer *)sender<br />
+didRecognizeCommand:(id)aCmd {</p>
+<p>	if ([(NSString *)aCmd isEqualToString:@"Forward"]) {<br />
+		NSLog(@"Forward called");<br />
+		   return;<br />
+    }</p>
+<p>    else if ([(NSString *)aCmd isEqualToString:@"Stop"]) {<br />
+		NSLog(@"Stop called");<br />
+        return;<br />
+    }<br />
+    else if ([(NSString *)aCmd isEqualToString:@"Roll over"]) {<br />
+		NSLog(@"Rollover called");<br />
+        // .... some response here...<br />
+    }<br />
+}<br />
+</code><br />
+</pre></p>
+<p>4) Add startup and cleanup code:<br />
+<em>awakeFromNib:</em></p>
+<pre>
+<code><br />
+	[recog startListening];<br />
+</code><br />
+</pre></p>
+<p><em>awakeFromNib:</em></p>
+<pre>
+<code><br />
+	[recog dealloc];<br />
+</code><br />
+</pre></p>
+<p>Now run your app, open the "Speech Command Window" and your app should be in there. Start speaking and your commands will get called (NSLog is a good debugger for this).</p>

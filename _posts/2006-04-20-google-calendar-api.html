@@ -1,0 +1,73 @@
+---
+layout: post
+status: publish
+published: true
+title: Google Calendar API
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 398
+wordpress_url: http://highearthorbit.com/google-calendar-api/
+date: '2006-04-20 11:05:05 -0400'
+date_gmt: '2006-04-20 16:05:05 -0400'
+categories:
+- Technology
+- Programming
+- Web
+- Google
+- Google Calendar
+tags: []
+comments: []
+---
+<p>There is now a <a href='http://code.google.com/apis/gdata/calendar.html'>GoogleCalendar API</a>. They also <a href='http://highearthorbit.com/google-calendar-and-abusingnot-using-xml/'>cleaned up their XML</a>. This is very exciting, as to date I was having to parse a lot of the data by hand in the <em>summary</em> field. Of course, "API" is loosely used here, as really they're just publishing a <em>specification</em> of their feed format. </p>
+<p>For example the date is now its own tag:<br />
+<code><br />
+  <gd:when startTime='2006-04-17T15:00:00.000Z'<br />
+    endTime='2006-04-17T17:00:00.000Z'></gd:when><br />
+</code></p>
+<p>And the location is either as simple as a name:<br />
+<code><br />
+<gd:where valueString='The best pad'></gd:where><br />
+</code></p>
+<p>The format specifies possible advanced <a href='http://code.google.com/apis/gdata/common-elements.html#gdGeoPt'>location     encoding</a> via GeoPoints, postal address, primary and alternate locations.</p>
+<pre><gd:postalAddress><br />
+   22646 Woodward Ave.<br />
+  Ferndale, MI  48220<br />
+</gd:postalAddress><br />
+</pre> </p>
+<p>up to:</p>
+<pre><gd:where rel="http://schemas.google.com/g/2005#event"<br />
+      valueString="Woodward Ave Brewers"><br />
+  <gd:entryLink href="http://local.example.com/10018/JoesPub"><br />
+    <id>http://local.example.com/10018/WoodwardAveBrewers</id><br />
+    <category scheme="http://schemas.google.com/g/2005#kind"<br />
+        term="http://schemas.google.com/g/2005#contact"/><br />
+    <content>Good beer</content></p>
+<link href="http://www.woodwardavenuebrewers.com"/>
+    <gd:contactSection><br />
+      <gd:postalAddress> 22646 Woodward Ave., Ferndale,<br />
+              MI  48220</gd:postalAddress><br />
+      <gd:geoPt lat="40.75" lon="-74.0"/><br />
+      <gd:phoneNumber>(212) 555-1212</gd:phoneNumber></p>
+<p>      <gd:email address="info@woodwardavenuebrewers.com"/><br />
+    </gd:contactSection><br />
+  </gd:entryLink><br />
+</gd:where><br />
+</pre> </p>
+<p>This makes it much nicer for parsing. The <a href='http://code.google.com/apis/gdata/calendar.html'>API</a> even allows for adding new events to a calendar. </p>
+<p><b>Update:</b> you have to make sure and grab the <em>full</em> version of the Calendar feed and not the <em>basic</em><br />
+version. The Basic version contains the same old wonkiness. However, the full version is the new yummy XML-ified version. You select this by changing the last tag on the URI.</p>
+<p>Basic:</p>
+<pre>
+http://www.google.com/calendar/feeds/username@gmail.com/private-magicCookie/basic<br />
+</pre><br />
+vs.</p>
+<p>Full:</p>
+<pre>
+http://www.google.com/calendar/feeds/username@gmail.com/private-magicCookie/full<br />
+</pre></p>

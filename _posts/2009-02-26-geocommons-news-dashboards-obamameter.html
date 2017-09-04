@@ -1,0 +1,43 @@
+---
+layout: post
+status: publish
+published: true
+title: 'GeoCommons News Dashboards: Obamameter'
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 1191
+wordpress_url: http://highearthorbit.com/?p=1191
+date: '2009-02-26 14:31:37 -0500'
+date_gmt: '2009-02-26 18:31:37 -0500'
+categories:
+- GeoCommons
+- Government
+tags:
+- GeoCommons
+- Government
+- geojson
+comments:
+- id: 238328
+  author: Emmaline
+  author_email: fulkekyrstenmm30@gmail.com
+  author_url: ''
+  date: '2009-03-31 18:45:24 -0400'
+  date_gmt: '2009-03-31 22:45:24 -0400'
+  content: Good day! The babes are here! This is my best site to visit. I make sure
+    I am alone in case I get too hot. Post your favorite link here.
+---
+<p><a href="http://www.flickr.com/photos/22859702@N06/3311825216/"><img src="http://farm4.static.flickr.com/3661/3311825216_8814155907_m.jpg" height="176" width="240" alt="GeoCommons News" style="float:right; padding: 5px;" /></a>With GeoCommons, we want to make it incredibly easy to not only share geospatial data and build maps, but to actually <em>do</em> something with these maps. Visualizations have a context, and have many different facets at which to look at a datasets, or any number of combinations of data, characteristics, and displays.</p>
+<p>We've been experimenting with a number of different ways to do this, and all the time building it on top of our own API so that we know other will be able to create their own sites and visualizations just as easily. After all, why would we want to make our job harder or easier than we would expect of any user or developer?</p>
+<p>Our first iteration of this was just launched and focuses on investigating the economy, stimulus plans, and housing issues as the <a href="http://whitehouse.gov" title="WhiteHouse.gov">Obama Administration</a> works through it's first hundred days. The <a href="http://news.geocommons.com/obamameter" title="GeoCommons News: Obamameter">Obamameter</a> pulls from a collection of <a href="http://maker.geocommons.com" title="GeoCommons Maker!">GeoCommons Maker<em>!</em></a> maps around each of these topics and automatically builds the site.</p>
+<p>News moves fast - both emerging stories as well as evolving sagas. We wanted to make it fast and seamless to build an initial news dashboard for breaking events and for our team to add or modify maps as the news unfolds. That way viewers can easily stay up to date. Sean <a href="http://blog.fortiusone.com/2009/02/26/introducing-the-obamameter-a-dashboard-for-the-economy/" title="Introducing the ObamaMeter: A Dashboard for the Economy | Off the Map - Official Blog of FortiusOne">shares some more details</a> on the facets of the dashboard as well as the easy to use administrative interface.</p>
+<h3>Peeking at the wiring</h3></p>
+<p><a href="http://www.flickr.com/photos/22859702@N06/3310988987/"><img src="http://farm4.static.flickr.com/3417/3310988987_557a1b311f_m.jpg" height="153" width="240" alt="Cost of the Economic Stimulus" style="float:left;padding: 5px" /></a> What you (if you tend to read my blog) may find more interesting are some of the details on how our API is working to enable this kind of quick site generation (yes, you can use the word <em>mashup</em>). We're definitely not ready to fully push out our API - there is still a lot of tape, hot solder, and bits that we don't feel comfortable making other developers endure - and more importantly rewrite their code - until it's solid.</p>
+<p>As Sean showed in the admin interface, the site builder just identifies tags, and optionally a user, to pull maps from. This queries our <a href="http://www.opensearch.org/" title="Home - OpenSearch">OpenSearch</a> enabled search and asks for <a href="http://geojson.org/" title="GeoJSON -- JSON Geometry and Feature Description">GeoJSON</a> response. <a href="http://constantinetravels.wordpress.com/" title="Two Drifters&acirc;&euro;&brvbar;off to see the world." rel="coworker">Matt</a> then wrote some slick and unobtrusive JavaScript to dynamically build these into menus and include the controls for loading new maps. Our data team can continue to maintain their maps and data in GeoCommons and the Dashboard will dynamically update with this new information.</p>
+<p>All the underlying data and maps are freely available via <a href="http://finder.geocommons.com" title="GeoCommons Finder!">GeoCommons Finder<em>!</em></a> so please download your own copies and investigate the data. We hope this behavior is a model for how the government itself can benefit citizens through open, and easy, sharing of data.</p>
+<p>Overall, it's quite a simple solution to what is typically seen as a very complex, or opaque problem. We'll be documenting more soon on the various tools and how other can do the same for their own dashboards and sites.</p>

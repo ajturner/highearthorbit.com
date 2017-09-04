@@ -1,0 +1,34 @@
+---
+layout: post
+status: publish
+published: true
+title: Flickr as my photoblog - better TIFF support
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 184
+wordpress_url: http://highearthorbit.com/?p=184
+date: '2005-04-24 11:03:36 -0400'
+date_gmt: '2005-04-24 16:03:36 -0400'
+categories:
+- Photography
+tags: []
+comments:
+- id: 332514
+  author: Wood Shelf&nbsp;
+  author_email: peanutbutter8526@crunch.com
+  author_url: http://www.wood-shelf.org
+  date: '2010-10-20 07:43:37 -0400'
+  date_gmt: '2010-10-20 11:43:37 -0400'
+  content: i maintain at least 3 photoblogs coz i love taking pictures and sharing
+    it online;.~
+---
+<p>I'm in the process of learning the <a href='http://www.flickr.com/services/api/'>Flickr API</a> and writing a weblog/gallery page for displaying images in my Flickr gallery. This has a lot of benefits in terms of storage space, ease of sharing/uploading, provided thumbnails in small, and square formats, and building photosets.</p>
+<p>Overall Flickr is great, and I even opted now for the $25/year "pro" membership that gives me 2GB upload/month. This beats the current 250MB that I'm currently allowed <em>total</em> at my current hosting service. And the API allows for full interface to all of my photos, sets, data, etc. that is stored on Flickr.</p>
+<p>Also, there are some great tools for working with Flickr. By far the most useful to me is Spier's <a href='http://www.speirs.org/flickrexport/'>FlickrExport</a>, which is a direct export from iPhoto to Flickr. One can build photosets, add tags, resize, and convert from TIFF. However, the last issue is causing me problems.  Somewhere from my iPhoto library, through FlickrExport to Flickr, the EXIF data is being lost. Exporting JPG images to Flickr works fine, but I think FlickrExport drops it. Losing the EXIF data is definitely <b>not</b> an option. However, I currently archive all my images in TIFF to avoid artifacts showing up in editing/saving.</p>
+<p>So now I need to figure out if I have to save all my images in JPG format, and just be careful; check out FlickrExport code and see if I can modify how it converts from TIFF to JPG for upload, or use another, external uploader <a href='http://flickr.com/tools/'>tool</a>. </p>

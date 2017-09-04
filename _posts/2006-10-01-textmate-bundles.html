@@ -1,0 +1,32 @@
+---
+layout: post
+status: publish
+published: true
+title: TextMate Bundles
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 578
+wordpress_url: http://highearthorbit.com/textmate-bundles/
+date: '2006-10-01 15:33:14 -0400'
+date_gmt: '2006-10-01 20:33:14 -0400'
+categories:
+- Howto
+tags: []
+comments: []
+---
+<p>I'm learning the power that is <a href="http://macromates.com" title="Macromates Homepage">TextMate</a> (like Emacs, but prettier). TextMate really is setting itself up to be a rather decent OS for editing. From within TextMate I can <a href="http://macromates.com/blog/archives/2006/06/19/blogging-from-textmate/" title="Textmate Blog: Blogging from Textmate">blog</a>, keep a todo list, program in any number of languages, WYSIWYG webpage editing, and calendaring. Heck, mix TextMate and Quicksilver and who *needs* Finder. I picked up the new <a href="http://www.pragmaticprogrammer.com/titles/textmate/" title="TextMate: Power Editing for the Mac">Pragmatic Programmer's TextMate book</a> to learn more of the underpinnings and how to stop repeating myself with simple tasks.</p>
+<p>Like my thoughts on why plugins make, TextMate has excellent support via <a href="http://anon:anon@macromates.com/svn/Bundles/trunk/Bundles/" title="Textmate subversion repository: bundles">bundles</a> (over 124 of them). However, the only way to get to these is via subversion. This is nice because it keeps me up to date, but is a little annoying having to get the subversion command right and path all the time.</p>
+<p>So I wrote a small shell script to grab a bundle, <code>get_tmbundle</code>:</p>
+<pre>#!/bin/bash<br />
+svn --username anon --password anon co http://macromates.com\<br />
+/svn/Bundles/trunk/Bundles/$1.tmbundle ~/Library/Application Support/TextMate/Bundles/$1.tmbundle<br />
+</pre>I can then <code>$ get_bundle AppleScript</code> to get a new bundle installed. </p>
+<p>You <em>could</em> also use the <a href="http://validcode.net/stuff/textmate-getbundle-bundle" title="valid code.net">getBundle Bundle</a>, but that seems like cheating. Of course, <a href="http://validcode.net/stuff/textmate-getbundle-bundle">getBundle</a> also has an AutoUpdater and is baked into TextMate as a bundle itself (how deep does the Rabbit Hole go?)</p>
+<p><!-- technorati tags start -->
+<p style="text-align:right;font-size:10px;">Technorati Tags: <a href="http://www.technorati.com/tag/mac os x" rel="tag">mac os x</a>, <a href="http://www.technorati.com/tag/macosx" rel="tag">macosx</a>, <a href="http://www.technorati.com/tag/programming" rel="tag">programming</a>, <a href="http://www.technorati.com/tag/subversion" rel="tag">subversion</a>, <a href="http://www.technorati.com/tag/textediting" rel="tag">textediting</a>, <a href="http://www.technorati.com/tag/textmate" rel="tag">textmate</a></p><!-- technorati tags end --></p>

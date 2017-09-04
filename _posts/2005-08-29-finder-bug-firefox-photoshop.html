@@ -1,0 +1,43 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Finder Bug: Firefox -> Photoshop'
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 260
+wordpress_url: http://highearthorbit.com/finder-bug-firefox-photoshop/
+date: '2005-08-29 19:49:39 -0400'
+date_gmt: '2005-08-30 00:49:39 -0400'
+categories:
+- Programming
+- Apple
+tags: []
+comments: []
+---
+<p>In case you were wondering, and wanted to try, let me tell you upfront:</p>
+<p>You cannot drag an image from Firefox and drop it onto the Photoshop dock icon. It does bad things like:</p>
+<p><code><br />
+crashdump[3807]: Dock crashed<br />
+crashdump[3807]: crash report written to: /Library/Logs/CrashReporter/Dock.crash.log<br />
+</code></p>
+<p>and locks up Firefox. This will lose any work/emails/browsing you were currently performing in Firefox as well as resetting the Finder and the Dashboard.</p>
+<p>The Dock.crash.log shows the call stack as thus:<br />
+<code><br />
+0   com.apple.CoreFoundation 	0x90729484 __CFStringCreateImmutableFunnel3 + 716<br />
+1   com.apple.CoreFoundation 	0x90735340 CFStringCreateWithBytes + 48<br />
+2   com.apple.CoreFoundation 	0x907818cc CFURLCreateWithBytes + 44<br />
+3   com.apple.LaunchServices 	0x918bff2c LSHandlePasteboard_PBItemsApplier(CFPasteboardApplyFunctionData const*, void*) + 1136<br />
+4   com.apple.CoreFoundation 	0x907b363c CFPasteboardApplyFunction + 600<br />
+5   com.apple.LaunchServices 	0x918c1290 _LSHandlePasteboardItems + 232<br />
+6   com.apple.LaunchServices 	0x918b3584 _LSHandlePasteboardUsingApplication + 176<br />
+</code></p>
+<p>Which sounds like something bad on the Firefox handing out the data for the image to Photoshop. Now, why this makes Dock crash is fairly odd. It must crash trying to "funnel" (hence the name) from Firefox to Photoshop.</p>
+<p>However, <code>CFStringCreateImmutableFunnel3</code> shows up nowhere in the Apple Developer documentation or google in general which makes me also think this is one of them thar <em>undokum'antad funk-shuns</em>.</p>
+<p>Read more about it on <a href='https://bugreport.apple.com/cgi-bin/WebObjects/RadarWeb.woa/3/wo/R4Y5A4jkydCAjzkytEXnCM/8.27'>Apple Radar #4236860</a> </p>

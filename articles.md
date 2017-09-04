@@ -1,8 +1,8 @@
 ---
-layout: default
+layout: articles
 title: Articles
 permalink: /articles/
-banner: https://farm1.staticflickr.com/22/25813836_15469bf8a4_o_d.jpg
+banner: https://farm8.staticflickr.com/7348/11452221493_8523f98888_b_d.jpg
 ---
 
 <ul>

@@ -1,0 +1,57 @@
+---
+layout: post
+status: publish
+published: true
+title: Herecast - Wifi geolocator
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 200
+wordpress_url: http://highearthorbit.com/200/
+date: '2005-05-08 19:30:25 -0400'
+date_gmt: '2005-05-09 00:30:25 -0400'
+categories:
+- Geolocation
+tags: []
+comments:
+- id: 5517
+  author: Mark Paciga
+  author_email: mark@herecast.com
+  author_url: http://www.herecast.com
+  date: '2005-05-09 23:28:50 -0400'
+  date_gmt: '2005-05-10 04:28:50 -0400'
+  content: "I think you meant http://www.linuxjournal.com/article/7856\r\n\r\nI
+    have such a to-do list for that project, it's incredible. :)  There are a few
+    things I might be able to do to at least mitigate these issues, but it will take
+    a bit more development."
+- id: 5525
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2005-05-10 11:56:54 -0400'
+  date_gmt: '2005-05-10 16:56:54 -0400'
+  content: "Thanks fixed it. I mixed up the numbers with another LJ article of mine:
+    http://www.linuxjournal.com/article/8025.\r\n\r\nLooking forward
+    to some of the things that come out of the project. "
+- id: 32407
+  author: k kolodziej
+  author_email: kkolodziej@indoorlbs.com
+  author_url: http://indoorLBS.com
+  date: '2006-07-03 18:07:23 -0400'
+  date_gmt: '2006-07-03 23:07:23 -0400'
+  content: 'There are other similar systems like Intel''s PlaceLab, Navizon, and Skyhook.
+    These require a db of AP for proxmity or triangulation purposes.  Some systems
+    like Navizon, depend on volunteer-based "war-driving" where users contribute Wi-Fi
+    APs (coverage area and AP''s xy locations) collected automatically by the Navizon
+    software. '
+---
+<p><a href='http://www.herecast.com/'>HereCast</a> is "an open infrastructure for location-based services using Wifi". I.e. it allows users to determine their geographic location based on the wireless access points (AP) there computer can see. This is similar to what I proposed in my <a href='http://linuxjournal.com/article/7856/'>Linux Journal article on Geolocation</a>. </p>
+<p>However, this system does appear to require a user-built database of AP MAC addresses -> location. It is nice in that the system displays the canonical name for the location, rather than just a confusing latitude/longitude. However, such user-built systems require such a long-term investment of *potential users* before anyone can be an *actual user* they almost never work. The activation energy is too high to start the reaction.</p>
+<p>Now, it people started embedding location information *inside* the AP, then the system could spread independent of a central server. It still requires activation energy, but does not require a single-point of information entry/retrieval like many of these other systems do. </p>
+<p>If databases are still necessary, it would be better to develop a system where any number of "database servers" could gather information for a region (or just friends, a team, company, etc), and then publish this information via an RSS feed or some other mechanism that any user could then slowly gather and use as necessary. </p>
+<p>"Oh, I'm heading to New York, let me grab a link to the NY-AP-LD (New York Access Point Location Database) and I can track my progress & look up useful info!</p>

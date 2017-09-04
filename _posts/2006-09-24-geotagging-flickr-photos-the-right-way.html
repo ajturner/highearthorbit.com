@@ -1,0 +1,132 @@
+---
+layout: post
+status: publish
+published: true
+title: Geotagging Flickr photos - the right way
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 569
+wordpress_url: http://highearthorbit.com/geotagging-flickr-photos-the-right-way/
+date: '2006-09-24 14:21:56 -0400'
+date_gmt: '2006-09-24 19:21:56 -0400'
+categories:
+- Photography
+- Maps
+- GPS
+- Neogeography
+tags: []
+comments:
+- id: 49158
+  author: Kyle
+  author_email: luckyschop@gmail.com
+  author_url: ''
+  date: '2006-09-24 16:45:29 -0400'
+  date_gmt: '2006-09-24 21:45:29 -0400'
+  content: "for those of us who aren't going to carry around a GPS unit or look up
+    coordinates for each photo, try using Picasa 2.5 and Google Earth.  it is a similar
+    process to geotagging in flickr, but you use GE instead.  a great tutorial can
+    be found here: <a href=\"http://digitalgeography.co.uk/262\" title=\"Using
+    Picasa to geotag photographs\" rel=\"nofollow\">http://digitalgeography.co.uk/262</a>.\r\nenjoy"
+- id: 49172
+  author: will
+  author_email: will.j.davies@gmail.com
+  author_url: http://will-davies.com
+  date: '2006-09-25 02:07:07 -0400'
+  date_gmt: '2006-09-25 07:07:07 -0400'
+  content: "\r\nHave you seen the new Sony GPS-CS1 ?:  see link\r\n\r\nhttp://www.sonystyle.com/is-bin/INTERSHOP.enfinity/eCS/Store/en/-/USD/SY_DisplayProductInformation-Start?ProductSKU=GPSCS1\r\n\r\nOf
+    course its better to have a Camera with built in GPS but this is pretty cool.
+    \ \r\n\r\n\r\nhttp://www.trippermap.com provides a pretty good add-in
+    for Google earth that allows geotagging of flickr photos and also a nice world
+    map.\r\n\r\nhttp://will-davies.com/index.php?option=com_wrapper&amp;Itemid=105\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n"
+- id: 49191
+  author: Gregor J. Rothfuss
+  author_email: gregor@apache.org
+  author_url: http://greg.abstrakt.ch
+  date: '2006-09-25 12:29:29 -0400'
+  date_gmt: '2006-09-25 17:29:29 -0400'
+  content: i wonder who we should talk to to encourage flickr to not lock people in,
+    and add the lat/long information to all EXIF headers.
+- id: 49215
+  author: Jeremy Cherfas
+  author_email: jcherfas@mac.com
+  author_url: http://wp.jeremycherfas.net/
+  date: '2006-09-26 15:35:01 -0400'
+  date_gmt: '2006-09-26 20:35:01 -0400'
+  content: "I don't understand why you need iView and your scripts if you have used
+    GPSPhotoLinker, because GPOSPL writes the EXIF data to the file based on the track
+    you give it. In fact, iView destroys those data on sending out to Flickr Uploadr,
+    as I discovered after wasting a lot of time wondering what was going on. Worse,
+    Flickr Uploadr also destroys the EXIF GPS data, at least if you let it do any
+    resizing. At the moment I don't have the bandwidth to test without resizing. If
+    I upload direct to Flickr, with no resizing, then the EXIF GPS data are preserved.\r\n\r\nThere
+    has to be a better way!\r\n\r\nJeremy"
+- id: 49217
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2006-09-26 16:54:00 -0400'
+  date_gmt: '2006-09-26 21:54:00 -0400'
+  content: "GPSPhotoLinker is great if you have tracks - but I don't always have my
+    GPS on/around me. What I would like is if GPSPL allowed me to set & store
+    locations and then later assign those locations - or a simple interface to build
+    a \"fake\" track file (I type in where I was at what times, from calendar, memory,
+    tickets, etc) that is then used.\r\n\r\nHowever, I still need a Media management
+    tool, which is why I use iView. It lets me set all the other metadata too - so
+    it follows my philosophy of bringing geo-functionality into the tools I already
+    use, rather than making me use geo-specific tools. \r\n\r\nAs for it overwriting
+    the EXIF - while this is a common problem to be watched out for whenever editing
+    photos, in my experience my EXIF data gets through fine. \r\n\r\nI edit my photos,
+    then write all the meta data I want in iView, run the Applescript to set the Geo.
+    Then I use <a href=\"http://holocore.com/?PictureSync\" rel=\"nofollow\">PictureSync</a>
+    to resize and upload the photos. Flickr sees the Exif. Check out <a href=\"http://flickr.com/photo_exif.gne?id=251487106\"
+    rel=\"nofollow\">this photo</a> to see that it worked ok.\r\n\r\n\r\n "
+- id: 49230
+  author: Jeremy Cherfas
+  author_email: jcherfas@mac.com
+  author_url: http://wp.jeremycherfas.net/
+  date: '2006-09-26 23:33:47 -0400'
+  date_gmt: '2006-09-27 04:33:47 -0400'
+  content: "I too use iView to catalogue my images. I was wondering why you run the
+    script to put the Geodata into specific custom fields when it is there in the
+    EXIF. I suppose it is so you can display that information in iView. That is not
+    something I need to do, at least not at the moment.\r\n\r\nI will look into PictureSync.
+    Thanks for the link.\r\n\r\nJeremy"
+- id: 49245
+  author: Found in cyberspace at Another Blasted Weblog
+  author_email: ''
+  author_url: http://jeremycherfas.net/wp/Archive/2006/09/27/found-in-cyberspace/
+  date: '2006-09-27 14:58:45 -0400'
+  date_gmt: '2006-09-27 19:58:45 -0400'
+  content: "[...] I had also posted a comment at High Earth Orbit, which has lots
+    of good info about geotagging, in response to a post about how to geotag Flickr
+    photos &acirc;&euro;&oelig;the right way&acirc;&euro;\x9D. Andrew Turner, the
+    author, was kind enough to reply, pointing me to PictureSync, an uploader that
+    supports many image sharing web sites beyond Flickr. I downloaded 1.5, but that
+    kept giving me an error, so I tried the 1.6 beta and that worked like a charm.
+    I uploaded one test image (another Plumeria, of course), all the tags got through,
+    and it appeared on my map automagically. [...]"
+- id: 132153
+  author: http://musicdownloadsmp3.tripod.com/music_downloads.html
+  author_email: herni3424@yahoo.com
+  author_url: http://homepage.mac.com/fmp3musicdownloads/music-downloads-pc.htm
+  date: '2007-12-10 23:51:05 -0500'
+  date_gmt: '2007-12-11 03:51:05 -0500'
+  content: Yhanks you5201e7fe8b96f8871a1c2044f171815e
+---
+<p>When Flickr added built-in mapping of photos, many rejoiced. However, it can be tedious to go through hundreds/thousands of photos and dropping them on a map. The User Interface for the Flickr Maps is really great - however, with this many photos, it would just take forever. </p>
+<p>In addition, your photos are only geotagged in Flickr - and therefore not easily usable outside the service. The better way to geotag your photos is to actually write the Geo data to the EXIF of the photo. Then the metadata is carried around with the photo itself (until you pass it through some mean, metadata chomping machine like Photoshop). </p>
+<p>The way I geotag my photos is to first get the coordinates of photos:</p>
+<ol>
+<li>Carry around a GPS and store the tracks as GPX files - then you can mesh the GPS with the photos using <a href="http://wwmx.org/" title="WorldWide Media Exchange">WWMX</a> (Windows), <a href="http://oregonstate.edu/~earlyj/gpsphotolinker/" title="GPSPhotoLinker Homepage">GPSPhotoLinker</a> (Mac), or various scripts in Linux (fend for yourself, but <a href="http://lists.burri.to/pipermail/geowanking/2004-April/000797.html" title="Geowankers Mail Archive">check the geowankers mail archive</a>)</li>
+<li>Mark GPS Waypoints - or lookup addresses of locations and use MultiMap to get the latitude/longitude of these points</li>
+<li>Guess</li><br />
+</ol></p>
+<p>After I've either meshed up my coordinates, or have a list of locations, I fire up <a href="http://highearthorbit.com/set-latitude-longitude-in-iview-media-pro/" title="HighEarthOrbit: Set Latitude & Longitude of photos in iView Media Pro" rel="me">iView Media Pro</a>, or <a href="http://highearthorbit.com/289/" title="HighEarthOrbit: Writing iPhoto Exif Data" rel="me">iPhoto</a>, and use my Applescript scripts in addition to <a href="http://highearthorbit.com/exiftool-is-easy-to-use/" title="HighEarthOrbit: ExifTool is easy to use" rel="me">ExifTool</a> to actually write the GPS metadata. Because photo editing applications (like the aforementioned Photoshop) are usually very mean and don't restore geo-metadata on edit and save, I suggest you edit all your photos first, and apply the geo Exif as the <em>last step</em> before uploading. </p>
+<p><a href="http://highearthorbit.com/wp-content/uploads/2006/09/flickr_geoenable.png" target="_new" title="Flickr Enable Geo Exif"><img src="http://highearthorbit.com/wp-content/uploads/2006/09/flickr_geoenable.thumbnail.png" align="right" hspace="5px" vspace="5px"/></a>Now that you're going to upload your photos, you first need to make sure Flickr uses these geotags for actual mapping. <a href="http://www.flickr.com/account/geo/exif" title="Flickr Geo Exif Enable">Enable Flickr to read your Geo EXIF tags</a>. If you already have uploaded photos with geo-coordinates in the Exif data, Flickr will add these to the map (after a short wait - queueing and all). </p>
+<p>You can <a href="http://www.flickr.com/photos/ajturner/map/" title="Andrew Turner's Flickr Photo Map" rel="me">my Flickr Photo Map</a>, and you should go take some photographs! (especially for <a href="http://pentaxium.webvision.co.za/" title="Pentaxium homepage">Pentax Day</a>)</p>

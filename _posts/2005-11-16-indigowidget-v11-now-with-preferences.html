@@ -1,0 +1,54 @@
+---
+layout: post
+status: publish
+published: true
+title: IndigoWidget v1.1 - now with Preferences!
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 313
+wordpress_url: http://highearthorbit.com/indigowidget-v11-now-with-preferences/
+date: '2005-11-16 10:22:27 -0500'
+date_gmt: '2005-11-16 15:22:27 -0500'
+categories:
+- Technology
+- Programming
+- Apple
+- Home Automation
+- Javascript
+- Dashboard
+tags: []
+comments:
+- id: 7792
+  author: Steven Ulrich
+  author_email: wegwerf@unspoken.com
+  author_url: ''
+  date: '2006-03-26 10:57:13 -0500'
+  date_gmt: '2006-03-26 15:57:13 -0500'
+  content: "With the X10 light switches, the first command is sent to address the
+    device, then the second command is to set the brightness.\r\n\r\nWhen the \"on\"
+    is sent, the device is address only, the \"on\" is not executed even if the light
+    is off.  \r\n\r\nWhen \"off\" is sent the device is addressed and the command
+    is executed.  This causes the light to switch off, turn on and then dim to the
+    desired setting.\r\n\r\nIs there a way, in the Preferences, or some kind of cohesion
+    to you, to change the \"off\" to an \"on\" sent by the Widget?\r\n\r\nThanks,\r\n-Steve"
+---
+<p>Since remote access via the IndigoWidget was such a popular feature - and not everyone is a programmer, I have moved setting remote control via the IndigoWidget as a preference on the backside of the widget.</p>
+<p>You can download the new version from <a href='http://highearthorbit.com/software/indigowidget/'>the software page</a>. There is also an included Readme that discusses setting up your widget over to work over the internet back to your house or office.</p>
+<p>I hope you enjoy! </p>
+<p><img src='http://highearthorbit.com/wp-images/IndigoWidget_Backside.jpg' alt='IndigoWidget backside'/></p>
+<h2>troglogdyte speak</h2><br />
+For those interested, coding up preferences for a Dashboard widget are actually impressively straight-forward and easy. </p>
+<p>The only two lines of code that are <em>special</em> are the following which get and set the preference for the widget:</p>
+<pre><code><br />
+    var IndigoServerIP  = widget.preferenceForKey("serverIP");<br />
+    if(IndigoServerIP  != '')<br />
+        getObj("serverIP").value = IndigoServerIP;  </p>
+<p>    widget.setPreferenceForKey(getObj("serverIP").value, "serverIP");<br />
+</code></pre></p>
+<p>Assumedly these are stored by the name of the widget (e.g. com.highearthorbit.widget.Indigo).</p>

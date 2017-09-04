@@ -1,0 +1,80 @@
+---
+layout: post
+status: publish
+published: true
+title: Making your Rails project setup easier
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 479
+wordpress_url: http://highearthorbit.com/making-your-rails-project-setup-easier/
+date: '2006-07-27 09:39:23 -0400'
+date_gmt: '2006-07-27 14:39:23 -0400'
+categories:
+- Programming
+- Ruby
+- Rails
+tags: []
+comments:
+- id: 40057
+  author: Luke Redpath
+  author_email: contact@lukeredpath.co.uk
+  author_url: http://www.lukeredpath.co.uk
+  date: '2006-08-01 15:18:45 -0400'
+  date_gmt: '2006-08-01 20:18:45 -0400'
+  content: "Hi Andrew\r\n\r\nFYI, there has been a slight update to the packfile format,
+    and pack functionality has been rolled into the RaPT trunk . See my blog for more
+    details."
+- id: 40451
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2006-08-04 08:58:05 -0400'
+  date_gmt: '2006-08-04 13:58:05 -0400'
+  content: Excellent, I'll check out <a href='http://www.lukeredpath.co.uk/index.php/2006/07/28/rails-plugin-packs-coming-to-rapt/'
+    rel="nofollow">your post</a> and RaPT.
+---
+<p><a href='http://www.lukeredpath.co.uk' title='Luke Redpath blog'>Luke Redpath</a> has come up with a brilliant, and simple solution for having to install a large set of standard Rails plugins with each new Rails project.  <a href='http://www.lukeredpath.co.uk/index.php/2006/07/27/install-your-favorite-rails-plugins-easily-with-rails-plugin-packs/'>Rails Plugin Packs&acirc;&bdquo;&cent;</a> is a YAML file defined set of plugins that his Plugin will then go through and install.</p>
+<p>Therefore, you can build up your set of Location based plugins, such as:</p>
+<ul>
+<li><a href='http://thepochisuperstarmegashow.com/ProjectsDoc/ym4r_mapstraction-doc/'>YM4R Mapstraction</a> </li>
+<li><a href='http://rubyforge.org/projects/georuby/'>Georuby</a></li>
+<li><a href='http://dev.robotcoop.com/Libraries/'>Yahoo Geocoder and Search</a></li>
+<li><a href='http://dev.robotcoop.com/Libraries/metacarta-geoparser/'>Metacarta Geoparser</a></li><br />
+</ul></p>
+<h2>Plugin Packs</h2></p>
+<pre><code><br />
+about:<br />
+  name: Mapping Pack<br />
+  description: A set of mapping and geocoding plugins<br />
+  author: Andrew Turner<br />
+  email: rails@highearthorbit.com<br />
+  website: http://www.highearthorbit.com<br />
+plugins:<br />
+  ym4r_mapstraction:<br />
+    source: svn://rubyforge.org/var/svn/ym4r/Plugins/Mapstraction/trunk/ym4r_mapstraction<br />
+  GeoRuby:<br />
+    source:<br />
+  metacarta-geoparser:<br />
+    source: http://opensource.agileevolved.com/svn/root/rails_plugins/unobtrusive_javascript/tags/rel-0.1<br />
+  yahoo-geocode:<br />
+    source: http://opensource.agileevolved.com/svn/root/rails_plugins/navigation_mappings/trunk<br />
+</code></pre></p>
+<pre><code><br />
+about:<br />
+  name: User site<br />
+  description: Plugins for a standard site with users for authentication and basic cms<br />
+  author: Andrew Turner<br />
+  email: rails@highearthorbit.com<br />
+  website: http://www.highearthorbit.com<br />
+plugins:<br />
+  acts_as_authenticated:<br />
+    source: http://svn.techno-weenie.net/projects/plugins/acts_as_authenticated<br />
+  comatose:<br />
+    source: http://mattmccray.com/svn/rails/plugins<br />
+</code></pre></p>

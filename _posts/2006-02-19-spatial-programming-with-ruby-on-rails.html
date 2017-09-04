@@ -1,0 +1,190 @@
+---
+layout: post
+status: publish
+published: true
+title: Spatial programming with Ruby on Rails
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 368
+wordpress_url: http://highearthorbit.com/spatial-programming-with-ruby-on-rails/
+date: '2006-02-19 20:50:20 -0500'
+date_gmt: '2006-02-20 01:50:20 -0500'
+categories:
+- Programming
+- Geolocation
+- Ruby
+- Howto
+tags: []
+comments:
+- id: 7667
+  author: guilhem
+  author_email: guilhem.vellut@gmail.com
+  author_url: http://thepochisuperstarmegashow.com
+  date: '2006-02-22 05:58:57 -0500'
+  date_gmt: '2006-02-22 10:58:57 -0500'
+  content: I released a few weeks ago georuby, along with a PostGIS adapater for ActiveRecord
+    ( http://rubyforge.org/projects/georuby/ ). They transparently
+    provide to a Rails application some of the functionalities you are describing.
+    Basically, the geometric columns are treated the same way as other base data type
+    columns. There are still no automatically generated spatial query methods (like
+    "within_radius" or "find_by_... " with spatial operators instead of =) due to
+    lack of time on my part but it should not be very hard to add.
+- id: 7730
+  author: Barry
+  author_email: bsears@gix.ca
+  author_url: ''
+  date: '2006-03-16 00:29:34 -0500'
+  date_gmt: '2006-03-16 05:29:34 -0500'
+  content: "Checkout http://www.geocoder.ca/ if you're in Canada!\r\nJust
+    a hint, but I think someone wrote a Rails wrapper for the service that should
+    be out this month."
+- id: 7732
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2006-03-16 06:45:21 -0500'
+  date_gmt: '2006-03-16 11:45:21 -0500'
+  content: "Excellent - looking forward to it. What would be nice is to pull all the
+    Geocoders from various services/countries into a single plugin/library
+    and make the switching between services transparent to the calling code.\r\n\r\nBarry
+    - would you have any info on this \"hinted developer\"?"
+- id: 78233
+  author: Xin
+  author_email: crazygecko@gmail.com
+  author_url: http://1000milejourney.com
+  date: '2007-03-16 19:30:57 -0400'
+  date_gmt: '2007-03-16 23:30:57 -0400'
+  content: "Check out http://geokit.rubyforge.org/.\r\n\r\nIt provides
+    geocoding, location finders, and distance calculation in one cohesive package.\r\n\r\nIt
+    appears quite simple to use.\r\n\r\nI did try georuby and spatial adapter for
+    a good couple of days, but it is too much for what I need. All I need is points."
+- id: 78582
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2007-03-19 19:42:59 -0400'
+  date_gmt: '2007-03-19 23:42:59 -0400'
+  content: "@Xin - <a href=\"http://thepochisuperstarmegashow.com/ProjectsDoc/ym4r_mapstraction-doc/\"
+    rel=\"nofollow\">YM4R/Mapstraction</a> is a great mapping plugin for doing
+    points, lines, etc. and very easy to pick up too."
+- id: 79725
+  author: Roman Alberto
+  author_email: qazgf@yahoo.com
+  author_url: http://www.lutek.ro
+  date: '2007-04-01 22:05:42 -0400'
+  date_gmt: '2007-04-02 02:05:42 -0400'
+  content: nice site
+- id: 92055
+  author: LenZ
+  author_email: lenz@mysql.com
+  author_url: http://www.lenzg.org/
+  date: '2007-06-25 01:42:01 -0400'
+  date_gmt: '2007-06-25 05:42:01 -0400'
+  content: 'JFYI, MySQL has started to improve the GIS support and has added several
+    functions that are not using MBRs but precise operations instead, e.g. BUFFER,
+    DIFFERENCE, DISTANCE, INTERSECTION, UNION. For more info, see http://www.planetmysql.org/entries/7897 '
+- id: 116809
+  author: Spatial programming with Ruby on Rails at Freak Enterprises
+  author_email: ''
+  author_url: http://www.freakent.co.uk/archives/129
+  date: '2007-10-21 07:27:47 -0400'
+  date_gmt: '2007-10-21 11:27:47 -0400'
+  content: "[...] http://highearthorbit.com/spatial-programming-with-ruby-on-rails/
+    [...]"
+- id: 202472
+  author: Jacob Lyles
+  author_email: highearthorbit@lylesdesign.com
+  author_url: ''
+  date: '2008-09-17 08:05:59 -0400'
+  date_gmt: '2008-09-17 12:05:59 -0400'
+  content: If you have SSH access to your domain with Dreamhost, you can install your
+    own software for your account. I imagine that you can install PostgreSQL. The
+    only problem is that you have to do it manually i.e. from source (But I doubt
+    that&Acirc;&acute;s a problem for you)
+- id: 399211
+  author: victor hazbun
+  author_email: victor.hazbun@koombea.com
+  author_url: ''
+  date: '2011-09-01 17:14:09 -0400'
+  date_gmt: '2011-09-01 21:14:09 -0400'
+  content: Suggestion... you must use Engine Yard, I&Acirc;&acute;m working with Rails
+    3 and Postgres DB with Postgis.
+- id: 411756
+  author: Bowral
+  author_email: grantmoney@gmail.com
+  author_url: http://www.thesouthernhighlands.com.au/towns/bowral
+  date: '2011-10-26 06:52:46 -0400'
+  date_gmt: '2011-10-26 10:52:46 -0400'
+  content: For the last little while, I've been looking at ways to get Postgis and
+    RoR to be friends. I'm starting to feel that extending RoR could be the best option.
+    Looking at the Gems that are available, they all seem to forget simplicity somehow.
+---
+<p>Many of my projects employ a spatial aspect. I am fascinated by location, context, community, and of course, the technology that drives this all. I created my <a href="http://highearthorbit.com/projects/location">travelogue</a> a while ago, but it's rather dated, buggy, and not fun to maintain or update since it's all written in PHP as I was learning PHP.</p>
+<p>I've really gotten "rolling with rails" (pun intended). One of the factors that really excites many developers is an active community. This can be seen by observing the Mac community (hyperlink any number of weblogs, fan sites, howtos, books, et al. here), car clubs, kennel clubs, etc. Ruby and Rails are both pumping out huge numbers of plugins, add-ons, and howtos that further fuels the fire.</p>
+<p>However, there aren't currently any good spatial libraries or support within RoR. Specifically, I would like to store general geometry information (areas, points, lines) in a database, create the model in Rails, and then query the model with code like: <code>@user.get_within_radius(:users, 50)</code>.</p>
+<h2>Databases and GIS</h2><br />
+My biggest difficulty is that my shared host (<a href='http://dreamhost.com'>Dreamhost</a>) does not provide PostgreSQL databases, only MySQL. As anyone in the GIS field knows, PostGIS, an extension module for PostgreSQL is <em>the</em> requirement for proper spatial database storage and retrieval. Instead of storing locations as a pair of <code>float</code>s, true geometry in the form of <code>POINT</code>, <code>POLYGON</code>, <code>CURVE</code>, and others are used. </p>
+<p><a href='http://dev.mysql.com/doc/refman/5.0/en/spatial-extensions.html'>MySQL Spatial Extensions</a> are began to emerge in MySQL 4.1. However, as <a href='http://dev.mysql.com/tech-resources/articles/4.1/gis-with-mysql.html'>this article on GIS and Spatial Extensions with MySQL</a> points out, many of the core functions are missing (most notably <code>Distance()</code>). This is true even in the current MySQL 5.0. The result is having to do more complex queries to get distance information:</p>
+<pre>
+SELECT<br />
+  c.cab_driver,<br />
+  ROUND(GLength(LineStringFromWKB(LineString(AsBinary(c.cab_loc),<br />
+                                             AsBinary(a.address_loc)))))<br />
+    AS distance<br />
+FROM cab c, address a<br />
+WHERE a.address = 'Foobar street 110'<br />
+ORDER BY distance ASC LIMIT 1;<br />
+</pre></p>
+<p>In the meantime, there are several stop-gap solutions. <a href='http://glytch.org/blog/2006/01/locationrb.html'>Bryan Wood (glytch.com)</a> put together a Ruby library file that provides a small number spatial operation utilities, and is useful for operating on the "simple database scheme" of a <code>latitude, longitude</code> pair of <code>float</code> columns. The operations are performed by doing a simple SQL query where the latitude and longitude are within max/min bounds. This can't handle radius or spherical operations quickly, but is good for a rough estimate. </p>
+<p>For an actual spherical measurement, you can do the following in your ruby code (via <a href='http://www.geocodeamerica.com/home/proximity'>GeocodeAmerica</a>):</p>
+<blockquote>
+<pre>
+@places = Place.find_by_sql ["select p.* from places p where<br />
+     ((3963.0 * acos(sin(p.latitude/57.2958) *<br />
+       sin(?/57.2958) +  cos(p.latitude/57.2958) * cos(?/57.2958) *<br />
+        cos(?/57.2958 - p.longitude/57.2958))) < ?)",<br />
+        lat, lat, lon, distance]<br />
+</pre><br />
+</pre></blockquote></p>
+<h2>Extending Ruby on Rails</h2><br />
+A better solution would be to develop a model that provides a GIS interface to a PostGIS or other OGC-style database. This requires <a href='http://www.numenorean.net/blog/archives/2005/12/howto_get_ruby.html'>extending the Ruby on Rails model to arbitrary column data types</a>, and then providing the data types as getters/setters. </p>
+<p>Given the SQL create cod:</p>
+<blockquote>
+<pre>
+CREATE TABLE address (<br />
+  address CHAR(80) NOT NULL,<br />
+  address_loc POINT NOT NULL,<br />
+  PRIMARY KEY(address),<br />
+  SPATIAL KEY(address_loc)<br />
+);<br />
+</pre></blockquote></p>
+<blockquote>
+<pre>
+class Address < ActiveRecord::Base<br />
+        def address_loc=(textrepresentation)<br />
+           write_attribute(:address_loc,<br />
+           Address.find_by_sql(["SELECT GeomFromText(?)<br />
+as value", textrepresentation]).first.value)<br />
+        end</p>
+<p>        def address_loc<br />
+          Address.find_by_sql(["SELECT AsText(address_loc) as value<br />
+FROM addresses WHERE id = ?", id]).first.value<br />
+        end<br />
+end<br />
+</pre><br />
+</pre></blockquote></p>
+<h2>Geocoding</h2><br />
+<a href='http://en.wikipedia.org/wiki/Geocoding'>Geocoding</a> is the act of converting a location name (major name, street address, etc.) into latitude and longitude (or whatever your preferred numerical location representation may be). </p>
+<h3>Ruby Geocoding Resources</h3></p>
+<ul>
+<li><a href='http://amit.chakradeo.net/2005/11/04/yahoo-geocoding-in-ruby/'>Geocoding Ruby function with Yahoo!</a></li>
+<li><a href='http://habtm.com/articles/2005/06/13/geocoding-with-geocoder-us-and-ruby'>Geocoding with geocoder.us</a></li>
+<li><a href='http://rubyforge.org/projects/geocoder/'>Geocoder library at RubyForge</a></li>
+<li><a href='http://www.geocodeamerica.com/home/proximity'>GoogleMaps and Proximity</a></li><br />
+</ul></p>

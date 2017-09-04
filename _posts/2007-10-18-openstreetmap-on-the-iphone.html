@@ -1,0 +1,39 @@
+---
+layout: post
+status: publish
+published: true
+title: OpenStreetMap on the iPhone
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 968
+wordpress_url: http://highearthorbit.com/openstreetmap-on-the-iphone/
+date: '2007-10-18 21:07:50 -0400'
+date_gmt: '2007-10-19 01:07:50 -0400'
+categories:
+- Mobile
+- OpenStreetMap
+tags: []
+comments:
+- id: 116868
+  author: openstreetmap on your iphone &laquo; thinkwhere
+  author_email: ''
+  author_url: http://thinkwhere.wordpress.com/2007/10/21/openstreetmap-on-your-iphone/
+  date: '2007-10-21 14:58:44 -0400'
+  date_gmt: '2007-10-21 18:58:44 -0400'
+  content: "[...] openstreetmap on your&nbsp;iphone October 21, 2007 at 7:58 pm |
+    In Mapping, geo, openstreetmap | Tags: openstreetmap iphone maps We joked about
+    it at State of the Map (before the iphone was released) and now Mikel and Andrew
+    hacked the iphone to display openstreetmap tiles! Cool! Turns out, the phone helpfully
+    caches map tiles in a sqllite database on the phone. [...]"
+---
+<p><img src="http://farm3.static.flickr.com/2293/1622319811_95d7b58c94_m_d.jpg"  align="right" hspace="5px" vspace="5px" />Mikel was inspired to put free data on his iPhone - so he figured out how to<br />
+<a href="http://brainoff.com/weblog/2007/10/19/1271" title="Brain Off &raquo; OpenStreetMap on the iPhone!">use OpenStreetMap on his iPhone Maps Application</a>. </p>
+<p>We tried a number of methods - it should be as simple as changing the tile url that the Maps application queries. But initial "peeking" under the hood didn't reveal where <code>GMMServerURL</code> is set. In the meantime - Mikel ended up finding the tile cache sqlite database (you don't want to continually download tiles) and stuffing it with OSM tiles instead. So as far as the Maps application is concerned, its serving cached tiles. Pretty slick.</p>
+<p>As Mikel points out, there are some issues to resolve - tile sizes are different on the iPhone, so the zoom levels are off. That would be easy to verify by loading a KML file with markers. </p>
+<p>It's also a slightly sweet answer to Google's <a href="http://www.mgmaps.com/news.php?item=136">Cease &amp; Desist to MGMaps</a> for using the tiles. Mikel's "hack" shouldn't violate anything, he's just be very considerate to his data provider by pre-caching tiles that have amenable <abbr title="Terms of Service">TOS</abbr>. :)</p>

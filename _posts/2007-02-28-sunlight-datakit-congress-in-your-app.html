@@ -1,0 +1,85 @@
+---
+layout: post
+status: publish
+published: true
+title: Sunlight Datakit - Congress in your App
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 758
+wordpress_url: http://highearthorbit.com/sunlight-datakit-congress-in-your-app/
+date: '2007-02-28 12:09:24 -0500'
+date_gmt: '2007-02-28 16:09:24 -0500'
+categories:
+- Programming
+- Web
+- Ruby
+- Mashup
+tags: []
+comments:
+- id: 76480
+  author: Bob
+  author_email: bob@example.com
+  author_url: ''
+  date: '2007-02-28 13:48:19 -0500'
+  date_gmt: '2007-02-28 17:48:19 -0500'
+  content: "Just a quick comment -- the braces surrounding the parameters to the two
+    calls don't seem to be required, as they're automatically collected into a Hash
+    and passed as a single parameter, as in:\r\n\r\nresp = Sunlight.getDistrictFromZip5(:zip
+    => 20740)\r\n\r\nresp = Sunlight.getRepresentativeNameFromCityState(:city => &acirc;&euro;&tilde;Detroit&acirc;&euro;&tilde;,
+    :state => \"MI\")\r\n\r\nIs there a benefit to adding the braces that I'm missing?\r\n\r\nThanks
+    for the post!\r\n\r\nBob"
+---
+<p><a href="http://sunlightlabs.com" title="Sunlight Labs homepage">Sunlight Labs</a> has released a public API, their <a href="http://sunlightlabs.com/datakit/" title="Sunlight Labs Datakit">Sunlight Datakit</a>. It's a straight-forward, simple API for getting access to their Civic data, like Congressional Representatives, zipcodes, timezones, and some geographic information.</p>
+<blockquote><p>
+There is some basic information about elected representatives that makes politico mashups easier: the ability to tie a name to a state, the district and zip codes that they represent, their office telephone number, and so on. We have put together a simple labs "datakit" that does this for us, drawing from several publicaly available data sources. We are making this fully available and have provided a fully documented API for the methods we have developed for those sources. Find out about the datakit here.<br />
+</blockquote></p>
+<p>Of course, any API needs a nice little client to tie it into your applications. Here is my Ruby client. It's very simple, because is uses the fallback <code>method_missing</code> to handle any function passed to the class. This also allows the class to be extended by implementing specific methods if more processing of the response is needed.</p>
+<pre><span class="ident">require</span> <span class="punct">'</span><span class="string">open-uri</span><span class="punct">'</span><br />
+<span class="ident">require</span> <span class="punct">'</span><span class="string">rexml/document</span><span class="punct">'</span><br />
+<span class="ident">require</span> <span class="punct">'</span><span class="string">cgi</span><span class="punct">'</span><br />
+<span class="constant">SUNLIGHT_HOST</span> <span class="punct">=</span> <span class="punct">'</span><span class="string">http://sunlightlabs.com/datakit/</span><span class="punct">'</span></p>
+<p><span class="keyword">class </span><span class="class">Sunlight</span><br />
+  <span class="keyword">def </span><span class="method">self.method_missing</span><span class="punct">(</span><span class="ident">service_method</span><span class="punct">,</span> <span class="punct">*</span><span class="ident">args</span><span class="punct">)</span><br />
+    <span class="ident">params</span> <span class="punct">=</span> <span class="ident">args</span><span class="punct">[</span><span class="number">0</span><span class="punct">].</span><span class="ident">collect</span> <span class="punct">{|</span><span class="ident">k</span><span class="punct">,</span><span class="ident">v</span><span class="punct">|</span> <span class="constant">CGI</span><span class="punct">.</span><span class="ident">escape</span><span class="punct">(</span><span class="ident">k</span><span class="punct">.</span><span class="ident">to_s</span><span class="punct">)</span> <span class="punct">+</span> <span class="punct">'</span><span class="string">=</span><span class="punct">'</span> <span class="punct">+</span> <span class="constant">CGI</span><span class="punct">.</span><span class="ident">escape</span><span class="punct">(</span><span class="ident">v</span><span class="punct">.</span><span class="ident">to_s</span><span class="punct">)}.</span><span class="ident">join</span><span class="punct">('</span><span class="string">&amp;</span><span class="punct">')</span><br />
+    <span class="ident">url</span> <span class="punct">=</span> <span class="constant">SUNLIGHT_HOST</span> <span class="punct">+</span> <span class="ident">service_method</span><span class="punct">.</span><span class="ident">to_s</span> <span class="punct">+</span> <span class="punct">"</span><span class="string">?</span><span class="punct">"</span> <span class="punct">+</span> <span class="ident">params</span><br />
+    <span class="ident">open</span><span class="punct">(</span><span class="ident">url</span><span class="punct">).</span><span class="ident">read</span><span class="punct">.</span><span class="ident">split</span><span class="punct">("</span><span class="string">|</span><span class="punct">")</span><br />
+  <span class="keyword">end</span><br />
+<span class="keyword">end</span></p>
+<p><span class="ident">resp</span> <span class="punct">=</span> <span class="constant">Sunlight</span><span class="punct">.</span><span class="ident">getDistrictFromZip5</span><span class="punct">({</span><span class="symbol">:zip</span> <span class="punct">=></span> <span class="number">20740</span><span class="punct">})</span><br />
+<span class="ident">puts</span> <span class="ident">resp</span><span class="punct">.</span><span class="ident">inspect</span><br />
+  <span class="comment"># MD:5</span><br />
+  <span class="comment"># MD:4</span></p>
+<p><span class="ident">resp</span> <span class="punct">=</span> <span class="constant">Sunlight</span><span class="punct">.</span><span class="ident">getRepresentativeNameFromCityState</span><span class="punct">({</span><span class="symbol">:city</span> <span class="punct">=></span> <span class="punct">'</span><span class="string">Detroit</span><span class="punct">',</span> <span class="symbol">:state</span> <span class="punct">=></span> <span class="punct">"</span><span class="string">MI</span><span class="punct">"})</span><br />
+<span class="ident">puts</span> <span class="ident">resp</span><span class="punct">.</span><span class="ident">inspect</span><br />
+  <span class="comment"># Kilpatrick, Carolyn C.</span><br />
+  <span class="comment"># Conyers, John  Jr.</span><br />
+  <span class="comment"># Levin, Sander M.</span><br />
+  <span class="comment"># McCotter, Thaddeus G.</span><br />
+  <span class="comment"># Dingell, John D.</span></p>
+<p></pre></p>
+<p>The Sunlight Datakit currently offers the following functions. Check out the <a href="http://sunlightlabs.com/datakit/" title="Sunlight labs datakit">documentation</a> for information on the parameters and returned values. </p>
+<ul>
+<li>getDistrictFromZip5</li>
+<li>getStateFromZip5</li>
+<li>getDistrictFromZip9</li>
+<li>getStateFromZip9.php</li>
+<li>getRepresentativeNameFromDistrict</li>
+<li>getRepresentativePhoneNumberFromDistrict</li>
+<li>getRepresentativeRoomNumberFromDistrict</li>
+<li>getCityFromZip5</li>
+<li>getCityStateFromZip5</li>
+<li>getLatitudeFromCityState</li>
+<li>getLongitudeFromCityState</li>
+<li>getZipCodesFromCityState</li>
+<li>getTimezoneFromCityState</li>
+<li>getRepresentativeNameFromCityState</li>
+<li>getRepresentativeNameFromState</li>
+<li>getStateAbbreviationFromStateName</li>
+<li>getStateNameFromStateAbbreviation</li><br />
+</ul></p>

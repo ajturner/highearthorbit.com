@@ -1,0 +1,46 @@
+---
+layout: post
+status: publish
+published: true
+title: Yahoo! Maps severe, and odd, restriction
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 307
+wordpress_url: http://highearthorbit.com/yahoo-maps-severe-and-odd-restriction/
+date: '2005-11-03 07:56:39 -0500'
+date_gmt: '2005-11-03 12:56:39 -0500'
+categories:
+- Programming
+- Geolocation
+- Maps
+- Web
+tags: []
+comments: []
+---
+<p><img src='http://highearthorbit.com/wp-images/ma_mapsbeta_1.gif' alt='Yahoo! Maps Beta Logo' align='right'/>Yahoo! Maps is following on the tails of MSN and GoogleMaps in releasing a public, REST, API for its maps and <em>North American</em> (US only?) Geocoding. <a href='http://developer.yahoo.net/maps/index.html'>Yahoo! Maps API</a> provides either an image or a Flash map (I don't like Flash - too much... flash?). However, the API actually lets programmers use the functions <b>in</b> their own flash apps, which should allow developers to provide slick interfaces without having to learn that icky Javascript/XHTML/XmlHttpRequest stuff. Well, I guess icky is a subjective term.</p>
+<h3>Features</h3></p>
+<ul>
+<li><a href='http://developer.yahoo.net/maps/flash/index.html'>Flash APIs for embedding Flash maps in your own pages (or Flash<br />
+applications)</a></li></p>
+<li><a href='http://developer.yahoo.net/maps/ajax/index.html'>An Ajax JavaScript API</a></li>
+<li><a href='http://developer.yahoo.net/maps/rest/V1/geocode.html'>A REST Geocoding API for addresses in North America</a></li>
+<li><a href='http://developer.yahoo.net/maps/rest/V1/mapImage.html'>A Map Image API for direct(ish) access to the underlying tile server</a></li><br />
+</ul></p>
+<h3>Sensor-Based Location Limit</h3><br />
+As great as having YAMA (Yet Another Mapping API) is, Yahoo! has placed a severe restriction on the application of the API. </p>
+<blockquote><p>
+You may use location data derived from GPS or other location sensing devices in connection with the Yahoo! Maps APIs, provided that such location data is not based on real-time (i.e., less than 6 hours) GPS or any other real-time location sensing device, the GPS or location sensing device that derives the location data cannot automatically (i.e. without human intervention) provide the end user's location, and any such location data must be uploaded by an end-user (and not you) to the Yahoo! Maps APIs.<br />
+</blockquote></p>
+<p>Does this prevent someone from just telling an application where they are and displaying it? Yahoo! is only restricting *how* the information was gathered. It doesn't seem possible that Yahoo! (or NavTeq) can really restrict *how* the data was gathered, all they are seeing is lat/lon requests. What happens if I used a sextant to get the real-time position data?</p>
+<p>GoogleMaps has its own <a href='http://www.google.com/apis/maps/terms.html'>restrictions</a>, but the only similar one is :</p>
+<blockquote><p>
+"In addition, the Service may not be used: (a) for or with real time route guidance (including without limitation, turn-by-turn route guidance and other routing that is enabled through the use of a sensor), or (b) for, or in connection with, any systems or functions for automatic or autonomous control of vehicle behavior."<br />
+</blockquote></p>
+<p>Granted, this may actually be an effect of using NavTeq's data. Which also begs the question, with all these mapping API's, they are still all displaying the <b>same maps</b> provided by a <b>single source</b>. This seems bad. </p>
+<p>When will <a href='http://www.openstreetmap.org'>OpenStreetMap</a> have its own dynamic mapping and API. </p>

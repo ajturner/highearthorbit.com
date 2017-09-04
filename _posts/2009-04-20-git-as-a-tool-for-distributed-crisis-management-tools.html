@@ -1,0 +1,35 @@
+---
+layout: post
+status: publish
+published: true
+title: Git as a tool for distributed crisis management tools
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 1231
+wordpress_url: http://highearthorbit.com/git-as-a-tool-for-distributed-crisis-management-tools/
+date: '2009-04-20 09:31:07 -0400'
+date_gmt: '2009-04-20 13:31:07 -0400'
+categories:
+- Programming
+- Open-Source
+tags: []
+comments: []
+---
+<p>Through my help with <a href="http://votereport.in" title="Vote Report India">VoteReport.in</a> I have been diving much more into supporting and deploying the <a href="http://www.ushahidi.com/" title="Ushahidi :: Crowdsourcing Crisis Information (FOSS)">Ushahidi</a> platform as part the front-end for user contributed reports. Ushahidi itself started out as a quick mashup a year ago and since then has blossomed into a much fuller platform that is being utilized in dozens of initiatives and projects.</p>
+<p>Each of these projects evolves the platform, adding new customization capabilities, more input types, browser support, and more. These modifications may be happening in rapid succession without the main Ushahidi development team even being aware of these changes. And the system may even be running in a remote area with little connectivity.</p>
+<p>Traditionally, this has meant that a deployment would download a copy of the current release version, or maybe a development snapshot if there was some emminent new feature that was very useful, and then go off, make modifications - probably on a live server, and maybe email these changes back way after the event in hopes that some of the changes are accepted back into the platform. Updates to the main code base wouldn't be easily applied to these heavily modified derivatives - so essentially every deploy is a fork of the code.</p>
+<h3>How Git can save the day</h3></p>
+<p><img src="http://highearthorbit.com/wp-content/uploads/2009/04/ushahidi-git1.png" width="421" height="375" alt="Ushahidi Git.png" style="float:right; padding-top:5px; padding-bottom:5px; padding-left:5px;" />Fortunately, Ushahidi chose Git as the code repository server, although the installation instructions still suggest that you <a href="http://wiki.ushahididev.com/doku.php?id=update_your_ushahidi_instance" title="update_your_ushahidi_instance [Ushahidi]">download the code</a>. Git is meant to support just this kind of distributed workflow and collaboration.</p>
+<p>If you're not familiar with Git, I highly recommend checking out <a href="http://peepcode.com/products/git-internals-pdf" title="Git Internals PDF | PeepCode Screencasts for Web Developers and Alpha Geeks">Git Internals</a>. But to summarize, it is a versioning control system that is fast, efficient, has local indexes (stored in a local .git directory) and can reference any number of remote indexes to share commits, branches, and files. Where in traditional systems there is an 'official' host repository - in Git all repositories are equal and can quickly connect and syncronize.</p>
+<p>What this means in a system like Usahidi is that any deployment would first just get a local <em>clone</em> of the official Ushahidi repository to their local system and setup and get running. If they make changes to this code they can just do a commit into their local index. In order to share this code with other developers on this same deployment they could just provide them with the Git link to this repository, or make a branch and add a deployment specific "remote" index that multiple developers could all push into.</p>
+<p>Along the way as new code is released in the Ushahidi repository, these deployments could merge in these changes to their local branches without losing their local modifications. And conversely, local modifications could be merged and pushed back into the Ushahidi master index very easily.</p>
+<h3>Moving sideways</h3></p>
+<p>Now lets think about some <em>really</em> powerful uses of the Git architecture. Since the entire index is stored locally in a .git folder - it is easy to put an Ushahidi deploy on a USB stick or archived folder, send it around, make modifications in the field and continue to commit these changes to a local repository even while <em>offline</em>. Then when connectivity is restored, or the USB stick can be brought back to a networked computer, the modifications that had been made, and tracked, could be pushed back to a deployment or Ushahidi instance.</p>
+<p>And with arbitrary remote indexes - individual deployments could share code and modifications between themselves without having to go through an Ushahidi instance. Local networks around an incident, culture, language, or feature set could easily collaborate and iterate the code. Imagine if in Gaza, the Al Jazeera instance could have shared code to other local organizations running similar systems.</p>
+<p>I think there are even more potential applications of Git to distributed architectures that would be useful for document and database sharing that occur in fast paced situations. However, Git itself will have to work on some of the usability and interface design issues that make it a difficult tool for novice users.</p>

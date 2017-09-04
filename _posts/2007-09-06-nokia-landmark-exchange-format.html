@@ -1,0 +1,34 @@
+---
+layout: post
+status: publish
+published: true
+title: Nokia Landmark Exchange Format
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 941
+wordpress_url: http://highearthorbit.com/nokia-landmark-exchange-format/
+date: '2007-09-06 09:24:36 -0400'
+date_gmt: '2007-09-06 13:24:36 -0400'
+categories:
+- Standards
+tags: []
+comments: []
+---
+<p><a href="http://www.rajsingh.org/" title="Raj Singh's Home Page" rel="met">Raj Singh</a> pointed out this document from Nokia on their <a href="http://www.forum.nokia.com/info/sw.nokia.com/id/9001c8de-c19e-41a0-87d3-5be4297e4d4c/S60_Platform_Landmarks_Exchange_Specification_v1_0_en.pdf.html" title="Resource information: S60 Platform: Landmarks Exchange Format Specification">Landmark Exchange Format Specification</a>. It's an XML definition for sharing locations between mobile users - originally spec'd September 2005. </p>
+<p>This is a really great idea. The doc contains some nice layout of use-cases for mobile users sharing and loading landmarks. I should be able to easily send someone a location, especially <em>my location</em>, our meeting spot, a great hike, or whatever. However, it's not clear why Nokia defined their own specification. Or at least, why would they continue to push their own specification. </p>
+<p>One of the purposes is interoperability - as stated in the specification:</p>
+<blockquote><p>
+Landmark messaging should work across different manufacturers&acirc;&euro;&trade; devices. This specification is open and license-free and allows incorporating the functionality to different software platforms and interoperable Java MIDP landmark messaging applications for the devices of other manufacturers.<br />
+</blockquote></p>
+<p>While the specification is "open and license-free" it is still controlled by Nokia. Look at the MIME-type: <code>application/vnd.nokia.landmarkcollection+xml</code>. What that means is that while you are free to <em>use</em> the spec, you probably won't have any say in the format if you need some functionality or find a problem.</p>
+<p>Now compare to a location-documentation format like KML. Now, to be fair, KML wasn't as ubiquitous in 2005 (or the year Nokia was probably working on their spec), and the MIME-type of KML is still <code>application/vnd.google-earth.kml+xml</code>. However, KML is now undergoing external standards adoption, and will be outside the specific control of a single entity, Google. </p>
+<h3>More than just ownership</h3><br />
+While allowing community input into a format is nice, there are more reasons to use a more widely used format like KML - namely that it's <em>more widely used</em> and therefore there are a lot of clients and services that can make use of the format. More players means more fun.</p>
+<p><a href="http://research.nokia.com/research/projects/SportsTracker/index.html" title="Sports Tracker | Nokia Research Center">Nokia's Sports Tracker</a> app does export KML, as well as GPX. This makes it very nice to email, share, and upload your hikes or workouts. Perhaps this is a trial for them. However you can't load KML into Sports Tracker to follow someone else's track. </p>
+<p>Here's to hoping that Nokia supports KML and even GeoRSS for subscribing to a source of location information (such as a stream of sensor data or friends' locations). </p>

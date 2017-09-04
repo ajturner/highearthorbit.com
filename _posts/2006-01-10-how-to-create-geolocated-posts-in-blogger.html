@@ -1,0 +1,319 @@
+---
+layout: post
+status: publish
+published: true
+title: How to create geolocated posts in Blogger
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 346
+wordpress_url: http://highearthorbit.com/how-to-create-geolocated-posts-in-blogger/
+date: '2006-01-10 08:38:48 -0500'
+date_gmt: '2006-01-10 13:38:48 -0500'
+categories:
+- Geolocation
+- Web
+- Javascript
+- Environment
+tags: []
+comments:
+- id: 7425
+  author: Tantek
+  author_email: blog@tantek.com
+  author_url: http://tantek.com/
+  date: '2006-01-10 11:33:18 -0500'
+  date_gmt: '2006-01-10 16:33:18 -0500'
+  content: "Great post!\r\n\r\nOne minor correction.  The \"geo\" microformat for
+    marking up latitude and longitude information has been drafted based on subsetting
+    the extremely popular vCard and thus hCard standard, take a look:\r\n\r\n http://microformats.org/wiki/geo\r\n\r\nBut
+    it looks like your use of \"geo_...\" is actually for named locations with a name,
+    lat long, address, and a note that you can already do today with hCard:\r\n\r\n
+    http://microformats.org/wiki/hcard\r\n\r\nE.g. instead of:\r\n\r\n<div
+    class=\"location\" lat=\"64.30\" long=\"-110.17\">\r\n  <div class=\"summary\">Sustainable
+    Diamaonds</div>\r\n  <div class=\"detail\">\r\n  Diavik diamond mines are
+    sustainable Mines \r\n   located in the Northwest Territories. \r\n  </div>\r\n
+    \ <div class=\"link\">homepage</div>\r\n  <div class=\"geo_name\">Diavik diamond
+    mine</div>\r\n  <div class=\"geo_city\">Lac de Gras</div>\r\n  <div class=\"geo_region\">Northwest
+    Territories</div>\r\n  <div class=\"geo_country\">Canada</div>\r\n</div>\r\n\r\nYou
+    want:\r\n\r\n<div class=\"vcard\">\r\n  <div clas=\"geo\"><span class=\"latitude\">64.30</span><span
+    class=\"longitude\">-110.17</span></div>\r\n  <div class=\"summary\">Sustainable
+    Diamaonds</div>\r\n  <div class=\"note\">\r\n  Diavik diamond mines are sustainable
+    Mines \r\n   located in the Northwest Territories. \r\n  </div>\r\n  <a class=\"url\"
+    href=\"homepageurl\">homepage</a>\r\n  <div class=\"fn org\">Diavik diamond
+    mine</div>\r\n  <div class=\"adr\">\r\n  <div class=\"locality\">Lac de Gras</div>\r\n
+    \ <div class=\"region\">Northwest Territories</div>\r\n  <div class=\"country-name\">Canada</div>\r\n
+    \ </div>\r\n</div>\r\n \r\n  \r\n\r\nBy using hCard, any user will be
+    able to add these locations to their address book.\r\n\r\nGive it a try!\r\n\r\nThanks,\r\n\r\nTantek"
+- id: 7429
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2006-01-10 14:41:06 -0500'
+  date_gmt: '2006-01-10 19:41:06 -0500'
+  content: "I will compress the comments a single marked-up one if you don't mind.
+    I had a heck of a time getting it formatted in the blog body myself. \r\n\r\nThanks
+    for pointing out the microformat page. I think I tossed that in my del.icio.us
+    links awhile ago and never pulled it back out. \r\n\r\nNow that I figured all
+    this out on blogger I'm actually reimplementing it on my own server so I can do
+    a lot more for the project. Blogger is *so* limiting, but obviously meant for
+    the casual blogger.\r\n\r\nI'll still update the current GreenerMaps page and
+    use the geo format in the new project."
+- id: 7432
+  author: Ross Belmont
+  author_email: ross@rossbelmont.com
+  author_url: http://rossbelmont.com
+  date: '2006-01-11 14:11:32 -0500'
+  date_gmt: '2006-01-11 19:11:32 -0500'
+  content: On a related note, if you run your feed through FeedBurner you can use
+    its "Geotag Your Feed" feature to generate the geo:lat and geo:long tags.
+- id: 7434
+  author: Harlan
+  author_email: greenboard@tampabay.rr.com
+  author_url: http://greenermagazine.blogspot.com
+  date: '2006-01-12 21:10:43 -0500'
+  date_gmt: '2006-01-13 02:10:43 -0500'
+  content: "Andrew,  As publisher of Greener Mag, I wanted to express, on behalf of
+    the team, our sincere appreciation and \"thunderstuckedness\" at your ability
+    to clabber together what, as far as we know, is the first real  Blogger use of
+    GoogleEarth maps - look out CNN...it woiks.\r\n\r\nWe who are about to publish
+    salute you.Your mates at Greener Mag"
+- id: 91068
+  author: iuxwxtyibb
+  author_email: vabtr@bucoqyg.com
+  author_url: http://iuxwxtyibb.com
+  date: '2007-06-20 20:54:22 -0400'
+  date_gmt: '2007-06-21 00:54:22 -0400'
+  content: Hello! Good Site! Thanks you! lhufsofpxugaxg
+- id: 212968
+  author: abhay
+  author_email: abhay.physics@gmail.com
+  author_url: http://2hitchhikers.blogspot.com
+  date: '2008-11-21 13:55:03 -0500'
+  date_gmt: '2008-11-21 17:55:03 -0500'
+  content: "very nice idea...\r\ni am in linux and can't see half of your page, lots
+    of blanck paras... any prob with my comp?"
+- id: 334583
+  author: sales bike
+  author_email: incom@gmail.com
+  author_url: http://www.tipsaletips.com/bike-sales/how-bike-suppliers-make-use-of-factor-about-great-deals-programs-for-you-to-healthier-command-his-outlets.html
+  date: '2010-10-30 16:38:58 -0400'
+  date_gmt: '2010-10-30 20:38:58 -0400'
+  content: Thanks. Very nice post. Your web site is very beautiful.
+---
+<p><a href='http://highearthorbit.com/wp-images/Greenermaps2.JPG' alt='GreenerMaps screenshot' target="_blank"><img src='http://highearthorbit.com/wp-images/thumb-Greenermaps2.JPG' alt='GreenerMaps screenshot' align="right" hspace="10px"/></a>I'm helping out on a project, <a href='http://greenerearth.blogspot.com/'>GreenerEarth</a>, which is a location companion site to the <a href='http://greenermagazine.blogspot.com/'>GreenerMagazine</a> set of environmental weblogs. </p>
+<p>For various reasons, they're using <a href='http://blogger.com'>Blogger</a> to currently run their weblogs since it's free, easy to setup, and easy to use for non-technical people. </p>
+<p>The goal of <a href='http://greenerearth.blogspot.com/'>GreenerEarth</a> was to create a companion weblog that provided maps and locations to the various articles that will appear on GreenerEarth. The difficulty resides in the severe restrictions using an hosted blogging tool places on creating a dynamically generated maps. I wanted to allow the writers to easiliy create new posts, put in locations, and then just 'post'. The actual page would handle parsing the post for the location data and then creating the resulting map.</p>
+<p>The only access you have in Blogger (at least) is the main template page, and post templates. Therefore, the solution calls for a marked-up post with lots of tags, and heavy Javascripting of the DOM to dynamically create an array of locations and put these on a GoogleMap.</p>
+<p>The result is the ability for any blog author to write a post using the template and the resulting post to have a map with the multiple (or single) locations and article body. As the user clicks on locations in the map, the detailed description shows itself and a bubble shows the summary and link to the site's homepage. </p>
+<h2>The nitty-gritty</h2><br />
+The post template looks like this:</p>
+<pre><code></p>
+<div class="location" lat="" long="">
+<div class="summary"></div></p>
+<div class="detail">
+<p>  </div></p>
+<div class="link"><a href="http://"></a></div></p>
+<div class="geo_name"></div></p>
+<div class="geo_city"></div></p>
+<div class="geo_region"></div></p>
+<div class="geo_country"></div><br />
+  </div></p>
+<div id="article"> </div><br />
+</code></pre></p>
+<p>The fields should be pretty self-explanatory. The <a href='http://georss.org'>GeoRSS</a> microformat is still being standardized, and hasn't yet been defined for marking up XHTML content. So I made an ad-hoc solution. A filled out post would then look like so:</p>
+<pre><code></p>
+<div class="location" lat="64.30" long="-110.17">
+<div class="summary">Sustainable Diamaonds</div></p>
+<div class="detail">
+  Diavik diamond mines are sustainable Mines<br />
+   located in the Northwest Territories.<br />
+  </div></p>
+<div class="link"><a href="http://http://www.diavik.ca/">homepage</a></div></p>
+<div class="geo_name">Diavik diamond mine</div></p>
+<div class="geo_city">Lac de Gras</div></p>
+<div class="geo_region">Northwest Territories</div></p>
+<div class="geo_country">Canada</div><br />
+  </div></p>
+<div id="article">
+  Some Interesting information<br />
+  about Diamond mines</div><br />
+</code></pre></p>
+<p>If you have multiple locations, copy the template before the
+<div id="article"> and paste it below the previous location (or in the desired order). You can add as many locations as you want. Each location will show up as locations with connecting lines on the map. </p>
+<p>Somewhere in your template you should add the following to actually <em>place</em> your map. You can vary the size as desired here. </p>
+<pre><code></p>
+<div id="map" style="width: 450px; height: 450px"></div><br />
+</code></pre></p>
+<h3>the nitty-gritty</h3></p>
+<p>To grab the code below in a simple form, download <a href="http://highearthorbit.com/projects/map/GreenerMaps_code.txt">the source code here</a>.</p>
+<p>The following Javascript goes at the bottom of the Blogger template. What it does is search through the DOM (the post) and pulls out all of the <em>location</em> elements and then creates an array of the latitude and longitude values of the location. The <em>summary</em> and link are placed within the GoogleMaps popup window and then the rest of the actual location information shows or hides itself in the right-hand sidebar. </p>
+<pre><code><br />
+<script type="text/javascript"><br />
+//<br />
+// Returns an array of elements with the given class<br />
+//<br />
+function getElementsByClass(elem, classname) {<br />
+    var classes = new Array();<br />
+    var alltags = document.getElementsByTagName(elem);<br />
+    var pattern = new RegExp("(^|\s)"+classname+"(\s|$)");<br />
+    for (i=0; i<alltags .length; i++)<br />
+    {<br />
+       if (pattern.test(alltags[i].className))<br />
+            classes[classes.length] = alltags[i];<br />
+    }<br />
+    return classes;<br />
+}<br />
+function createMarker(point, index, html, element) {<br />
+  // Create a lettered icon for this point using our icon class from above<br />
+  var letter = String.fromCharCode("A".charCodeAt(0) + index);<br />
+  var icon = new GIcon(baseIcon);<br />
+  icon.image = "http://www.google.com/mapfiles/marker" + letter + ".png";<br />
+  var marker = new GMarker(point, icon);</p>
+<p>  // Show this marker's index in the info window when it is clicked<br />
+  GEvent.addListener(marker, "click", function() {<br />
+	hideLocations();<br />
+    marker.openInfoWindowHtml(html);<br />
+    element.className = "location";<br />
+  });</p>
+<p>  return marker;<br />
+}</p>
+<p>function hideLocations()<br />
+{<br />
+    var mapLocation = getElementsByClass("div","location");</p>
+<p>    for(var i = 0; i < mapLocation.length; i++)<br />
+    {<br />
+        mapLocation[i].className =  "location hidden";<br />
+    }<br />
+}</p>
+<p>function placeArticle()<br />
+{<br />
+  var article = document.getElementById("article");<br />
+  var postbody = document.getElementById("post-body");<br />
+  if(postbody != null)<br />
+      postbody.appendChild(article);</p>
+<p>}<br />
+if(GBrowserIsCompatible())<br />
+{<br />
+     placeArticle();<br />
+       // Create a base icon for all of our markers that specifies the shadow, icon<br />
+       // dimensions, etc.<br />
+       var baseIcon = new GIcon();<br />
+       baseIcon.shadow = "http://www.google.com/mapfiles/shadow50.png";<br />
+       baseIcon.iconSize = new GSize(20, 34);<br />
+       baseIcon.shadowSize = new GSize(37, 34);<br />
+       baseIcon.iconAnchor = new GPoint(9, 34);<br />
+       baseIcon.infoWindowAnchor = new GPoint(9, 2);<br />
+       baseIcon.infoShadowAnchor = new GPoint(18, 25);</p>
+<p>       var map = new GMap(document.getElementById("map"));<br />
+       map.addControl(new GLargeMapControl());<br />
+       map.addControl(new GMapTypeControl());<br />
+       map.centerAndZoom(new GPoint(0,0), 4);<br />
+       var mapLocation = getElementsByClass("div","location");<br />
+       var locationPoints = [];<br />
+       for(var i = 0; i < mapLocation.length; i++)<br />
+       {<br />
+            var locDiv = mapLocation[i].childNodes;<br />
+            mapLocation[i].className = "location hidden";</p>
+<p>            var loc_lat = mapLocation[i].getAttribute("lat");<br />
+            var loc_lon = mapLocation[i].getAttribute("long");<br />
+            for(var j = 0; j < locDiv.length; j++)<br />
+            {<br />
+                if((locDiv[j] != null))<br />
+                {<br />
+		            var locClass = locDiv[j].className;<br />
+                    if(locClass  == "geo_name")<br />
+                    {<br />
+                        var loc_name = locDiv[j];<br />
+                    }<br />
+                    if(locClass == "geo_city")</p>
+<p>                       var loc_city = locDiv[j];<br />
+                    if(locClass == "geo_region")<br />
+                       var loc_region = locDiv[j];<br />
+                    if(locClass == "geo_country")<br />
+                       var loc_country = locDiv[j];</p>
+<p>                    if(locClass == "summary")<br />
+                    {<br />
+                       var loc_summary = locDiv[j];<br />
+                    }<br />
+                    if(locClass == "link")<br />
+                       var loc_link = locDiv[j];<br />
+                }<br />
+                if((locDiv[j].nodeName == "BR") || (locDiv[j].nodeName == "br"))<br />
+                    locDiv[j].style.display = "none";<br />
+            }<br />
+            locationPoints.push(new GPoint(parseFloat(loc_lon),parseFloat(loc_lat)));</p>
+<p>            var html = "
+<div class='mapMarker'>
+              See source code (code doesn't display well in blog)<br />
+            </alltags></script></code></pre></div>";</p>
+<p>            var marker = createMarker(locationPoints[locationPoints.length-1], i, html, mapLocation[i]);</p>
+<p>            map.addOverlay(marker);</p>
+<p>       }<br />
+       map.addOverlay(new GPolyline(locationPoints));<br />
+       map.centerAndZoom(locationPoints[0], 4);</p>
+<p>}</p>
+<p>Finally, the appropriate CSS markup also needs to be placed in the template. Modify it as you want to make it match the rest of your blog. </p>
+<pre><code><br />
+#map {<br />
+    float: left;<br />
+    text-color: black;<br />
+    font-size: 12px;<br />
+    }<br />
+#map .mapMarker{<br />
+  color: black;<br />
+  width: 250px;<br />
+}</p>
+<p>#map .mapMarkerMore {<br />
+  text-align:right;<br />
+}<br />
+.location {<br />
+    font-size: 12px;<br />
+    border: 1px solid white;<br />
+    background-color: gray;<br />
+    padding-left: 5px;<br />
+    }<br />
+.location .summary {<br />
+    color: white;<br />
+    font-size: 16px;<br />
+    border-bottom: 1px solid white;<br />
+    background-color: #9ad;<br />
+    margin-left: -5px;<br />
+    padding-left: 5px;<br />
+    display:block;<br />
+    }<br />
+.location .detail {<br />
+	display: inline;<br />
+    }<br />
+.geo_name {<br />
+    font-size: 11px;<br />
+    border-bottom: 1px;<br />
+    }</p>
+<p>.geo_city, .geo_region, .geo_country {<br />
+    display: inline;<br />
+    margin-top: 4px;<br />
+    padding-right: 3px;<br />
+    font-size: 9px;<br />
+    border-top: 1px solid white;<br />
+    text-align: right;<br />
+    }</p>
+<p>.greenNav {<br />
+	display: inline;<br />
+	list-style-type: none;<br />
+	padding-right: 5px;<br />
+	margin: 0px;<br />
+    }<br />
+.greenNav li {<br />
+	display: inline;<br />
+	list-style-type: none;<br />
+	border-right: 1px solid gray;<br />
+	padding-right: 5px;<br />
+    }<br />
+.hidden {<br />
+    display: none;<br />
+     }<br />
+</code></pre></p>

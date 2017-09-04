@@ -1,0 +1,65 @@
+---
+layout: post
+status: publish
+published: true
+title: 'Urban Mapping Neighborhood API opens up '
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 991
+wordpress_url: http://highearthorbit.com/urban-mapping-api-opens-up/
+date: '2008-01-09 14:02:39 -0500'
+date_gmt: '2008-01-09 18:02:39 -0500'
+categories:
+- Project
+- Neogeography
+tags: []
+comments:
+- id: 138932
+  author: Sean Gillies
+  author_email: sgillies@frii.com
+  author_url: http://zcologia.com/sgillies
+  date: '2008-01-09 15:43:21 -0500'
+  date_gmt: '2008-01-09 19:43:21 -0500'
+  content: I would have expected something more technically progressive from geo-wankers
+    ;) What were the various reasons for using SOAP?
+- id: 139158
+  author: Darrin Clement
+  author_email: dclement@maponics.com
+  author_url: http://www.maponics.com/Neighborhood_Maps/Neighborhood_Boundaries/neighborhood_boundaries.html
+  date: '2008-01-10 13:39:52 -0500'
+  date_gmt: '2008-01-10 17:39:52 -0500'
+  content: Excellent that Urban Mapping is opening up their APIs, but please note
+    that the data used by Ask.com is owned by Maponics, not UMI.  And Maponics licenses
+    the full geomatry of neighborhood boundaries.
+- id: 139181
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2008-01-10 16:16:25 -0500'
+  date_gmt: '2008-01-10 20:16:25 -0500'
+  content: "Sorry about the incorrect info. Thanks for pointing that out Darrin.\r\n\r\nI
+    believe UMI also licenses out full geometries - it just didn't release them as
+    part of their free API."
+- id: 233804
+  author: Darrin
+  author_email: darrin@maponics.com
+  author_url: http://www.maponics.com/Neighborhood_Data/neighborhood_data.html
+  date: '2009-03-16 14:58:28 -0400'
+  date_gmt: '2009-03-16 18:58:28 -0400'
+  content: Hi again - I just noticed that you mention that UMI powers google maps
+    - but if you zoom in on googlemaps, you'll see neighborhoods and you'll also see
+    Maponics' copyright appear.
+---
+<p>Need to add hyperlocalization to your mashup/site/app? Users searching for "Pizza in Dogpatch" and your geocoder just falls over? Well, Urban Mapping pulled a some what surprising, and incredibly great move today and <a href="http://ws.urbanmapping.com/neighborhoods/doc" title="UMI Urbanware API - Neighborhoods">announced they are opening up the API to their neighborhood database</a>.  </p>
+<p>If you haven't heard before, Urban Mapping provides the data to most of the major mapping users on defining areas like "Little Italy", or "Soho". This includes Google, MapQuest, and others. By opening their API, third-party developers can now build this type of capability into their own applications. It's something we'll definitely be adding to <a href="http://mapufacture.com/" title="Mapufacture - helping build the geospatial web">Mapufacture</a> very soon.</p>
+<p><a href='http://highearthorbit.com/wp-content/uploads/2008/01/urban-mapping-api-demo.jpg' title='Urban Mapping API Demo'><img src='http://highearthorbit.com/wp-content/uploads/2008/01/urban-mapping-api-demo.jpg' alt='Urban Mapping API Demo' /></a></p>
+<p>There are numerous other geocoders out there, not least of which is the excellent and open <a href="http://www.geonames.org/" title="GeoNames">GeoNames</a>. However, an API for looking up ambiguous, and changing local definitions of a neighborhood has been missing. UMI fills that by providing multiple mechanisms for finding and defining 'hoods. For example, you can <a href="http://ws.urbanmapping.com/neighborhoods/service/getNeighborhoodsByLatLng" title="Urban Mapping API Demo">look up the neighborhoods at a location</a>, <a href="http://ws.urbanmapping.com/neighborhoods/service/getNeighborhoodsByLatLng" title="Urban Mapping API Demo">by name</a>, or even get <a href="http://ws.urbanmapping.com/neighborhoods/service/getNeighborhoodsByLatLng" title="Urban Mapping API Demo">the exonyms of a neighborhood</a>, depending on the language. There are a number of other methods and demos available. Check out the very good<br />
+<a href="http://ws.urbanmapping.com/neighborhoods/doc" title="UMI Urbanware API - Neighborhoods">documentation</a> that links to each of the demos and even includes code snippets in Ruby and PHP for how to call the API. </p>
+<p>As  <a href="http://radar.oreilly.com/archives/2008/01/urban-mapping-free-neighborhood-api.html" title="Urban Mapping Gives Us Free Neighborhoods">Brady points out on O'Reilly Radar</a>, the API is using SOAP, and not REST. The API was developed just as REST was "becoming all the rage", but had various reasons for being SOAP based. Still, the code examples show how easy it is to use a SOAP library to create a simple wrapper around the API. [via <a href="http://suda.co.uk/" title="suda.co.uk">Brian Suda</a>]</p>
+<p>Of course, I'm perhaps a little biased on the Urban Mapping demos and documentation - considering I helped developed them. Urban Mapping is a great company to work with and I'm really looking forward to their continued expansion of their data products and APIs.</p>

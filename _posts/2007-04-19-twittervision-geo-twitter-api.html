@@ -1,0 +1,42 @@
+---
+layout: post
+status: publish
+published: true
+title: TwitterVision (geo-twitter) API
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 821
+wordpress_url: http://highearthorbit.com/twittervision-geo-twitter-api/
+date: '2007-04-19 12:12:55 -0400'
+date_gmt: '2007-04-19 16:12:55 -0400'
+categories:
+- Programming
+- Neogeography
+tags: []
+comments:
+- id: 254874
+  author: Twitter Search
+  author_email: thankseq55@yahoo.com
+  author_url: http://www.twiogle.com
+  date: '2009-05-26 21:24:25 -0400'
+  date_gmt: '2009-05-27 01:24:25 -0400'
+  content: thats great that you are talking about the twitter api,a good example of
+    searching with the twitter api is on twiogle.com because you can search on twitter
+    and google at the same time.
+---
+<p>I haven't gotten a chance to play with it much yet, as I'm still on travel, but Dave Troy released a simple, effective API to his <a href="http://twittervision.com">TwitterVision</a> work with geolocating twits. </p>
+<p>The <a href="http://api.twittervision.com/api.html" title="TwitterVision API">TwitterVision API</a> looks like it was built on Rails, which means it is probably a very slick/simple addition for him to expose the data in XML, YAML, and JSON.</p>
+<p>No sign of GeoRSS explicitly yet, so you can't subscribe to just a feed of your friends' locations, but that would again be something simple to add (and he does hint there is more coming), or for someone else to build on using his API. </p>
+<p>One issue that still remains is if forcing a user to specify the "l:" prefix to a location is a usable/effective mechansism. Typing a colon (:) on a mobile phone isn't the easiest thing to do, but at the same time using other characters such as a tilde (~) are often stripped out or munged by SMS gateways.</p>
+<p>A more natural language parsing option would be interesting, but processing is intense with potentially very unclear results ('Sitting at the bar', 'Leaving home to go into town') and also privacy or desire of the user to sometimes not share their location.</p>
+<p>Using simple symbols, like parenths: Caffeine good (Sweetwaters Cafe)<br />
+would be a good option, since the location may not actually be part of my message, but I do want to share it.</p>
+<p>As for parsing, something like <a href="http://thinkwhere.wordpress.com/2006/11/26/flickr-geocodr-a-k-means-cluster-enabled-geocoder/">Geocodr</a> would provide a very robust geocoding system where the system could parse both odd areas (Soma), buildings/areas (Empire State Building), or even events (Web2.0 Expo).</p>
+<p>So the main points are to allow opt-in based on my desire to share location (or destination), simple to enter on a mobile/laptop/brain implant, and optional location specification outside of the actual primary message content. And the issue applies outside of just Twitter, which really just serves as a good context. How would this be done in voice command for directions or location?</p>
+<p>But again, needs to be simple and understandable. Don't you like simple problems? </p>

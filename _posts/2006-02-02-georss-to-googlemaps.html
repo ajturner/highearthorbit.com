@@ -1,0 +1,37 @@
+---
+layout: post
+status: publish
+published: true
+title: GeoRSS to GoogleMaps
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 359
+wordpress_url: http://highearthorbit.com/georss-to-googlemaps/
+date: '2006-02-02 08:00:03 -0500'
+date_gmt: '2006-02-02 13:00:03 -0500'
+categories:
+- Technology
+- Programming
+- Maps
+- Web
+- Open-Source
+- Javascript
+tags: []
+comments: []
+---
+<p>Mikel Maron wrote up a small Javascript class to parse a <a href='http://georss.org'>GeoRSS</a> marked XML file and display the points with GoogleMaps. You can see <a href='http://brainoff.com/gmaps/mgeorss.html'>MGeoRSS</a> here. It currently just handles the W3C format for RSS (example of usage for <a href='http://earthquake.usgs.gov/recenteqsww/catalogs/eqs7day-M5.xml'>earthquakes).</p>
+<pre>
+<geo :lat>-21.1765</geo><geo :long>169.5617</geo><br />
+</pre></p>
+<p>In response to his posting to the GeoRSS mailing list, I added a<br />
+</a><a href='http://highearthorbit.com/projects/map/mgeorss.html'>GeoRSS Simple parsing</a> class. </p>
+<pre>
+<georss :point>45.256 -71.92</georss><br />
+</pre></p>
+<p>Still need to add the full <a href='http://georss.org/gml.html'>GML</a> spec which calls out boxes, polygons, lines, etc. In addition, the ability to automatically detect and parse the correct format (Atom, RSS 0.92, RSS 1.0, RSS 2.0; GML, Simple, W3C) would be really nice. </p>

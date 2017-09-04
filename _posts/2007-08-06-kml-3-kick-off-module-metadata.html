@@ -1,0 +1,119 @@
+---
+layout: post
+status: publish
+published: true
+title: 'KML 3 Kick-off, Module: Metadata'
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 908
+wordpress_url: http://highearthorbit.com/kml-3-kick-off-module-metadata/
+date: '2007-08-06 10:15:31 -0400'
+date_gmt: '2007-08-06 14:15:31 -0400'
+categories:
+- KML
+tags: []
+comments:
+- id: 99560
+  author: Sean Gillies
+  author_email: sgillies@frii.com
+  author_url: http://zcologia.com/sgillies
+  date: '2007-08-06 10:47:35 -0400'
+  date_gmt: '2007-08-06 14:47:35 -0400'
+  content: Don't confuse feature attributes, which are data, with metadata.
+- id: 100306
+  author: Jeremy Cothran
+  author_email: jeremy.cothran@gmail.com
+  author_url: http://nautilus.baruch.sc.edu/twiki_dmcc/bin/view/Main/ObsKML
+  date: '2007-08-10 10:51:04 -0400'
+  date_gmt: '2007-08-10 14:51:04 -0400'
+  content: "Thanks for the article and attention to metadata in regards to KML.  ObsKML
+    is what I developed and used as an xml staging format for my own work and support
+    as a possible simple metadata schema for community adoption.  KML's earlier version
+    Metadata tag was more oriented towards simple attribute style (no hierarchical
+    nesting of elements) and while that might be sufficient for some applications,
+    the basics which I needed to support my work was the ability to associate a list/collection
+    of observations with an associated KML Placemark/TimeStamp.   I'm not a member
+    or participant in OGC specifications processes, but do hope that OGC is able to
+    incorporate simpler document-centric approaches and recommendations for popular
+    data/metadata formats in addition to the earlier/ongoing service-centric,
+    query based approaches.\r\n\r\n"
+- id: 204252
+  author: 'GeoCommons Maker! launches :: High Earth Orbit'
+  author_email: ''
+  author_url: http://highearthorbit.com/geocommons-maker-launches/
+  date: '2008-10-01 07:46:15 -0400'
+  date_gmt: '2008-10-01 11:46:15 -0400'
+  content: "[...] the future, it would be quite nice to have better handling of rules
+    or cascading styling that also linked to attributes in [...]"
+---
+<p>Continuing my <a href="http://highearthorbit.com/ogc-agile-geography-kick-off-discussion-of-kml-3/" title="HighEarthOrbit" rel="me">series on the OGC KML 3 kick-off</a>, lets talk a little bit about Metadata. </p>
+<p>To date, metadata in KML has been somewhat confusing, ill-defined, and just kind of "wishy-washy". This is the effect of several causes. First, KML is 'lightweight' and has been used by many mappers that haven't had an interest in adding richer information to their pretty maps - yet. This is changing, as the concept of mapping, geography, and information is becoming easier to do and the concept more clear, more users are looking for how to include extra information about their geodata.</p>
+<p>Another problem is the term <em>Metadata</em>, which has different meanings in different spheres. In GIS, Metadata are the supporting information that describe the data set: when it was created, who did the collecting, how complete is it, what are the license terms, keywords, coverage, and so on. The <a href="http://www.fgdc.gov/metadata/index_html/?searchterm=metadata" title="FDGC.gov metadata">Federal Geographic Data Committee (FGDC) gives definition</a>. For an example, check out the <a href="http://gis.brgov.com/metadata/Files/Lots.htm" title="Lots, 2004, East Baton Rouge Parish, Louisiana">Baton Rouge GIS Metadata for Lots, 2004, East Baton Rouge Parish, Louisiana</a>. </p>
+<p>By contrast, programmers and general users have learned to refer to Metadata that is more generically "data about data". This typically means just extra information that goes <em>with</em> the data, instead of primarily <em>about</em> the data. Examples include categories, tags, number of lanes for road, building type, and so on. GIS practitioners refer to these as <em>attributes</em> instead of metadata.</p>
+<p>Anyways, the result has been that people often just become confused when talking with one another because of a different vocabulary. In the end, everyone just wants to be able to describe their data and add more information to it than just the strict geometry. See what the <a href="http://dublincore.org/" title="Dublin Core Metadata Initiative">Dublin Core Metadata Initiative</a> has done for HTML and RSS. </p>
+<h3>What's the current situation?</h3><br />
+Many developers have started pushing the envelope of what is possible in KML, and more directly, what Google Earth supports natively. Mano Marks at the Google Developer Knowledge Database <a href="http://code.google.com/support/bin/answer.py?answer=65628" title="Google Developer Knowledge Base: Adding Metadata to your KML files">provided a good document on how to possibly use XML in the Metadata tag</a>.</p>
+<p><a href="http://blog.fortiusone.com/2007/04/23/chiming-in-on-kml-metadata/" title="Moving Past Pushpins: Chming in on KML Metadata">Chris at FortiusOne</a> has been blogging a lot about the how it is currently possible to use Metadata in KML 2.1 for thematic mapping. <a href="http://www.jasonbirch.com/nodes/2007/06/29/101/i-heart-kml-schema/" title="Random Nodes: I Heart KML Schema!">Jason Birch</a> has found some really intriguing uses of the Schema tags that Google Earth actually uses for styling balloons. </p>
+<p>Getting back to KML 3 and the OGC Technical Committee, one thing that seems difficult about the current KML Schema and Metadata support is that it allows (requires) users to define and use their own tags, or elements. Using Jason Birch's example, he's defined a schema for newts:</p>
+<pre>
+<Newt><br />
+   <name>Sammy G</name></p>
+<styleUrl>http://www.jasonbirch.com/files/kml_schema_style.kml#newt_style</styleUrl><br />
+   <Point><br />
+     <coordinates>1.75,1.75,0</coordinates><br />
+   </Point><br />
+   <newt_id>36</newt_id><br />
+   <newt_breed>Common Orange Slitherer</newt_breed><br />
+   <newt_slime_factor>7.2</newt_slime_factor><br />
+   <newt_tail_length>6</newt_tail_length><br />
+ </Newt><br />
+</pre></p>
+<p>This is really powerful, but what this now requires is that any KML client or library that wishes to support metadata now has to delve into some fairly complex XML creation and parsing. The <code><newt/></code> was created on the fly in the schema definition, which the client will have to parse and then use to parse the rest of the document to extract any information at all. A client couldn't simply say "I don't understand Metadata" and still successfully get the geometry out of the KML document. </p>
+<p>This is especially important using the concept of <a href="http://highearthorbit.com/kml-3-kick-off-module-core/" title="HighEarthOrbit: KML core module">modules</a> that allow KML implementations to only include pertinent areas of functionality. If a mobile phone client want to display markers, but isn't going to use Metadata it shouldn't be required to implement the complex Schema parsing just to get at the markers.</p>
+<h3>Don't remove my schema tags!</h3><br />
+I personally have heard this a couple of times, and fear not, we're not talking about doing away with Metadata or 'schema tags'. Instead, we're considering just simplifying how they're used. Primarily, we want to support lightweight addition of additional data without requiring you to use that data to understand the underlying geometry.</p>
+<p>To illustrate, check out the <a href="http://www.ogcnetwork.net/node/286" title="OGC Network: KML Metadata">example document at the OGC Network</a>. Returning to Jason's example, we're going to define the Schema (to provide for more 'strictness' to make XML-heads happy)</p>
+<pre>
+<Schema name="newt_data"><br />
+    <SimpleField type="int" name="newt_id"></SimpleField><br />
+    <SimpleField type="string" name="newt_breed"></SimpleField><br />
+    <SimpleField type="decimal" name="newt_slime_factor"></SimpleField><br />
+    <SimpleField type="decimal" name="newt_tail_length"></SimpleField><br />
+</Schema><br />
+</pre></p>
+<p>And then our actual placemark can use these attributes:</p>
+<pre>
+<Placemark class="newt" id="sammyg_newt"><br />
+  <name>Sammy G</name><br />
+  <gml:Point><br />
+    <gml:pos>1.75 1.75 0</gml:pos><br />
+  </gml:Point></p>
+<link type="application/html" href="http://mynewtfarm.com/list#sammyg_newt"/>
+  <Metadata class="newt_data"></p>
+<property name="newt_id">36</property></p>
+<property name="newt_breed">Common Orange Slitherer</property></p>
+<property name="newt_slime_factor">7.2</property></p>
+<property name="newt_tail_length">6</property><br />
+  </Metadata><br />
+</Placemark><br />
+</pre></p>
+<p>What this now allows is for someone to easily add metadata, or attributes, without requiring a client to use it to just show a marker where 'Sammy' currently is located. In addition, the metadata could be more complex than just a simple string or numeric value if required. </p>
+<h3>But I want my real Metadata</h3><br />
+While KML is a lightweight geospatial interchange format, it shouldn't restrict users from referencing more formal data formats as necessary. In fact, it would be straight-forward to publish a simple KML file referencing all of your more complex geodata and then let users choose which data they want to investigate.</p>
+<p>Using the <code><atom:link></code>, we can easily reference a <em>related</em> document that includes a full GML Metadata description.</p>
+<pre>
+<Placemark id="newt_10"><br />
+  <atom:link rel="related" type="application/xml+gml" href="http://mygisserver.com/lizards/newt/10"/><br />
+  <Point>
+<pos>43 82</pos></Point><br />
+</Placemark><br />
+</pre></p>
+<p>(Note: <code>application/xml+gml</code> isn't a valid MIME type that I'm aware of, I'm just using it as an example of how you can indicate to an application what is at the endpoint)</p>
+<p>This way, a developer can include lightweight attributes, or Metadata, but also reference richer Metadata as necessary.</p>
+<p>We still have to look at how this affects styling - we want to allow for templating marker descriptions (BalloonStyle) and also possibly apply styling based on values of the Metadata. If you have some suggestions - we'd love to hear them.</p>

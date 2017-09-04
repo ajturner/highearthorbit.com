@@ -1,0 +1,89 @@
+---
+layout: post
+status: publish
+published: true
+title: One-handed keyboard on the cheap
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+excerpt: "Taken from <a href=\"http://technocrat.net/article.pl?sid=04/08/11/0322211\">Technocrat.net</a>\r\n\r\nOne-handed
+  keyboards sell for $99 to $350, but here's one that can be had for $25 at a well-known
+  net merchant, and a little more at the CompUSA. Of course, it's intended for gamers,
+  but can easily be made into a one-handed chording keyboard to nurture your inner
+  cyborg, if you just design an appropriate keying pattern and learn it, and write
+  a little software. This is just crying out for an Open Source project. You can help
+  handicapped people, perhaps even influence a new generation of low-budget cyborgs!"
+wordpress_id: 19
+wordpress_url: http://highearthorbit.com/?p=19
+date: '2004-08-17 19:34:07 -0400'
+date_gmt: '2004-08-17 23:34:07 -0400'
+categories:
+- General
+tags: []
+comments: []
+---
+<p>The Belkin Nostromo n52 Speedpad has 14 typewriter-style keys that chord (meaning they can all be read individually), LEDs, a dial, and a game controller with firing button. That's easily enough to make a chording keyboard. You can use the game controller as four shift keys (your thumb rests upon it).</p>
+<p>To make the job easier, here's C code to read the device on Linux. To finish the job, you'll also have to push key events back into the Linux console or X Windows. Code to do that is already available on the net, it's been written for use with other USB devices.<br />
+/* Copyright 2003 Bruce Perens.<br />
+   You may use this software under<br />
+   the BSD license without the<br />
+   advertising clause. */<br />
+#include <stdio .h><br />
+#include <stdlib .h><br />
+#include <unistd .h><br />
+#include <fcntl .h><br />
+#include <errno .h><br />
+#include
+<linux /input.h>
+<p>struct  chord_context {<br />
+        unsigned int    pressed;<br />
+        unsigned int    first_release;<br />
+};</p>
+<p>static const char       keyboard_device[] = "/dev/input/event0";<br />
+unsigned int            key_base = 304;</p>
+<p>void<br />
+character(unsigned int code)<br />
+{<br />
+        printf("%xn", code);<br />
+        fflush(stdout);<br />
+}</p>
+<p>void<br />
+key(int code, int pressed, struct chord_context * context)<br />
+{<br />
+        if ( pressed ) {<br />
+                context->first_release = 1;<br />
+                context->pressed |= 1 < < (code - key_base);<br />
+        }<br />
+        else {<br />
+                if ( context->first_release ) {<br />
+                        context->first_release = 0;<br />
+                        character(context->pressed);<br />
+                        fflush(stdout);<br />
+                }<br />
+                context->pressed &= ~(1 << (code - key_base));<br />
+        }<br />
+}</p>
+<p>int<br />
+main()<br />
+{<br />
+        struct input_event      event;<br />
+        struct chord_context    context;<br />
+        int                     fd;<br />
+        int                     size;</p>
+<p>        fd = open(keyboard_device, O_RDWR, 0);</p>
+<p>        if ( fd < 0 ) {<br />
+                perror(keyboard_device);<br />
+                exit(1);<br />
+        }</p>
+<p>        memset(&context, 0, sizeof(context));</p>
+<p>        while ( (size = read(fd, &event, sizeof(event)))<br />
+         == sizeof(event) ) {<br />
+                if ( event.type == EV_KEY )<br />
+                        key(event.code, event.value, &context);<br />
+        }<br />
+        return 0;</p>
