@@ -3,7 +3,7 @@ layout: home
 banner: https://farm4.staticflickr.com/3725/11452152846_986013a25d_b_d.jpg
 ---
 
-## personal website of Andrew J. Turner
+## personal website of Andrew Turner
 
 ### about
 
