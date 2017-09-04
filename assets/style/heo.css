@@ -46,11 +46,24 @@ body {
   line-height: 1.7;
 }
 
+.caption, .article-text cite {
+  display: block;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 300;
+  text-align: center;
+}
+.article-text img {
+  display: block;
+  margin: 0px auto;
+  max-width: 800px;
+  max-height: 600px;
+  padding: 5px;
+}
 .post-footer, .post-footer a {
   background-color: rgba(30,30,30,0.8);
   color: white;
   border: none;
-
 }
 
 .PageNavigation {
