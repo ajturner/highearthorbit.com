@@ -1,0 +1,108 @@
+---
+layout: post
+status: publish
+published: true
+title: Exiftool is easy to use
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 139
+wordpress_url: http://highearthorbit.com/?p=139
+date: '2005-01-30 01:07:01 -0500'
+date_gmt: '2005-01-30 06:07:01 -0500'
+categories:
+- Programming
+- Geolocation
+- Linux
+tags: []
+comments:
+- id: 1685
+  author: Phil Harvey
+  author_email: phil@not_my_real_addr.ca
+  author_url: ''
+  date: '2005-03-04 09:08:52 -0500'
+  date_gmt: '2005-03-04 14:08:52 -0500'
+  content: "The GPS lat/long information is stored in binary format as in the
+    EXIF information.  Whether you use commas or anything else to separate the degree/minutes/seconds
+    makes no difference, since they are all removed before the binary values are written
+    to file.  ExifTool is very flexible about the input formats, so your first example
+    will have produced identical EXIF information as if you had used commas.\r\n\r\nTrue
+    though, you should specify a lat/long ref (N or S/E or W) when specifying
+    lat/long."
+- id: 4859
+  author: Russell Nelson
+  author_email: nelson@crynwr.com
+  author_url: http://blog.russnelson.com
+  date: '2005-04-23 18:33:05 -0400'
+  date_gmt: '2005-04-23 23:33:05 -0400'
+  content: "Hmmm....  For whatever reason, it looks like the lat/lon needs to
+    be specified as ss,mm,dd, not dd,mm,ss as you wrote.\r\n-russ\r\n"
+- id: 4887
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2005-04-24 16:24:49 -0400'
+  date_gmt: '2005-04-24 21:24:49 -0400'
+  content: "This isn't the case in my experience. I have successfully written the
+    Latitude/Longitude as dd,mm,ss.ss. However, the GPSAltitudeRef doesn't work
+    for writing. It appears there wasn't a suitable conversion function written in
+    the perl code.\r\n\r\n"
+- id: 47562
+  author: Phil Harvey
+  author_email: phil@owl.phy.queensu.ca
+  author_url: ''
+  date: '2006-09-14 14:13:21 -0400'
+  date_gmt: '2006-09-14 19:13:21 -0400'
+  content: "The GPSAltitudeRef problem is one of the ExifTool FAQ's.  You need to
+    use the -n  option to set it numerically, or use the proper string:\r\n\r\nexiftool
+    -n gpsaltituderef=0 image.jpg\r\n\r\nor\r\n\r\nexiftool \"gpsaltituderef=above
+    sea level\" image.jpg\r\n"
+- id: 47563
+  author: Phil Harvey
+  author_email: phil@owl.phy.queensu.ca
+  author_url: ''
+  date: '2006-09-14 14:18:42 -0400'
+  date_gmt: '2006-09-14 19:18:42 -0400'
+  content: Ooops.  Forgot the "-" before "gpsaltituderef" in the examples above, but
+    you get the idea...
+- id: 93444
+  author: qvfwzkuwrt
+  author_email: ospuj@foamhmt.com
+  author_url: http://qvfwzkuwrt.com
+  date: '2007-07-02 08:43:18 -0400'
+  date_gmt: '2007-07-02 12:43:18 -0400'
+  content: Hello! Good Site! Thanks you! ghaviwqqkzhol
+- id: 170819
+  author: adino
+  author_email: adino@uid0.sk
+  author_url: http://www.adino.sk
+  date: '2008-04-28 08:25:34 -0400'
+  date_gmt: '2008-04-28 12:25:34 -0400'
+  content: One must specify format in DD.MMMMM instead of DD,MMMMM as you write in
+    the post. I just tested it, and if I used comma as decimal point separator it
+    returned strange results.
+- id: 221691
+  author: Phil Harvey
+  author_email: boardhead62@hotmail.com
+  author_url: ''
+  date: '2009-01-09 09:05:46 -0500'
+  date_gmt: '2009-01-09 13:05:46 -0500'
+  content: "If DD=degrees, and MM=minutes, then a comma should be used:\r\n\r\n> exiftool
+    a.jpg -gpslatitude=10,30\r\n    1 image files updated\r\n\r\n> exiftool a.jpg
+    -gpslatitude\r\nGPS Latitude                    : 10 deg 30' 0.00\"\r\n\r\nOtherwise
+    they are interpreted as decimal degrees:\r\n\r\n> exiftool a.jpg -gpslatitude=10.30\r\n
+    \   1 image files updated\r\n\r\n> exiftool a.jpg -gpslatitude\r\nGPS Latitude
+    \                   : 10 deg 18' 0.00\""
+---
+<p><a href='http://owl.phy.queensu.ca/~phil/exiftool/'>Exiftool</a> is a very easy to use, complete, command-line interface to image EXIF data. It also (and especially) works with GPS data and tiff files.</p>
+<p>For instance, to view the filename, size and latitude of an image:<br />
+<code>exiftool -filename -imagesize -gps:GPSLatitude IMGP0737.tif </code></p>
+<p>To set the new latitude of an image:<br />
+<code><del>exiftool -gps:GPSLatitude="52 deg 47' 22.5894" IMGP0737.tif </del></p>
+<p>I read the <a href='http://www.exif.org/specifications.html'>Exif 2.2 spec</a> (ya know, light reading), and realized that I was formatting the GPS info tag incorrectly. Exiftool formats the correct version to look pretty (and as above). However, the official spec states that the latitude and longitude info should be <em>dd,mm,ss</em> or <em>dd,mmmm</em> and then the North/South and East/West specified in the GPSLatitudeRef and GPSLongitudeRef as N/S, or E/W.  Therefore, the correct format is:</p>
+<p><code>exiftool -GPSMapDatum="WGS-84" -gps:GPSLatitude="34,57,57" -gps:GPSLatitudeRef="N" -gps:GPSLongitude="83,17,59" -gps:GPSLongitudeRef="W" -gps:GPSAltitudeRef="0" -GPSAltitude=1426 -gps:GPSMeasureMode=2  -City="RabunBald" -State="North Carolina" -Country="USA" ~/Desktop/RabunBaldSummit_NC.jpg</code></code></p>

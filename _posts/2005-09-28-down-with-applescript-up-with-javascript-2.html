@@ -1,0 +1,99 @@
+---
+layout: post
+status: publish
+published: true
+title: Down with Applescript, up with Javascript!
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 281
+wordpress_url: http://highearthorbit.com/down-with-applescript-up-with-javascript-2/
+date: '2005-09-28 08:53:46 -0400'
+date_gmt: '2005-09-28 13:53:46 -0400'
+categories:
+- Technology
+- Programming
+- Apple
+tags: []
+comments:
+- id: 6229
+  author: Joseph
+  author_email: jlatouf@pieV.com
+  author_url: http://pieV.com
+  date: '2005-09-30 07:32:45 -0400'
+  date_gmt: '2005-09-30 12:32:45 -0400'
+  content: "I have spent 5 years developing a \"portable OS\" for the Internet which
+    provides significant advantages for websites and portable applications (rich internet
+    apps). Much of the technology base is built with javascript, and moreover, it
+    provides programmers and students alike to develop webpages and scripts - online,
+    which means they are accessible from any modern computer. \r\n\r\nUsing this platform
+    and its \"focused solution\" data is already portable using a Graphical User Interface
+    (GUI). A good example of this, one that brings windows into your browser, is found
+    at http://goGUI.com.\r\n\r\nThe next step is to make \"portable Applications\"
+    a reality. Imagine a license for a porfessiona office suite that doesn't have
+    to be installed on a single computer, and can be used from any modern computer
+    - quickly, efficiently and interactively.\r\n\r\nIf you register at GoGUI, you
+    may create and edit online webpages and scripts (javascript). These scripts, like
+    all files within your portable desktop, and its PI explorer (just like windows
+    explorer only portable) can be moved and managed as easily online, as they are
+    in a static operating system such as MS Windsows."
+- id: 7353
+  author: Barry
+  author_email: bklawans@jaspersoft.com
+  author_url: ''
+  date: '2005-10-26 14:14:16 -0400'
+  date_gmt: '2005-10-26 19:14:16 -0400'
+  content: "Apple's scripting underpinning is really the core Apple Events mechanism,
+    where scriptable applications receive events from outside processes (like scripts)
+    and respond.  The nice bit is that Apple has defined what they call the Open Scripting
+    Architecture (OSA) which allows other scripting languages to be used in place
+    of AppleScript.\r\n\r\nTake a look at http://www.latenightsw.com/freeware/JavaScriptOSA
+    for a free implementation of JavaScript for OSA.  This lets you use JavaScript
+    in place of AppleScript, even in Apple's Script Editor.  Just be sure to set the
+    default language to \"JavaScript\" in Script Editor's preferences window."
+- id: 7463
+  author: Peter da Silva
+  author_email: resuna@gmail.com
+  author_url: ''
+  date: '2006-01-19 09:58:58 -0500'
+  date_gmt: '2006-01-19 14:58:58 -0500'
+  content: "I would think the logical thing for Apple to do would be to provide a
+    mapping between Javascript and the applications Applescript dictionary, rather
+    than having applications adapt to a new API.\r\n\r\nFor example:\r\n\r\nvar obj
+    = widget.system(\"/usr/bin/osascript -e 'tell application \"iTunes\"'
+    -e 'name of current track' -e 'end tell'\");\r\n\r\nvar iTunes=osascript.open(\"iTunes\");\r\nvar
+    track=iTunes.get(\"name of current track\"); // or whatever the short
+    form of that value is in the dictionary.\r\n\r\nJavaScriptOSA seems a little low
+    level, how would I convert an existing Applescript to JavaScriptOSA? For example:\r\n\r\ntell
+    application \"iTunes\"\r\n       if selection is not {} then\r\n               set
+    sel to selection\r\n               repeat with this_track in sel\r\n                       try\r\n
+    \                              set shufflable of this_track to 1\r\n                       end
+    try\r\n               end repeat\r\n              display dialog \"Done!\" buttons
+    {\"Thanks\"} default button 1 with icon 1 giving up after 15\r\n       else\r\n
+    \              display dialog \"Select some tracks first...\" buttons {\"Cancel\"}
+    default button 1 with icon 2 giving up after 15\r\n       end if\r\nend tell\r\n"
+---
+<p>I've been fiddling with Applescript on and off for about a year, using it in various applications, and home automation tasks. However, I always feel like I'm bashing my head against it. It doesn't seem to always make sense, has an odd syntax, and the Dictionaries? Hah! Unreadable is a good, but incomplete, description.</p>
+<p>Anyways, for other projects/work on Windows I've been implementing a Javascript interface to the application's functionality & dark, musty interiors. Javascript, once beginning to go the way of Java, Fortran, or Smalltalk (yes, they're out there, but does anyone learn these anymore?), it has been completely revitalized and now seems to be the cool, modern-way to do webapps/sites (<a href='http://en.wikipedia.org/wiki/AJAX'>Ajax</a>, <a href='http://developer.apple.com/macosx/tiger/dashboard.html'>Widgets</a>, <a href='http://greasemonkey.mozdev.org'>GreaseMonkey</a>, <a href='http://extensionroom.mozdev.org/'>Firefox Extensions</a>, and more).  </p>
+<p>Applescript has had a good run, yay. However, it seems antiquated to keep up a proprietary and somewhat odd OS Scripting language. Furthermore, it's not <em>really</em> a <a href='http://en.wikipedia.org/wiki/Scripting_programming_language'>scripting language</a> since it is compiled rather than intepreted. </p>
+<p><a href='http://www.mozilla.org/js/spidermonkey/'>SpiderMonkey</a> is a Javascript-C engine that allows developers to provide an Javascript API to their applications similar to <a href='http://developer.apple.com/cocoa/applescriptforapps.html'>Applescript</a> <a href='http://www.mactech.com/articles/mactech/Vol.16/16.07/AppleScripttoCocoa/'>integration</a> to <a href='http://www.macdevcenter.com/pub/a/mac/2002/02/22/applescript.html'>Cocoa Apps</a>.</p>
+<p>Javascript is a pretty nice syntax. I really wonder how many non-programmers really feel more comfortable in the "English-like" syntax of Applescript. I, as a programmer, find it confusing at times. Though Script Editor is a very nice tool even though it apparently hasn't been updated in years. </p>
+<p>Javascript enabling OS X apps would prevent widgets from having to do things like:</p>
+<p><code><br />
+var obj = widget.system("/usr/bin/osascript -e 'tell application "iTunes"' -e 'name of current track' -e 'end tell'");</p>
+<p>print(obj.outputString);<br />
+</code></p>
+<p>and requiring a widget access to the system to make a call to an app. A better solution may be:</p>
+<p><code><br />
+var string = application.iTunes.getCurrentTrack();<br />
+</code></p>
+<p>or </p>
+<p><code><br />
+var string = finder.geApplication("iTunes").getCurrentTrack();<br />
+</code></p>
+<p>Really, I'm missing decent scripting of apps and the OS in Windows, and Linux. Apple really shines in this respect.  <a href='http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnanchor/html/scriptinga.asp'>Windows has scripting</a> via <a href='http://msdn.microsoft.com/library/default.asp?url=/library/en-us/script56/html/vtoriVBScript.asp'>VBScript</a> and <a href='http://msdn.microsoft.com/library/default.asp?url=/library/en-us/script56/html/js56jsoriJScript.asp'>JScript</a>, but I'm looking for something a little less... <em>proprietary</em> and even more arcane.</p>

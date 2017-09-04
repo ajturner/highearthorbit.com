@@ -1,0 +1,44 @@
+---
+layout: post
+status: publish
+published: true
+title: Ruby on Rails is great - when it works
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 364
+wordpress_url: http://highearthorbit.com/ruby-on-rails-is-great-when-it-works/
+date: '2006-02-12 13:33:27 -0500'
+date_gmt: '2006-02-12 18:33:27 -0500'
+categories:
+- Technology
+- Programming
+- Web
+- Ruby
+tags: []
+comments: []
+---
+<p>I'm working on learning <a href='http://rubyonrails.org'>RubyonRails</a>. So far, I'm very impressed with it's readability, structure, functionality, and growing <a href='http://rubymi.org/'>community</a>. However, this is all well and good <em>when it works</em>.</p>
+<p>What I mean is, I spend most of my time staring at screens like this:</p>
+<blockquote>
+<h2>Application error</h2></p>
+<p>Rails application failed to start properly"<br />
+</blockquote></p>
+<p>with little to no help on <em>why</em> it didn't start properly. Yes, I'm running development, I've looked at my log/development.log (nothing there). Eventually, I went to the httpd/error_log and found</p>
+<pre>
+[Sun Feb 12 13:27:33 2006] [error] [client 127.0.0.1]<br />
+FastCGI: incomplete headers (35 bytes) received from server<br />
+"/Users/username/Project/public/dispatch.fcgi"<br />
+</pre></p>
+<p><a href='http://highearthorbit.com/wp-images/RubyCrash.png' target='_blank' ><img src='http://highearthorbit.com/wp-images/thumb-RubyCrash.png' alt='Ruby Crash' align='right' hspace='5px' vspace='5px'/></a>This was the gem that awaited me last night whenever I tried to run my app on my local desktop. That required a reboot (as my mac, sadly, is requiring too often now)</p>
+<p>Either that, or various NoMethodError. What is bothering about Ruby on Rails is the amount of magic that goes on behind the scenes. This is obviously great and very powerful for developing web applications quickly. It's not so great when you're learning or something breaks and you don't understand why.</p>
+<p>Speaking of "why", I did the smart thing and started learning Ruby properly using <a href='http://poignantguide.net/ruby/'>Why's (poignant) guide to ruby</a> and the <a href='http://www.whytheluckystiff.net/ruby/pickaxe/'>PickAxe book</a>. I'm also referencing <a href='http://www.pragmaticprogrammer.com/titles/rails/index.html'>Agile Web Development with Rails</a> and got the beta book <a href='http://pragmaticprogrammer.com/titles/fr_rr/'>Rails Recipes</a>.</p>
+<p>This doesn't, however, alleviate the frustration of spending most of my free development time just getting my app running again. </p>
+<p><strong>Update:</strong> (February 15, 2006) I seem to have gotten my desktop and shared hosting environments all setup now so they're happy. I can do local dev, check it into my Subversion repository, check it back out on the server and I'm good to go (mostly). I'm now <em>really</em> enjoying Rails development (and learning Ruby).</p>
+<p>I need to figure out how Switchtower works. My initial trials were not working, but then again, neither was the whole setup working by hand either. I also think the Ruby installed on Mac OS X plays bad things with the Switchtower <code>rake deploy command.</code></p>
+<p><strong>Update again:</strong> it turns out my dispatch.fcgi was not finding the <code>require 'fcgi_handler'</code> that is included in the rails gems library. My hack/work-around was to copy the fcgi_handler.rb from my rails install on my system (do a <code>locate fcgi_handler.rb</code></p>

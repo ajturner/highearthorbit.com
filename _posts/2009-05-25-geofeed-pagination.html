@@ -1,0 +1,69 @@
+---
+layout: post
+status: publish
+published: true
+title: GeoFeed 'pagination'
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 1248
+wordpress_url: http://highearthorbit.com/geofeed-pagination/
+date: '2009-05-25 13:17:17 -0400'
+date_gmt: '2009-05-25 17:17:17 -0400'
+categories:
+- GeoRSS
+tags:
+- GeoRSS
+comments: []
+---
+<p>Erik Wilde was <a href="http://twitter.com/dret/status/1907880775">pondering</a>:</p>
+<blockquote><p>
+  thinking of geofeeds where feed paging does not take you back in time, but increases the search radius. but how to specify paging semantics?<br />
+</blockquote></p>
+<p>My first feeling is that 'zooming out' is not really a link. Pagination is just a crutch to deal with returning the full set of a single query in meaningful window sizes due to server response, bandwidth, client parsing, and maybe human interface. Zooming out implies actually performing a different search and would be a function of a client interface.</p>
+<p>This mechanism is provided by <a href="http://www.opensearch.org/Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1" title="Specifications/OpenSearch/Extensions/Geo/1.0/Draft 1 - OpenSearch">OpenSearch-Geo</a>, which communicates how a client would use a bounding box or polygon search. Therefore a client interface could choose how to zoom out or in and has the capability to query the system this way.</p>
+<h3>Feed Clusters</h3><a href="http://highearthorbit.com/wp-content/uploads/2009/05/feedlinkclustering.jpg"><img src="http://highearthorbit.com/wp-content/uploads/2009/05/feedlinkclustering-tm.jpg" width="271" height="169" alt="Feed Link Clustering" style="float:right; padding-top:5px; padding-bottom:5px; padding-left:5px;" /></a></p>
+<p>However, I still could imagine more specific uses for such a concept. Erik's original idea is perhaps thinking more about using geography as a way to indicate limiting search set results. This might be done using clustering mechanism, such as k-means, similar to how one might view dense data on a map in clusters, but in search result feeds. The link elements would provide looking into any of these clusters, or <em>zooming in</em>.</p>
+<pre>
+<feed><br />
+    <title>Search for 'coffee'</title><br />
+    <georss:box>38.87,-77.2,38.89,-77.0</georss:box><br />
+    <entry><br />
+        <title>8 results</title><br />
+        <georss:box>38.87,-77.2,38.91,-77.1</georss:box></p>
+<link rel="self"<br />
+          href="http://server/search.atom?q=coffee&amp;amp;bbox=38.87,-77.2,38.91,-77.1<"/><br />
+    </entry><br />
+    <entry><br />
+        <title>15 results</title><br />
+        <georss:box>38.87,-77.1,38.9,-77.05</georss:box></p>
+<link rel="self"<br />
+          href="http://server/search.atom?q=coffee&amp;amp;bbox=38.87,-77.1,38.9,-77.05"/><br />
+    </entry><br />
+</feed><br /><br />
+</pre></p>
+<h3>Structured clustering</h3></p>
+<p>Another way this concept could work more literally would be to utilize a hierarchy, or several hierarchies, that a client may be able to easily snap to in order to query larger or smaller geographic areas. These hierarchies are not apparent in a simple search template and can provide more semantics to indicate the larger area rather than just simply "zoomed out".</p>
+<p>For example, using the <a href="http://geotree.geonames.org/" title="GeoTree">GeoNames GeoTree</a> or <a href="http://developer.yahoo.com/geo/" title="Yahoo! Geo Technologies - YDN">GeoPlanet</a> woeid's, a search result could provide links from the specific bounding box query up to regional or districts that contain this query - as well as perhaps subsets contained within the bounding box.</p>
+<pre>
+<feed><br />
+    <title>Search for 'coffee'</title><br />
+    <georss:box>38.87,-77.2,38.89,-77.0</georss:box></p>
+<link rel="up"<br />
+        href="http://server/search.atom?q=coffee&amp;amp;woeid=2347605"<br />
+        title="Search Virginia for 'coffee'" />
+<link rel="down"<br />
+        href="http://server/search.atom?q=coffee&amp;amp;woeid=12590311"<br />
+        title="Search Arlington County for 'coffee'" />
+<link rel="down"<br />
+        href="http://server/search.atom?q=coffee&amp;amp;woeid=12590343"<br />
+        title="Search Fairfax County for 'coffee'" /><br />
+    <entry>...</entry><br />
+</feed><br /><br />
+</pre></p>
+<p>Written on no wifi, sitting in the Detroit airport after a red-eye flight from WhereCamp.</p>

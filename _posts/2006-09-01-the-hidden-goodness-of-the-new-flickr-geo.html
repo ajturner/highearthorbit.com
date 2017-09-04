@@ -1,0 +1,40 @@
+---
+layout: post
+status: publish
+published: true
+title: The hidden goodness of the new Flickr geo
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 538
+wordpress_url: http://highearthorbit.com/the-hidden-goodness-of-the-new-flickr-geo/
+date: '2006-09-01 10:37:16 -0400'
+date_gmt: '2006-09-01 15:37:16 -0400'
+categories:
+- Maps
+- GeoRSS
+- microformats
+tags: []
+comments:
+- id: 51069
+  author: geobloggers &raquo; Blog Archive &raquo; Three Hidden(ish) Flickr Map Features
+  author_email: ''
+  author_url: http://geobloggers.com/archives/2006/10/31/three-hiddenish-flickr-map-features/
+  date: '2006-10-31 11:04:33 -0500'
+  date_gmt: '2006-10-31 15:04:33 -0500'
+  content: "[...] It&#8217;s been known for a while that we support geo microformats.
+    But, viewing the source of this photo&#8230; [...]"
+---
+<p>As most people who read this blog are probably aware, Flickr added mapping directly. What they didn't advertise or get talked about is the formatting they're supporting.</p>
+<p>Hidden underneath the "taken..." line is a bit of <a href='http://microformat.org/wiki/geo' title='Microformat Wiki: geo'>Microformat geo</a>:</p>
+<p><span class="geo" style="display:none"><br />
+&nbsp;&nbsp;<span class="latitude">38.017804</span>,<br />
+&nbsp;&nbsp;<span class="longitude">-78.475342</span><br />
+</span></p>
+<p>Additionally, in the RSS output, you can get <a href='http://georss.org' title='GeoRSS homepage'>GeoRSS</a> tags. You need to add the following to your URL: <code>&georss=1</code>. </p>
+<p>It's a great example, and source, of how easy it is to add some simple markup to your HTML and RSS to add geographic annotation. </p>

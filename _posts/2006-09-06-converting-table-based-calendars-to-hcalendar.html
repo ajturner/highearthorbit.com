@@ -1,0 +1,162 @@
+---
+layout: post
+status: publish
+published: true
+title: Converting table-based Calendars to hCalendar
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 543
+wordpress_url: http://highearthorbit.com/converting-table-based-calendars-to-hcalendar/
+date: '2006-09-06 23:06:22 -0400'
+date_gmt: '2006-09-07 04:06:22 -0400'
+categories:
+- Programming
+- Ruby
+- FOSS4G
+tags: []
+comments:
+- id: 111504
+  author: Erniepower
+  author_email: ebay@ebay-makemoney.com
+  author_url: http://www.ebay-makemoney.com/
+  date: '2007-09-27 22:38:07 -0400'
+  date_gmt: '2007-09-28 02:38:07 -0400'
+  content: "Did just find this site http://www.ebay-makemoney.com/ quite
+    nice if your using ebay really. \r\n \r\n<a href=\"http://www.ebay-makemoney.com/\"
+    rel=\"nofollow\">Ebay Make Money</a>"
+- id: 111875
+  author: selsnviu
+  author_email: maslo@saloke.com
+  author_url: http://webcamdds.info
+  date: '2007-09-29 20:52:11 -0400'
+  date_gmt: '2007-09-30 00:52:11 -0400'
+  content: "Thanks for the post. \r\nGreat info."
+- id: 112729
+  author: JackJackson
+  author_email: jackjackson@gawab.com
+  author_url: http://rodbro.my-place.us
+  date: '2007-10-04 06:48:17 -0400'
+  date_gmt: '2007-10-04 10:48:17 -0400'
+  content: "Hi all! \r\n \r\nI know that you are busy, but you should know it \r\n
+    \r\n<a href=\"http://rodbro.my-place.us/foam-rubber-pillow.html\"
+    rel=\"nofollow\">foam rubber pillow</a> \r\n \r\n \r\nG'night"
+- id: 112843
+  author: HHDarnell
+  author_email: odiujh839e@mail.health-ua.com
+  author_url: http://marafona.net
+  date: '2007-10-04 17:23:19 -0400'
+  date_gmt: '2007-10-04 21:23:19 -0400'
+  content: "Hi all! \r\n&Atilde;&ldquo;&Atilde;&shy;&Atilde;&uml;&Atilde;&ordf;&Atilde;&nbsp;&Atilde;&laquo;&Atilde;&frac14;&Atilde;&shy;&Atilde;&nbsp;&Atilde;&iquest;
+    VIP &Atilde;&plusmn;&Atilde;&uml;&Atilde;&plusmn;&Atilde;&sup2;&Atilde;&yen;&Atilde;&not;&Atilde;&nbsp;
+    &Atilde;&deg;&Atilde;&nbsp;&Atilde;&plusmn;&Atilde;&middot;&Atilde;&yen;&Atilde;&sup2;&Atilde;&nbsp;
+    &Atilde;&plusmn;&Atilde;&macr;&Atilde;&reg;&Atilde;&deg;&Atilde;&sup2;&Atilde;&uml;&Atilde;&cent;&Atilde;&shy;&Atilde;&raquo;&Atilde;&micro;
+    &Atilde;&plusmn;&Atilde;&sup2;&Atilde;&nbsp;&Atilde;&cent;&Atilde;&reg;&Atilde;&ordf;
+    ! \r\n&Atilde;&curren;&Atilde;&reg;&Atilde;&pound;&Atilde;&reg;&Atilde;&cent;&Atilde;&reg;&Atilde;&deg;&Atilde;&shy;&Atilde;&iquest;&Atilde;&ordf;&Atilde;&uml;,
+    &Atilde;&plusmn;&Atilde;&sup2;&Atilde;&nbsp;&Atilde;&cent;&Atilde;&ordf;&Atilde;&uml;
+    &Atilde;&shy;&Atilde;&nbsp; &Atilde;&plusmn;&Atilde;&macr;&Atilde;&reg;&Atilde;&deg;&Atilde;&sup2;,
+    &Atilde;&acute;&Atilde;&sup3;&Atilde;&sup2;&Atilde;&iexcl;&Atilde;&reg;&Atilde;&laquo;,
+    &Atilde;&yen;&Atilde;&plusmn;&Atilde;&sup2;&Atilde;&frac14; &Atilde;&cent;&Atilde;&plusmn;&Atilde;&yen;!
+    \r\n90% &Atilde;&deg;&Atilde;&nbsp;&Atilde;&plusmn;&Atilde;&middot;&Atilde;&yen;&Atilde;&sup2;&Atilde;&shy;&Atilde;&raquo;&Atilde;&micro;
+    &Atilde;&plusmn;&Atilde;&sup2;&Atilde;&nbsp;&Atilde;&cent;&Atilde;&reg;&Atilde;&ordf;
+    &Atilde;&cent;&Atilde;&raquo;&Atilde;&uml;&Atilde;&pound;&Atilde;&deg;&Atilde;&raquo;&Atilde;&cedil;&Atilde;&shy;&Atilde;&raquo;&Atilde;&yen;
+    &Atilde;&plusmn; &Atilde;&ordf;&Atilde;&acute; 1.7 \r\n&Atilde;\x8F&Atilde;&reg;&Atilde;&curren;&Atilde;&deg;&Atilde;&reg;&Atilde;&iexcl;&Atilde;&shy;&Atilde;&reg;&Atilde;&plusmn;&Atilde;&sup2;&Atilde;&uml;
+    &Atilde;&sup2;&Atilde;&sup3;&Atilde;&sup2; http://marafona.net \r\n \r\nG'night"
+- id: 128746
+  author: naisioxerloro
+  author_email: naisioxerloro@mymail-in.net
+  author_url: ''
+  date: '2007-11-28 10:37:06 -0500'
+  date_gmt: '2007-11-28 14:37:06 -0500'
+  content: "Hi. \r\nGood design, who make it?"
+---
+<p><a href="http://highearthorbit.com/wp-content/uploads/2006/09/foss4g_ical.png" title="Zoom into FOSS4G Calendar in iCal"><img src="http://highearthorbit.com/wp-content/uploads/2006/09/foss4g_ical.thumbnail.png" alt="FOSS4G Calendar in iCal" align='right' hspace='5px' vspace='5px'/></a>I am looking over the <a href='http://www.foss4g2006.org/conferenceTimeTable.py?confId=1&showDate=all&showSession=all&detailLevel=contribution&viewMode=parallel' title='FOSS4G Schedule'>FOSS4G Schedule of sessions</a>. It's all table based, and it's somewhat difficult to find specific tracks, rooms, etc. So I took what was the table-based, non-semantic, calendar and converted it into a much more useful <a href='http://microformats.org/wiki/hcalendar' title='Microformats Wiki: hCalendar'>hCalendar</a> output, which can be easily translated to iCal for your subscription fun using <a href='http://suda.co.uk/' title="Brian Suda's homepage">Brian Suda's</a> <a href="http://suda.co.uk/projects/X2V/" title="X2V conversion utility">X2V</a>.</p>
+<p>You can get the <a href='http://code.highearthorbit.com/foss4g.html' title='FOSS4G hCalendar'>hCalendar here</a> and the <a href="http://suda.co.uk/projects/X2V/get-vcal.php?uri=http://code.highearthorbit.com/foss4g.html" title="FOSS4G iCal">iCal link here</a>.</p>
+<h2>The Problem</h2><br />
+Here is the current HTML of the schedule. As you can see, this is an absolute mess of DOM. This table is in fact already the 4th embedded table (tables-within-tables-within-tables oh my!)</p>
+<pre style="height: 150px;"><code></p>
+<table align="center" width="100%">
+<tr>
+<td width="100%">
+<table align="center" border="0" width="100%"<br />
+		 celspacing="0" cellpadding="0" bgcolor="#E6E6E6"><br />
+<tr>
+<td colspan="12" align="center" bgcolor="white"><b>Tuesday, 12 September 2006</b></td><br />
+   </tr></p>
+<tr>
+<td colspan="12">
+<table bgcolor="white" cellpadding="0"<br />
+      cellspacing="1" width="100%" style="padding:3px;<br />
+      border-top:1px solid #E6E6E6;border-bottom:1px solid #E6E6E6;"><br />
+<tr></tr><br />
+  </table><br />
+  </td><br />
+ </tr></p>
+<tr>
+<td valign="top" rowspan="12" bgcolor="white" width="40"><font color="gray" size="-1">07:00</font></td></p>
+<td id="conf" valign="top" rowspan="24" align="center" bgcolor="#FFFFFF" style="color:#777777" width="11%" colspan="9" >
+    <b>Registration</b><br><small>(Amphip&Atilde;&acute;le (niv. 3): 07:00 - 09:00)</small><br />
+  </td><br />
+ </tr></p>
+<tr></tr><br />
+<tr></tr><br />
+<tr></tr><br />
+<tr></tr><br />
+<tr></tr><br />
+<tr></tr><br />
+<tr></tr><br />
+<tr></tr><br />
+<tr></tr><br />
+<tr></tr><br />
+<tr></tr></p>
+<tr>
+<td valign="top" rowspan="12" bgcolor="white" width="40"><font color="gray" size="-1">08:00</font></td><br />
+ </tr></p>
+<tr></tr><br />
+<tr></tr><br />
+<tr></tr><br />
+<tr></tr><br />
+<tr></tr><br />
+<tr></tr><br />
+<tr></tr><br />
+<tr></tr><br />
+<tr></tr><br />
+<tr></tr><br />
+<tr></tr></p>
+<tr>
+<td valign="top" rowspan="12" bgcolor="white" width="40"><font color="gray" size="-1">09:00</font></td></p>
+<td id="entry" valign="top" rowspan="42" align="center" bgcolor="#CCFFFF" style="color:#777777" width="11%">
+<table width="100%">
+<tr>
+<td width="100%" align="center" style="">
+   [20] <a href="/contributionDisplay.py?contribId=20&amp;sessionId=60&amp;confId=1" style="">Getting Started with MapServer</a><br />
+   <br><small>by Mr. Jeff MCKENNA (DM Solutions Group)</small><br />
+ </td></p>
+<td align="right" valign="top" nowrap style="">
+ <a href="/materialDisplay.py?contribId=20&amp;amp;sessionId=60&amp;amp;materialId=paper&amp;amp;confId=1"><img src="/images/smallPaper.gif" border="0" alt="paper"><small> paper</small></a><br />
+  </td><br />
+ </tr><br />
+ </table><br />
+</td><br />
+</code></pre></p>
+<p>In the middle there was some actual interesting bits, such as presentation title, author, times, etc. So what we need to do is walk through all this and build up a conference.</p>
+<h2>The Solution</h2><br />
+Employing some slick Ruby scripting - and using the very useful  <a href='http://blog.labnotes.org/2006/07/11/scraping-with-style-scrapi-toolkit-for-ruby/' title='LabNotes blog: scrAPI'>scrAPI</a> from <a href='http://blog.labnotes.org/' title="Assaf's Blog, LabNotes">Assaf</a> we can define scrapers to walk over the multiple days, and then within those days grab each of the sessions. These are then output into proper hCalendar format like: </p>
+<pre style="height: 150px;">
+<span class="vevent"><br />
+ <a class="url" href="http://www.foss4g2006.org/contributionDisplay.py?contribId=189&amp;amp;sessionId=46&amp;amp;confId=1"><br />
+&nbsp;&nbsp;<span class="summary">Enabling Users to Produce personalized Geodata</span><br />
+&nbsp;&nbsp;<span class="details"><span class="vcard"><span class="fn">Mr. Andrew TURNER</span><span class="org">HighEarthOrbit</span></span></span><br />
+&nbsp;&nbsp;<abbr class="dtstart" title="2006-09-15T10:30:00Z">Friday,  15 September 2006 from 10:30</abbr>-<br />
+&nbsp;&nbsp;<abbr class="dtend" title="2006-09-15T11:00:00Z">11:00</abbr>,<br />
+ at the <span class="location">Amphimax MAX 350</span><br />
+ </a><br />
+</span></p>
+<p></pre></p>
+<p>The code below makes parsing the nightmare above fairly simple, but due to the lack of any proper classes or id's (each presentation is <code>id="entry"</code> - eep!), we have to find the bits we want by their current markup attributes. Not suggested, but at least this is nicer than trying to figure out the 10-levels of DOM starting at the root.</p>
+<p>You can see the <a href="http://code.highearthorbit.com/foss4gcal.rb" title="FOSS4G Ruby parser">parser here</a>.</p>

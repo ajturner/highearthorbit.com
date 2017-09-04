@@ -1,0 +1,117 @@
+---
+layout: post
+status: publish
+published: true
+title: Creating inline (embedded) PNG images
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 401
+wordpress_url: http://highearthorbit.com/creating-inline-embedded-png-images/
+date: '2006-04-23 09:55:53 -0400'
+date_gmt: '2006-04-23 14:55:53 -0400'
+categories:
+- Programming
+- Web
+- Open-Source
+- Javascript
+- Howto
+tags: []
+comments:
+- id: 13895
+  author: Obi
+  author_email: yell0@hin.servehttp.com
+  author_url: ''
+  date: '2006-05-27 07:17:59 -0400'
+  date_gmt: '2006-05-27 12:17:59 -0400'
+  content: Nice explanation but how can i encode the png on windows any ideas
+- id: 22826
+  author: Peter Benoit
+  author_email: ya.no@email.com
+  author_url: http://www.weblarg.com
+  date: '2006-06-12 14:54:08 -0400'
+  date_gmt: '2006-06-12 19:54:08 -0400'
+  content: With so many errors, it's amazing that you even tested this, not to mention
+    it won't work pre-IE7
+- id: 25826
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2006-06-16 07:01:10 -0400'
+  date_gmt: '2006-06-16 12:01:10 -0400'
+  content: "Peter - I'm not sure I understand what you mean? \r\n\r\nThis project
+    was a Firefox Plugin/Greasemonkey Script, <a href='http://code.highearthorbit.com/projects/greaseroute/'
+    title='GreaseRoute' rel=\"nofollow\">GreaseRoute</a>, - which obviously won't
+    work on IE anyways. \r\n\r\nSorry I didn't specify that in the how-to.\r\n\r\n"
+- id: 32684
+  author: Rafael
+  author_email: raf@dotgeek.org
+  author_url: http://raf.dotgeek.org
+  date: '2006-07-09 08:58:38 -0400'
+  date_gmt: '2006-07-09 13:58:38 -0400'
+  content: Obi, the link to the program base64 is what you want. The page has a downloadable
+    zip with a windows executable.
+- id: 376027
+  author: iiiears
+  author_email: iiiears@aol.com
+  author_url: ''
+  date: '2011-05-10 04:37:25 -0400'
+  date_gmt: '2011-05-10 08:37:25 -0400'
+  content: "Yay!\r\n\r\nJust the answer i was looking for.\r\n\r\nThere are some sites
+    that offer base64 encoding  online but because a base64 image looks the same to
+    my eyes as a base64 buffer overflow. It is safer for me to boot linux(live CD
+    Okay too.) or search the GNU Win32/64 sites. \r\nme@my_computer:~s\\ base64
+    \ -w 0 -e Google.png > Google.png.base64 \r\nOpen the second image with a text
+    editor.\r\n\r\nThank You Rafael and the webmaster for hosting this."
+---
+<p>Sometimes it's necessary, or nice, to be able to directly embed an image <em>in code</em>. Like a modern form of ASCII art, you then don't have to distribute icons and images with your source, because the image is in the source itself. The method uses Base64 encoding. See the <a href='http://www.ietf.org/rfc/rfc2397.txt'>RFC for Data URI</a>.</p>
+<blockquote><p>
+"Base64" format used by MIME-encoded documents such as electronic mail messages with embedded images and audio files.<br />
+</blockquote></p>
+<p>To convert a PNG (for example) image to Base64, you will need some utility. <a href='http://www.fourmilab.ch/webtools/base64/'>base64</a> is an open-source converter that does just this. </p>
+<p>Do the configure, compile jig:</p>
+<pre>
+$ ./configure<br />
+$ make<br />
+$ sudo make install<br />
+</pre></p>
+<p>Then encode your image:<br />
+<code><br />
+base64 -e my_image.png my_image.png.base64<br />
+</code></p>
+<p>Open the <code>my_image.png.base64</code> file in a text editor and then copy it into your code. An example is shown below, written in Javascript. </p>
+<p><code></p>
+<pre>
+const png_image_src = 'data:image/png;base64,'+<br />
+'iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAANbY1E9YMgAAABl0' +<br />
+'RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAGAUExURcDYv1C8WdPrtIDAeWqk' +<br />
+'Oqnd2VLWaOX0x7ftwZzZlIjGxr7gxanLkdfu1FumybHSsJ3Cutbyx4S9fm2paMrq0Lfo1L/a' +<br />
+'o6PHiozL11aZJpnW2oG0ZLTcm5zjvovbvM3qtcror2q5vUaIRHLGZWWkR0aQGSR/BYy5baHY' +<br />
+'imrbd/z+/HO9bPb69m29xHy8c2OeMUGJPZDThZPPi3ivdGazzZbBgCuCEd3x2jaICs7ksqLZ' +<br />
+'mTp/N6zwtWu/YLDWvZHHeqLS0affzKfvsWDYpn7CvJHJh0+cSGWbY6PQka/Xkvj894W2a4DQ' +<br />
+'qIrDhF+hQ8fexJDN24PYgYGzWnXJy6zXpp3Fm5jCg37NdI++dWejWmCwVnSrT6nuyTuLELvh' +<br />
+'pV2gO6DSwI3qnd3wv6rQxK/fz1OZxrTvtaLim3rRr+bv5TuCN+jw557FiK7NlWzRkHDGhHLd' +<br />
+'fnHWmm2zx7Xe1m21zW65z9Ts0HTHaHrGb3vJb3yvVbTaxVGUTITLtV6w0////94DUpYAAACA' +<br />
+'dFJOU///////////////////////////////////////////////////////////////////' +<br />
+'////////////////////////////////////////////////////////////////////////' +<br />
+'//////////////////////////////8AOAVLZwAAAQxJREFUeNpiqAcCc87wcuVKTl4Qm6G+' +<br />
+'XstKOU6eu9ouxNbICySgZajBzluWUuzgkOyqpwMUsNJIEuQVYWUNkOCysxeqZzBXZk+z4RCV' +<br />
+'kiopquVUcPNn4JSRd4oRkZAwUSwsKPAQN2YIZ0pPFBUpNQnWZGNj0xOrYShPCtSUdeTTlXNm' +<br />
+'0WcUtjRgUE4Kz5Plq0vVzWAJkoy0zGKokDeU4+JjYWHRr+KJVhVTYjDylMn34WPJzeXhiRBX' +<br />
+'sXBnKIti0tZW1M9VV/eWlg6LV2Oo943wZHaR5BEXz/EOUzHTYajXEfZWSJBUVY2NN1UxywR5' +<br />
+'TsfYIFRAQIDfws8sG+xbICGsZG2tpKamBWQDBBgAU049f2kd9aAAAAAASUVORK5CYII=';</p>
+<p>var my_link = document.createElement('a');<br />
+my_link.title = "Go to example.com"<br />
+my_image = document.createElement('img');<br />
+my_image.src = png_image_src;<br />
+route_image.border = 0;<br />
+my_link.href  = "http://example.com";<br />
+my_link.appendChild(my_image);</p>
+<p>document.body.insertBefore(my_link, document.body.lastChild);<br />
+</pre><br />
+</code></p>

@@ -1,0 +1,29 @@
+---
+layout: post
+status: publish
+published: true
+title: A little yak shaving mayhaps?
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 211
+wordpress_url: http://highearthorbit.com/a-little-yak-shaving-mayhaps/
+date: '2005-05-13 13:54:50 -0400'
+date_gmt: '2005-05-13 18:54:50 -0400'
+categories:
+- Programming
+tags: []
+comments: []
+---
+<p>Like a typical geek, I tend to gravitate towards finding elegant solutions to menial tasks. Take for instance, something I had to do today: consolidate a column of hundreds of entries. I need a single column that was every 20th entry of the original column. Now, I could just hand-enter the skipping of each 20th row in my cell references (in Excel of course), or I could <a href='http://jargon.watson-net.com/jargon.asp?w=yak+shaving'>shave the beast of the yak</a> and figure out how to do it in Excel functions.</p>
+<p>Low and behold, when you must grab every 20th cell, with an initial offset of the beginning of that cell's row, and put it into your cell with an offset position:</p>
+<pre>
+=-INDEX('run1'!$1:$6000,(CELL("row",D4)-CELL("row",D$4))*20<br />
++CELL("row",'run1'!$BN$2),66)<br />
+</pre></p>
+<p>Perhaps not 'cleaned up', but it does the job. So I can drop that in the head of my new row and just drag out the box to have Excel 'propagate' the rows and fill 'em up with yummy data. </p>

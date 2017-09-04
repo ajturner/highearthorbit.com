@@ -1,0 +1,58 @@
+---
+layout: post
+status: publish
+published: true
+title: Geo search in Leopard Spotlight
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 988
+wordpress_url: http://highearthorbit.com/geo-search-in-leopard-spotlight/
+date: '2008-01-19 13:36:28 -0500'
+date_gmt: '2008-01-19 17:36:28 -0500'
+categories:
+- Technology
+tags:
+- Ruby
+- Cocoa
+- rubycocoa
+- spotlight
+- macosx
+- Neogeography
+- metadata
+- keywords
+comments:
+- id: 145034
+  author: Dane
+  author_email: blake@hailmail.net
+  author_url: http://www.danespringmeyer.com
+  date: '2008-01-28 17:41:17 -0500'
+  date_gmt: '2008-01-28 21:41:17 -0500'
+  content: Slick use of spotlight and rubycocoa.  Would you be willing to post the
+    source for Geospotlight? I'd be great to see how you put it together.
+- id: 410988
+  author: GEO SEACHING | Tuning Labs
+  author_email: ''
+  author_url: http://tuninglabs.com/2011/10/geo-seaching/
+  date: '2011-10-22 10:03:31 -0400'
+  date_gmt: '2011-10-22 14:03:31 -0400'
+  content: "[...] geo seaching highearthorbit.com [...]"
+---
+<p>Spotlight has been in Mac OS X for quite awhile now, but in general, I haven't found it very useful. However, when <a href="http://www.macosxhints.com/article.php?story=20071115150413809" title="macosxhints.com - 10.5: Get more from Spotlight with new operators">this tip came across at Mac OSX Hints</a> on how to use operators for ranges in Spotlight metadata I got some ideas about doing geo-searches on my desktop machines.</p>
+<p>To summarize, Spotlight is a system-wide metadata storage engine. Mac OS X provides a nominal vocabulary of metadata you can store, but you can also extend this to add your own metadata. Various applications like Yojimbo add metadata keys to store tags and other info with files. What's especially great is that by applications using Spotlight, it means you can tie into this underlying metadata without having to use the application itself. </p>
+<p>Using simple command-line parameters, you can do search for words, or specific metadata such as file type:</p>
+<ul>
+<li><code>mdfind -s "Hawaii"</code></li>
+<li><code>mdfind -interpret "keyword kind:image"</code></li><br />
+</ul></p>
+<p>Great, but what about the range queries and Geo search? One of the default metadata items stored are <code>kMDItemLatitude</code> and <code>kMDItemLongitude</code>. In fact, you can use <code>mdimport -A</code> to get a list and description of all available metadata items. </p>
+<p><a href='http://highearthorbit.com/wp-content/uploads/2008/01/spotlight-geo.jpg' title='Spotlight Geo Search'><img src='http://highearthorbit.com/wp-content/uploads/2008/01/spotlight-geo.jpg' alt='Spotlight Geo Search' /></a></p>
+<p>You can then do geographic queries like: <code>latitude:<20 longitude:>20</code> and get all files you've created (such as photos or documents) while in Hawaii. You can also do better bounding box searches. To play with this I wrote a small RubyCocoa app to do geographic queries and display the location on a map.</p>
+<p><a href="http://mapsomething.com/demo/spotlight/GeoSpotlight.zip" title="GeoSpotlight Demo Application">GeoSpotlight</a> allows you to search without a box and add other Spotlight predicates to search by, say, keyword, title, city, time, etc. Check out the <a href="http://developer.apple.com/documentation/Carbon/Conceptual/SpotlightQuery/Concepts/QueryFormat.html" title="Spotlight Query Programming Guide: Query Expression Syntax">Query Expression Syntax</a> for details on how to do this. </p>
+<div class="thumbnail"><a href="http://skitch.com/ajturner/r9k8/geospotlight"><img src="http://img.skitch.com/20080119-hfb87yt67rfb2df34cht5deyd.preview.jpg" alt="GeoSpotlight" /></a></div></p>
+<p>This was a quick mock-up and I'll probably extend it to do bounding box specifying using the map interface and also locating documents via drag and drop. </p>

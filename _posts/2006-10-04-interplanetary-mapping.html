@@ -1,0 +1,48 @@
+---
+layout: post
+status: publish
+published: true
+title: Interplanetary Mapping
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 582
+wordpress_url: http://highearthorbit.com/interplanetary-mapping/
+date: '2006-10-04 08:12:40 -0400'
+date_gmt: '2006-10-04 13:12:40 -0400'
+categories:
+- Maps
+- Space
+- Project
+- GeoRSS
+tags: []
+comments:
+- id: 49909
+  author: Will
+  author_email: wbc5@mac.com
+  author_url: ''
+  date: '2006-10-09 19:23:05 -0400'
+  date_gmt: '2006-10-10 00:23:05 -0400'
+  content: But will there be a Starbucks when we get there?
+---
+<p>All the emerging standards for simple markup and syndication of location are Earth-centric (and sometimes just US/North American-centric). Granted, most people are probably only interested in locations that they can actually go to anytime soon. </p>
+<p>However, with the increasing number of interplanetary rovers, observations of moons, and perhaps future excursions, it is still useful to define how to properly handle these other reference frames. <a href="http://microformats.org/wiki/luna" title="Microformats Wiki: Luna">Luna</a> and <a href="http://microformats.org/wiki/mars" title="Microformats Wiki: Mars">Mars</a> are two suggested Microformats that are starting the discussion on how one might mark locations on the two bodies. Additionally, the OGC is working now on determining standards for scientists and developers to publish and share data sources of planets, moons, asteroids, comets, 'oh my'. </p>
+<p>And why does the Earth have to be the only one with cool, "slippy maps". I quickly put together a <a href="http://location.highearthorbit.com/space/mars.html" title="Mars Map" rel="me">map of Mars</a>. It uses the powerful <a href="http://openlayers.org" title="OpenLayers homepage">OpenLayers</a> Javascript mapping library to display the tiles from a <a href="http://onmars.jpl.nasa.gov/" title="NASA JPL OnMars Map">NASA WMS server</a>. </p>
+<p><a href="http://location.highearthorbit.com/space/mars.html" title="Mars Map" rel="me"><img src="http://highearthorbit.com/wp-content/uploads/2006/10/marsmap.png" title="Mars Map thumbnail" alt="Mars Map screenshot"/></a><br />
+To produce the locations for the map, I put up a <a href="http://location.highearthorbit.com/space/blog/" title="Space Blog" rel="me">Space Blog</a>, using WordPress and a slightly modified <a href="http://georss.org/geopress" title="GeoPress homepage on GeoRSS.org" rel="me">GeoPress</a> to publish Mars lander locations and landing dates. I altered the published Microformats produced by GeoPress to make the class "geo mars" as a suggested way to markup Mars coordinates. The published GeoRSS feeds from the Space Blog then produce the locations and layers automatically on the OpenLayers Mars Map. </p>
+<h2>To Do: CRS and You</h2><br />
+So this is all very neat, and in the end, really easy to setup. However, this is just a demonstration and in no way should be construed as "the way to do it". Specifically, there are these questions left unanswered:</p>
+<ol>
+<li>How to define the Microformat and GeoRSS for non-Earth (and non-WGS84) reference frames</li>
+<li>How to define the Microformats and GeoRSS/Geonames location for non-Earth locations (like "Ares Vallis")</li>
+<li>More sources for interplanetary map servers</li>
+<li>Ways to syndicate, and subscribe to, specific bodies</li>
+<li>Support for publishing, consuming, and drawing lines - in order to plot out mission profiles</li>
+<li>Support for publishing, consuming, and drawing areas - in order to plot out mission profiles, landing sites, and expected areas of "mission failures"</li><br />
+</ol></p>
+<p>I'm sure there are more issues, so please speak up. You know who you space geeks are.</p>

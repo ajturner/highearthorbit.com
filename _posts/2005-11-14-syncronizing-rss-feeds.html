@@ -1,0 +1,76 @@
+---
+layout: post
+status: publish
+published: true
+title: Syncronizing RSS feeds
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 310
+wordpress_url: http://highearthorbit.com/syncronizing-rss-feeds/
+date: '2005-11-14 08:04:40 -0500'
+date_gmt: '2005-11-14 13:04:40 -0500'
+categories:
+- Technology
+- Programming
+- Web
+tags: []
+comments:
+- id: 7372
+  author: Ross Belmont
+  author_email: ross@rossbelmont.com
+  author_url: http://rossbelmont.com
+  date: '2005-11-14 11:41:22 -0500'
+  date_gmt: '2005-11-14 16:41:22 -0500'
+  content: "Hey Andy,\r\n\r\nRoss here...Brent Simmons is working on sync for the
+    next version of NetNewsWire. The company that recently bought him out also operates
+    a decent web-based newsreader and of course they sell an aggregator for Windows.
+    Presumably, the idea is that you'll be able to sync your feeds with their central
+    servers and then read news in NNW, in their web reader, etc. I think it's logical
+    to assume this is a paid-only feature.\r\n\r\nAll that said, the answer to your
+    direct question would be \"no\" (at least as far as I know). I see a definite
+    incentive problem standing in the way of creating such a standard: at this point
+    the parties that would make use of such software would want to lock you in to
+    their reader(s). \r\n\r\nAs I see it, some organization (rather than the individual
+    end user) would have to pay for and operate the server infrastructure that would
+    bring this software to life, and we cannot expect them to do so out of the goodness
+    of their hearts. If anyone would do something like this I'd say Google would be
+    the most likely, but even they have their own web-based reader."
+- id: 7373
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2005-11-14 11:51:19 -0500'
+  date_gmt: '2005-11-14 16:51:19 -0500'
+  content: "The software I primarily used is either open-source, or developed myself,
+    so I'm not limited to someone hosting the service. There are numerous open-source/free
+    newsreaders out there that would benefit from some standard for syncronizing together.
+    \r\n\r\nSomething similar to the iCal standard which Apple's iCal, Mozilla's Sunbird,
+    and <a href='http://phpicalendar.sourceforge.net/nuke/' rel=\"nofollow\">PHP
+    iCalendar</a>. Syncronization wouldn't require any special server-side work,
+    just a central repository to store a sync file. This could be via ftp, sftp, scp,
+    webdav (and therefore .Mac), or local file (say to put on a USB key).\r\n\r\nThe
+    sync file would be a digital bookmark/highlighter for all of my RSS feeds."
+---
+<p>I recently picked up a semi-abandoned web-based RSS newsreader. It's a great little project, and I love being able to read, and update all of my incoming feeds from whereever I happen to be physically located (desktop, laptop, cellphone, public terminal, et al.) However, I often find myself in offline situations (plane) where reading from a web-based reader is obviously not an option, and the newly created, and open-source <a href='http://www.opencommunity.co.uk/vienna2.html'>Vienna</a> RSS reader if very slick. But again I end up now having multiple sets of feeds, each in a different "read" state, and I really want to be able to tag/flag feeds for later perusal.</p>
+<p>Therefore, I've been thinking about the possiblities for syncronizing feeds across multiple desktop computers as well as with a centralized server. This would allow me to flag, mark read/unread, add feeds, etc. at either the web-based reader or any desktop reader and keep them all syncronized. </p>
+<p>The sync interface should be open, allowing any RSS reader to implement and support the interface. Therefore users are not "locked into" a reader just because they have all of their feeds already there. This type of application lock-in is so very <em>totalitarian</em>. People should use software because it fits their needs and be allowed to switch away (or to) without fear of data loss.</p>
+<p>There are several simple criteria such an interface should support: added/removed feeds, flagged (multiple methods of flagging/tagging: e.g. interesting, todo, toread, etc), read/unread, last updated, and handle what *version* of a feed item also is marked (assuming updates happen to feed items?).</p>
+<p>RSS 2 provides a <a href='http://blogs.law.harvard.edu/tech/rss#ltguidgtSubelementOfLtitemgt'>guid tag</a>. <em>guid stands for globally unique identifier. It's a string that uniquely identifies the item. When present, an aggregator may choose to use this string to determine if an item is new.</em>. Therefore, an syncronization item could look like the following:</p>
+<pre>
+<code><br />
+<item><br />
+  <guid>http://highearthorbit.com/blog/syncronizing-rss-feeds</guid><br />
+  <state>read</state><br />
+  <flag>flagged</flag><br />
+  <updated>Mon, 07 Nov 2005 10:27:33 +0000</updated><br />
+</item><br />
+</code><br />
+</pre></p>
+<p>However, an important consideration is the fact that there will likely be <b>thousands</b> of feed items to syncronize, and XML is not known for its <em>compactness</em>. </p>
+<p>Are there current RSS syncronization standards currently out there that I may have missed?</p>

@@ -1,0 +1,364 @@
+---
+layout: post
+status: publish
+published: true
+title: uninitialized constant ActionMailer
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 403
+wordpress_url: http://highearthorbit.com/uninitialized-constant-actionmailer/
+date: '2006-04-26 09:24:50 -0400'
+date_gmt: '2006-04-26 14:24:50 -0400'
+categories:
+- Technology
+- Programming
+- Open-Source
+- Ruby
+- Rails
+tags: []
+comments:
+- id: 26242
+  author: Andy
+  author_email: andy@bumblesearch.com
+  author_url: http://www.bumblesearch.com
+  date: '2006-06-23 03:15:45 -0400'
+  date_gmt: '2006-06-23 08:15:45 -0400'
+  content: "Hi Andrew,\r\n\r\nJust wanted to say - excellent excellent tip. I'd reinstalled
+    Ruby about 4 times trying to get ActionMailer to work; and all along it was just
+    this config error. Rats!\r\n\r\nWell, it's solved now - so thanks a bunch. "
+- id: 26248
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2006-06-23 08:09:15 -0400'
+  date_gmt: '2006-06-23 13:09:15 -0400'
+  content: Glad it helped you!
+- id: 28563
+  author: Anthony Eden
+  author_email: anthonyeden@gmail.com
+  author_url: http://anthonyeden.com/
+  date: '2006-06-29 20:45:46 -0400'
+  date_gmt: '2006-06-30 01:45:46 -0400'
+  content: Thanks for the tip. You saved me a good amount of time I'm sure.
+- id: 51879
+  author: Mike
+  author_email: mike@saikosystems.com
+  author_url: http://www.ifour.co.uk
+  date: '2006-11-09 09:56:19 -0500'
+  date_gmt: '2006-11-09 13:56:19 -0500'
+  content: Nice one. Just what I needed.
+- id: 52601
+  author: ernst
+  author_email: herr.ernst@gmail.com
+  author_url: ''
+  date: '2006-11-20 10:40:44 -0500'
+  date_gmt: '2006-11-20 14:40:44 -0500'
+  content: "thanks. it worked before but didn't work afterwards... maybe because of
+    an upgrade\r\nnow it works again, thanks"
+- id: 69249
+  author: sarath
+  author_email: ms_sarath@bluebottle.com
+  author_url: http://www.kicktakers.com
+  date: '2007-01-08 00:23:51 -0500'
+  date_gmt: '2007-01-08 04:23:51 -0500'
+  content: 'thanks  andrew, it helped my time, i was wondering by seeing the error
+    message. '
+- id: 72791
+  author: Micah
+  author_email: fanmail@micah-wedemeyer.net
+  author_url: ''
+  date: '2007-01-21 11:14:45 -0500'
+  date_gmt: '2007-01-21 15:14:45 -0500'
+  content: "I had it inside the block for rails 1.1.6 and it worked.  When I upgrade
+    to 1.2.1, it stopped working.\r\n\r\nIt wouldn't be a big deal except that when
+    it's outside that block, the testing environment cannot set mail delivery to :test,
+    which means that all my unit tests try to send e-mail through the SMTP server.
+    \ They fail because the email addresses are bogus and not even legal (a@a.com).\r\n\r\nAny
+    ideas?"
+- id: 72792
+  author: Micah
+  author_email: fanmail@micah-wedemeyer.net
+  author_url: ''
+  date: '2007-01-21 11:18:36 -0500'
+  date_gmt: '2007-01-21 15:18:36 -0500'
+  content: "Well, luckily I'm using SMTP (the default).  So, if I comment out the
+    SMTP section, it will default to SMTP when necessary and use :test in the testing
+    section.\r\n\r\nI guess you could put SMTP in the production and development environments
+    manually."
+- id: 79455
+  author: jonah
+  author_email: fasdada@yahoo.com
+  author_url: ''
+  date: '2007-03-30 03:21:37 -0400'
+  date_gmt: '2007-03-30 07:21:37 -0400'
+  content: What does NameError Uninitialized Constant mean anyway?
+- id: 81296
+  author: Arne
+  author_email: arne@arnebrasseur.net
+  author_url: http://www.arnebrasseur.net
+  date: '2007-04-15 09:23:34 -0400'
+  date_gmt: '2007-04-15 13:23:34 -0400'
+  content: "In Ruby a Class is just an object, usually these objects are assigned
+    to constants, variables that start with an uppercase letter. So ActionMailer is
+    a constant that contains an instance of Class, namely the ActionMailer class.
+    Since ActionMailer hasn't been intialized you get a NameError : Uninitialized
+    Constant.\r\n\r\nMakes perfect sense :)"
+- id: 81297
+  author: Arne
+  author_email: arne@arnebrasseur.net
+  author_url: http://www.arnebrasseur.net
+  date: '2007-04-15 09:24:31 -0400'
+  date_gmt: '2007-04-15 13:24:31 -0400'
+  content: 'But that hasn''t solved my problem : I''d like to use ActionMailer _without_
+    rails, so I can''t use the rails initializer.'
+- id: 83547
+  author: Eric Savage
+  author_email: ericsavage@gmail.com
+  author_url: ''
+  date: '2007-05-07 05:15:35 -0400'
+  date_gmt: '2007-05-07 09:15:35 -0400'
+  content: "And to add to that, for the Republic of Stupid People, of whom I am a
+    citizen...\r\n\r\nDon't remove the comment on:\r\n# config.frameworks -= [ :action_web_service,
+    :action_mailer ]\r\n\r\nRight, with those wasted 2 hours out of my way, let's
+    code... :)"
+- id: 83564
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2007-05-07 09:41:28 -0400'
+  date_gmt: '2007-05-07 13:41:28 -0400'
+  content: "@Eric - Yeah, that will make it rather difficult for ActionMailer to work,
+    when it's been told to not be used. :)"
+- id: 83709
+  author: Adrian
+  author_email: adrian.klingel@gmail.com
+  author_url: ''
+  date: '2007-05-08 22:25:44 -0400'
+  date_gmt: '2007-05-09 02:25:44 -0400'
+  content: Thank you Sir!  I'm sure you saved me some time there.  Thank goodness
+    I googled and found this.
+- id: 91079
+  author: dbxrsziqxa
+  author_email: picoy@muluegr.com
+  author_url: http://dbxrsziqxa.com
+  date: '2007-06-20 20:55:56 -0400'
+  date_gmt: '2007-06-21 00:55:56 -0400'
+  content: Hello! Good Site! Thanks you! wlbsncvqxppo
+- id: 92597
+  author: spdnwjeakg
+  author_email: okibc@mjzdmqk.com
+  author_url: http://hifue.info
+  date: '2007-06-27 15:35:37 -0400'
+  date_gmt: '2007-06-27 19:35:37 -0400'
+  content: |-
+    Thanks for this site!
+     <a href="http://hifue.info" rel="nofollow">hifue.info</a>
+- id: 103048
+  author: escoz
+  author_email: escoz@msn.com
+  author_url: http://www.mapia.com.br
+  date: '2007-08-26 13:14:23 -0400'
+  date_gmt: '2007-08-26 17:14:23 -0400'
+  content: "Thanks a lot for the tip!! \r\n\r\nBy the way, first hit on google for
+    the query! :)\r\n\r\nBest regards,\r\n\r\nescoz"
+- id: 109252
+  author: nicole
+  author_email: nikikelly74@gmail.com
+  author_url: http://www.technikellykreative.com
+  date: '2007-09-19 16:40:13 -0400'
+  date_gmt: '2007-09-19 20:40:13 -0400'
+  content: 'ok - in case anyone out there is a complete idiot like me - notice the
+    instructions say to place the code following the config BLOCK.  I was putting
+    the code after the LINE, not the BLOCK.  Whew - 24 hours later and I''m back in
+    business!  '
+- id: 130873
+  author: Ben
+  author_email: ben@fearofpudding.com
+  author_url: http://blog.fearofpudding.com
+  date: '2007-12-06 00:11:11 -0500'
+  date_gmt: '2007-12-06 04:11:11 -0500'
+  content: "Thanks for the tip.  This worked a treat.\r\n\r\nFor some reason - having
+    the directive in the block was working on an Apache fcgi server, but upon migrating
+    to Mongrel I got this error."
+- id: 130874
+  author: Bens Blog &raquo; Uninitialized ActionMailer
+  author_email: ''
+  author_url: http://blog.fearofpudding.com/?p=7
+  date: '2007-12-06 00:18:40 -0500'
+  date_gmt: '2007-12-06 04:18:40 -0500'
+  content: "[...] I found a solution here: http://highearthorbit.com/uninitialized-constant-actionmailer/&Acirc;&nbsp;
+    [...]"
+- id: 138848
+  author: Logo Designer
+  author_email: pizzadude81@gmail.com
+  author_url: http://www.designbits.de
+  date: '2008-01-09 07:09:55 -0500'
+  date_gmt: '2008-01-09 11:09:55 -0500'
+  content: It has helped me too! Thanks a bunch.
+- id: 139132
+  author: paulie
+  author_email: pauliephonic@gmail.com
+  author_url: ''
+  date: '2008-01-10 11:31:42 -0500'
+  date_gmt: '2008-01-10 15:31:42 -0500'
+  content: Cheers!
+- id: 141687
+  author: bzouchir
+  author_email: bachirk@gmail.com
+  author_url: ''
+  date: '2008-01-17 07:07:57 -0500'
+  date_gmt: '2008-01-17 11:07:57 -0500'
+  content: Awsome! cheers mate
+- id: 146069
+  author: Anthony
+  author_email: anthony@altemarait.com
+  author_url: http://altemarait.com
+  date: '2008-01-31 14:09:05 -0500'
+  date_gmt: '2008-01-31 18:09:05 -0500'
+  content: 'Thanks!! You''re #1 on the google result for this error...'
+- id: 150123
+  author: peter
+  author_email: abc@abc.com
+  author_url: ''
+  date: '2008-02-13 12:02:33 -0500'
+  date_gmt: '2008-02-13 16:02:33 -0500'
+  content: Thank you for saving my sanity.
+- id: 157511
+  author: James
+  author_email: james.b.thompson@gmail.com
+  author_url: ''
+  date: '2008-03-07 06:53:35 -0500'
+  date_gmt: '2008-03-07 10:53:35 -0500'
+  content: Woot! Thanks very much!
+- id: 167303
+  author: Dag Stensson
+  author_email: dagstensson@hotmail.com
+  author_url: http://www.currant.se
+  date: '2008-04-15 07:43:22 -0400'
+  date_gmt: '2008-04-15 11:43:22 -0400'
+  content: Oh!!! thanks a lot!
+- id: 195021
+  author: drew
+  author_email: asdf@asdf.com
+  author_url: ''
+  date: '2008-07-19 21:31:14 -0400'
+  date_gmt: '2008-07-20 01:31:14 -0400'
+  content: Bless you, good sir.
+- id: 200096
+  author: Ren&Atilde;&copy;
+  author_email: asdf@uni-koblenz.de
+  author_url: ''
+  date: '2008-08-29 22:44:03 -0400'
+  date_gmt: '2008-08-30 02:44:03 -0400'
+  content: Thank you!
+- id: 202932
+  author: Les
+  author_email: les@lescochrane.com
+  author_url: ''
+  date: '2008-09-21 13:17:22 -0400'
+  date_gmt: '2008-09-21 17:17:22 -0400'
+  content: Cheers Andrew, you just saved me a tonne of headaches...
+- id: 229433
+  author: Fred Obermann
+  author_email: sinobra@gmail.com
+  author_url: ''
+  date: '2009-02-23 23:05:54 -0500'
+  date_gmt: '2009-02-24 03:05:54 -0500'
+  content: "Here it is 2009, I have just finished reading the 2008 edition of the
+    \"Rails Way\", and and Obie has devoted a whole 8 lines the the Actionmailer::Base.smtp_settings
+    without once mentioning WHERE IN THE environment.rb file they are to be placed!\r\n\r\nThe
+    lack of these kinds of details in the documentation have driven me to commit suicide
+    by jumping out of the window 17 times in the last month.  Thank God I live and
+    work in a basement apartment.\r\n\r\nMost the the time I think Rails is insanely
+    brilliantly, but there are times when I think it it just plain insane.\r\n\r\nThank
+    you Andrew."
+- id: 231837
+  author: Matt
+  author_email: myblake@gmail.com
+  author_url: ''
+  date: '2009-03-07 17:54:23 -0500'
+  date_gmt: '2009-03-07 21:54:23 -0500'
+  content: Huge help on that hint, would have taken me a while to realize. You are
+    indeed the first google hit.
+- id: 232602
+  author: patrick
+  author_email: patrick.rein@gmail.com
+  author_url: ''
+  date: '2009-03-11 05:01:24 -0400'
+  date_gmt: '2009-03-11 09:01:24 -0400'
+  content: "thx alot :) \r\nYou saved my day ;)"
+- id: 270481
+  author: davidpthomas
+  author_email: davidpthomas@gmail.com
+  author_url: http://www.davidpthomas.name
+  date: '2009-08-26 00:17:25 -0400'
+  date_gmt: '2009-08-26 04:17:25 -0400'
+  content: yep - me too. thx for the tip.
+- id: 273729
+  author: Maryjane
+  author_email: meldred@stmarytx.edu
+  author_url: http://www.stmarytx.edu
+  date: '2009-09-17 16:59:52 -0400'
+  date_gmt: '2009-09-17 20:59:52 -0400'
+  content: Wow!  I can't tell you how many tips and instructions, and how-to's I have
+    looked at never to find the place I should be putting the code... thanks a bunch!
+- id: 289076
+  author: Ben
+  author_email: pttp919@gmail.com
+  author_url: http://bencarpenter.org
+  date: '2010-01-02 18:35:58 -0500'
+  date_gmt: '2010-01-02 22:35:58 -0500'
+  content: Thanks, this was a little bit tricky, as all the example code was already
+    inside the init block!
+- id: 294627
+  author: StefanS
+  author_email: siebel.stefan@gmail.com
+  author_url: http://blog.project-sierra.de
+  date: '2010-02-16 14:36:21 -0500'
+  date_gmt: '2010-02-16 18:36:21 -0500'
+  content: Thanks, you saved my life :-)
+- id: 319772
+  author: Iesus
+  author_email: pleob86@hotmail.com
+  author_url: ''
+  date: '2010-07-24 12:45:55 -0400'
+  date_gmt: '2010-07-24 16:45:55 -0400'
+  content: Thanks about that!
+- id: 368392
+  author: umer hassam
+  author_email: send_me_a_sign@yahoo.com
+  author_url: ''
+  date: '2011-04-08 07:03:41 -0400'
+  date_gmt: '2011-04-08 11:03:41 -0400'
+  content: Thanks a lot, i would have been stuck for hours.. your a life saver.. thnks
+- id: 550104
+  author: johannes
+  author_email: johannes.thoma@gmx.at
+  author_url: http://www.jtsoft.at
+  date: '2012-09-17 07:09:27 -0400'
+  date_gmt: '2012-09-17 11:09:27 -0400'
+  content: "Hi, \r\n\r\nJust found that in Rails 3.2.5 it seems not to work if the
+    mailer\r\nclass is simply named Mail. After renaming the class (and the file)\r\nit
+    works. Strange ..."
+---
+<p>A word to the wise of rails developers. Hopefully this makes it to Google search, because when I looked it up, there wasn't an answer. </p>
+<p>If you're configuring ActionMailer and you try to run the console and get the following messages:<br />
+<code></p>
+<pre>
+[host]$ script/console<br />
+Loading development environment.<br />
+./script/../config/../config/environment.rb:41:NameError:<br />
+  uninitialized constant ActionMailer<br />
+/home/highearth/.gems/gems/actionpack-1.12.1/lib/action_controller/integration.rb:15:<br />
+  NameError: uninitialized constant ActionController::Integration::Session::Test<br />
+./script/../config/../config/../app/controllers/application.rb:3:<br />
+  NameError: uninitialized constant ActionController::Base</p>
+<p></pre><br />
+</code></p>
+<p>Make sure your ActionMailer configuration in your <code>config/environment.rb</code> file is <strong>after</strong> your <code>Rails::Initializer.run do |config|</code> block. </p>

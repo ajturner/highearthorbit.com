@@ -1,0 +1,41 @@
+---
+layout: post
+status: publish
+published: true
+title: Migrating a site from PHP to Rails
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 531
+wordpress_url: http://highearthorbit.com/migrating-a-site-from-php-to-rails/
+date: '2006-10-12 05:53:45 -0400'
+date_gmt: '2006-10-12 10:53:45 -0400'
+categories:
+- Howto
+- Rails
+tags: []
+comments: []
+---
+<p>I learn best by picking a project and learning a new technology by applying it to the project. This is how I originally learned PHP, MySQL, and various web technologies when developing the <a href="http://detroitcurlingclub.com" title="Detroit Curling Club" rel="me">Detroit Curling Club</a> site/portal. Looking back, it's amazing I got done what I did with what I knew. I implemented a Wiki, CMS, user management, uploading, RSS, and so forth, from the ground up, with no frameworks <shudder>. </p>
+<p>However, the result also means the code is, shall we say, "spaghetti". And is really no fun to maintain and add to. Since then, I've learned Ruby and Rails and really enjoy working in the language and framework and wanted to reimplement the site. With so many other projects going on, I was concerned about the time necessary to get the site migrated. </p>
+<p>Actually, it was rather easy. by stroke of fortune. Here is how the work went.</p>
+<h3>On the catwalk...</h3><br />
+By similar mindset, when I designed the original database schema, I used "rails-esque" naming: tables are plural, columns are simple singular names. Join tables are alphabetical of the two tables they are joining. I just had to migrate the names of a couple of tables and columns to mee the rails standard configuration. I could have overriden the table/column names, but didn't want to deal with maintaining that. I really wanted the site to work like it was originally written with Rails in mind. </p>
+<p>You've obviously created a Rails application by now, so I'll skip that. Now, I have my database (with backups). Setup your <code>config/database.yml</code> to point to the database and then run <code>rake db:schema:dump</code> to create the schema.rb of the database. If you want, you can copy this to a migration file. </p>
+<p>Next, install <a href="http://magicmodels.rubyforge.org/" title="Dr. Nic's Magic Models at RubyForge">Dr. Nic's Magic Models</a>, which automagically give you your model files, associations, basic validations, and so forth with <em>no coding</em>. Magic just begins to describe it. You can verify this by bringing up <code>script/console</code> and toying with your models and associations.  </p>
+<h3>Testing is good</h3><br />
+A good idea at this point is to load <a href="http://www.openqa.org/selenium-ide/" title="Selenium IDE">Selenium</a>, a web user-interface testing application, and walk over your original site to create user interface requirements based on current site design. This should stand as your base-line specification. In the end, your Rails app should act like your current application. </p>
+<p>You can also check out the work of <a href='http://blog.hasmanythrough.com/articles/2006/08/27/validate-all-your-records' title='Has Many Through blog'>Josh Susser</a> who has a ruby script that will validate all the records in your database using your model validations.</p>
+<p>Define your application test specification using <a href="http://www.lukeredpath.co.uk/2006/8/29/developing-a-rails-model-using-bdd-and-rspec-part-1" title="Luke Redpath: Behaviour Driven Design">RSpec and BDD</a>. Again, you already have an existing web application to help define your desired functionality. </p>
+<h3>The View, the View</h3><br />
+Now you have a your base application done. You should start migrating your views. Fill in your <code>layout/application.rhtml</code> with the base layout from your original HTML files.  </p>
+<p>You'll now need to start actually defining your controllers for various functionality: calendar, users, leagues, etc. Along the way, run your tests you defined with RSpec and verify operation. This is where the actual work comes in. Overall though, I find the design of Rails to make this very easy going. I just have to deal with various legacy functionality.</p>
+<p>I'm also looking more at <a href="http://www.ujs4rails.com/" title="Unobtrusive Javascript for Rails">Unobtrusive Javascript for Rails</a> (ujs4rails) at how to handle graceful degradation (or is it graceful upgrading) to browsers that may not support javascript. </p>
+<h3>Work in Progress</h3><br />
+That all said, migrating the site has been very easy. So easy I'm looking at migrating other projects to Rails. Of course, deploying Rails applications to shared hosts is not nearly as easy as deploying PHP ones. Especially with applications that are meant for other users to easily install on their own hosts. But the ease of development and maintenance is not easily overlooked. </p>
+<p>If only Apache supported a built-in Rails module. :)</p>

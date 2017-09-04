@@ -1,0 +1,155 @@
+---
+layout: post
+status: publish
+published: true
+title: GeoRSS Multiple Locations
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 1009
+wordpress_url: http://highearthorbit.com/georss-multiple-locations/
+date: '2008-03-17 23:11:25 -0400'
+date_gmt: '2008-03-18 03:11:25 -0400'
+categories:
+- GeoRSS
+- KML
+tags:
+- AdrianHolovaty
+- KML
+- news
+- storymapping
+comments:
+- id: 160287
+  author: Adrian Holovaty
+  author_email: adrian@holovaty.com
+  author_url: http://www.holovaty.com/
+  date: '2008-03-18 00:27:17 -0400'
+  date_gmt: '2008-03-18 04:27:17 -0400'
+  content: Awesome, Andrew, thanks for writing this up. Please let me know what I
+    can do to help implement this in GeoPress or in any other way. This is a huge
+    step forward for GeoRSS.
+- id: 160410
+  author: Gerd Kamp
+  author_email: gkamp@acm.org
+  author_url: http://relations.ka2.de
+  date: '2008-03-18 11:19:52 -0400'
+  date_gmt: '2008-03-18 15:19:52 -0400'
+  content: "Verrry interesting!\r\n\r\nNot being able to represent multiple locations
+    hasbeen a major drwaback for representing our geocoded news (I'm working at the
+    german news agency)  within  georss. \r\n\r\nSince our main feed format is NITF
+    (NewsIndustryTextFormat http://www.nitf.org) we first had to come up with
+    a notation of our geocoded news in NITF. We choose to use georss:point within
+    NITF (see example below)\r\n\r\n\r\n\r\n<identified-content>\r\n<location>\r\n<state
+    state-code=\"07000000\" code-source=\"AGS\">Rheinland-Pfalz<georss:point>8.27104591236\r\n49.9966008543</georss:point></state>\r\n<country
+    iso-cc=\"DEU\">Deutschland</country>\r\n</location>\r\n<location>\r\n<region
+    region-code=\"10041000\" code-source=\"AGS\">Stadtverband Saarbr&Atilde;&frac14;cken<georss:point>6.\r\n99763293966
+    49.2358453373</georss:point></region>\r\n<state state-code=\"10000000\"
+    code-source=\"AGS\">Saarland<georss:point>6.99763293966 49.2358\r\n453373</georss:point></state>\r\n<country
+    iso-cc=\"DEU\">Deutschland</country>\r\n</location>\r\n</identified-content>\r\n\r\n\r\nFrom
+    my experience an even more important freason or external references than the drawback
+    of increasing the feed size is the fact that typically\r\nlicense restrictions
+    \ from commercial data providers do not allow  to include the geometries of the
+    counties, city, neighbourhood borders etc. \r\n\r\nAnd at least in Germany there
+    are only commercial providers for the geometries, since every  city is selling
+    the geometries for ridicolous prices and  wven more ridicoulous licensing terms.\r\n\r\nHence
+    we are only able to include the centroid (resp. some official representant  designated
+    by some authority) of the polygon within our feeds. But in order to enable our
+    customers to identify which geometry to associate with the locations and do the
+    computations you mentioned above  we had to come up with a way to communicate
+    an identifier  for that geometry.  To our advantage NITF already provides  code-source
+    and *-code attributes that we could use for these purposes.\r\n\r\nI would like
+    to be able to come up with similar possibilities  in GeoRSS. IMHO, generalizing
+    external references via src attributes from georss:polygon into a separate tag,
+    e.g.  georss:ref,  georss:external or whatever it should be named seems to be
+    a good idea for doing so. Given the rel attribute maybe using georss:link would
+    be a good idea as a tag name. Having a separate tag would be similar to the handling
+    of external images via the img tag as well as the link tag in HTML and allow for
+    flexible representation schemes for the external data as well as coping with some
+    shortcomings of your proposal. e.g. the result being not a polygon but a point
+    or a line.\r\n\r\nI'm also not sure if the attributes excerpt and featurename
+    are really necessary and shouldn't be handled via additional namespaces or tags.
+    I definitely think that excerpt shouldn't be an attribute. It also makes sense
+    for me to rename featurename to name. \r\n\r\nPS.: I'm attending Where2.0 and
+    WhereCamp (and currently are still free on May 15-16th) and would be most interested
+    to discuss these issues. Anybody else interested?\r\n\r\nBTW.: I'm reporting on
+    my efforts of becoming the dpa the first news agency worldwide to geoceode their
+    news on by blog in a miniseries to be found at http://relations.ka2.de?tag=goingplaces
+    and would be most interested in getting feedback."
+- id: 160411
+  author: Ian Turton
+  author_email: ijturton@gmail.com
+  author_url: ''
+  date: '2008-03-18 12:01:33 -0400'
+  date_gmt: '2008-03-18 16:01:33 -0400'
+  content: "Sounds like a good plan to me. I'm not entirely clear on how the collection
+    element helps me or the parser tell if I'm dealing with multiple places or a hierarchy
+    of places.\r\n\r\nMay be we can discuss this more next week in St Louis?\r\n\r\nIan"
+- id: 160414
+  author: Sean Gillies
+  author_email: sgillies@frii.com
+  author_url: http://zcologia.com/sgillies
+  date: '2008-03-18 12:34:03 -0400'
+  date_gmt: '2008-03-18 16:34:03 -0400'
+  content: 'Andrew, I prefer multiple entries to multiple location items. Feed entries
+    are cheap: http://zcologia.com/news/711/multiple-locations-in-georss/.'
+- id: 418223
+  author: Nathan Reese
+  author_email: nreese@integrity-apps.com
+  author_url: ''
+  date: '2011-12-01 13:46:37 -0500'
+  date_gmt: '2011-12-01 17:46:37 -0500'
+  content: Great article.  Has there been any follow-up?  Looking at http://www.georss.org/multiple_locations
+    it looks like your usecase has been documented, but has it been included in any
+    standards?  I would like to publish a feed with multiple locations and am wondering
+    what is the current consensus on the matter.
+---
+<p>A commonly requested feature addition to <a href="http://www.georss.org/" title="GeoRSS | GeoRSS ::  Geographically Encoded Objects for RSS feeds">GeoRSS</a> has been <em>multiple locations</em> per entry. Currently, GeoRSS only adds a single geometry per RSS or Atom entry. This was pragmatic and served the general goals of GeoRSS. </p>
+<p>There are several commonly encountered use cases. News reports typically mention several locations. Bloggers using <a href="http://www.georss.org/geopress" title="GeoPress | GeoRSS ::  Geographically Encoded Objects for RSS feeds">GeoPress</a> may tell a story about a trip and want to reference several spots along their trip - especially if they are documenting a tour that includes a path and sites along that path such as in <a href="http://www.everytrail.com/" title="EveryTrail - GPS travel community, geotagging, geotagged photos, Google Maps, GPS tracks, waypoints, coordinates">EveryTrail</a>. Dan Schultz talks about why <a href="http://www.pbs.org/idealab/2008/01/one-location-doesnt-cut-it.html" title="MediaShift Idea Lab . One Location Doesn't Cut It | PBS">"One Location Doesn't Cut It"</a>, citing other examples from news journalism.</p>
+<p><a href="http://everyblock.com" title="EveryBlock" rel="met">Adrian</a> and I recently sat down together to quickly brainstorm on what this may look like. The features we were looking to add were: multiple geometries, excerpt for that geometry, and toponym for that location (venue, city, etc.) Additionally, we didn't want to break current compatibility. </p>
+<p>Other services are already including multiple locations in different ways. Flickr outputs a single location in two different formats of GeoRSS: <a href="http://georss.org/simple" title="GeoRSS Simple">Simple</a>, and some odd form of deprecated W3C. <a href="http://labs.metacarta.com/rss-geotagger/" title="MetaCarta Labs: RSS GeoTagger">MetaCarta's RSS-to-GeoRSS</a> converted currently just dumps multiple locations into the entry, but without identifying if these are unique locations, or just variations in format type or hierarchy. </p>
+<p>We wanted to call out that this is in fact a different type of geometry - a multi-geometry. Both KML and WKT support multi-geometry, but without being able to reference what the points are individually about. That's useful if you are, say, marking all the holes in a field, but not for narratives. </p>
+<p>Another feature we wanted to try and support was to be able to reference geometries stored elsewhere. Currently in GeoRSS feeds you'll typically see references to a City or Country just include a point to the center of that geography. Not really indicative of what the article was about, or useful when trying to find all the geographic data about an area. So it's important to include lines and areas as appropriate. However, including huge outlines of states or nations, potentially multiple times within a single feed, can have drastically bad consequences of increasing feed file size and complexity. </p>
+<p>Here is a snippet of what we are proposing:</p>
+<div class="snippet">
+<code class="prettyprint"><br />
+<description><br />
+	We went to visit downtown Cedarburg before<br />
+	the conference. Had some great sandwiches at Joe&#x27;s.<br />
+	If you haven&#x27;t been to Cedarburg, Wisconsin, then<br />
+	you haven&#x27;t really experienced the MidWest...<br />
+</description><br />
+<georss:collection><br />
+	<georss:point<br />
+		excerpt="Went to visit downtown Cedarburg..."<br />
+		featurename="Downtown Cedarburg, Wis."><br />
+			43.296700 -87.987500<br />
+	</georss:point><br />
+	<georss:polygon<br />
+		rel="geometry"<br />
+		src="http://geonames.org/geometries/5867680"<br />
+		excerpt="..."<br />
+		featurename="Cedarburg, Wisconsin"<br />
+		type="application/vnd.google-earth.kml+xml"/><br />
+	<georss:line<br />
+		featurename="Convention Center"><br />
+			43.296700 -87.987500 43.3 -88 -44, -89<br />
+	</georss:line><br />
+</georss:collection><br />
+</code><br />
+</div></p>
+<p>The first part to notice is that we wrapped the multiple geometries in a <code>georss:collection</code>. This allows current parsers to not be confused by encountering multiple georss elements unwrapped and being unclear if they are multiple representations of the same geometry, or different geometries.</p>
+<p>We also included a <code>excerpt</code> attribute that allows you to include some text referencing what this location is specifically about. This can be text from the article itself, or some other useful information. One concept we had considered was using some reference to the text wrapped in the article itself, but this seemed burdensome and prone to problems using an attribute of one element to embedded text in another element.</p>
+<p>The second element is a <code>georss:polygon</code> that includes a <code>src</code> reference to the geometry stored elsewhere. The <code>rel</code> tag specifies that it is the geometry of this element, and the <code>type</code> helps the tool know what the representation is of the stored geometry. This way a tool that is consuming the GeoRSS can go and fetch the geometry if it wants, or if it already has a cached version, say referenced elsewhere in this same feed, then it doesn't have to request it again.</p>
+<p>Of course, with a standards development, it is useful to consider how a user interface might provide for including multiple locations in an entry. Here is a mockup of how I imagine a simple interface would appear, and probably how we'd implement it in something like <a href="http://www.georss.org/geopress" title="GeoPress | GeoRSS ::  Geographically Encoded Objects for RSS feeds">GeoPress</a>:</p>
+<p>Article: We went to visit downtown Cedarburg before the conference. Had some great sandwiches at Joe's. If you haven't been to Cedarburg, Wisconsin, then you haven't really experienced the MidWest...</p>
+<p>Locations:<br />
+ - Excerpt: Went to visit downtown Cedarburg...<br />
+ - Type: Point<br />
+ - Geometry: 43.296700 -87.987500<br />
+ - Name: Cedarburg, Wis. </p>
+<p>To promote ideas and discussion around these and other proposals, I've created proposals at GeoRSS.org on <a href="http://georss.org/proposals/multiple_locations" title="Proposal: Multiple Locations | GeoRSS ::  Geographically Encoded Objects for RSS feeds">multiple location<a/> and <a href="http://georss.org/proposals/external_geometry" title="Referencing External Geometry | GeoRSS ::  Geographically Encoded Objects for RSS feeds">referencing external geometry</a>. Please let us know what you think about the idea and format. We know that we can't please everyone, but like the origins of GeoRSS, we're just trying to address a real need with a simple format.</p>

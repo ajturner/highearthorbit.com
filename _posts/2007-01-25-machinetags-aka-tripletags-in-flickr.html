@@ -1,0 +1,39 @@
+---
+layout: post
+status: publish
+published: true
+title: MachineTags aka TripleTags in Flickr
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 717
+wordpress_url: http://highearthorbit.com/machinetags-aka-tripletags-in-flickr/
+date: '2007-01-25 13:37:56 -0500'
+date_gmt: '2007-01-25 17:37:56 -0500'
+categories:
+- Programming
+- Photography
+tags: []
+comments: []
+---
+<p>It used to be just about sharing photos with friends, but now its so, so much more than that. </p>
+<p><a href="http://www.flickr.com/groups/api/discuss/72157594497877875/">Flickr announces Machine Tags</a>, (via <a href="http://brainoff.com/weblog/2007/01/25/1224">Mikel</a>) which is formal support within Flickr's database and API for what are also known as TripleTags, <code>namespace:predicate=value</code>.</p>
+<p>Example:<br />
+<code><br />
+geotagged<br />
+geo:lat=43.245<br />
+geo:lon=-83.211<br />
+</code></p>
+<p>The idea was to add some specific meaning to a set of data (photo) in a way that was accessible to the user through the user interface. Savvy types would add keywords to the EXIF Metadata, but this is tedious, and this metadata is often stripped out when using some image conversion utilities for resizing/cropping/etc. Therefore, soon after the popularization of folksonomy, users found a way to also add 'semantic' data. </p>
+<p>However, this usage, while working, was not inherently supported. People used it as a way to find all their 'geotagged' photos, or photos of forests, and so on. But parsing them and dealing with them was sometimes a pain from the developer perspective, and it also made a mess of your tag clouds or tag listings as you had all these one-time-use tags for the specific lat/lon point.</p>
+<p>Now that Flickr internally supports machine tags in a good way, developers can really start using this as a way to attach arbitrary metadata to any data item (photo, etc.) <a href="http://geobloggers.com/archives/2007/01/24/offtopic-ish-flickr-ramps-up-triple-tag-support/">Dan Catt</a> gives a good discussion on what it all means and how it can be used. </p>
+<p>I wonder if a <a href="http://microformats.org">Microformats</a>-like impromptu standards body will pop-up to help formalize the namespaces and predicates. Why 'geotagged' and not 'geolocated', 'geo', 'geomarked', etc? While free-form naming is nice - so very <em>extensible</em>, being able to use a common vocabulary would also be nice. </p>
+<p>Perhaps just accomodating current standards and applying them to the machine tags would be good without requiring any additional work. I'm thinking like <code>hcard:fn=andrewturner, hcard:url=http://highearthorbit.com, hcard:phone=555-1212</code>, etc.</p>
+<h3>You the developer</h3><br />
+So, the end result to the developer is to check out the additional parameters to the <a href="http://www.flickr.com/services/api/flickr.photos.search.html">Flickr search method</a> in the API. There is now a <code>machine_tags</code> optional parameter that allows you to search by namespace, predicate, or value and use boolean constructions for these parameters.</p>
+<p>Dan Catt even references Spimes as an excellent example of why machine tags can really empower devices, especially sensored/automated ones. And now that Flickr has no limits on uploads, you can create frequent update-rate sensored images.</p>

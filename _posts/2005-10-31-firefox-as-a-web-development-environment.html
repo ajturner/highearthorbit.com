@@ -1,0 +1,38 @@
+---
+layout: post
+status: publish
+published: true
+title: Firefox as a web-development environment
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 304
+wordpress_url: http://highearthorbit.com/firefox-as-a-web-development-environment/
+date: '2005-10-31 11:12:11 -0500'
+date_gmt: '2005-10-31 16:12:11 -0500'
+categories:
+- Programming
+- Web
+- Open-Source
+- Javascript
+tags: []
+comments: []
+---
+<p>So you're developing a website/page/app/service/extension/widget/doodad that makes heavy use of Javascript/XHTML/XML/HTTP/DOM/XUL/hoomajooba and you're slowly, but surely, tearing your hair out from finding small bugs with little to no help on <b>where</b> these bugs are. </p>
+<p>Web development using the newest technologies is obviously a newly emerged, and quickly developing, field. Fortunately, open-source toolsets promote developers and users <em>of</em> these technologies to build and release tools <em>for</em> these technologies. </p>
+<h3>Tools are our friends</h3><br />
+<a href='http://lesliefranke.com/'>Leslie Frank's</a> <a href='http://lesliefranke.com/sandbox/presentations/firefoxwdev/firefoxwdev.htm'>Firefox Web Development Tools Presentation</a> is a good run through of about a dozen tools you should use, or at leat consider using, for your development environemnt. <a href='http://www.bytefarmers.com/log/2005/09/03/extending-firefox-for-web-developers/'>Extending Firefox for web developers</a> has some more useful tools, including a reference to <a href='http://www.hacksrus.com/~ginda/venkman/'>Venkman</a>, a powerful Javascript development environment.</p>
+<h3>The power lies within</h3><br />
+about:config is a very powerful, and little used, configuration option for tweaking the underpinnings of Firefox. </p>
+<p>via <a href='http://www.borngeek.com/firefox/tutorial/part_07.html'>Born Geek</a>:</p>
+<blockquote><p>
+There are two browser settings that can make your debugging life much easier. Both can be set through the standard about:config preferences mechanism, and both affect the output sent to the JavaScript console.</p>
+<p>The first preference, javascript.options.showInConsole, will log any errors in your chrome XUL files to the JavaScript console when set to true. By default, this option is set to false, so you will need to change the value. The second preference, javascript.options.strict, will display strict JavaScript warnings in the JavaScript console. Again, this is set to false by default. Since many developers do not turn this preference on while developing, you will most likely see a number of errors and warnings with their code (so they can be safely ignored).<br />
+</blockquote></p>
+<h3>The future is now...</h3><br />
+For you extension developers, there is also a very exciting feature available in Firefox 1.5, <a href='http://kb.mozillazine.org/Getting_started_with_extension_development'>Dynamic Development</a>, which allows an extension to refer to a set of files locally on a disk without the need to repackage and reinstall the XPI during development. Changes are loaded each time, at runtime. </p>

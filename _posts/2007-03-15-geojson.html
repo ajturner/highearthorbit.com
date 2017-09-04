@@ -1,0 +1,82 @@
+---
+layout: post
+status: publish
+published: true
+title: GeoJSON
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 781
+wordpress_url: http://highearthorbit.com/geojson/
+date: '2007-03-15 13:01:23 -0400'
+date_gmt: '2007-03-15 17:01:23 -0400'
+categories:
+- Neogeography
+tags: []
+comments: []
+---
+<p>There is quickly growing interest in Geographic Support in <a href="http://www.json.org/">JSON</a> (Javascript Object Notation) and now there is a central discussion rallying area at the <a href="http://wiki.geojson.org/" title="GeoJSON Wiki">GeoJSON wiki</a>. </p>
+<p>The goal is to grow and develop GeoJSON similar to how GeoRSS has grown, by community effort, examples, and implementation. And then make a standard on what has come out of it (rather than standards first, implementation later... please)</p>
+<p>There have been other efforts to start GeoJSON, originally, <a href="http://icon.stoa.org/trac/pleiades/wiki/GeoJSON" title="GeoJSON for Pleiades">GeoJSON for Pleiades</a>, and also <a href="http://jdil.org/" title="JDIL">JDIL</a>. </p>
+<h3>All well and good, but what do you mean?</h3><br />
+<a href="http://www.json.org/">JSON</a> is a way to easily serialize, store, and create Javascript objects from a hash. That's the simple way to put it. </p>
+<p>Therefore, given a hash for a contact:</p>
+<pre>
+var JSON_text = {<br />
+    "firstName": "John",<br />
+    "lastName": "Smith",<br />
+    "address": {<br />
+        "city": "New York, NY",<br />
+        "zipCode": 10021,<br />
+        "streetAddress": "21 2nd Street"<br />
+    },<br />
+    "phoneNumbers": [<br />
+        "212 732-1234",<br />
+        "646 123-4567"<br />
+    ]<br />
+}<br />
+</pre></p>
+<p>You can easily create a contact <code>object</code>:</p>
+<pre> var p = eval("(" + JSON_text + ")");</pre></p>
+<p>(via <a href="http://en.wikipedia.org/wiki/JSON" title="Wikipedia: JSON">Wikipedia</a>)</p>
+<p>The idea behind GeoJSON then is to encapsulate geographic features in JSON in a common way that allows different services to pass around the Javascript representation. </p>
+<p>For example (from <a href="http://icon.stoa.org/trac/pleiades/wiki/GeoJSON" title="GeoJSON for Pleiades">Pleiades GeoJSON</a>):</p>
+<pre>
+var GEO_JSON = { "name": "map-1",<br />
+  "title": "Pleiades Map 1",<br />
+  "boundingBox": [-12.0, 32.0, 40.0, 58.0],<br />
+  "srs": "EPSG:4326",<br />
+  "layers": [<br />
+    { "name": "dphysio",<br />
+      "title: "Demis Physiography"<br />
+      "layers": "Bathymetry,Topography,Rivers,Waterbodies",<br />
+      "styles": ",,,",<br />
+      "onlineResource": "http:\/\/www2.demis.nl\/mapserver\/request.asp",<br />
+      "srs": "EPSG:4326"<br />
+    }<br />
+  ]<br />
+}<br />
+</pre></p>
+<h3>UED</h3><br />
+Lets just carry this one more step forward.</p>
+<p>Just today on <a href="http://ajaxian.com/archives/ued-url-encoded-data" title="Ajaxian: UED">Ajaxian</a> there was mention of URL Encoded Data. This is taking that Javascript array/hash - JSON? and making it into a URL to link to resources, or perhaps to create Geo-objects on the other end for, say, mapping. </p>
+<p>From the above example it may yield something like:</p>
+<pre>
+var geo_url = ued_encode(GEO_JSON);</p>
+<p>http://geoservice.com/get_data.php?name=map-1&title=Pleiades+Map+1<br />
+  &boundingBox[]=-12.0&boundingBox[]=32.0&boundingBox[]=40.0&boundingBox[]=58.0<br />
+  &srs=EPSG:4326&layers[name]=dphysio&layers[title]=Demis+Physiography<br />
+  &layers[layers][]=Bathymetry&layers[layers][]=Topography<br />
+  &layers[layers][]=Rivers&layers[layers][]=Waterbodies<br />
+  &layers[onlineResource]=http://www2.demis.nl/mapserver/request.asp",<br />
+  &layers[srs]=EPSG:4326<br />
+</pre></p>
+<p>Of course, you may start running into encoding problems or URL lengths, but it is still a very nice idea.</p>
+<h3>Devil in the details</h3><br />
+This is all well and good, and very interesting. But there will definitely be a long road working out the issues and details. Lots of initial excitement, people throwing out existing formats, libraries, use-cases, and issues that have been building over years. This will mire the whole thing down, and everyone will slowly wonder if it will make it out of the murkiness.</p>
+<p>And then lo' and behold, after much forging & shaping, it will be a useful spec. </p>

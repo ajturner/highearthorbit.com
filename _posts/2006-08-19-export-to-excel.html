@@ -1,0 +1,68 @@
+---
+layout: post
+status: publish
+published: true
+title: Export to Excel
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 514
+wordpress_url: http://highearthorbit.com/export-to-excel/
+date: '2006-08-19 01:53:51 -0400'
+date_gmt: '2006-08-19 06:53:51 -0400'
+categories:
+- Rails
+tags: []
+comments:
+- id: 46387
+  author: Brian
+  author_email: info@napcs.com
+  author_url: http://www.napcs.com/
+  date: '2006-09-07 22:29:04 -0400'
+  date_gmt: '2006-09-08 03:29:04 -0400'
+  content: Thanks for the link to my plugin! Nice site.
+- id: 177790
+  author: andry
+  author_email: sahabatquran.yogya@gmail.com
+  author_url: http://www.mursinah.wordpress.com
+  date: '2008-05-20 07:49:34 -0400'
+  date_gmt: '2008-05-20 11:49:34 -0400'
+  content: ok
+- id: 220231
+  author: khim
+  author_email: khim.sreang@gmail.com
+  author_url: ''
+  date: '2008-12-31 04:31:19 -0500'
+  date_gmt: '2008-12-31 08:31:19 -0500'
+  content: I practiced this code with Ruby on Rails 2.9 but It doen't work. the message
+    show that "uninitialized constant ElectricityController::Excel " please help me
+    to go on solve this problem by regard....!
+- id: 270848
+  author: manjula
+  author_email: rajmanjula2006@gmail.com
+  author_url: ''
+  date: '2009-08-28 06:29:09 -0400'
+  date_gmt: '2009-08-28 10:29:09 -0400'
+  content: "HI,\r\n\r\nI've used this plugin with rails 2.3 and getting error as\r\nundefined
+    method `addWorksheetFromActiveRecord' for Excel::Workbook:Class\r\n\r\nWhat is
+    the wrong?Please help me to get it solved"
+---
+<p>Need to quickly export some data to Excel? How about doing it in just a couple of lines of code?</p>
+<p><a href='http://www.napcsweb.com/blog/2006/02/10/excel-plugin-10/'>Excel Export Plugin</a> is a <a href='http://rubyonrails.org'>Rails</a> plugin to do just that.</p>
+<p>Install the plugin:<br />
+<code>ruby script/plugin install http://svn.napcsweb.com/public/excel</code></p>
+<p>Here is an example method:</p>
+<pre><code><br />
+def export_project_to_excel<br />
+  e = Excel::Workbook.new<br />
+  @project = Project.find(:all)<br />
+  e.addWorksheetFromActiveRecord "Project", "project", @project<br />
+  headers['Content-Type'] = "application/vnd.ms-excel"<br />
+  render_text(e.build)<br />
+end<br />
+</code></pre></p>

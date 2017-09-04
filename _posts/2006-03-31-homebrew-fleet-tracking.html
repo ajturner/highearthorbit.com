@@ -1,0 +1,69 @@
+---
+layout: post
+status: publish
+published: true
+title: Homebrew fleet tracking
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 384
+wordpress_url: http://highearthorbit.com/homebrew-fleet-tracking/
+date: '2006-03-31 10:02:24 -0500'
+date_gmt: '2006-03-31 15:02:24 -0500'
+categories:
+- Geolocation
+- Mobile
+- Engineering
+tags: []
+comments:
+- id: 107750
+  author: markw
+  author_email: markwinsf@gmail.com
+  author_url: http://atomic-content.com/interactive
+  date: '2007-09-12 21:43:52 -0400'
+  date_gmt: '2007-09-13 01:43:52 -0400'
+  content: Did you make any progress on this? Thinking of something similar for 2008.
+- id: 217000
+  author: qin
+  author_email: luoyichao78@gmail.com
+  author_url: http://ptpguide.com
+  date: '2008-12-13 10:58:03 -0500'
+  date_gmt: '2008-12-13 14:58:03 -0500'
+  content: great article! I like it.
+---
+<p>On the <a href='http://lists.burri.to/mailman/listinfo/geowanking'>geowanking mailing list</a> (a discussion group for various gps, geolocation, and tracking ideas) a question was asked regarding how to make a DIY fleet tracking to be used at <a href='http://www.burningman.com/'>Burning Man</a>. </p>
+<blockquote><p>
+Ok. need to throw together a system to track multiple cars around burning man from a mobile command car.</p>
+<p>Wroking on command car software and hardware now.  Have never used GPS at the playa. Worked a good bit with GPS years ago on robots.</p>
+<p>Quick start with command car: (is this acceptable, better ideas?)</p>
+<p>1. Purchase NMEA module like the GPS25-LVS.<br />
+2. Acquire attenna (any recomendations).<br />
+3. Wire up everything.<br />
+4. Connect module serially to computer.<br />
+5. Write software.</p>
+<p>Ok, any flaws with the previous.</p>
+<p>No assuming similar computers on the other cars, just need to get the gps position back to the command car. Good recommendation for PTP serial links that will span the playa? Maybe a network system (not PTP) like 802.11, then only one antenna on command center instead of one per client.</p>
+<p>Now, for accuracy may need differential. Stationary base station with same PTP communications to command car.<br />
+</blockquote></p>
+<p>The big problems are that you cannot rely on having cell towers (for mobile/sms), power may be limited, location needs to be fairly exact, so some sort of differential or WAAS is necessary.  </p>
+<p>Several options have been suggested:</p>
+<dl>
+<dt><a href="http://www.garmin.com/products/rino/">Garmin Rino</a></dt>
+<dd>a GPS-enabled handheld that integrates radio functionality to provide two-way communications. The <a href='http://www.amazon.com/gp/product/0596003145/sr=8-3/qid=1143804951/ref=sr_1_3/104-2632989-8081518?%5Fencoding=UTF8'>Hardware Hacking Projects for Geeks</a> book goes through how to build your own</dd></p>
+<dt><a href='http://www.mologogo.com'>Mologogo</a></dt>
+<dd>Built-in cellphone location tracking using Nextela  or Boost Mobile phone (Best Buy sold it for $45)</dd></p>
+<dt><a href='http://n1vg.net/opentracker/'>OpenTracker</a></dt>
+<dd>an open-source hardware that connects GPS over serial link to <a href='http://www.grc.nasa.gov/WWW/MAEL/ag/agaprs.htm'>APRS</a>, a radio system for transmitting location and location information. However, this requires a HAM radio license. <a href='http://www.kenwood.net/indexKenwood.cfm?do=ProductDetails&ProdID=5018&Group=5'>Kenwood TH-D7AG</a></dd></p>
+<dt><a href='http://www.findu.com/'>FindU</a></dt>
+<dd>a website and system for uploading and sharing APRS location information</dd></p>
+<dt>Walkie-talkies</dt>
+<dd>since there is no cell or necessarily wifi - hook up computers to walkie-talkies and somehow audio-encode/decode the information</dd></p>
+<dt>Local Wifi</dt>
+<dd>Put a wifi station on the command vehicle and possible others around burning man. Setup a local Wifi network and transmit GPS location information as well as possibly use the Wifi signals as differential correction</dd><br />
+</dl></p>
+<p>It will be interesting to see what works in the end for fleet tracking in such a remote location. </p>

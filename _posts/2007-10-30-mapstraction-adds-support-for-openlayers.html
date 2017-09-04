@@ -1,0 +1,73 @@
+---
+layout: post
+status: publish
+published: true
+title: Mapstraction adds support for OpenLayers
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 972
+wordpress_url: http://highearthorbit.com/mapstraction-adds-support-for-openlayers/
+date: '2007-10-30 09:28:05 -0400'
+date_gmt: '2007-10-30 13:28:05 -0400'
+categories:
+- Technology
+- Mapstraction
+tags: []
+comments:
+- id: 119536
+  author: Ghillie Suits &raquo; Mapstraction adds support for OpenLayers
+  author_email: ''
+  author_url: http://ghillie-suits.info/?p=46552
+  date: '2007-10-30 09:50:36 -0400'
+  date_gmt: '2007-10-30 13:50:36 -0400'
+  content: "[...] Check it out! While looking through the blogosphere we stumbled
+    on an interesting post today.Here&#8217;s a quick excerptMapstraction , the mapping
+    abstraction library recently added increased support for OpenLayers , the very
+    powerful, open-source Javascript mapping library. [...]"
+- id: 200017
+  author: newToOpenLayers
+  author_email: yapingluo2002@yahoo.com
+  author_url: ''
+  date: '2008-08-29 10:44:03 -0400'
+  date_gmt: '2008-08-29 14:44:03 -0400'
+  content: "Would you mind give me a clue how  the variable \"tbFixedNavigation1r2\"
+    defined? Thanks in advance, i really need it urgent.\r\n\r\n var history_control
+    = new OpenLayers.Control.NavigationHistory();\r\n    map.addControl(history_control);\r\n
+    \   buttonPrevious =\r\ntbFixedNavigation1r2.addControl(history_control.previous,\r\n
+    \       {icon:\r\n'../geoservices2/lib/extjs/resources/images/rws/icons/navigatie/icn-04.png',\r\n
+    \         tooltip: {text:'Toon de vorig gekozen uitsnede.', title:'Vorige\r\nuitsnede'},
+    disabled: true, buttonid:'ZOOMPREV'});\r\n    buttonNext = tbFixedNavigation1r2.addControl(history_control.next,\r\n
+    \       {icon:\r\n'../geoservices2/lib/extjs/resources/images/rws/icons/navigatie/icn-05.png',\r\n
+    \         tooltip: {text:'Toon de volgende gekozen uitsnede.',\r\ntitle:'Volgende
+    uitsnede'}, disabled: true, buttonid:'ZOOMNEXT'});\r\n\r\n    history_control.previous.events.register(\"activate\",
+    buttonPrevious,\r\nfunction() { this.setDisabled(false); });\r\n    history_control.previous.events.register(\"deactivate\",
+    buttonPrevious,\r\nfunction() { this.setDisabled(true); });\r\n    history_control.next.events.register(\"activate\",
+    buttonNext, function()\r\n{ this.setDisabled(false); });\r\n    history_control.next.events.register(\"deactivate\",
+    buttonNext,\r\nfunction() { this.setDisabled(true); });"
+- id: 433882
+  author: Vamsi
+  author_email: krishnavamsi.vm@gmail.com
+  author_url: ''
+  date: '2012-01-31 08:14:44 -0500'
+  date_gmt: '2012-01-31 12:14:44 -0500'
+  content: "I am big fan of Mapstraction,it is awesome library.\r\n\r\nI am working
+    on mapstraction with openlayers,In that\r\n\r\nmapstraction.click.addHandler()
+    is not working , could you please tell me the right way to use it with some simple
+    example\r\n\r\nThank u very much"
+---
+<p><a href="http://mapstraction.com/demo.php?map=openlayers" title="Mapstraction-OpenLayers demo"><img id="image971" src="http://highearthorbit.com/wp-content/uploads/2007/10/openlayers-mapstraction.thumbnail.jpg" alt="OpenLayers Mapstraction"  align="right" hspace="5px" vspace="5px"/></a><a href="http://www.mapstraction.com/" title="Mapstraction - a javascript library to hide differences between mapping APIs.">Mapstraction</a>, the mapping abstraction library (write once, use any map provider) recently added increased support for <a href="http://www.openlayers.org/" title="OpenLayers: Home">OpenLayers</a>, the very powerful, open-source Javascript mapping library. With this support Mapstraction users can now easily use the open-source OpenLayers API that is free from potentially restricting terms of service, or even use in offline and intranet applications. </p>
+<p>You can see a <a href="http://mapstraction.com/demo.php?map=openstreetmap" title="Mapstraction - a javascript library to hide differences between mapping APIs.">demo of OpenLayers here</a> or grab the <a href="http://mapstraction.com/svn/source/" title="Revision 163: /source">latest revision here</a> (r163 as of this posting). </p>
+<p>This effort was headed up by <a href="http://bergie.iki.fi/blog/" title="Henri Bergius: Weblog">Henri Bergius</a> (aka <a href="http://bergie.iki.fi/blog" title="Henri Bergius: Weblog">Bergie</a>), of <a href="http://www.midgard-project.org/" title="Midgard CMS: Midgard Project: Midgard - New user experience">Midgard</a> fame, and now Mapstraction-OpenLayers will be supported in the Midgard CMS. Read more on <a href="http://bergie.iki.fi/blog/mapstraction_supports_openlayers_now.html" title="Henri Bergius: Weblog: Mapstraction supports OpenLayers now">Bergie's blog</a>.</p>
+<p>In addition, by default the Mapstraction-OpenLayers creation uses the <a href="http://www.openstreetmap.org/" title="OpenStreetMap">OpenStreetMap</a> tiles, therefore no longer requiring a Google Maps API key just to use OSM in Mapstraction.</p>
+<h3>Why wrap one wrapper in another?</h3><br />
+At conferences and get togethers, the devs and users of Mapstraction and OpenLayers frequently ask the question "What's the difference between Mapstraction and OpenLayers?"</p>
+<p>The primary distinction between the libraries is a difference in objective. Mapstraction seeks to provide a simple wrapper to meet the primary needs of a mapping user. The purpose being to make it easy for a user to read a single API and then easily switch to any of the major providers. By contrast, OpenLayers provides a very powerful, but potentially complex, interface that allows for bringing in content from OGC services, data feeds, overlays, and tile servers. </p>
+<p>With Mapstraction generally targeting the 'lowest-common denominator' of all the API's there isn't built-in support for the additional capabilities of OpenLayers for layers, drawing, and services. However, Mapstraction goes provide a simple mechanism for gaining access to the underlying mapping provider such that a developer can utilize Mapstraction for the 80% of their development, and then access the remaining 20% provider specific capabilities directly.</p>
+<p>All you need to do is call <code>getMap()</code> on the Mapstraction object to get the underlying OpenLayers object and go to town.</p>
+<p>With this new support, it now brings Mapstraction up to 9 supported map interfaces (Yahoo, Google, Microsoft, Map24, MultiMap, MapQuest, FreeEarth, OpenLayers, OpenStreetMap). If you are a map provider and would like to find out how to be the 10th provider feel free to email the dev team - <a href="mailto:&#109;&#097;&#112;&#115;&#116;&#114;&#097;&#099;&#116;&#105;&#111;&#110;&#064;&#108;&#105;&#115;&#116;&#115;&#046;&#109;&#097;&#112;&#115;&#116;&#114;&#097;&#099;&#116;&#105;&#111;&#110;&#046;&#099;&#111;&#109;?subject=mapstraction_support">&#109;&#097;&#112;&#115;&#116;&#114;&#097;&#099;&#116;&#105;&#111;&#110;&#064;&#108;&#105;&#115;&#116;&#115;&#046;&#109;&#097;&#112;&#115;&#116;&#114;&#097;&#099;&#116;&#105;&#111;&#110;&#046;&#099;&#111;&#109;</a>.</p>

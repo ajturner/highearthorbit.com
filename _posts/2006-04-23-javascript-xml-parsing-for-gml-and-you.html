@@ -1,0 +1,64 @@
+---
+layout: post
+status: publish
+published: true
+title: Javascript XML parsing for GML and you
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 400
+wordpress_url: http://highearthorbit.com/javascript-xml-parsing-for-gml-and-you/
+date: '2006-04-23 09:11:15 -0400'
+date_gmt: '2006-04-23 14:11:15 -0400'
+categories:
+- Programming
+- Geolocation
+- Javascript
+- Howto
+tags: []
+comments:
+- id: 8591
+  author: Cesar
+  author_email: cesar.encinas@gmail.com
+  author_url: ''
+  date: '2006-05-10 03:07:41 -0400'
+  date_gmt: '2006-05-10 08:07:41 -0400'
+  content: "Hello,\r\n\r\nI'm spanish student, and I would like how to integrate GML
+    in a JavaScript file.\r\n\r\nThanks\r\nRegards,\r\n\r\nC&Atilde;&copy;sar"
+- id: 8593
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2006-05-10 09:06:17 -0400'
+  date_gmt: '2006-05-10 14:06:17 -0400'
+  content: "@C&Atilde;&copy;sar - perhaps a little more information on what you're
+    trying to do?"
+- id: 81242
+  author: Scooper
+  author_email: scooper@dogchurch.org
+  author_url: http://www.dogchurch.org
+  date: '2007-04-15 01:40:47 -0400'
+  date_gmt: '2007-04-15 05:40:47 -0400'
+  content: "Andrew,\r\nThe JavaScript security model does not allow XMLHttpRequest
+    to get the XML from website other than the one hosting the JavaScript containing
+    the XMLHttpRequest. The DOMParser.getElementsByTagNameNS method is nice, but in
+    this case useless, because it can't see the XML from the HostIP website. Or do
+    you have a workaround?"
+---
+<p>You find the need to determine the locations of your visitors, and you wonder how to do this? Surely it's impossible. Alas, it is not. Services like <a href="http://hostip.info">HostIP</a> provide the ability to locate your users given their IP address. The slick way to do this is via javascript. Unfortunately, the HostIP API doesn't provide a <a href='http://www.json.org/'>JSON</a> interface.</p>
+<p>But of course, the response is in XML, so you're also wondering how to parse this XML response for something meaningful? The answer is the <code>DOMParser</code> and namespaces. There is a really nice function, <code>getElementsByTagNameNS</code> that allows you to parse out elements given a namespace. I kept trying <code>getElementsByTagNameNS("gml","name")</code>, which didn't work. The answer seems to be that you need to include a valid uri for the namespace.</p>
+<p><code></p>
+<pre>
+var dom = new DOMParser ( ) .parseFromString ( responseText,<br />
+                            "application/xml" ) ;</p>
+<p>var location = dom.getElementsByTagNameNS (<br />
+   "http://www.opengis.net/gml", "name" ) [1].firstChild.data<br />
+    if location == " ( Unknown city ) "<br />
+        return "";<br />
+</pre><br />
+</code></p>

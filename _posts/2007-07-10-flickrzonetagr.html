@@ -1,0 +1,96 @@
+---
+layout: post
+status: publish
+published: true
+title: FlickrZoneTagr
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 886
+wordpress_url: http://highearthorbit.com/flickrzonetagr/
+date: '2007-07-10 12:50:28 -0400'
+date_gmt: '2007-07-10 16:50:28 -0400'
+categories:
+- Neogeography
+tags: []
+comments:
+- id: 95559
+  author: tyler
+  author_email: michaeltyler@michaeltyler.co.uk
+  author_url: http://www.michaeltyler.co.uk
+  date: '2007-07-16 19:22:06 -0400'
+  date_gmt: '2007-07-16 23:22:06 -0400'
+  content: "andrew, \r\nwhat we really need is a for mobile devises to publish photos,
+    tag them and kml them at the same time.\r\ndo you have anything that does that?"
+- id: 95748
+  author: 'Curious.Judith &raquo; Blog Archive &raquo; Cooperative Cataloging: from
+    music to location'
+  author_email: ''
+  author_url: http://www.grey-cat.com/curious/?p=298
+  date: '2007-07-17 20:10:52 -0400'
+  date_gmt: '2007-07-18 00:10:52 -0400'
+  content: "[...] I was reminded of that initial &#8220;wow&#8221; feeling of the
+    CDDB (predating IMDB and newcomer NNDB) when reading about Andrew Turner&#8217;s
+    Flickr Zone Tagr building on the Zone tag database (err, not ZTDB, thanks). Like
+    TagMap this is another use of the flickr tags of geolocated (hence zone) photos.
+    Andrew&#8217;s implementation has that same flavor as the early CDDB &#8212; cooperative
+    cataloging of photos instead of CD tracks. Will i be able to take an emailed photo
+    someday, view it, and have a background network query match buildings and skylines
+    to a global 4D place model, extract a location and time range, pull on the descendant
+    of the flickr zone tag database and get probable labels? &#8220;Oh, this was taken
+    in Daytona in 1977 &#8212; that little one must be my cousin.&#8221; [...]"
+- id: 96496
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2007-07-23 08:39:44 -0400'
+  date_gmt: '2007-07-23 12:39:44 -0400'
+  content: "@Tyler - I'm not sure what you mean by \"KML\" them?\r\n\r\nZoneTag is
+    a Flickr made mobile phone application that automatically tags photos with the
+    cell information. Also, Shozu on the N95 will pull in GPS location and adds that
+    to photos when it uploads them to Flickr. \r\n\r\nYou can then grab the GeoRSS
+    (and perhaps KML - or use Mapufacture or other to convert to KML) the Flickr feed. "
+- id: 159583
+  author: Joe
+  author_email: dominic@mail.com
+  author_url: ''
+  date: '2008-03-15 03:19:28 -0400'
+  date_gmt: '2008-03-15 07:19:28 -0400'
+  content: |
+    <a>  </a>
+- id: 159630
+  author: Diesel
+  author_email: heel@mail.com
+  author_url: ''
+  date: '2008-03-15 06:57:51 -0400'
+  date_gmt: '2008-03-15 10:57:51 -0400'
+  content: |
+    <a>  </a>
+- id: 159693
+  author: Still
+  author_email: jane@mail.com
+  author_url: ''
+  date: '2008-03-15 12:05:25 -0400'
+  date_gmt: '2008-03-15 16:05:25 -0400'
+  content: |
+    <a>  </a>
+---
+<p><a href="http://farm2.static.flickr.com/1147/768235867_deeab199dc.jpg" title="Wai'oli Hui'ia Church"><img src="http://farm2.static.flickr.com/1147/768235867_deeab199dc_m.jpg" width="240" height="148" alt="Wai'oli Hui'ia Church" /align="right" hspace="5px"></a><a href="http://zonetag.research.yahoo.com/" title="ZoneTag homepage">ZoneTag</a> is a project from <a href="http://www.yahooresearchberkeley.com/" title="Yahoo Research Berkeley homepage">Yahoo Research Berkeley</a> (YRB) that originally enabled Geotagging photos from your mobile phone and uploading to <a href="http://flickr.com" title="Flickr photo sharing">Flickr</a>. Along the way, they also added the ability to tag these photos on your mobile, and you could always go back and tag the photos later yourself through the web interface.</p>
+<p>Through ZoneTag, and users developing their own machine-tagging strategy and finally Flickr fully supporting geotagged photos, Flickr ended up developing a large corpus of geographic-folksonomic tags describing a location. Services like <a href="http://geocodr.net" title="Geocodr">Geocodr</a> and YRB's own <a href="http://tagmaps.research.yahoo.com/" title="Yahoo Research Berkeley: TagMaps">TagMaps</a> created a geocoding service and map visualization of these tags.</p>
+<p>Yahoo released a <a href="http://developer.yahoo.com/yrb/zonetag/" title="Yahoo Developer Network: ZoneTag API">ZoneTag API</a> that provides access to their cell geolocation data, and also their <a href="http://developer.yahoo.com/yrb/zonetag/" title="ZoneTag API: Suggested tags for your location">Suggested Tags for your Location</a>. This lets you fetch tags, as mined from the geotagged flickr photos, of tags that describe an area. </p>
+<p>For example, you could take a photo in downtown Ann Arbor, and ZoneTag may suggest other tags like "University, Wolverine, Conor O'Neils, Arbor Brewing Company, town, Michigan, SouthEast, ...".</p>
+<h3>FlickrZoneTagr</h3><br />
+Which gets to my point - I developed a <a href="http://www.greasespot.net/" title="GreaseSpot.net">Greasemonkey</a> script that adds ZoneTag to your Flickr photo editing page. It allows you to easily select and add ZoneTag suggested tags to your photo. </p>
+<ul>
+<li><a href="http://mapsomething.com/demo/flickr/flickrzonetagr.user.js">install flickrzonetagr.user.js</a></li></ul></p>
+<p>To use it, just install the script (and <a href="http://www.greasespot.net/" title="GreaseSpot.net">Greasemonkey</a> for Firefox if you haven't yet) and then navigate to a geotagged photo in Flickr. Click "Add a Tag", and now you'll see a new "Choose from Zonetags at this location". Click this, and after a short "Loading..." you should see a collection of tags that you can now click to add to your photo. </p>
+<p><img src="http://highearthorbit.com/wp-content/uploads/2007/07/flickrzonetagr.png" align="right" hspace="5px" vspace="5px"/>I found this really nice for my trip to Hawaii for adding all those "beach, palm, ocean, pacific" tags that I wouldn't necessarily have included, and also for getting names of towns and sights along the way (replete with many apostrophes such as <a href="http://flickr.com/photos/ajturner/768235867/">Wai'oli Hui'ia Church</a> in Hanalei Bay).</p>
+<p>Why this is exciting is because it allows a folksonomy cloud to build and reinforce itself. I may have some common tags I use for my own purposes of identification and sorting, but using ZoneTag I can also be introduced to other tag suggestions that describe my photo and make it easier for others to find and add into a larger body of classified photos. </p>
+<h3>More fun with ZoneTag</h3><br />
+You should also check out the <a href="http://developer.yahoo.com/yrb/zonetag/actiontags.html" title="ZoneTag API: ActionTags">ActionTags</a> functionality. You can register a callback service that is called when someone uploads a photo with a specific tag. This could be used, for example, to automatically apply other ZoneTags to your photos that you upload with a tag like "zonetagrme", or perhaps you are on a trip and want your friends emailed or photo added specifically to your blog when you post it with the tag "PhotoFlagHere". </p>
+<p>This is just the first kind of service that really makes web services interactive and have a broader functionality. ZoneTag is giving you a great infrastructure to enable all kinds of interaction between mobile devices, location, and other applications.</p>

@@ -1,0 +1,182 @@
+---
+layout: post
+status: publish
+published: true
+title: EPA KML a great step, but both forward and backward
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 984
+wordpress_url: http://highearthorbit.com/epa-kml-a-great-step-but-both-forward-and-backward/
+date: '2007-12-02 10:55:39 -0500'
+date_gmt: '2007-12-02 14:55:39 -0500'
+categories:
+- KML
+tags:
+- epa kml kmlogc ogckml kml3 styling geo
+comments:
+- id: 130039
+  author: Jason Birch
+  author_email: jason@jasonbirch.com
+  author_url: http://www.jasonbirch.com/nodes/
+  date: '2007-12-02 18:33:05 -0500'
+  date_gmt: '2007-12-02 22:33:05 -0500'
+  content: "Interesting take Andrew.  I see KML as filling two roles: data presentation
+    and data exchange (if you're not willing to take the time to develop a GML schema).
+    \ \r\n\r\nI sometimes have a hard time maintaining semantic goodness while achieving
+    the level of creative and attractive results in Google Earth that I desire.  For
+    instance, the work that I've been doing recently with panoramic photos and earlier
+    using a multigeometry for polygonal mouse-overs really makes the data not suitable
+    for import into a GIS.  ...and in these cases I care less about that than I do
+    about it looking good and working well in Google Earth.\r\n\r\nThose are relatively
+    extreme cases though.  I agree that it would be great if styling was suitable
+    divorced from attributes so that we  are less tempted to make the data ineffective
+    outside of its intended purpose.  This is one of the reasons I am glad to see
+    KML get pushed into a standards track; in many ways this is similar to the browser
+    wars around HTML that we are just starting to recover from now.  I see great value
+    in KML as an information dissemination format, and the more \"standard\" it can
+    be, the wider its reach.\r\n\r\nHmm.  What was my point?  Good thing this is just
+    a comment.\r\n"
+- id: 130115
+  author: Brian Hamlin
+  author_email: maplabs@light42.com
+  author_url: http://isde5.pbwiki.com
+  date: '2007-12-03 02:30:59 -0500'
+  date_gmt: '2007-12-03 06:30:59 -0500'
+  content: "thanks for the heads up.. I am guessing the EPA is using GDAL to generate
+    the KML, because not too many generators mark the KML as v2.0 anymore.  Also,
+    yes, it is kind of wacky that they use altitude this way. But hey, KML is a display
+    format. You are going to see all kinds of things. I'm glad they have a CSV/HTML
+    output listed right near by, too.. \r\n\r\nThis data isn't for hard-core analysis,
+    this is public outreach for techies. And there is a place for that. Overall, thumbs
+    up"
+- id: 130375
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2007-12-04 09:57:36 -0500'
+  date_gmt: '2007-12-04 13:57:36 -0500'
+  content: "That's a very good point Brian - the responsibility typically lay with
+    the tool developers rather than the user. \r\n\r\nThe common argument I've heard
+    in favor of this type of behavior (mixing attribute data as Altitude), and as
+    Jason points out, is that it \"looks good in Google Earth\" - however, 1) Google
+    Earth isn't the only KML client, so if we permit \"mixing\" of arbitrary bits
+    and representations then we're going to get the 'GeoBrowser' incompatibilies like
+    we have in browsers (how should I render an extruded marker?) and 2) is KML really
+    just a 'drawing format' like SVG in a different canvas space? That's what the
+    \"it's good enough for viz\" seem to be saying."
+- id: 132297
+  author: Jeremy Cothran
+  author_email: jeremy.cothran@gmail.com
+  author_url: http://carocoops.org/twiki_dmcc/bin/view/Main/ObsKML
+  date: '2007-12-11 16:19:43 -0500'
+  date_gmt: '2007-12-11 20:19:43 -0500'
+  content: "Like Jason, I also see KML as a facilitating data exchange as well as
+    data styling - my frustration with the ExtendedData element is that it seems to
+    handle only a very simple case of listing the same attribute at multiple locations
+    - a common situation I see in obsevation systems is that several redundant/different
+    observation types are measured at the same location(approximately) with mainly
+    differentiations in elevation measured.  The simplest metadata schema that I  developed
+    to handle this situation is detailed at http://carocoops.org/twiki_dmcc/bin/view/Main/ObsKML\r\n\r\nAn
+    alternative(but file intensive) approach that fits the single attribute per placemark
+    approach using the EPA example would be for EPA to list separate KML files for
+    each observationType(say NOx) and unitOfMeasure(say ppm), leaving only the measurementValue,
+    etc in the ExtendedData schema.  Doing this still leaves establishing the observationType
+    and unitOfMeasure per file as a best practice than part of an xml schema."
+- id: 272249
+  author: Pawan Kumar
+  author_email: pawan_ias@hotmail.com
+  author_url: ''
+  date: '2009-09-07 08:18:16 -0400'
+  date_gmt: '2009-09-07 12:18:16 -0400'
+  content: "Hi,\r\nI want to know that i can imort the kml file into Bing epa if it
+    is possible please tell what is the process to imort kml file into Bing epa\r\n\r\nthanks
+    \r\nPawan Kumar"
+---
+<p><a href="http://google-latlong.blogspot.com/2007/11/breath-of-fresh-air.html" title="Google LatLong: A breath of fresh air">The Google LatLon blog points to</a> the EPA's release of <a href="http://www.epa.gov/air/emissions/where.htm" title="Where You Live | Air Emission Sources | US EPA">chemical emission facilities in KML</a>. </p>
+<p>This is a really great step. I've looked at the EPA data and started writing various scripts to massage it into a nicer format than their CSV. A lot of work, a lot of data, and a pain to maintain. So it's great that institutions are exposing their data in easy to consume and view formats.</p>
+<p>However, it also illustrates the typical 'munging' of styling and data that users, even professional users like the EPA, will do with KML. In the Air Emission KML they are using Altitude to display some measure of chemical emission. It isn't clear what the number really means, and seems really bad to have a data measurement in the geometry. </p>
+<p>And especially other clients that will consume this data. How are they to know whether the height is really the altitude of a facility, or some other representative number? In fact, you can export the facilities KML with altitude representing: <a href="http://www.epa.gov/air/emissions/nox.htm#noxloc" title="Nitrogen Oxides | Air Emission Sources | US EPA">NOx</a>, <a href="http://www.epa.gov/air/emissions/pb.htm#pbloc" title="Lead | Air Emission Sources | US EPA">Lead</a>, <a href="http://www.epa.gov/air/emissions/pm.htm#pmloc" title="Particulate Matter | Air Emission Sources | US EPA">Particulate Matter</a>, <a href="http://www.epa.gov/air/emissions/so2.htm#so2loc" title="Sulfur Dioxide | Air Emission Sources | US EPA">Sulfur Dioxide</a>, or <a href="http://www.epa.gov/air/emissions/voc.htm#vocloc" title="Volatile Organic Compounds | Air Emission Sources | US EPA">Volatile Organic Compounds</a> and there isn't a way to tell once you've exported. Unfortunately KML doesn't currently support the ability to <a href="http://highearthorbit.com/kml-3-kick-off-module-styling/" title="High Earth Orbit  &raquo; Blog Archive   &raquo; KML 3 Kick-off, Module: Styling">style based on ExtendedData</a>, other than for the Balloon text. But it would still be useful to put this data there.</p>
+<p>For example, in <a href="http://mapufacture.com/" title="Mapufacture - helping build the geospatial web">Mapufacture</a> we pull in and store the arbitrary data with an KML or RSS feed. So then a user could add, for example, all Emission facilities with a high NOx emission rate within 5 miles of their house to the <a href="http://mapufacture.com/maps/1051-Ann-Arbor-Community" title="Mapufacture - Ann Arbor Community map">map of their community</a>. </p>
+<p>An answer could be a link for each element to the data in a different markup such as GML, but that seems slightly convoluted and difficult for tool developers. That would still be a good solution for advanced data and metadata specifying how and when the data was collected. But the point here is to publish a base level of information in a light-weight, broadly used data format.</p>
+<p>A couple of other small niggles with their KML: the title is just "Temporary Places" and doesn't have a meaningful title of what the data really is, or where it came from. A title that is representative of the data, so when I leave it in my KML viewer or ingest it into another tool, then I can remember what the data is about. KML 2.2 also supports attribution and atom links that should point back to the EPA site. Also, all facility names are all caps, which is how the data was stored in their old CSV files (when I looked before). </p>
+<h3>By Example</h3><br />
+By way of specific discussion, lets do a simple example of modifying the EPA's current KML to a more useful KML.</p>
+<pre>
+<?xml version="1.0" encoding="UTF-8"?><br />
+<kml xmlns="http://earth.google.com/kml/2.2"><br />
+  <Folder><br />
+    <name>Temporary Places</name><br />
+    <open>1</open><br />
+    <Document><br />
+      <name>Petroleum_facilities.kml</name><br />
+      <Placemark><br />
+        <name>SAM HILL OIL CO:&amp;lt;br&amp;gt;&amp;lt;/br&amp;gt; 725 S MAIN ST BRIGHTON CO 80601-3047</name><br />
+        <description><![CDATA[
+<p>SIC: 2911<br /><br />
+          Petroleum Refining And Related Industries Petroleum Refining Petroleum Refining </p>
+<p>NAICS:       <br /><br />
+          </p><br />
+          <img src="http://www.epa.gov/cgi-bin/broker?_service=data&amp;_program=dataprog.dw_emisplot_epad8_facility_caps.sas&amp;year1=2002&amp;year2=2002&amp;debug=0&amp;site=15121"width="460" height="360"></p>
+<hr>
+<p><b>Petroleum Facilities Emissions (258  facilities)</b>]]></description></p>
+<styleUrl>#A</styleUrl><br />
+        <Point><br />
+          <extrude>1</extrude><br />
+          <altitudeMode>relativeToGround</altitudeMode><br />
+          <coordinates>-104.8257,39.9754,13.102642872</coordinates><br />
+        </Point><br />
+      </Placemark><br />
+    </Document><br />
+  </Folder><br />
+</kml><br />
+</pre></p>
+<p>So let's clean this up a little by adding some better titles, links to more information, and putting the data in a data location instead of with geometry.</p>
+<pre>
+<?xml version="1.0" encoding="UTF-8"?><br />
+<kml xmlns="http://earth.google.com/kml/2.2"><br />
+  <Folder><br />
+    <name>EPA Air Emission Sources</name><br />
+    <description>Under the Clean Air Act, EPA establishes air quality standards to protect public health, including the health of "sensitive" populations such as people with asthma, children, and older adults. EPA also sets limits to protect public welfare. This includes protecting ecosystems, including plants and animals, from harm, as well as protecting against decreased visibility and damage to crops, vegetation, and buildings.</description><br />
+    <atom:link href="http://www.epa.gov/air/emissions/" /><br />
+    <atom:author><br />
+      <atom:name>US Environmental Protection Agency (EPA)</atom:name><br />
+    </atom:author><br />
+    <open>1</open><br />
+    <Document><br />
+      <name>Petroleum Facilities</name><br />
+      <atom:link rel="self" type="application/kml+xml" href="http://www.epa.gov/mxplorer/Petroleum_facilities_US.kmz"/><br />
+      <Placemark id="sic:2911"><br />
+        <name>Sam Hill Oil Co</name><br />
+        <description><![CDATA[<br />
+          <img src="http://www.epa.gov/cgi-bin/broker?_service=data&amp;_program=dataprog.dw_emisplot_epad8_facility_caps.sas&amp;year1=2002&amp;year2=2002&amp;debug=0&amp;site=15121"width="460" height="360">]]></description></p>
+<styleUrl>#petroleum_facility</styleUrl></p>
+<address>725 S Main St, Brighton, CO 80601-3047</address><br />
+        <ExtendedData><br />
+          <Data name="SIC"><br />
+            <value>2911</value><br />
+          </Data><br />
+          <Data name="industryDescription"><br />
+            <value>Petroleum Refining And Related Industries Petroleum Refining Petroleum Refining</value><br />
+          </Data><br />
+          <Data name="facilityType"><br />
+            <name>Petroleum</name><br />
+          </Data><br />
+          <Data name="NOx (ppm)"><br />
+            <value>13.102642872</value><br />
+          </Data><br />
+        </ExtendedData><br />
+        <Point><br />
+          <coordinates>-104.8257,39.9754</coordinates><br />
+        </Point><br />
+      </Placemark><br />
+    </Document><br />
+  </Folder><br />
+</kml><br />
+		</pre></p>
+<p>To summarize, the EPA releasing their data in KML is a really great step to leading the way on information transparency and public awareness, however there should just a tiny bit more effort to demonstrate some better behavior in their shared data. </p>

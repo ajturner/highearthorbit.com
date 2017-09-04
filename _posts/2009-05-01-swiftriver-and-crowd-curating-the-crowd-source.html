@@ -1,0 +1,44 @@
+---
+layout: post
+status: publish
+published: true
+title: SwiftRiver and Crowd-Curating the Crowd-Source
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 1242
+wordpress_url: http://highearthorbit.com/swiftriver-and-crowd-curating-the-crowd-source/
+date: '2009-05-01 13:40:07 -0400'
+date_gmt: '2009-05-01 17:40:07 -0400'
+categories:
+- Neogeography
+- Community
+tags:
+- Neogeography
+- Community
+comments: []
+---
+<p><a href="http://www.flickr.com/photos/ajturner/3490598353/" title="Crowd Sourced Cholera?" style="float:right"><img src="http://farm4.static.flickr.com/3640/3490598353_43c0b59e83_m.jpg" width="240" height="163" alt="Crowd Sourced Cholera?" /></a></p>
+<p>Crowd-sourcing geospatial information has definitely become a common component of recent breaking news stories. Flickr, Blogs, Maps, Twitter, YouTube, et. al. are all normal channels that people are turning to in order to share, follow, and re-broadcast reports, information, tidbits, thoughts, and actions. Most prevalently in this incarnation beginning with the San Diego fires, and more recently the Mumbai attacks, and now swine flu.</p>
+<p>For example, in the Mumbai Attacks there was an widely retweeted (rebroadcast) report that the government had asked people to stop twittering - when it hadn't. In addition, there were <a href="http://www.informationweek.com/blog/main/archives/2008/11/twitter_in_cont.html" title="Twitter In Controversial Spotlight Amid Mumbai Attacks - Wolfe's Den Blog - InformationWeek">numerous other</a> questionable outcomes of the use of this crowd-sourced data.</p>
+<h3>Emergency information flows</h3></p>
+<p>Today with Swine Flu, we're seeing the same issue even through georeferncing of traditional media that carries multiple editions of the same report. The result makes a single case in a High School in New York City look like an outbreak of numerous cases. There is no easy way to cluster these reports and either validate or mark them as duplicate in a way that has longevity and can feed back into the flowing stream of data.</p>
+<p>Previously, with minimal citizen access to data streams and reporting - the information coming through these channels had a limited reach. But with increased connectivity in a crisis - either on location or via remote observation - the information is moving faster and further. The result has been an increasing concern on the potential negative impacts on reporting of invalid information, duplicate reports, or inducing panic. However, it also has the potential for incredible impact through these <a href="http://blog.ushahidi.com/index.php/2009/04/27/information-patterns-and-thoughts-on-swine-flu" title="Emergency Information Patterns and Thoughts on Swine Flu - The Ushahidi Blog">information patterns</a> - we're awash in bits of data that can inform and coallesce to provide us a full picture of the emerging scenario.</p>
+<h3>A case study of a solution</h3></p>
+<p>When we were <a href="http://highearthorbit.com/votereport-mapping-and-data-feeds/" title="VoteReport mapping and data feeds :: High Earth Orbit">working on TwitterVoteReport</a>, this was raised as a concern with the aggregation of the twitter, mobile, media, and voice reports. The result was the implementation of a <a href="http://votereport.pbworks.com/Sweeper-Interface" title="Twitter Vote Report Wiki / Sweeper Interface">"Sweeper Interface"</a> where volunteers could go through submitted voting conditions and mark them as "Approve", "Deny" or "Modify". "Approve" had the effect of bumping-up a report and validating it; "Deny" marked the report as questionable and pulled it out of the stream; and "Modify" allowed a sweeper to correct the automatically extraced metadata such as wait time, condition rating, and polling location.</p>
+<p>The concept is simple: <em>if you can crowd-source the information, you can also crowd-source the filter</em>.</p>
+<p>Retweeting is an observable measure of the willingness and desire of the crowd to disseminate and curate information. Retweeting and reblogging is an active action (mostly), but also has the effect of muddying the actual stream of information (unless a verbatim wording is used, which makes it easier to automatically cluster). This energy can be used in a way that more directly helps filter the flow of reports and news.</p>
+<p><img src="http://highearthorbit.com/wp-content/uploads/2009/05/crowd-sourcing-filter.jpg" width="651" height="272" alt="Crowd Sourcing Filter" style="float:right; padding-top:5px; padding-bottom:5px; padding-left:5px;" /></p>
+<p>Chris Blow and Kaushul Jhalla brainstormed around this in the fall after the Mumbai Attacks evaluation, the immediate and longer term potentials and called the idea "<a href="http://swiftapp.org/" title="swift">SwiftRiver</a>". You can read Erik Hersman's <a href="http://blog.ushahidi.com/index.php/2009/02/04/crisis-info-crowdsourcing-the-filter/" title="Crisis Info: Crowdsourcing the Filter - The Ushahidi Blog">overview of the concept</a> and also a <a href="http://blog.ushahidi.com/index.php/2009/04/09/explaining-swift-river/" title="Explaining Swift River - The Ushahidi Blog">video from the Ushahidi technical workshop</a> in Orlando in March.</p>
+<h3>The status of the filter</h3></p>
+<p>We're utilizing the open-source VoteReport platform that was so well engineered by <a href="http://davetroy.com/" title="Software, Design, Entrepreneurship and Economics &acirc;&euro;&rdquo; Dave Troy: Fueled By Randomness">David Troy</a>, and slightly generalized for <a href="http://www.inaugurationreport.com/" title="InaugurationReport">InaugurationReport</a> and we're now building out more of the concepts on reporting, automated filtering, and human sweeping.</p>
+<p>Swift is now sitting behind <a href="http://votereport.in/" title="Vote Report India">VoteReport.in</a>, which is actually using Ushahidi as the front-end reporting system. Reports from Ushahidi, as well as aggregegated media, twitter, and other news are passed through and people will be able to help tag, and curate the reports in order to provide cultivated, important reports and information. You can check out the <a href="http://github.com/ajturner/swiftriver/tree/master" title="ajturner's swiftriver at master - GitHub" rel="me">Swift codebase</a>.</p>
+<h3>The future of the filter</h3></p>
+<p>While there is good progress in beginning to have user annotation and curation of crowd-sourced data, it still requires potentially pulling users out of the flow of the data itself. There could be more inline interfaces for having users provide this moderation within their twitter client as posts flow past - or even on a mobile device based on geolocation and on-the-ground verification of a questionable report.</p>
+<p>And ultimately, this information needs to then get into the appropriate end-user's workspace. That could be a first-responder, an organization, or even a person caught in the middle of a crisis that needs accurate, up-to-date information and how to act.</p>
+<p>This will make for a very interesting discussion at the upcoming <a href="http://www.crisiscamp.org/" title="Crisis Camp">CrisisCamp</a>.</p>

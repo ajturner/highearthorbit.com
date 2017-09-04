@@ -1,0 +1,580 @@
+---
+layout: post
+status: publish
+published: true
+title: Publish iCal to Google Calendar
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 393
+wordpress_url: http://highearthorbit.com/publish-ical-to-google-calendar/
+date: '2006-04-13 16:26:43 -0400'
+date_gmt: '2006-04-13 21:26:43 -0400'
+categories:
+- Technology
+- Web
+- Howto
+- Article
+- Google
+tags: []
+comments:
+- id: 7941
+  author: logicnazi
+  author_email: logicnazi@gmail.com
+  author_url: ''
+  date: '2006-04-13 19:34:57 -0400'
+  date_gmt: '2006-04-14 00:34:57 -0400'
+  content: Your link over at tuaw seems to not be working
+- id: 7942
+  author: Ben
+  author_email: ben@abenweek.net
+  author_url: http://abenweek.net
+  date: '2006-04-13 20:48:42 -0400'
+  date_gmt: '2006-04-14 01:48:42 -0400'
+  content: "You know, as much as I try, Google just does not want to display the calendar!\r\n\r\nTrying
+    to link it up to a public calendar published by a friend on icalx. Nothing shows
+    up. Is quite dissapointing."
+- id: 7943
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2006-04-13 21:38:29 -0400'
+  date_gmt: '2006-04-14 02:38:29 -0400'
+  content: "Logicnazi - I know, Tuaw blocked the html.\r\n\r\nBen - what is happening?
+    Worked for me. The calendar is there but no events? Can you see the events if
+    you load the ical in a web-browser (as a text file)?"
+- id: 7947
+  author: Colin
+  author_email: colin.bazsali@gmail.com
+  author_url: ''
+  date: '2006-04-14 09:12:35 -0400'
+  date_gmt: '2006-04-14 14:12:35 -0400'
+  content: "I was able to subscribe to my own published iCal calendars, but for some
+    reason when I change them in iCal and they are republished (I made sure they were),
+    the changes are not reflected in the Google Calendar version.  Perhaps this is
+    a bug, or maybe they are updated only periodically.\r\n\r\nDoes anyone else have
+    this problem?\r\n"
+- id: 7948
+  author: Mike
+  author_email: mike@arsenic.net
+  author_url: http://drinkit.arsenic.net
+  date: '2006-04-14 09:12:43 -0400'
+  date_gmt: '2006-04-14 14:12:43 -0400'
+  content: 'Thanks for the tutorial. I had to add my WebDav cal a few times, but eventually
+    Google Calendar grabbed it and is displaying the events. '
+- id: 7950
+  author: Ariel
+  author_email: atmendez@gmail.com
+  author_url: ''
+  date: '2006-04-14 09:41:27 -0400'
+  date_gmt: '2006-04-14 14:41:27 -0400'
+  content: "I have the same problem as Colin, running Mac OS 10.4.6 and iCal 2.0.3.
+    The calendar publishes fine and Google Calendar displays the events, but it doesn't
+    seem to refresh the feed when the ICS file is updated with changes from iCal.
+    It would be great if there were an automatic refresh button.\r\n\r\nOne problem
+    I can think of with \"auto-updating\" or refreshing the ICS file is that Google
+    Calendar will constantly be checking for an updated version, increasing the load
+    on whatever server one uses to publish the ICS file. For instance I use icalx.com,
+    and if thousands and thousands of requests are constantly coming from Google Calendar
+    trying to refresh the ICS file, icalx.com will probably not be able to keep up
+    with the demand (it's free... and I don't want to shut them down!).\r\n\r\nMaybe
+    Google can offer to host the published ICS file itself? (Not the same as importing,
+    because then you miss out on the auto-updates to reflect changes in your iCal
+    calendar).\r\n\r\nThanks for the great tutorial, Andrew!"
+- id: 7964
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2006-04-17 13:10:51 -0400'
+  date_gmt: '2006-04-17 18:10:51 -0400'
+  content: "Good point Ariel - though this kind of problem is commonly addressed by
+    sites like Technorati, FeedBurner, etc. with RSS feeds in general. Google could
+    accept a \"ping\" by a webdav server whenever the iCal has been updated. At that
+    point, it would refresh its cache of your iCal.\r\n\r\nThough the simplest solution
+    is for Google to just ping the iCal for it's Updated value in the feed. If the
+    value is newer than Google's cached copy, then it retrieves the entire calendar
+    file.  (see <a href='http://www.httpsniffer.com/http/1426.htm'>If-None-Match</a>)"
+- id: 7990
+  author: Geoffrey
+  author_email: geoffrey.wilkes@comcast.net
+  author_url: ''
+  date: '2006-04-20 11:17:51 -0400'
+  date_gmt: '2006-04-20 16:17:51 -0400'
+  content: I cant get the google calendar to reflect the changes that are made in
+    ical as well. I even went and deleted the calendar and then tried to add it again.
+    Has anyone figured this out?
+- id: 8079
+  author: Felix
+  author_email: felix@ingrand.net
+  author_url: ''
+  date: '2006-04-24 10:15:28 -0400'
+  date_gmt: '2006-04-24 15:15:28 -0400'
+  content: "Google does not refresh these calendars (I check on my webdav server,
+    google grab them only when whey are subscribed...) but... if one \"reader\" reloads
+    them (by deleting them and reentering them), then all the readers see the changes
+    (which means that google only keep/cache one copy).\r\n\r\nSo it should no
+    be too hard  to write a small script to \"ask google\" to read them everyday or
+    so.... any taker?\r\n"
+- id: 8080
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2006-04-24 10:43:23 -0400'
+  date_gmt: '2006-04-24 15:43:23 -0400'
+  content: "Felix - so perhaps a small script that logs in as the user and deletes
+    then -readds the iCal calendar? What happens to the Private/Public XML and
+    ICal links that google supplies? Are these kept constant since the iCal calendar
+    GUID should be the same as a calendar that it saw before?\r\n\r\nAlso, Google
+    is <a href='http://groups.google.com/group/google-calendar-help-bugs/browse_thread/thread/7716e2da317e82cc/b70f70e5c6c50da5?lnk=st&q=google+calendar+refresh+ical&rnum=1#b70f70e5c6c50da5'>aware
+    of the problem and addressing it.</a>"
+- id: 8105
+  author: Felix
+  author_email: felix@ingrand.net
+  author_url: ''
+  date: '2006-04-26 01:15:20 -0400'
+  date_gmt: '2006-04-26 06:15:20 -0400'
+  content: The Private/Public XML and ICal links will most likely change... but
+    this is not the one I "advertise", I give to other users the original link (the
+    one pointing to my webdav)... amazingly enough, Google only keeps (and cache)
+    one version of this "file/URL". Another missing feature is the possibility
+    to specify user/password for the webdav access...
+- id: 11922
+  author: ycc2106
+  author_email: toutestpris2@hotmail.com
+  author_url: http://3spots.blogspot.com/
+  date: '2006-05-19 13:59:35 -0400'
+  date_gmt: '2006-05-19 18:59:35 -0400'
+  content: "Very nicely made tutorial, petty there's no direct facility using Google...that
+    would of been great.\r\nThanks :)"
+- id: 40333
+  author: carolune
+  author_email: carolune.photography@gmail.com
+  author_url: http://www.carolune.net/
+  date: '2006-08-03 11:17:05 -0400'
+  date_gmt: '2006-08-03 16:17:05 -0400'
+  content: "Is there a way of having private calendars added to Google calendar as
+    well? Google doesn't seem to provide a field for username and password for password
+    protected calendars but perhaps I am missing something here? No-one seems to have
+    pointed it out.\r\n\r\nCheers for the tutorial, I didn't know it was possible."
+- id: 44891
+  author: Joel Selvadurai
+  author_email: joel@messagr.com
+  author_url: http://messagr.com
+  date: '2006-08-23 11:54:16 -0400'
+  date_gmt: '2006-08-23 16:54:16 -0400'
+  content: In addition to this you can get iCal to display any gCal events by subscribing
+    to a gCal calendar feed in iCal (if that makes sense). Voila, two way syncronisation!
+- id: 45066
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2006-08-24 20:15:36 -0400'
+  date_gmt: '2006-08-25 01:15:36 -0400'
+  content: "Joel, the problem is you now have 2 calendars with similar, but not syncronized,
+    data. Events you edit in GoogleCalendar won't come back to the originating calendar.
+    \r\n\r\nBut yes, you can  do something similar where you have 2 sets of independent
+    events."
+- id: 45538
+  author: reverse mortage
+  author_email: reverse_mortage@v4qjhcg5sh.com
+  author_url: http://www.kernel-panic.org/Members/albodyl/reverse-mortage.html
+  date: '2006-08-30 02:24:37 -0400'
+  date_gmt: '2006-08-30 07:24:37 -0400'
+  content: reverse mortage
+- id: 45653
+  author: Server Colocation
+  author_email: infobishan@yahoo.com
+  author_url: http://www.eastcoasthosting.com
+  date: '2006-08-31 07:30:33 -0400'
+  date_gmt: '2006-08-31 12:30:33 -0400'
+  content: East Coast Hosting providing Server Colocation, Reliable Web Hosting, Colocation
+    Services, Shared Web Hosting, Web Design Service, Web Marketing, Decicated Servers
+    and a complete business solution
+- id: 49479
+  author: paul
+  author_email: ptepper@northwestern.edu
+  author_url: http://www.soc.northwestern.edu/gradstudents/tepper/
+  date: '2006-10-04 23:15:25 -0400'
+  date_gmt: '2006-10-05 04:15:25 -0400'
+  content: "google has now officially answered this question:\r\n\r\nhttp://www.google.com/support/calendar/bin/answer.py?answer=37247\r\n\r\nMaybe
+    the import functionality was not available when this was blogged, but it is now
+    and as far as I can tell it works perfectly :)"
+- id: 49752
+  author: Philip
+  author_email: philip@networld.com
+  author_url: ''
+  date: '2006-10-09 13:19:34 -0400'
+  date_gmt: '2006-10-09 18:19:34 -0400'
+  content: "Although good option for a one time thing http://www.google.com/support/calendar/bin/answer.py?answer=37247\r\n\r\nthis
+    does not answer the two way \"sync\" wanted from ical to google cal and back.\r\n\r\nAny
+    other ideas??\r\n"
+- id: 51070
+  author: julien
+  author_email: julien.jockers@gmail.com
+  author_url: ''
+  date: '2006-10-31 11:27:43 -0500'
+  date_gmt: '2006-10-31 15:27:43 -0500'
+  content: "Any news about this? Are they still trying to fix this or is hope helpless?\r\n"
+- id: 51439
+  author: julien
+  author_email: julien.jockers@gmail.com
+  author_url: ''
+  date: '2006-11-06 12:58:56 -0500'
+  date_gmt: '2006-11-06 16:58:56 -0500'
+  content: "No... :P \r\nThats not the answer I wanted to hear ;)\r\n\r\nhmmmm...\r\n\r\nSitting
+    waiting wishing..."
+- id: 57634
+  author: Pascal
+  author_email: pascal@users.hu
+  author_url: ''
+  date: '2006-12-21 19:09:22 -0500'
+  date_gmt: '2006-12-21 23:09:22 -0500'
+  content: "GCALDaemon is an open source application that lets you do a two-way synchronization
+    between Google Calendar and your iCal-compatible calendar program (e.g. Sunbird):\r\n\r\nhttp://gcaldaemon.sourceforge.net"
+- id: 69733
+  author: zephirnl
+  author_email: sjoerd.kranendonk@gmail.com
+  author_url: http://mffonline.com
+  date: '2007-01-11 11:05:34 -0500'
+  date_gmt: '2007-01-11 15:05:34 -0500'
+  content: It seems that google calendat cannot process ical feeds with repeating
+    items. Anyone know how to fix this or should I just wait for google...
+- id: 74090
+  author: Hans
+  author_email: hans@gerwitz.com
+  author_url: http://hans.gerwitz.com/
+  date: '2007-02-02 17:40:58 -0500'
+  date_gmt: '2007-02-02 21:40:58 -0500'
+  content: Unfortunately I can't find any Google gadget that will let me view a "subscribed"
+    calendar (or an arbitrary .ics feed) on a personalized Google homepage.
+- id: 76014
+  author: Scott
+  author_email: highearthorbit.sweaters@spamgourmet.com
+  author_url: ''
+  date: '2007-02-23 13:28:28 -0500'
+  date_gmt: '2007-02-23 17:28:28 -0500'
+  content: To sync an iCal and Google calendar check out http://blog.spanningsync.com/
+- id: 83517
+  author: Eric
+  author_email: elindst1@gmail.com
+  author_url: ''
+  date: '2007-05-06 21:49:53 -0400'
+  date_gmt: '2007-05-07 01:49:53 -0400'
+  content: I tried to do this link using icalx and I cannot get it to work.  Google
+    calendar cannot not seem to find my published icalx calendar.
+- id: 83958
+  author: Attila
+  author_email: shmoo@freemail.hu
+  author_url: http://zoldmoha.freeblog.hu
+  date: '2007-05-11 03:52:27 -0400'
+  date_gmt: '2007-05-11 07:52:27 -0400'
+  content: "I seem to have the same problem.\r\nicalx.com seem to be dead from ~ 9
+    of May.\r\n:-("
+- id: 84268
+  author: jacob
+  author_email: kboykowboy@gmail.com
+  author_url: http://none
+  date: '2007-05-13 11:19:55 -0400'
+  date_gmt: '2007-05-13 15:19:55 -0400'
+  content: anyone got the http://gcaldaemon.sourceforge.net deamon running...
+    i dont have the money for the spanning thing... i'm student, broke and working
+    hard ;-)
+- id: 91081
+  author: ojfkhbrcby
+  author_email: awjdo@svrjabt.com
+  author_url: http://ojfkhbrcby.com
+  date: '2007-06-20 20:56:16 -0400'
+  date_gmt: '2007-06-21 00:56:16 -0400'
+  content: Hello! Good Site! Thanks you! vwykkaipms
+- id: 95032
+  author: Pavel
+  author_email: pavel.hlavnicka@gmail.com
+  author_url: ''
+  date: '2007-07-13 08:05:43 -0400'
+  date_gmt: '2007-07-13 12:05:43 -0400'
+  content: "Perhaps this is place for a small announcement of gSync - a piece of software
+    allowing bidirectional synchronization between Google and iCal calendars.\r\n\r\nWorks
+    w/o any service in the middle - just speaking directly to Google using their
+    API. Locally is integrated with iSync - means you may synchronize Google even
+    with your mobile device.\r\n\r\nMore at http://www.macness.com"
+- id: 108650
+  author: daren
+  author_email: heise@heisedar.com
+  author_url: http://freeworlddvd.com/
+  date: '2007-09-17 08:16:18 -0400'
+  date_gmt: '2007-09-17 12:16:18 -0400'
+  content: "Good to hear. This means the development cycle will be a lot quicker and
+    that&acirc;&euro;&trade;s something we can all look forward to.\r\n\r\nBest wishes,<a
+    href=\"http://freeworlddvd.com/\" rel=\"nofollow\">Freeworlddvd</a>."
+- id: 112655
+  author: Punk
+  author_email: saqwester@gmail.com
+  author_url: http://mp3demon.info/punk/gnr73/
+  date: '2007-10-03 17:46:36 -0400'
+  date_gmt: '2007-10-03 21:46:36 -0400'
+  content: I tried to do this link using icalx and I cannot get it to work. and I
+    seem to have the same problem.
+- id: 113395
+  author: John Q
+  author_email: saqwester@gmail.com
+  author_url: http://www.seekmovie.net/details/movie/John+Q-45885.html
+  date: '2007-10-06 16:51:27 -0400'
+  date_gmt: '2007-10-06 20:51:27 -0400'
+  content: I tried to do this link using icalx and I cannot get it to work. Google
+    calendar cannot not seem to find my published icalx calendar.
+- id: 116021
+  author: Darren S
+  author_email: shroeger@gmail.com
+  author_url: ''
+  date: '2007-10-18 10:16:13 -0400'
+  date_gmt: '2007-10-18 14:16:13 -0400'
+  content: 'icalX works fine for me. Google calendar eventually updates changed events,
+    ie: changed one appontment time in iCal from the default of 12am to 8am. Checked
+    google calendar and saw no change... But the next morning it WAS changed. So,
+    if not instant, this method does work as advertised, which sure beats paying Spanning
+    Sync $25/year!'
+- id: 124840
+  author: Phil
+  author_email: phil@fiddlyknee.net
+  author_url: ''
+  date: '2007-11-16 07:19:28 -0500'
+  date_gmt: '2007-11-16 11:19:28 -0500'
+  content: I can't get google calendar to see the ics through icalx either - just
+    get an error. Can some one paste a dummy (but correctly formatted) url in a response
+    on this page - just so I (we all) can check against it please.
+- id: 126609
+  author: 'david petar novakovic: attempted axiomatisation &raquo; links for 2007-11-21'
+  author_email: ''
+  author_url: http://dpn.name/index.php/2007/11/21/links-for-2007-11-21/
+  date: '2007-11-21 06:22:13 -0500'
+  date_gmt: '2007-11-21 10:22:13 -0500'
+  content: "[...] High Earth Orbit &Acirc;&raquo; Blog Archive &Acirc;&raquo; Publish
+    iCal to Google Calendar (tags: google calendar sync productivity software web)
+    [...]"
+- id: 143663
+  author: mandrake
+  author_email: mandrake00@lycos.com
+  author_url: ''
+  date: '2008-01-24 06:32:58 -0500'
+  date_gmt: '2008-01-24 10:32:58 -0500'
+  content: "Gret idea!\r\nThanx buddy....."
+- id: 159037
+  author: bigbobs bobbits
+  author_email: bob@bob.com
+  author_url: ''
+  date: '2008-03-12 15:17:42 -0400'
+  date_gmt: '2008-03-12 19:17:42 -0400'
+  content: "Is there an answer to the \"auto-updating\" of Google calendars?\r\n\r\nLike
+    everyone else I can subscribe to my iCal from google but I when I add something
+    new in iCal my google cal doesn't update. Any one know the answer?\r\n\r\nCheers"
+- id: 159339
+  author: Kiki
+  author_email: accounts@kikita.org
+  author_url: ''
+  date: '2008-03-14 00:59:27 -0400'
+  date_gmt: '2008-03-14 04:59:27 -0400'
+  content: me too! I updated my calendar days ago, and it still hasn't updated on
+    Google calendar. I publish from iCal to icalx to Google Calendar. Quite frustrating,
+    as I have the calendar displayed on my blog (blogspot, googles free blog site),
+    and events are missing!
+- id: 173315
+  author: Patterns and Pieces &raquo; Blog Archive &raquo; Syncing iCal to Google
+    Calendar
+  author_email: ''
+  author_url: http://blogs.landfood.ubc.ca/patternsandpieces/2008/05/05/syncing-ical-to-google-calendar/
+  date: '2008-05-05 15:25:00 -0400'
+  date_gmt: '2008-05-05 19:25:00 -0400'
+  content: "[...] I seem to expect open source / free applications and services
+    all the time. So will this work? Andrew Turner&#8217;s optimistic posting was
+    followed by the classic &#8220;yeah, but&#8221;s, which, in the tech world are
+    usually quite [...]"
+- id: 177866
+  author: Kyle
+  author_email: mail@kylehaskins.com
+  author_url: ''
+  date: '2008-05-20 12:28:10 -0400'
+  date_gmt: '2008-05-20 16:28:10 -0400'
+  content: "I tried uploading my ICS file to my own Web server, and subscribing to
+    it in Google from that URL. It does not work. I get the same error that I got
+    with iCalx, \"Can not parse file\".\r\n\r\nI'm thinking that Google Calendar is
+    not setup to accept ICS files from iCal."
+- id: 202177
+  author: frank
+  author_email: info.us@sae.nl
+  author_url: ''
+  date: '2008-09-12 17:40:36 -0400'
+  date_gmt: '2008-09-12 21:40:36 -0400'
+  content: "I've imported my calendars into google calendar after i've published them
+    to http://www.ical-mac.com.\r\nIt worked in one go, ical-mac.com is also
+    free."
+- id: 206362
+  author: Pablo Mac
+  author_email: pablomac@gmail.com
+  author_url: ''
+  date: '2008-10-13 18:50:26 -0400'
+  date_gmt: '2008-10-13 22:50:26 -0400'
+  content: "frank:\r\n\r\nI signed up and published a calendar via ical-mac.com to
+    send to Google calendar, and it didn't show up. ical-mac appears to render the
+    calendar the same way the iCal-generated link does, only with ads.\r\n\r\nHmmm..."
+- id: 209855
+  author: Constantine
+  author_email: stanishevsky@gmail.com
+  author_url: ''
+  date: '2008-10-31 15:28:37 -0400'
+  date_gmt: '2008-10-31 19:28:37 -0400'
+  content: "Here's full explaination how to set up two-side iCal/gCal synchronisation
+    via CalDAV &acirc;&euro;&ldquo; no additional software or services needed, just
+    iCal, google account and a bit of brain (optional)\r\n\r\nhttp://www.google.com/support/calendar/bin/answer.py?hl=en&amp;answer=99358#"
+- id: 233840
+  author: Daily David &#8212; davidgagne.net
+  author_email: ''
+  author_url: http://www.davidgagne.net/2009/03/16/daily-david-5/
+  date: '2009-03-16 20:03:01 -0400'
+  date_gmt: '2009-03-17 00:03:01 -0400'
+  content: "[...] Publish iCal to Google Calendar [Mac] [...]"
+- id: 234452
+  author: cedric
+  author_email: cedric.houvenagel@free.fr
+  author_url: http://www.binarydope.com
+  date: '2009-03-19 13:07:00 -0400'
+  date_gmt: '2009-03-19 17:07:00 -0400'
+  content: "@Constantine\r\nwonderful, many thanks for this\r\nfyi the app's name
+    is :\r\ncalaboration\r\nCalaboration requires OS X 10.5 or later (since iCal does
+    not support CalDAV prior to 10.5)."
+- id: 241098
+  author: Herb
+  author_email: herbshirt@gmail.com
+  author_url: ''
+  date: '2009-04-07 01:05:32 -0400'
+  date_gmt: '2009-04-07 05:05:32 -0400'
+  content: "When I copy the URL from my private server set up to 'Add by URL' in Gcal
+    I get: \"Is not a valid URL\".\r\n\r\nAny ideas what the problem is?\r\n\r\nThanks."
+- id: 277382
+  author: duxx0r
+  author_email: duxx0r@gmail.com
+  author_url: ''
+  date: '2009-10-16 02:13:31 -0400'
+  date_gmt: '2009-10-16 06:13:31 -0400'
+  content: "Thanks for that!  \r\n\r\nIs it just me, or could that option have been
+    in a far more obvious spot?"
+- id: 278372
+  author: Travis
+  author_email: dj.bevans@gmail.com
+  author_url: http://dj.bevans@gmail.com
+  date: '2009-10-21 17:27:25 -0400'
+  date_gmt: '2009-10-21 21:27:25 -0400'
+  content: I figured out how to do it Free, no extra programs just a few downloads
+    save as files and uploads, importing and exporting :D
+- id: 316426
+  author: "&Ugrave;&hellip;&Ugrave;&dagger;&Oslash;&ordf;&Oslash;&macr;&Ugrave;&Scaron;&Oslash;&sect;&Oslash;&ordf;"
+  author_email: asdfsd@asdasdf.com
+  author_url: http://www.amlly.com/vb
+  date: '2010-06-26 16:34:14 -0400'
+  date_gmt: '2010-06-26 20:34:14 -0400'
+  content: At present, any solution for this? I read in other sites than netvibes.com
+    can give a similar service for this ?
+- id: 316966
+  author: tsinn
+  author_email: tksinnott@gmail.com
+  author_url: ''
+  date: '2010-06-30 03:39:58 -0400'
+  date_gmt: '2010-06-30 07:39:58 -0400'
+  content: http://www.google.com/support/calendar/bin/answer.py?answer=99358
+- id: 317933
+  author: "&Oslash;&sect;&Oslash;&sup1;&Ugrave;&bdquo;&Oslash;&sect;&Ugrave;&dagger;&Oslash;&sect;&Oslash;&ordf;
+    &Ugrave;&hellip;&Oslash;&uml;&Ugrave;&circ;&Oslash;&uml;&Ugrave;&Dagger;"
+  author_email: asdfeeeeesd@asdeeeasdf.com
+  author_url: http://www.mysoog.com
+  date: '2010-07-07 11:37:29 -0400'
+  date_gmt: '2010-07-07 15:37:29 -0400'
+  content: I figured out how to do it Free, no extra programs just a few downloads
+    save as files and uploads, importing and exporting
+- id: 319700
+  author: Reid
+  author_email: reid.dawson@gmail.com
+  author_url: ''
+  date: '2010-07-23 14:48:28 -0400'
+  date_gmt: '2010-07-23 18:48:28 -0400'
+  content: "An easier solution is to export all of your current iCal events to your
+    drive and then import them all into your Google calendar that you have already
+    configured in iCal. \r\n\r\nAt this point, delete your calendar (on my Mac) in
+    iCal and only use the Google calendar. This will synch based on your settings
+    (by time or manually).\r\n\r\nI removed my work and home calendars after exporting
+    and then importing into my Google calendar and now everything that is added is
+    also synched to my Google calendar since that is the only calendar I now have
+    in iCal."
+- id: 325041
+  author: Ashlee
+  author_email: aeg4885@comcast.net
+  author_url: ''
+  date: '2010-09-02 10:00:36 -0400'
+  date_gmt: '2010-09-02 14:00:36 -0400'
+  content: I published my calendar to icalx and the first week loaded just fine, but
+    after the first week it doesn't show reoccurring events.  Any suggestions?
+- id: 334854
+  author: 'Sweetie Bracelet :'
+  author_email: Darakjy2@yahoo.com
+  author_url: http://www.sweetiebracelet.net
+  date: '2010-10-31 23:21:01 -0400'
+  date_gmt: '2010-11-01 03:21:01 -0400'
+  content: 'some big websites and companies give free calendars                              :'
+- id: 339207
+  author: Treating Skin Acne %0A
+  author_email: Hoey64050@gmail.com
+  author_url: http://www.acnetreatmentlab.com
+  date: '2010-12-01 13:54:09 -0500'
+  date_gmt: '2010-12-01 17:54:09 -0500'
+  content: i would love to get some free calendars on the internet, are there are
+    sites or company that gives one? "";
+- id: 348515
+  author: denalisian
+  author_email: denalisian@hotmail.com
+  author_url: http://www.msprojectegitimi.com
+  date: '2011-01-13 15:26:10 -0500'
+  date_gmt: '2011-01-13 19:26:10 -0500'
+  content: Great idea! Thanks for this information.
+- id: 348713
+  author: studyokan
+  author_email: info@studyokan.com
+  author_url: http://www.studyokan.com
+  date: '2011-01-14 12:15:40 -0500'
+  date_gmt: '2011-01-14 16:15:40 -0500'
+  content: I will try it. Thanks for this blog.
+- id: 416102
+  author: Mark
+  author_email: nebel722@yahoo.com
+  author_url: ''
+  date: '2011-11-16 15:55:10 -0500'
+  date_gmt: '2011-11-16 19:55:10 -0500'
+  content: Does this work with Windows (publishing from iCal to a Windows Google calendar?)
+---
+<p>Let me attempt to redeem my prior remarks about Google Calendar by offering this bit of how to publish your iCal (via <a href='http://www.apple.com/ical/ '>iCal</a> or <a href='www.mozilla.org/projects/calendar/sunbird.html'>Mozilla Sunbird</a>) to Google. This was inspired by <a href='http://www.tuaw.com/2006/04/13/howto-subscribe-to-a-google-calendar-using-ical/#comments'>How to subscribe to Google Calendar in iCal</a>.</p>
+<h3>Create your calendar</h3><br />
+You have numerous options for creating your calendar: <a href='http://www.apple.com/ical/ '>iCal</a> (Mac), <a href='www.mozilla.org/projects/calendar/sunbird.html'>Mozilla Sunbird</a> (Mac, Windows, Linux), <a href='http://sourceforge.net/projects/outlook2ical/'>Outlook2iCal</a> (Windows), etc. </p>
+<h3>Setup a public server to host your calendar</h3><br />
+You have several options to publish your iCal calendar:</p>
+<ul>
+<li><a href='http://www.apple.com/dotmac/'>Apple .Mac</a> provides iCal hosting, but costs $$ (or &Acirc;&pound;, &acirc;&sbquo;&ordf;, &aring;&oelig;&ldquo;, &iuml;&middot;&frac14;, etc.)</li>
+<li><a href='http://www.umdnj.edu/webctweb/design/webdavhowto.html'>Setup WebDav</a> on your own server to host calendars</li>
+<li><a href='http://icalx.com'>iCal Exchange</a> is a free calendar sharing host</li>
+<li><a href='http://www.macosxhints.com/article.php?story=20051020063242208&query=webdav'>Just FTP/Automator</a> your iCal file to a public server</li><br />
+</ul></p>
+<h3>Publish your calendar</h3><br />
+Using one of the prescribed methods above, you will then want to actually publish your calendar to the host (or upload via FTP/SSH/SFTP/carrier pigeon on 5.25" floppy disk). You can turn on "Publish Changes Automatically" to have your changes on your computer automatically uploaded to Google Calendar.</p>
+<h3>Subscribe to your calendar in Google Calendar</h3><br />
+Do the following:</p>
+<ol>
+<li>Manage Calendars</li>
+<li>then under "Other Calendars", click "Add calendar"</li>
+<li>Fill in the URL of your published calendar - this is probably supplied by the hosting server (like iCal Exchange, .Mac, or you can figure it out for your own server)</li>
+<li>Click "Ok" and wait a little bit for it to be uploaded</li><br />
+</ol><br />
+<img src='http://highearthorbit.com/wp-images/AddCalendar.jpg' alt='Add Calendar'  hspace='5px' vspace='5px'/></p>
+<p><img src='http://highearthorbit.com/wp-images/Subscribe.jpg' alt='Subscribe to the Calendar'  hspace='5px' vspace='5px'/></p>
+<h3>Bask in the warming, glowing warmth...</h3><br />
+You're now done and have a Google Calendar version of your local iCal calendar. Unfortunately, at this point, Google Calendar doesn't let you edit this "public" calendar, though you can add events from this calendar to one of your Google Calendar calendars (if that makes sense, you're astute). Now you can just publish when you'll be available to stop at the local pub for a brew!</p>

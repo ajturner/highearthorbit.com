@@ -1,0 +1,158 @@
+---
+layout: post
+status: publish
+published: true
+title: 'KML 3 Kick-off, Module: Styling'
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 907
+wordpress_url: http://highearthorbit.com/kml-3-kick-off-module-styling/
+date: '2007-08-03 14:24:22 -0400'
+date_gmt: '2007-08-03 18:24:22 -0400'
+categories:
+- KML
+tags: []
+comments:
+- id: 99017
+  author: Carl
+  author_email: creed@opengeospatial.org
+  author_url: http://www.opengeospatial.org
+  date: '2007-08-03 15:36:11 -0400'
+  date_gmt: '2007-08-03 19:36:11 -0400'
+  content: "Having KML being related to WMS is news to me. I am the one who put KML
+    2.1 into the OGC document template. Other than OWS-5, I have also been in on most
+    of the discussions related to KML and the OGC.  In none of these discussions has
+    there ever been any reference to working KML with WMS. There has been considerable
+    discussion about how a WFS could provide KML instead of just GML.  Even the OGC
+    Architecture Board has been in on these discussions. \r\n\r\nMaybe I am off base,
+    but I believe that KML should eventually be a standalone OGC standard that can
+    be referenced and used by other OGC standards (much as SLD is used by WMS). Further,
+    KML 3.0 - again from my understanding - will be aligned and harmonized as appropriate
+    with existing OGC/ISO standards, specifically CRS and GML 3.2.1 geometry.\r\n\r\nJust
+    had to jump in!\r\n\r\nCarl"
+- id: 99075
+  author: Jason Birch
+  author_email: jason@jasonbirch.com
+  author_url: http://www.jasonbirch.com/nodes/
+  date: '2007-08-03 22:42:05 -0400'
+  date_gmt: '2007-08-04 02:42:05 -0400'
+  content: "Andrew,\r\n\r\nI'm wondering about the use of  tags inside the .kss document.
+    \ I can see that these would need to be used inside the KML document\r\n\r\n<kstyle
+    src=\"http://example.com/style.kss\" />\r\n\r\nor\r\n\r\n<kstyle>\r\n
+    \   Placemark {\r\n      font-size: 8px;\r\n    }\r\n</kstyle>\r\n\r\nbut
+    in the .kss file itself I'd prefer not to see tags.  \r\n\r\nLet's see if those
+    tags make it...\r\n\r\n-J"
+- id: 99078
+  author: Jason Birch
+  author_email: jason@jasonbirch.com
+  author_url: http://www.jasonbirch.com/nodes/
+  date: '2007-08-03 22:50:43 -0400'
+  date_gmt: '2007-08-04 02:50:43 -0400'
+  content: "I'm not sure about the value of CRS support in KML.  It should definitely
+    be just an optional module, or at least an optional element with a default value
+    of 4326, as many traditional KML users have no understanding of anything other
+    than lat/lon.\r\n\r\nWhatever you do, make sure that KML doesn't get as open-ended
+    as GML.  The minute you require users to do something other than simple markup
+    like HTML, you lose a large chunk of your audience.\r\n\r\n-J"
+- id: 99157
+  author: Brian Flood
+  author_email: bFlood@spatialdatalogic.com
+  author_url: http://www.spatialdatalogic.com/cs/blogs/brian_flood
+  date: '2007-08-04 09:45:47 -0400'
+  date_gmt: '2007-08-04 13:45:47 -0400'
+  content: "good stuff, different but intersting none the less.\r\n\r\ni have to agree
+    with Jason on the CRS support, not only will it confuse a great deal of user creating
+    content, ti will also make it that much harder for those integrating KML into
+    their applications.\r\n\r\nCSS in KML might be a very natural replacement for
+    the existing styling, a \"class\" attribute seems right. The CSS3 attribute evaluator
+    would also eliminate the need to use Update tags to change styling of placemarks
+    at runtime.\r\n\r\nWas there any talk about how the attributes will be stored?
+    KML Schema? Microformat? somethign else?\r\n\r\ncheers\r\nbrian"
+- id: 99159
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2007-08-04 09:50:10 -0400'
+  date_gmt: '2007-08-04 13:50:10 -0400'
+  content: "@Jason Birch & @Brian Flood - KML 3 will probably only support 4326, and
+    so would not require (or support) specifying it anywhere in the actual markup.
+    So you're safe. :)\r\n\r\nI'm writing up the Metadata module post this weekend
+    and will post it on Monday. "
+- id: 129965
+  author: High Earth Orbit &raquo; Blog Archive &raquo; EPA KML a great step, but
+    both forward and backward
+  author_email: ''
+  author_url: http://highearthorbit.com/epa-kml-a-great-step-but-both-forward-and-backward/
+  date: '2007-12-02 10:55:45 -0500'
+  date_gmt: '2007-12-02 14:55:45 -0500'
+  content: "[...] tell once you&#8217;ve exported. Unfortunately KML doesn&#8217;t
+    currently support the ability to style based on ExtendedData, other than for the
+    Balloon text. But it would still be useful to put this data [...]"
+- id: 204251
+  author: 'GeoCommons Maker! launches :: High Earth Orbit'
+  author_email: ''
+  author_url: http://highearthorbit.com/geocommons-maker-launches/
+  date: '2008-10-01 07:33:39 -0400'
+  date_gmt: '2008-10-01 11:33:39 -0400'
+  content: "[...] GoogleEarth or WorldWind and retain the styling. This was a goal
+    of the OGC OWS-5 testbed that I wrote about quite extensively. The styling is
+    actually sort of difficult due to the design of KML itself. In [...]"
+---
+<p>There are many questions out there about how KML, GML, GeoRSS, and others differ from one another and how they work together. The primary strength of KML is the ability to simply style, or visualize, geographic information. By comparison GeoRSS doesn't support any styling, and GML uses <a href="http://www.opengeospatial.org/standards/sld" title="OGC Standards: SLD">SLD</a> to add styling to the feature markup. </p>
+<h4>Sidebar: W[F,M]S</h4><br />
+This also leads to interesting discussions about how KML fits into the OGC services. Two of the prevalent OGC OWS, <a href="http://www.ogcnetwork.net/wfs" title="OGCNetwork: Web Feature Service">WFS (Web Feature Service)</a> and <a href="http://www.ogcnetwork.net/wms" title="OGCNetwork: Web Mapping Service">WMS (Web Mapping Service)</a> differ in that WFS is supposed to supply just features, and WMS supplies visualizations. Typically, this has meant WMS supplies raster images - though at least one format, SVG, is still just 'text'. Therefore, one may assume KML should be part of WFS - but instead it is being made part of WMS. </p>
+<p>Personally, I think this distinction is tedious, and serves to confuse users. I understand that separating the two services makes it easier for developers, but this is an inverted approach and demonstrates that OGC standards are derived by developers and not many users. </p>
+<h4>Back to styling</h4><br />
+Anyways, it is still apparent that styling is a key element of KML, and one that is desired to be solidified and strengthened in the future. There have been comments that while styling is useful, KML currently mingles features and style too closely. For example, to style a line in KML, you first define the style in your KML document head, but then have to explicitly reference that style from within the Placemark element. </p>
+<p>KML does allow you to refer to another KML document for the style - so you could have a mapstyles.kml that you reference from your KML Placemarks. However you are fairly limited in what you can do with this styling and have to explicitly define it. Additionally, you can't give cascading styling to your KML entities that might be grouped into Folders. </p>
+<p>Therefore, the committee discussed looking at existing styling formats for ideas and possible use in KML. <a href="http://www.opengeospatial.org/standards/sld" title="OGC: Styled Layer Descriptor">SLD (Styled Layer Descriptor)</a> is the OGC standard for specifying the visualization and styling of features from OGC web services. </p>
+<p>However, the thread is "Agile Geography", and SLD+GML is not really consumable by the types of developers that are interested in KML. Another option that was discussed is adopting <a href="http://www.css3.info/" title="CSS3.info">CSS3</a>. </p>
+<p>CSS offers a lot of very intriguing features that would benefit KML. The simple effect would be separating styling from the geometry. In KML 2.1, any <em>Feature</em> (abstract element for other KML elements) can have an id. Subsequently, KML3 could add a <em>class</em> attribute, like in HTML, that could loosely be used to give some categorization of the Feature (road, highway, animal, newt). Then, the CSS could reference these id, class, or even use selectors to apply styling to elements.</p>
+<p>By way of example. Note, this is <strong>completely rough</strong> and is only an example of what might be possible with some sort of cascading-styling</p>
+<p><strong>roadstyles.kss</strong></p>
+<pre>
+<kstyle><br />
+    Placemark {<br />
+      font-size: 8px;<br />
+    }<br />
+    #roads {<br />
+      color: black;<br />
+      width: 2px;<br />
+    }<br />
+    .primary {<br />
+        color: blue;<br />
+        width: 4px;<br />
+    }<br />
+    .secondary {<br />
+      width: 1px;<br />
+    }<br />
+    Placemark[num_lanes=2] {<br />
+      width: 2px;<br />
+    }<br />
+</kstyle><br />
+</pre></p>
+<p><strong>virginia_roads.kml</strong></p>
+<pre>
+<kml></p>
+<styleUrl>http://mygeosite.com/roadstyles.kss</styleUrl><br />
+  <Folder id="roads"><br />
+    <atom:author><br />
+        <atom:name>VDOT</atom:name><br />
+    </atom:author><br />
+    <Placemark class="primary" id="I66"><br />
+      <gml:Point><br />
+        <gml:pos>42, -83, 100</gml:pos><br />
+      </gml:Point><br />
+    </Placemark><br />
+  </Folder><br />
+</kml><br />
+</pre></p>
+<p>With my "web developer" hat, this seems really attractive. Using a language and markup I already know and have tools for. It also provides some really powerful capabilities for applying hierarchical styling, both through selectors, and also the ability to apply multiple stylesheets to a KML document. So there could be a stylesheet that is linked to by the document for roads, another for POI's, and then I could apply my own default in my KML client application. </p>
+<p>You may notice the <code>Placemark[num_lanes=2]</code>. CSS3 supports applying styles based on evaluating attributes of elements. So a CSS like this may allow you to easily create thematic maps based on the value of the metadata. However, we still need to figure out exactly how that would mesh with the Metadata module concept (coming up in future blog post). </p>
+<p>There is still work to do evaluating the existing KML as well as SLD and some sort of CSS. Now would be a good time to speak up with your thoughts and use cases for how you would to style your data. </p>

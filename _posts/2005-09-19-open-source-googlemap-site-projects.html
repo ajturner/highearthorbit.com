@@ -1,0 +1,46 @@
+---
+layout: post
+status: publish
+published: true
+title: Open-Source GoogleMap Site Projects
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 275
+wordpress_url: http://highearthorbit.com/open-source-googlemap-site-projects/
+date: '2005-09-19 05:28:11 -0400'
+date_gmt: '2005-09-19 10:28:11 -0400'
+categories:
+- Programming
+- Geolocation
+- Web
+- Open-Source
+tags: []
+comments: []
+---
+<p><a href='http://mysociety.org'>MySociety</a> is a group that builds websites and web technologies meant for the community, and well, society. Their original/primary goal is developing community enhancing websites, such as political activism, and donations. They just launched two projects:</p>
+<p><a href='http://www.mysociety.org/?p=82'>Placeopedia and YourHistoryHere</a>. <a href='http://www.placeopedia.com'>Placeopedia</a> geonnotates and maps <a href='http://wikipedia.org'>Wikipedia</a> entries, and <a href='http://www.yourhistoryhere.com/'>YourHistoryHere</a> allows members to create interesting and informative geolocated history tidbits and information. </p>
+<p>Two shortcomings, Placeopedia currently requires users to specifically locate Wikipedia entries, rather than automatically obtaining this from the entry itself. I imagine this can easily change and be incorporated into the entry. The history seems currently limited to Britain. </p>
+<p>Both are pretty neat projects, that are also open-sourced (find the <a href='https://secure.mysociety.org/cvstrac/dir?d=mysociety'>CVS repository here</a>). They've also exposed the API for externally obtaining the data. <a href='http://www.placeopedia.com/cgi-bin/rss.cgi?topleft_long=-1;topleft_lat=54;bottomright_long=1;<br />
+bottomright_lat=50'>http://www.placeopedia.com/cgi-bin/rss.cgi?topleft_long=-1;topleft_lat=54;<br />
+bottomright_long=1;bottomright_lat=50</a> will generate an RSS feed of Wikipedia entries based on a geographic area. </p>
+<p><a href='http://mysociety.org'>MySociety</a> has some other cool technologies and keeps a good blog of their developments they're working on. Another example is <a href=''>GAZE</a> which is an API to allow location searching:<br />
+<a href='http://gaze.mysociety.org/gaze-rest?f=find_places&country=US&query=Northville'>http://gaze.mysociety.org/gaze-rest?f=find_places&country=US&query=Northville</a></p>
+<blockquote><p>
+"Name","In","Near","Latitude","Longitude","State","Score"<br />
+"Northville","Litchfield County","","41.62917","-73.39361","CT","100"<br />
+"Northville","Fulton County","","43.22556","-74.1725","NY","100"<br />
+"Northville","Cumberland County","","39.51111","-75.20472","NJ","100"<br />
+"Northville","Suffolk County","","40.97","-72.61944","NY","100"<br />
+"Northville","Wayne County","","42.43111","-83.48333","MI","100"<br />
+"Northville","Plymouth County","","42.06028","-70.92778","MA","100"<br />
+"Northville","Spink County","","45.15556","-98.57889","SD","100"<br />
+"Northville","La Salle County","","41.56333","-88.70528","IL","100"<br />
+"Northville","Champaign County","","40.18194","-83.81222","OH","100"<br />
+"Worthville","Butts County","","33.38972","-83.92139","GA","79"<br />
+</blockquote></p>

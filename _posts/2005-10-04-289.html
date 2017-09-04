@@ -1,0 +1,549 @@
+---
+layout: post
+status: publish
+published: true
+title: Writing iPhoto Exif Data
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 289
+wordpress_url: http://highearthorbit.com/289/
+date: '2005-10-04 06:48:25 -0400'
+date_gmt: '2005-10-04 11:48:25 -0400'
+categories:
+- Programming
+- Photography
+- Applescript
+tags: []
+comments:
+- id: 7349
+  author: Geir A
+  author_email: aalberg@despammed.com
+  author_url: ''
+  date: '2005-10-25 12:45:28 -0400'
+  date_gmt: '2005-10-25 17:45:28 -0400'
+  content: "A really useful script. I amended it to write \"image_comment\" to the
+    EXIF fields \"Description\" and \"Image Description\" instead - this way it is
+    compatible with the way Photoshop writes EXIF data. I also added the fields \"Artist\"
+    and \"URL\" to include my name and website btw. \r\n\r\n(Note that \"URL\" appears
+    to be a reserved word; hence I had to rename the variable at the start to \"site\"
+    to get it to run properly.) "
+- id: 7419
+  author: Bill
+  author_email: billm@accesscomm.ca
+  author_url: ''
+  date: '2006-01-07 05:17:24 -0500'
+  date_gmt: '2006-01-07 10:17:24 -0500'
+  content: "Hi\r\n\r\nThanks for the script ideas.  I've got exiftool installed and
+    got a coup0le of my own scripts to write the EXIF data.\r\n\r\nI've got a script
+    that will update the iPhoto photo comment.  It took me a while to figure out that
+    the iPhoto comment wasn't part of the EXIF or IPTC metadata (silly way to do it
+    if you ask me).\r\nAnyways, that script works fine.  The comment gets updated
+    immediately in iPhoto.\r\n\r\nAnother script I have using exiftool updates the
+    EXIF maker, model, usercomment, and artist tags.  However, none of these changes
+    show up in iPhoto!\r\nFinding the file in the Finder and checking the EXIF content
+    reveals all the stuff my script added.  So the script works.  But how do I get
+    it so the new EXIF data shows up in iPhoto?\r\n\r\nIf I export the photo, the
+    EXIF data is there.  If I then import that exported photo, iPhoto even refers
+    to it as a duplicate!  This \"duplicate\" does show up with the correct EXIF info
+    in iPhoto now.\r\nSo exporting ALL the changed photos and then re-importing them
+    would work but that's obviously a last resort.\r\n\r\nDo you know of a way to
+    \"reset\" a photo so iPhoto will refresh the EXIF metadata and display it?\r\n\r\nI've
+    tried the options of rebuilding the iPhoto library with option-command at app
+    startup but no luck.\r\n\r\nI've seen your other post about \"iPhoto was often
+    beligerent and required a restart of the iPhoto (and possible database recreation)
+    to read the location information (which was viewable in the &acirc;&euro;&oelig;info&acirc;&euro;\x9D
+    panel).\"\r\nSo what did you actually do to get it to work?\r\n\r\nI'm hoping
+    a newly improved iPhoto gets released next week at MacWorld Expo!\r\n\r\nThanks
+    for any suggestions and comments you can provide!"
+- id: 49157
+  author: High Earth Orbit &raquo; Blog Archive &raquo; Geotagging Flickr photos -
+    the right way
+  author_email: ''
+  author_url: http://highearthorbit.com/geotagging-flickr-photos-the-right-way/
+  date: '2006-09-24 16:00:58 -0400'
+  date_gmt: '2006-09-24 21:00:58 -0400'
+  content: "[...] After I&#8217;ve either meshed up my coordinates, or have a list
+    of locations, I fire up iView Media Pro, or iPhoto, and use my Applescript scripts
+    in addition to ExifTool to actually write the GPS metadata. Because photo editing
+    applications (like the aforementioned Photoshop) are usually very mean and don&#8217;t
+    restore geo-metadata on edit and save, I suggest you edit all your photos first,
+    and apply the geo Exif as the last step before uploading. [...]"
+- id: 69230
+  author: Tom Kerswill
+  author_email: info@tomkerswill.co.uk
+  author_url: http://blog.tomkerswill.co.uk
+  date: '2007-01-07 22:14:43 -0500'
+  date_gmt: '2007-01-08 02:14:43 -0500'
+  content: That's a brilliant script - thanks. It's particularly great with Keyword
+    Assistant for iPhoto, as you can just go through and easily tag everything, then
+    use this to synchronise. I've also got it setup with Quicksilver so it's nice
+    and quick to run the script.  Only problem so far is that if you run the script
+    on the same photo a few times, it appends the keywords, so you get multiple keywords
+    that are the same on the photo. That's probably something to do with the exiftool
+    command line... just off to have a look at the man page now!
+- id: 69231
+  author: Tom Kerswill
+  author_email: info@tomkerswill.co.uk
+  author_url: http://blog.tomkerswill.co.uk
+  date: '2007-01-07 22:16:41 -0500'
+  date_gmt: '2007-01-08 02:16:41 -0500'
+  content: "Ah yeah, so to alter this behaviour in the script just change:\r\n\r\nset
+    the keywordslist to keywordslist &amp; \" -keywords+=\" &amp; item j of assigned_keywords\r\n\r\nto:\r\n\r\nset
+    the keywordslist to keywordslist &amp; \" -keywords=\" &amp; item j of assigned_keywords\r\n\r\nThis
+    will just clear the keywords before setting the new ones,\r\n\r\nThanks!"
+- id: 71566
+  author: Marty
+  author_email: mblase75@gmail.com
+  author_url: ''
+  date: '2007-01-15 16:13:42 -0500'
+  date_gmt: '2007-01-15 20:13:42 -0500'
+  content: 'This script doesn''t seem to work when the roll name for the photos has
+    more than one space. Does it assume the roll/enclosing folder will always
+    be named "Roll ####" ?'
+- id: 72570
+  author: Heather
+  author_email: hrivers@gmail.com
+  author_url: ''
+  date: '2007-01-18 20:31:03 -0500'
+  date_gmt: '2007-01-19 00:31:03 -0500'
+  content: 'Thanks for the script, it''s a great idea!  Any idea why I might be getting
+    an error along the lines of "sh: line 1: exiftool: command not found"?'
+- id: 72621
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2007-01-19 09:50:59 -0500'
+  date_gmt: '2007-01-19 13:50:59 -0500'
+  content: "@Tom - thanks for pointing out the fix\r\n\r\n@Heather - you need to first
+    install <a href=\"http://www.sno.phy.queensu.ca/~phil/exiftool/\"
+    rel=\"nofollow\">ExifTool</a> onto your Mac. \r\n\r\n@Marty - you just need
+    to select the photos you want to geocode and shouldn't depend on the name of the
+    roll - I will have to test more to check this out. "
+- id: 80824
+  author: Matias
+  author_email: canelson@gmail.com
+  author_url: http://www.canelson.com.ar
+  date: '2007-04-12 01:17:42 -0400'
+  date_gmt: '2007-04-12 05:17:42 -0400'
+  content: "The script works great, is just what I was looking for. But I have 2 error
+    popups:\r\n    The first one is when I have a two words keyword like \"Los Angeles\".
+    I get this popup:\r\n\r\n Error: Error opening file - Angeles\r\n\r\nAnd the second
+    is this popup:\r\n\r\n Error: [minor] Bad NikonPreview directory pointer for tag
+    0x2 - Users/Saraza/Pictures/2004/040928-11.JPG\r\n\r\nI couldn'
+    t understand why this one appears.\r\n\r\nThanks!"
+- id: 84020
+  author: Ryan
+  author_email: ryan.jake@gmail.com
+  author_url: ''
+  date: '2007-05-11 15:55:26 -0400'
+  date_gmt: '2007-05-11 19:55:26 -0400'
+  content: "This looks very very useful. I have been looking for a way to take the
+    iPhoto date and somehow embed/attach it when exporting to external web galleries
+    that need this date inf). I have to manually enter the dates in iPhoto because
+    the originals are scans, and thus have no EXIF data.\r\n\r\nDoes anyone know how
+    one would modify this script to also copy the iPhoto date within an EXIF capture
+    date header?\r\n\r\nCheers,\r\nRyan"
+- id: 84306
+  author: Ryan
+  author_email: ryan.jake@gmail.com
+  author_url: ''
+  date: '2007-05-13 19:46:38 -0400'
+  date_gmt: '2007-05-13 23:46:38 -0400'
+  content: "Well, this is to answer my question above. I now got a modified version
+    of the script to simply add the iPhoto date as the Original Date in the EXIF header
+    within my iPhoto library... which also applies to any exported versions, etc.
+    (NOTE: it works, but I have no clue about applescript, so this may not be 100%
+    correct, it's just based on my trial-and-error).\r\n\r\nBasically in the \"tell
+    this_photo\" part I added:\r\nset the image_date to the date\r\n\r\nand then changed
+    the exiftool shell script call to simply be:\r\n\"exiftool -DateTimeOriginal='\"
+    &amp; image_date &amp; \"' \" &amp; \"'\" &amp; image_file &amp; \"'\"\r\n\r\nDunno
+    if that's useful to anyone, but this result saves me hours and hours of trouble
+    in terms of getting my (properly dated) photos from iPhoto to Gallery 2.2 (http://gallery.menalto.com/)\r\n\r\nCheers!\r\nRyan"
+- id: 88719
+  author: Chris
+  author_email: CBrownUK@gmail.com
+  author_url: ''
+  date: '2007-06-13 02:08:15 -0400'
+  date_gmt: '2007-06-13 06:08:15 -0400'
+  content: "Thanks Ryan, that's exactly what I was looking for.\r\n\r\nWill give it
+    a go later tonight, I have hundreds of scanned images which I need to export with
+    the correct (iPhoto) date."
+- id: 92666
+  author: Josh
+  author_email: jackandjohn@dodgeit.com
+  author_url: ''
+  date: '2007-06-28 00:12:57 -0400'
+  date_gmt: '2007-06-28 04:12:57 -0400'
+  content: "Thank you very much for this script.. Apple tricks people into thinking
+    they are doing things \"the right way\", when in reality it's \"Apple's way\"
+    (iPhoto metadata as a prime example)\r\n\r\n\r\n\r\nJust a mental note to anyone
+    viewing this:\r\n\r\nThink anyone could build in a versioning comment system that
+    lets a commenter mark up (any) code, hide the revised full version behind css
+    (or something) while showing the markups? (It would have to roll into a blog/new
+    commenting system)\r\n\r\nWould be great for a page like this, where there would
+    have been at least 3 different versions so far, and encourage more."
+- id: 99711
+  author: the loPEZ dispenser &raquo; Blog Archive &raquo; iPhoto IPTC/EXIF/XMP
+    Tags
+  author_email: ''
+  author_url: http://www.lopez-net.com/blog/?p=4
+  date: '2007-08-07 02:39:13 -0400'
+  date_gmt: '2007-08-07 06:39:13 -0400'
+  content: "[...] I was disappointed to find iPhoto didn&#8217;t &#8220;do&#8221;
+    IPTC tags when I started using it to organise photos, and export them to Gallery2.
+    Luckily I found an AppleScript that uses the excellent ExifTool. I&#8217;ve modified
+    it a bit, to work better with Gallery 2, and fixed it so comments and tags are
+    escaped properly. [...]"
+- id: 114738
+  author: Robert
+  author_email: robertvanbregt@gmail.com
+  author_url: ''
+  date: '2007-10-13 01:03:31 -0400'
+  date_gmt: '2007-10-13 05:03:31 -0400'
+  content: Great script! I'm using the most recent EXIFtool. Keywords do not seem
+    to be written to the JPG. Does anyone experience similar problems and have a solution
+    to this? Thx in advance!
+- id: 126079
+  author: Greg
+  author_email: gr@sas.upenn.edu
+  author_url: http://fregtk.com
+  date: '2007-11-19 18:51:24 -0500'
+  date_gmt: '2007-11-19 22:51:24 -0500'
+  content: "Does anyone have a solution to Matias' problem when using two word keywords?
+    \ For a two word keyword, I'd rather not have to use two separate tags \"Los\"
+    and \"Angeles\", but rather just \"Los Angeles.\"  \r\n\r\nIs there an easy way
+    to modify the script so that two word keywords are functional? \r\n\r\nThanks
+    so much for the awesome script!"
+- id: 130776
+  author: Comment on Writing iPhoto Exif Data by Robert
+  author_email: ''
+  author_url: http://maxfeed.ath.cx/item_840714.html
+  date: '2007-12-05 17:11:58 -0500'
+  date_gmt: '2007-12-05 21:11:58 -0500'
+  content: "[...] life, Technology, Photography)    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    \  Comment on Writing iPhoto Exif Data by Robert  Great script! I'm using the
+    most recent EXIFtool. Keywords do not seem to be written to the JPG. [...]"
+- id: 154029
+  author: Ville
+  author_email: vstd@gmx.net
+  author_url: ''
+  date: '2008-02-26 09:26:28 -0500'
+  date_gmt: '2008-02-26 13:26:28 -0500'
+  content: "Regarding the multi-word keyword issue:\r\n\r\nThis can easily be fixed
+    by modifying the script by adding single quotes around each keyword, as it is
+    already done for the other tags (have a look at the code above).\r\n\r\nI.e. change
+    this part to:\r\n\r\nrepeat with j from 1 to the count of assigned_keywords\r\n\tset
+    the keywordslist to keywordslist &amp; \" -keywords+='\" &Acirc;&not;\r\n\t\t&amp;
+    item j of assigned_keywords  &amp; \"'\"\r\nend repeat\r\n\r\nNote that it might
+    be also more practical to change the += to =, as somebody already commented.\r\n\r\nWhat
+    could be also added is storing the rating information, I think it should be available
+    via Applescript as well."
+- id: 162002
+  author: dayna
+  author_email: blah@dayna.id.au
+  author_url: ''
+  date: '2008-03-24 16:58:17 -0400'
+  date_gmt: '2008-03-24 20:58:17 -0400'
+  content: just found this today.. am i right in thinking that any comment with an
+    apostrophe will cause trouble? That's what I'm seeing so far...
+- id: 163584
+  author: Ville
+  author_email: vstd@gmx.net
+  author_url: ''
+  date: '2008-03-31 06:24:29 -0400'
+  date_gmt: '2008-03-31 10:24:29 -0400'
+  content: "About the apostrophe problem:\r\n\r\nYour guess is probably correct. Seems
+    a more generic solution would be needed.\r\n\r\nOne idea would be to write the
+    tag/content as tab-separated pairs to a temporary file and then let exiftool
+    read that file.\r\n\r\nThat file could probably be also stdin, leading to something
+    like this (note that this is a coarse example from memory without any syntax check):\r\n\r\ndo
+    shell script \"echo Keywords \\t\" item j of assigned_keywords | exiftool -t ...\r\n\r\n(Note
+    the piping character. I hope you are a bit familiar with unix scripting.)\r\n\r\n\r\n(BTW,
+    regarding my previous comment about the rating info: for reading, that seems to
+    be available only via the plist iPhoto archive file, for writing, UI scripting
+    would be needed. Of course it is also not very difficult to generate rating-based
+    tags like R0, R1, R2..R5.)"
+- id: 163592
+  author: Ville
+  author_email: vstd@gmx.net
+  author_url: ''
+  date: '2008-03-31 07:15:37 -0400'
+  date_gmt: '2008-03-31 11:15:37 -0400'
+  content: "More on the apostrophe issue, this is a quick hack:\r\n\r\nOf course,
+    you can also quote the string with the parenthesis character, then it would probably
+    look like this:\r\n\r\n'exiftool -title=\"' &amp; image_title &amp; &Acirc;&not;\r\n'\"
+    ' &amp; keywordslist...\r\n\r\nThat way, you can use the apostrophe within the
+    title (but not the parenthesis).\r\n\r\n\r\nThe better solution (that will allow
+    all characters) will probably need to be based on exiftool's argfile option:\r\n\r\nFrom
+    the exiftool documentation:\r\n\r\n\"-@ ARGFILE\r\n\r\nRead command-line arguments
+    from the specified file. The file contains one argument per line (NOT one option
+    per line -- some options require additional arguments which must be placed on
+    separate lines). Blank lines and lines beginning with # and are ignored. Normal
+    shell processing of arguments is not performed, which among other things means
+    that arguments should not be quoted. ARGFILE may exist relative to either the
+    current directory or the exiftool directory unless an absolute pathname is given.
+    \r\nFor example, the following ARGFILE will set the value of Copyright to ``Copyright
+    YYYY, Phil Harvey'', where ``YYYY'' is the year of CreateDate:\r\n\r\n    -d\r\n
+    \   %Y\r\n    -copyright<Copyright $createdate, Phil Harvey\""
+- id: 168536
+  author: dayna
+  author_email: daynoir@gmail.com
+  author_url: ''
+  date: '2008-04-19 19:17:36 -0400'
+  date_gmt: '2008-04-19 23:17:36 -0400'
+  content: thank you for replying.. i think i'm going to have to spend a bit more
+    time on this (not played with programming much..)... or i'll find a friend to
+    help me. *grin*
+- id: 184119
+  author: Roger Banks
+  author_email: roger_banks@mac.com
+  author_url: ''
+  date: '2008-06-02 17:08:58 -0400'
+  date_gmt: '2008-06-02 21:08:58 -0400'
+  content: exiftool has an -overwrite_original option that you could use instead of
+    deleting the *._original files after the fact.
+- id: 198688
+  author: BaroqueW and his sidekick nikkitaa &raquo; iPhoto et tags EXIF
+  author_email: ''
+  author_url: http://www.baroquew.info/wordpress/archives/iphoto-et-tags-exif
+  date: '2008-08-17 07:58:00 -0400'
+  date_gmt: '2008-08-17 11:58:00 -0400'
+  content: "[...] et tags EXIF Posted in August 17th, 2008  by BaroqueW in Tech >>
+    Computer Adapt&Atilde;&copy; d&#8217;un script par Andrew Turner, ce script Applescript
+    permet d&#8217;ajouter des tags Exif (commentaires, titre, [...]"
+- id: 251452
+  author: Manny
+  author_email: mannyotero@yahoo.com
+  author_url: ''
+  date: '2009-05-14 13:51:35 -0400'
+  date_gmt: '2009-05-14 17:51:35 -0400'
+  content: "After much playing around with this, and trying to get around the apostrophe
+    (single-quote [']) issue, I figured that a small change needs to be made....\r\n\r\nNeed
+    to replace this part of the script:\r\n\r\n---------------\r\nset output to do
+    shell script &Acirc;&not;\r\n\t\"exiftool -title='\" &amp; image_title &amp; &Acirc;&not;\r\n\t\"'
+    \" &amp; keywordslist &amp; &Acirc;&not;\r\n\t\" \" &amp; \" -comment='\" &amp;
+    image_comment &amp; &Acirc;&not;\r\n\t\"' \" &amp; \" -Copyright='\" &amp; copyright
+    &amp; &Acirc;&not;\r\n\t\"' \" &amp; \" -CopyrightNotice='\" &amp; copyright &amp;
+    &Acirc;&not;\r\n\t\"' \" &amp; \" -Rights='\" &amp; copyright &amp; &Acirc;&not;\r\n\t\"'
+    \" &amp; \" -Marked='\" &amp; Copyrighted &amp; &Acirc;&not;\r\n\t\"' \" &amp;
+    \"'\" &amp; image_file &amp; \"'\"\r\ndo shell script \"rm '\" &amp; image_file
+    &amp; \"'\" &amp; exifToolOriginal\r\n---------------\r\n\r\nWith this:\r\n\r\n---------------\r\nset
+    output to do shell script &Acirc;&not;\r\n\t\"exiftool -title=\\\"\" &amp; image_title
+    &amp; &Acirc;&not;\r\n\t\"\\\" \" &amp; keywordslist &amp; &Acirc;&not;\r\n\t\"
+    \" &amp; \" -comment='\" &amp; image_comment &amp; &Acirc;&not;\r\n\t\"' \" &amp;
+    \" -Copyright='\" &amp; copyright &amp; &Acirc;&not;\r\n\t\"' \" &amp; \" -CopyrightNotice='\"
+    &amp; copyright &amp; &Acirc;&not;\r\n\t\"' \" &amp; \" -Rights='\" &amp; copyright
+    &amp; &Acirc;&not;\r\n\t\"' \" &amp; \" -Marked='\" &amp; Copyrighted &amp; &Acirc;&not;\r\n\t\"'
+    \" &amp; \"\\\"\" &amp; image_file &amp; \"\\\"\"\r\ndo shell script \"rm \\\"\"
+    &amp; image_file &amp; \"\\\"\" &amp; exifToolOriginal\r\n---------------\r\n\r\nThe
+    only changes are on the image_file and image_file strings.  For all three occurrences,
+    I had to replace the surrounding single quotes with a \\\".\r\n\r\nNow it works
+    like a charm!!"
+- id: 261486
+  author: EXIF metadata and iPhoto 6 &laquo; Juggling Bits
+  author_email: ''
+  author_url: http://jugglingbits.wordpress.com/2009/06/29/exif-metadata-and-iphoto-6/
+  date: '2009-07-02 12:29:25 -0400'
+  date_gmt: '2009-07-02 16:29:25 -0400'
+  content: "[...] AppleScript that works for me is from Andrew Turner. I modified
+    it as described in this comment to enable apostrophes in keywords. In addition,
+    my [...]"
+- id: 278951
+  author: 'How do I avoid a Repeat loop to abort upon errors? : 48669'
+  author_email: ''
+  author_url: http://groups.jonzu.com/z_apple_how-do-i-avoid-a-repeat-loop-to-abort-upon-errors.html
+  date: '2009-10-25 19:37:12 -0400'
+  date_gmt: '2009-10-25 23:37:12 -0400'
+  content: "[...] is the repeat loop I am currently using (adapted from the script
+    I found here http://highearthorbit.com/289/). How could I skip
+    eventual errors? Please bear in mind that I have just begun exploring [...]"
+- id: 280618
+  author: iStar
+  author_email: iStarOSX@gmail.com
+  author_url: ''
+  date: '2009-11-05 14:45:52 -0500'
+  date_gmt: '2009-11-05 18:45:52 -0500'
+  content: "Hello and thank you for this script\r\n\r\nBut there is a problem when
+    there are pictures edit (/ iPhoto Library / Modified) original photos
+    are not marked by the script.\r\n\r\nHave you a solution to remedy this?\r\n\r\nThank
+    you"
+- id: 288158
+  author: Fabio
+  author_email: oakwood@email.it
+  author_url: ''
+  date: '2009-12-27 00:35:53 -0500'
+  date_gmt: '2009-12-27 04:35:53 -0500'
+  content: "First of all, thank you for this script: it's nice, it issues a problem
+    I care about, and it seems is the best thing available.\r\nMy main goal is to
+    avoid loosing all the comments written in iPhoto if the files are exported.\r\n\r\nI
+    have the '09 version of iPhoto.\r\n\r\n@iStar yes, it works on the \"modified\"
+    file, not on the original. Though, when you export the photo, if you choose the
+    right \"kind\" when exporting, and ask to include \"title and keywords\" and  \"location
+    information\", the exif fields will be written in the exported file.\r\n\r\n\r\nThe
+    problem seems to be that the scripts works fine, and is actually able to write
+    the required fields in the exif info of the \"modified\" file, but all the exif
+    info present in the original file are lost!\r\n\r\nNow, I am trying to figure
+    out how to \"merge\" all the exif fields, so to be able to export a file that
+    has all the exif informations (i.e. all the fields), those from the original file
+    (written by the camera) and those from iPhoto (e.g. the comments)"
+- id: 292340
+  author: Eric Du.
+  author_email: erdunbar@gmail.com
+  author_url: ''
+  date: '2010-01-31 08:49:42 -0500'
+  date_gmt: '2010-01-31 12:49:42 -0500'
+  content: 'Please note: you''ll have to replace single - with a double -. Unfortunately
+    this comment forum is a little too smart and automagically formats entries :('
+- id: 292341
+  author: Eric Du.
+  author_email: erdunbar@gmail.com
+  author_url: ''
+  date: '2010-01-31 08:56:35 -0500'
+  date_gmt: '2010-01-31 12:56:35 -0500'
+  content: "This comment software is terrible for reformatting stuff.\r\n\r\nYou can
+    fix the problems using a Find and Replace All.\r\n\r\nYou'll have to replace the
+    \"smart\" quotes with a regular quote and do the same for the smart 'single quotes'.
+    When you're replacing the single - with two real dashes make sure that you check
+    that the subtraction signs for the date and time calculation are functional.\r\n\r\nHappy
+    iPhotoing :-)"
+- id: 292342
+  author: Eric Du.
+  author_email: erdunbar@gmail.com
+  author_url: ''
+  date: '2010-01-31 09:01:53 -0500'
+  date_gmt: '2010-01-31 13:01:53 -0500'
+  content: "One final comment...\r\n\r\nMake sure you replace the 'opening' smart
+    single quote in the exiftool command with a regular single quote. Otherwise iPhoto
+    will return EOF errors (which it in turn gets from exiftool)."
+- id: 293089
+  author: Eric Du.
+  author_email: erdunbar@gmail.com
+  author_url: ''
+  date: '2010-02-06 12:31:13 -0500'
+  date_gmt: '2010-02-06 16:31:13 -0500'
+  content: Hmm. My apologies. It seems like the script I tried to incorporate as a
+    comment wasn't accepted. Will try to figure out a way to post it here so that
+    others can use it if they need to.
+- id: 293090
+  author: Eric Du.
+  author_email: erdunbar@gmail.com
+  author_url: ''
+  date: '2010-02-06 12:32:40 -0500'
+  date_gmt: '2010-02-06 16:32:40 -0500'
+  content: 'Hmm #2. Never mind. It seems that it''s awaiting moderation and you can''t
+    see it (#30). Maybe some day in the future it''ll be approved.'
+- id: 298869
+  author: Scott
+  author_email: me@scotthorlbeck.com
+  author_url: http://www.scotthorlbeck.com
+  date: '2010-03-06 17:14:32 -0500'
+  date_gmt: '2010-03-06 21:14:32 -0500'
+  content: Thanks for the script! MUCH appreciated!
+- id: 327485
+  author: Thomas
+  author_email: freebies4thomas@badsoda.com
+  author_url: ''
+  date: '2010-09-15 13:47:42 -0400'
+  date_gmt: '2010-09-15 17:47:42 -0400'
+  content: "You could also have a look at Phoshare. It moves EXIF data (geolocation,
+    rating etc.) from iPhoto to either the orginial images (ie. update the files)
+    or exports the files and puts the metadata in during the process.\r\n\r\nhttps://sites.google.com/site/phosharedoc/"
+- id: 391676
+  author: bilo
+  author_email: public@lobascio.de
+  author_url: ''
+  date: '2011-07-29 19:07:02 -0400'
+  date_gmt: '2011-07-29 23:07:02 -0400'
+  content: "Hi there,\r\n\r\nare there any compatibility problems with iPhoto11?\r\nI
+    get an Error (Error: File not found - value) when launching script, but only for
+    photos that have keywords.\r\nAny suggestions?"
+- id: 438490
+  author: null_pointer86
+  author_email: null_pointer86@yahoo.com
+  author_url: http://www.futurehardware.com
+  date: '2012-02-17 08:01:46 -0500'
+  date_gmt: '2012-02-17 12:01:46 -0500'
+  content: "If anyone getting problem with editing the Exif data of photos on Iphoto,
+    then i have a great solution for you. There are several solution described in
+    the following thread. Just take a look.\r\nhttp://www.futurehardware.com/mac-os-x/720-new.htm"
+---
+<p>Here is some quick Applescript that uses <a href='http://www.sno.phy.queensu.ca/~phil/exiftool/'>ExifTool</a> to write Copyright, Title, Comments, and Keyword exif data to selected photos in iPhoto:</p>
+<p>This script is released under the <a href='http://creativecommons.org/licenses/by/2.5/'>Creative Commons</a>.</p>
+<pre>
+<code><br />
+-- This applescript will set the exif keywords, name,<br />
+--  and comments of all selected iPhoto images using<br />
+--  the information current in iPhoto.<br />
+--<br />
+-- Author: Andrew Turner (http://highearthorbit.com)<br />
+--<br />
+property copyright : &Acirc;&not;<br />
+		"Copyright Andrew Turner, 2005. All Rights Reserved."<br />
+property URL : "http://highearthorbit.com"<br />
+property exifToolOriginal : "_original"</p>
+<p>-- True retains copyright, False means Public Domain<br />
+property Copyrighted : "True"</p>
+<p>tell application "iPhoto"<br />
+	activate<br />
+	try<br />
+		copy (my selected_images()) to these_images<br />
+		if these_images is false or (the count of these_images) &Acirc;&not;<br />
+			is 0 then &Acirc;&not;<br />
+			error "Please select a single image."</p>
+<p>		repeat with i from 1 to the count of these_images<br />
+			set the keywordslist to ""<br />
+			set this_photo to item i of these_images<br />
+			tell this_photo<br />
+				set the image_file to the image path<br />
+				set the image_title to the title<br />
+				set the image_filename to the image filename<br />
+				set the image_comment to the comment<br />
+				set the assigned_keywords to the name of keywords<br />
+			end tell<br />
+			repeat with j from 1 to the count of assigned_keywords<br />
+				set the keywordslist to keywordslist & " -keywords+=" &Acirc;&not;<br />
+					& item j of assigned_keywords<br />
+			end repeat<br />
+			set output to do shell script &Acirc;&not;<br />
+				"exiftool -title='" & image_title & &Acirc;&not;<br />
+				"' " & keywordslist & &Acirc;&not;<br />
+				" " & " -comment='" & image_comment & &Acirc;&not;<br />
+				"' " & " -Copyright='" & copyright & &Acirc;&not;<br />
+				"' " & " -CopyrightNotice='" & copyright & &Acirc;&not;<br />
+				"' " & " -Rights='" & copyright & &Acirc;&not;<br />
+				"' " & " -Marked='" & Copyrighted & &Acirc;&not;<br />
+				"' " & "'" & image_file & "'"<br />
+			do shell script "rm '" & image_file & "'" &Acirc;&not;<br />
+				& exifToolOriginal<br />
+		end repeat</p>
+<p>		display dialog "Exif writing complete."<br />
+	on error error_message number error_number<br />
+		if the error_number is not -128 then<br />
+			display dialog error_message buttons {"Cancel"} &Acirc;&not;<br />
+				default button 1<br />
+		end if<br />
+	end try<br />
+end tell</p>
+<p>on selected_images()<br />
+	tell application "iPhoto"<br />
+		try<br />
+			-- get selection<br />
+			set these_items to the selection<br />
+			-- check for single album selected<br />
+			if the class of item 1 of these_items is album then error<br />
+			-- return the list of selected photos<br />
+			return these_items<br />
+		on error<br />
+			return false<br />
+		end try<br />
+	end tell<br />
+end selected_images<br />
+</code><br />
+</pre></p>
+<p>You can grab this script and a simpler Copyright only, as well as a Location (latitude/longitude/city,region,country) <a href='http://highearthorbit.com/projects/applescript/iPhotoExif.zip'>script here</a>.</p>

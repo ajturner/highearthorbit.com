@@ -1,0 +1,71 @@
+---
+layout: post
+status: publish
+published: true
+title: scrAPI - Microformat Parsing in Ruby
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 488
+wordpress_url: http://highearthorbit.com/scrapi-microformat-parsing-in-ruby/
+date: '2006-08-04 18:49:26 -0400'
+date_gmt: '2006-08-04 23:49:26 -0400'
+categories:
+- Programming
+- Ruby
+- Project
+tags: []
+comments:
+- id: 215458
+  author: Chris Blow
+  author_email: unthinkingly@gmail.com
+  author_url: http://unthinkingly.com
+  date: '2008-12-05 19:46:05 -0500'
+  date_gmt: '2008-12-05 23:46:05 -0500'
+  content: if you are still working on this, care to update it? I'm sure you are doing
+    it completely differently now. Thanks c
+---
+<p>I was looking for some nice Ruby utility to help in parsing out <a href='http://microformats.com/' title='Microformats homepage'>Microformats</a> from webpages. There are 3 projects currently on <a href='http://rubyforge.org' title='RubyForge homepage'>RubyForge</a>:</p>
+<ul>
+<li><a href='http://rubyforge.org/projects/uformatparser/' title='uformatparser RubyForge project page'>uformatparser</a> - looks very flexible and mature. developed by <a href='http://blog.labnotes.org' title='LabNotes Blog'>LabNotes</a></li>
+<li><a href='http://rubyforge.org/projects/uformats/' title='uformats RubyForge project page'>uformats</a> - pretty good, only supports a couple of formats</li>
+<li><a href='http://rubyforge.org/projects/mftools/' title='mfTools RubyForge project page'>mfTools</a> - nothing released yet, unknown status</li><br />
+</ul></p>
+<p>Talking on <code>#microformats</code> I was pointed to <a href='http://blog.labnotes.org' title='LabNotes Blog'>LabNotes</a> newer incarnation of a parser: <a href='http://blog.labnotes.org/2006/07/11/scraping-with-style-scrapi-toolkit-for-ruby/' title='scrAPI announcement'>scrAPI</a>. It's a much more generic HTML parser/scraper, that can handle getting data from HTML by structure, class, or id. <a href='http://blog.labnotes.org/wp-content/uploads/mashup-camp-ii/index.html' title='Presentation about scrAPI'>Here is Assaf's presentation</a> at Mashup Camp II where he gives some good tutorials and discussion about the API. </p>
+<h2>Down and dirty with the code</h2><br />
+To illustrate <a href='http://blog.labnotes.org/2006/07/11/scraping-with-style-scrapi-toolkit-for-ruby/' title='scrAPI announcement'>scrAPI</a>, I'll show you the code needed to parse <a href='http://microformats.com/wiki/geo' title='Microformats Wiki: geo'>geo</a> location data from a webpage. </p>
+<p>First we just do bring in the necessary libraries, and get an example HTML page:</p>
+<pre><code><br />
+require 'scrapi/lib/scrapi'<br />
+require "net/http"</p>
+<p>h = Net::HTTP.new("code.highearthorbit.com", 80)<br />
+resp, data = h.get("/greaseroute/index.php")<br />
+</code></pre></p>
+<p>Then we define our scrapers. The <a href='http://microformats.com/wiki/geo' title='Microformats Wiki: geo'>geo</a> microformat looks like: </p>
+<div class="geo">
+  <span class="latitude">35.126</span>,<br />
+  <span class="longitude">-80.764</span><br />
+</div></p>
+<p>The <code>process</code> method of the <code>Geo</code> class can take a HTML structure path, CSS class or id, and then the attribute to store. Also, our general <code>Location</code> scraper will look for all <code>geo</code> class tags in the HTML, and fill out the <code>geos</code> array using the <code>Geo</code> class Scraper.</p>
+<pre><code><br />
+class Geo < Scraper::Base<br />
+  process ".latitude", :latitude => :text<br />
+  process ".longitude", :longitude => :text<br />
+end</p>
+<p>class Location < Scraper::Base<br />
+  array :geos<br />
+  process ".geo", :geos => Geo<br />
+  result :geos<br />
+end<br />
+</code></pre></p>
+<p>Finally, now that we've built up our "tools", we can scrape the data, and output all the found locations.</p>
+<pre><code><br />
+locations = Location.scrape(data)</p>
+<p>locations.each {|loc| puts "[#{loc.latitude} x #{loc.longitude}]" }<br />
+</code></pre></p>
+<p>That was really easy, and effective. Additionally, due to the <a href='http://microformats.com/' title='Microformats homepage'>Microformats</a> standards, we can feel pretty confident on changes to the original site's markup to not mess up our parsing. </p>

@@ -1,0 +1,48 @@
+---
+layout: post
+status: publish
+published: true
+title: OGC Geospatial Search Summit
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 1090
+wordpress_url: http://highearthorbit.com/ogc-geospatial-search-summit/
+date: '2008-09-23 07:25:26 -0400'
+date_gmt: '2008-09-23 11:25:26 -0400'
+categories:
+- GeoRSS
+- OpenSearch
+- Standards
+tags:
+- Neogeography
+- geodata
+- OpenSearch
+- OGC
+- search
+comments:
+- id: 203168
+  author: Peter
+  author_email: prushfor@nrcan.gc.ca
+  author_url: http://www.geoconnections.org
+  date: '2008-09-23 09:21:17 -0400'
+  date_gmt: '2008-09-23 13:21:17 -0400'
+  content: "Andrew,\r\n\r\nOGC should point to http://www.opengeospatial.org\r\n\r\nCheers,\r\nPeter"
+---
+<p>Last Monday I participated in a <a href="http://www.ogcnetwork.net/node/396" title="OGC Geospatial Search Summit - background and readings | OGC Network">Geospatial Search Summit</a> hosted by the <a href="http://www.ogc.gov.uk/" title="OGC - Home">OGC</a> as part of the <a href="http://www.opengeospatial.org/event/0809tc" title="September '08 OGC Technical Committee Meeting - Atlanta Georgia | OGC&Acirc;&reg;">quarterly Technical Committee (TC)</a> meetings. The TC's are primarily about various working groups discussing progress and status of standards or interoperability demos.</p>
+<p>By comparison, this summit was meant as a brainstorming around geo and search interfaces and responses. Pulling from the announcement:</p>
+<blockquote><p>
+  We would as much as possible like to bound the discussion to: 1) common ground for geospatial search for web resources and 2) integrating spatial search into search protocols. As part of the discussion we would also like to get advice from the other communities about which catalog/registry search protocol is the 'mainstream' one (or more?) that we (OGC) should align with and in turn, be sure that spatial search is supported in a thoughtful but not cumbersome way by the broader IT standards community.<br />
+</blockquote></p>
+<p>You can see a partial <a href="http://www.ogcnetwork.net/node/399" title="OGC Geospatial Search Summit Experts">list of attendees here</a>.</p>
+<p>There was a good overview of existing, albeit often quite complex, search interfaces. As is potential in meetings like this where attendees have their own history, investments, and beliefs in standards, the discussion can become difficult to easily resolve.</p>
+<p>A couple of interesting agreements came out of the meeting. Foremost was the understanding for guidance of using simple, common formats as they already exist when appropriate. This means using <a href="http://www.opensearch.org/" title="Home - OpenSearch">OpenSearch</a> as a base URI templating mechanism and follow <a href="http://georss.org/simple" title="Simple | GeoRSS :: Geographically Encoded Objects for RSS feeds">GeoRSS-Simple</a> specification for geographic data. Of course, a format can expand upon this and offer more complex formats that conform to more complex specs. But by at least providing a common baseline means that almost any service can easily interconnect with another service.</p>
+<p>One difficult mechanism that is missing is a way for geographic search to specify the type of spatial operation. Typically most services assume a "within" or intersects". For example, what restaurants are within a 5-mile radius of my position. However, it's apparent that this can be confused based on assumptions and also does not provide for any other type of operations. Again, for example, find me all the hospitals that are not within the hurricane path.</p>
+<p>A long-standing model for this is called the <a href="http://docs.codehaus.org/display/GEOTDOC/Point+Set+Theory+and+the+DE-9IM+Matrix" title="Point Set Theory and the DE-9IM Matrix - Codehaus"><em>DE-9IM spatial operation set</em></a>. It was presented by Eliseo Clementini, and also frequently attributed to Egenhofer. You can <a href="http://docs.codehaus.org/display/GEOTDOC/Point+Set+Theory+and+the+DE-9IM+Matrix" title="Point Set Theory and the DE-9IM Matrix - Codehaus">read more about it</a>. Granted, a majority of geospatially-capable search interfaces may not require this, but it's nice that there is a relatively straight-forward model that everyone can agree on.</p>
+<p>I hope more attendees share their thoughts and outcomes. There are definitely many who point out the problems of designing standards in a <em>smoke filled room</em>, and I much rather bringing the discussion out into the open where more people can chime in and contribute.</p>
+<p>GEOPRESS_LOCATION(Atlanta, Georgia)</p>

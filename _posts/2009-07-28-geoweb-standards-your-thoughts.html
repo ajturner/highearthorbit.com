@@ -1,0 +1,134 @@
+---
+layout: post
+status: publish
+published: true
+title: GeoWeb Standards - Your thoughts
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 1267
+wordpress_url: http://highearthorbit.com/geoweb-standards-your-thoughts/
+date: '2009-07-28 09:21:42 -0400'
+date_gmt: '2009-07-28 13:21:42 -0400'
+categories:
+- Conference
+- Neogeography
+- Standards
+tags:
+- Neogeography
+- Conference
+comments:
+- id: 266090
+  author: Sean Gillies
+  author_email: sean.gillies@gmail.com
+  author_url: http://sgillies.net
+  date: '2009-07-28 13:18:18 -0400'
+  date_gmt: '2009-07-28 17:18:18 -0400'
+  content: GeoRSS, KML, and GeoJSON are the itching powder, squirting ink pen, and
+    dribble cup of geodata formats. The only worse ones are all the others that have
+    no hypertext capability at all (with apologies to <a href="http://www.shirky.com/writings/evolve.html"
+    rel="nofollow">Clay Shirky</a>).
+- id: 266091
+  author: Andrew
+  author_email: andrew@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2009-07-28 13:28:55 -0400'
+  date_gmt: '2009-07-28 17:28:55 -0400'
+  content: "Thanks Sean - excellent quote :) \r\n\r\nI agree that these formats each
+    have issues, yet are the most closely aligned with the Web, rather than a file
+    just served off the web. \r\n\r\nOne particularly, potentially interesting format
+    that's being overlooked is OpenStreetMap. I'm impressed with the linkedgeodata.org
+    and the 3 Billion triples. \r\n\r\nUnfortunately we still have a ways to go both
+    in providing useful, usable, expressive formats, and moving tools and data providers
+    to using these formats."
+- id: 266093
+  author: Frank Steggink
+  author_email: fsteggink@gmail.com
+  author_url: ''
+  date: '2009-07-28 13:41:36 -0400'
+  date_gmt: '2009-07-28 17:41:36 -0400'
+  content: "So, Sean loves GML? XML schema has anyURI as a primitive property type
+    after all ;)\r\n\r\nGML has certainly its use, but it is not always the right
+    tool (exchange format) for the right job.\r\n\r\nThere is definitely a ways to
+    go, but the problem is that it is often not clear what would work well upfront,
+    and even if you find something that works well in one case, it doesn't work well
+    in another case (if at all).\r\n\r\nAt least I don't think the goal is to have
+    one unifying format, but we'll end up with multiple (smaller) formats instead,
+    each which should do their specific job well. The internet and the Geoweb are
+    no monoliths, so neither are the standards which drive them."
+- id: 266095
+  author: IvanSanchez
+  author_email: ivan@sanchezortega.es
+  author_url: http://ivan.sanchezortega.es
+  date: '2009-07-28 13:49:56 -0400'
+  date_gmt: '2009-07-28 17:49:56 -0400'
+  content: "I agree with ajturner on the .osm format - it is a breeze to code scripts
+    for that format. And I do think that if you give JOSM a couple of years, you'll
+    get something that will be quite capable of standing against traditional desktop
+    GIS software.\r\n\r\nOn the other hand, GML is too loosely defined to easily develop
+    tools that work with *all* kinds of GML. And I get headaches every time I have
+    to read an OGC standard to implement it. Any geo-standard that is longer than
+    5 pages deserves being thrown into the garbage bin."
+- id: 266096
+  author: Frank Steggink
+  author_email: fsteggink@gmail.com
+  author_url: ''
+  date: '2009-07-28 14:01:19 -0400'
+  date_gmt: '2009-07-28 18:01:19 -0400'
+  content: "@IvanSanchez: It is definitely tough to develop a generic GML reader.
+    The next file you try gives new problems. However, at least in all those pages
+    of the GML spec, the authors try to add some order to the nearly endless flexibility
+    of XML schema (which can be abused in many ways). Also additions like the Simple
+    Features profile help, but even then it is difficult.\r\n\r\nIf you would ask
+    me honest and personally, I think GML will still live on for a long time, but
+    it will be mostly used for specific formats / application schemas, like CityGML,
+    OS MasterMap, etc. It will never take the role shapefiles (still) have right now,
+    because everyone will let his GML writer output a slightly different flavor, and
+    dealing with all those cases is a too high barrier for most people (cost and time)."
+- id: 266102
+  author: Andrew
+  author_email: andrew@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2009-07-28 15:57:47 -0400'
+  date_gmt: '2009-07-28 19:57:47 -0400'
+  content: "From my perspective - GML is like programming in XML. The documentation
+    reinforces that too as it's primarily about classes, inheritance, including namespaces,
+    etc. So writing a parser/reader is like writing a scripting interpreter. \r\n\r\nSo
+    @Frank - I agree with your ending sentiment. There won't be \"one format to rule
+    them all\", but instead what's working is linking between formats. Consumers can
+    choose if they want the HTML version for a human browser, or the KML for 3D browsing,
+    or the GML/Shapefile/Spatialite for some GIS analysis.\r\n\r\nthanks for
+    the thoughts, and keep them coming! I'll make sure and share the outcome presentation
+    and feedback from GeoWeb."
+- id: 266164
+  author: Kurt Schwehr
+  author_email: kurt@ccom.unh.edu
+  author_url: http://schwehr.org/blog
+  date: '2009-07-28 20:09:00 -0400'
+  date_gmt: '2009-07-29 00:09:00 -0400'
+  content: "KML is fine, but fairly limited in what it can convey... still wishing
+    that X3D had been better up to this task (I come from an OpenInventor background).
+    \ GeoRSS drove me a bit crazy when trying to build some feeds for Google... the
+    GeoRSS.org schema is not properly setup.\r\n\r\nFrustrations documented in a couple
+    days of posts ending with:\r\n\r\nhttp://schwehr.org/blog/archives/2009-07.html#e2009-07-28T14_12_02.txt\r\n\r\nSo
+    I've got feeds, but even though they validate, I don't think they are right.\r\n\r\nNow
+    if I want to share properly documented topo or bathy, I have to dive into the
+    world of Collada, BAGs (bathymetry attributed grids), opendap, etc or get lost
+    in the land of proprietary file formats.  For some of us how the data was processed
+    and what the uncertainty values are is almost as important as the actually data."
+- id: 266685
+  author: Mano Marks
+  author_email: mmarks@google.com
+  author_url: http://code.google.com
+  date: '2009-07-30 20:22:29 -0400'
+  date_gmt: '2009-07-31 00:22:29 -0400'
+  content: "I rambled in my responses, so I posted my thoughts here:\r\nhttp://tr.im/uPYC"
+---
+<p><a href="http://www.flickr.com/photos/darwinbell/465459020"><img src="http://farm1.static.flickr.com/207/465459020_8a1e723479_m.jpg" style="float:right" /></a></p>
+<p>Later this week I'm speaking at GeoWeb about the current progress of GeoWeb standards, how far we have to go, and how to get there. We have KML and GeoRSS leading the way in searchable, linkable formats, but still a plethora of Shapefiles strewn about. There are questions of findability, semantic ontologies, durability, and expressiveness. What are the adoption rate of these formats and their utility in the future real-time, mobile, linked, open web?</p>
+<p>What else do you think is the good and bad of GeoWeb standards?</p>

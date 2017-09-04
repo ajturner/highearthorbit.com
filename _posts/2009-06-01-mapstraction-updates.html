@@ -1,0 +1,93 @@
+---
+layout: post
+status: publish
+published: true
+title: Mapstraction Updates
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 1256
+wordpress_url: http://highearthorbit.com/mapstraction-updates/
+date: '2009-06-01 09:57:45 -0400'
+date_gmt: '2009-06-01 13:57:45 -0400'
+categories:
+- Mapstraction
+tags:
+- Mapstraction
+comments:
+- id: 256300
+  author: Steven Citron-Pousty
+  author_email: scitronpousty@gmail.com
+  author_url: http://theSteve0.wordpress.com
+  date: '2009-06-01 17:25:16 -0400'
+  date_gmt: '2009-06-01 21:25:16 -0400'
+  content: "Hey Andrew \r\nThanks for the history and summary. So how does mapstraction
+    and openlayers fit together in the ecosystem. Why would somebody choose one over
+    the other? Where are there strengths and weaknesses. It would be really helpful
+    if someone could lay this out for the users. Not in a snipey way but in a \"one
+    person's take\" kinda way - would probably strike an interesting discussion. I
+    know you and Chris/Schuyler are friends and this would be really interesting
+    to hear.\r\nThanks again\r\nSteve"
+- id: 256726
+  author: Timmie
+  author_email: timmichelsen@gmx-topmail.de
+  author_url: ''
+  date: '2009-06-03 12:27:03 -0400'
+  date_gmt: '2009-06-03 16:27:03 -0400'
+  content: "Hello,\r\nthis library looks really nice.\r\n\r\nI would like to have
+    some more information:\r\n* Can you highlight the main differences towards mapfish?\r\n*
+    How do I add WMS, WFS and kamap layers?\r\n\r\nThanks,\r\nTimmie"
+- id: 257115
+  author: Andrew Turner
+  author_email: ajturner@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2009-06-05 19:35:35 -0400'
+  date_gmt: '2009-06-05 23:35:35 -0400'
+  content: "@Steven &amp; @Timmy - there is a fundamental difference between what
+    the goals of Mapstraction and OpenLayers are:\r\n\r\nMapstraction is an abstraction
+    library that provides a common interface around the primary base functionality
+    of the broad range of mapping providers. It will still provide the native interface
+    of those providers (e.g. a GoogleMap will still look and act like a Google Map,
+    and same for Yahoo, MS, etc.)\r\n\r\nOpenLayers is an entirely (except for gmap
+    wrapper?) open-source, built from the ground up mapping and geo library that implements
+    all of it's own functionality rather than use a third-parties.\r\n\r\nAs for use-cases,
+    Mapstraction is meant for users that want choice in which provider or library
+    they are using, but still use that provider; OpenLayers provides a more feature
+    rich, advanced interface more appropriate to \"GIS\" applications.\r\n\r\nAnd
+    any discussion of lightweight vs. GIS is a red-herring - you know what I mean.\r\n\r\n@Timmie
+    - specific to your question. MapFish is a set of controls that sit on OpenLayers,
+    right? It's not a mapping library.\r\n\r\nAnd you can bring in WMS/WFS/kamap
+    if the provider supports it. Again, the difference between Mapstraction and OpenLayers."
+- id: 257901
+  author: JamesD
+  author_email: biduabariakaf@gmail.com
+  author_url: ''
+  date: '2009-06-11 09:05:42 -0400'
+  date_gmt: '2009-06-11 13:05:42 -0400'
+  content: Thanks for the useful info. It's so interesting
+- id: 259324
+  author: FLorin Homone
+  author_email: florin@newmind.co.uk
+  author_url: ''
+  date: '2009-06-18 07:43:13 -0400'
+  date_gmt: '2009-06-18 11:43:13 -0400'
+  content: "That;s nice\r\nHowever we are having Multimap provider. When trying to
+    access\r\nhttp://mapstraction.appspot.com/#multimap\r\nit is saying:\r\n\"Multimap
+    viewer is not defined\"."
+---
+<p><a href="http://highearthorbit.com/wp-content/uploads/2009/06/mapstraction-v2-logo.png"><img src="http://highearthorbit.com/wp-content/uploads/2009/06/mapstraction-v2-logo-tm.jpg" width="271" height="271" alt="mapstraction v2 logo" style="float:right; padding-top:5px; padding-bottom:5px; padding-left:5px;" /></a>It's been a long while since I've talked here in-depth about a project I've been helping with for a few years now. If you're not familiar with it, <a href="http://www.mapstraction.com/" title="Mapstraction - a javascript library to hide differences between mapping APIs.">Mapstraction</a> is a JavaScript library that provides a common interface to more than 11 other major mapping providers such as Google, Microsoft, MapQuest, OpenLayers, and FreeEarth, just to name a few.</p>
+<p>The project originally started with just three providers: Google, Yahoo, and Microsoft; and was developed by three developers: <a href="http://www.tom-carden.co.uk/" title="Random Etc. - Notes to self. Work, play, and the rest." rel="coworker">Tom Carden</a>, <a href="http://brainoff.com/" title="Brainoff.com" rel="coworker">Mikel Maron</a>, and <a href="http://www.asklater.com/steve/" title="Steve Coast - AskLater" rel="coworker">Steve Coast</a>. At the time, it was succint and easy - using constructs such as switch statements in a single mapstraction.js file.</p>
+<p>Over time, as more providers were added - this became quite unwieldy. 11 case statements in any method, various callback hooks necessary, and in general quite slow to load and run for the client.</p>
+<p>Fortunately, some very bright JavaScript experts: <a href="http://www.thegecko.org/" rel="coworker">Rob Moran</a>, <a href="http://derek-says.blogspot.com/" title="Derek says:" rel="coworker">Derek Fowler</a>, and <a href="http://www.adamduvander.com/" title="Simplicity Rules | Adam DuVander&acirc;&euro;&trade;s thoughts on keeping things simple." rel="coworker">Adam DuVander</a>, all congregated to help architect a complete new version that takes incorporates the current evolution of Mapstraction to provide a smaller file download and computation overhead. In addition, because each provider is now split out into an individual file such as mxn.google.core.js, it makes it easier for developers to support single providers without having to worry about any other provider or their impact on other code.</p>
+<h3>New Code Neighborhood</h3></p>
+<p>In order to start promoting the new API and encouraging developers to come and help out, we put the source code and <a href="http://code.google.com/p/mapstraction/issues/" title="Issues - mapstraction - Google Code">tickets</a> into a <a href="http://code.google.com/p/mapstraction/" title="mapstraction - Google Code">Google Code project</a>. Although, being Subversion, you still have to submit patches to get changes accepted for now. So I personally suggest working from the <a href="http://github.com/mapstraction/mxn" title="mapstraction's mxn at master - GitHub">Github version</a>, which will be kept up to speed with git-svn, and then you can submit patches from here to push into the 'official' subversion repository.</p>
+<p>The demos on the <a href="http://mapstraction.com/" title="Mapstraction - a javascript library to hide differences between mapping APIs.">Mapstraction homepage</a> do well at showing the capabilities of the library, but are difficult to maintain and users and potential contributors can't really play with them at all. So as part of our Where2.0 workshop, I put together a <a href="http://mapstraction.appspot.com/" title="Mapstraction API Sandbox">Mapstraction API Sandbox</a>, built with Google's AJAX API Playground, and running on AppEngine.</p>
+<p>In this sandbox, you can see more demonstrations of the API, associated code, and even modify JavaScript or HTML and create your own personal copies. For example, you can see <a href="http://mapstraction.appspot.com/#adding_a_marker" title="Mapstraction API Sandbox">complex marker creation</a>, the initial <a href="http://mapstraction.appspot.com/#mapstraction_v2" title="Mapstraction API Sandbox">version 2 demo</a>, or the <a href="http://mapstraction.appspot.com/#filtering_markers" title="Mapstraction API Sandbox">marker filtering demo</a>.</p>
+<p><a href="http://highearthorbit.com/wp-content/uploads/2009/06/mapstraction-api-sandbox.jpg"><img src="http://highearthorbit.com/wp-content/uploads/2009/06/mapstraction-api-sandbox-tm.jpg" width="350" height="278" alt="Mapstraction API Sandbox" style="padding-top:5px; padding-bottom:5px; padding-left:5px;" /></a></p>
+<p>There is definitely a lot of recent excitement around the API. We decided to use Mapstraction as the basis for our own <a href="http://maker.geocommons.com/" title="GeoCommons Maker!">GeoCommons Maker</a> map integration - making it easy for developers to work within a common framework (<a href="http://mapstraction.appspot.com/#geocommons" title="Mapstraction API Sandbox">demo</a>). So get started contributing!</p>
+<p>For more recent news on Mapstraction checkout the recent posts on<a href="http://radar.oreilly.com/2009/05/mapstractionapi-sandbox-for-tr.html" title="MapstractionAPI Sandbox: For Trying Out Multiple Providers - O'Reilly Radar">O'Reilly Radar</a> and <a href="http://blog.programmableweb.com/2009/05/28/practice-abstract-maps-with-mapstraction-sandbox/" title="Practice Abstract Maps with Mapstraction Sandbox">ProgrammableWeb</a>.</p>

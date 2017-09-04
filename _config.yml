@@ -24,7 +24,7 @@ url: "http://highearthorbit.com" # the base hostname & protocol for your site, e
 twitter_username: ajturner
 github_username:  ajturner
 
-permalink: /:title
+permalink: /articles/:title
 
 # Build settings
 markdown: kramdown

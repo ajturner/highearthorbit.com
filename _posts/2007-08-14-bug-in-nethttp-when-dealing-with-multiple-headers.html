@@ -1,0 +1,53 @@
+---
+layout: post
+status: publish
+published: true
+title: Bug in open-uri when dealing with multiple headers
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 923
+wordpress_url: http://highearthorbit.com/bug-in-nethttp-when-dealing-with-multiple-headers/
+date: '2007-08-14 11:45:56 -0400'
+date_gmt: '2007-08-14 15:45:56 -0400'
+categories:
+- Programming
+- Ruby
+tags: []
+comments:
+- id: 101500
+  author: emptyset
+  author_email: emptyset@gmail.com
+  author_url: http://gisgruntled.blogspot.com
+  date: '2007-08-17 20:41:21 -0400'
+  date_gmt: '2007-08-18 00:41:21 -0400'
+  content: that's no good, man.  you always gotta double-check all that stuff.  otherwise,
+    you're liable to find yourself trapped in a closet like r. kelly.  and you know
+    what that means.
+---
+<p>I just discovered a bug in Ruby's open-uri library, caused by the Net::HTTP library, or at best really annoying behavior that <em>will break</em> when you try and use it. The problem lies in dealing with an HTTP request that returns multiple values for a field. <a href="http://rubyforge.org/tracker/?func=detail&amp;aid=12775&amp;group_id=1306&amp;atid=5145" title="RubyForge: Multiple x-forwarded-for header fields">This forum topic discusses</a> that having multiple instances of a field is valid in HTTP1.1 (RFC2616). </p>
+<p>So when you use Net::HTTP to fetch a document like this, it will create an array for every field, holding each value found for the field. That's great. However, in open-uri#last_modified then gets this array and joins the values together to get a single string. </p>
+<p>The example I ran into is the <em>Last-Modified</em> field. Given HTTP headers like this:</p>
+<pre>
+HTTP/1.1 200 OK<br />
+Server: Undisclosed-Webserver/0.1<br />
+Date: Tue, 14 Aug 2007 15:03:29 GMT<br />
+Last-modified: Tue, 14 Aug 2007 15:03:29 GMT<br />
+Content-type: application/vnd.google-earth.kml+xml<br />
+Last-modified: Wed, 08 Aug 2007 18:34:55 GMT<br />
+Connection: close<br />
+</pre></p>
+<p>And then calling <code>response.each_header {|f,v| puts "#{f}: #{v}"}</code> will result in <code>Last-Modified: "Tue, 14 Aug 2007 15:21:22 GMT, Wed, 08 Aug 2007 18:34:55 GMT"</code>. Go ahead and try throwing <code>Time.httpdate</code> at that. You'll get <code>ArgumentError: not RFC 2616 compliant date:</code>. </p>
+<p>To simply recreate this bug, try the following ruby code:</p>
+<pre>
+require 'open-uri'<br />
+res = open("http://popsci.com/popsci/kml/popsci_future_environment.kml")<br />
+res.last_modified<br />
+</pre></p>
+<p>A simple solution, or workaround, is to just get the hash and deal with it yourself: <code>response.to_hash.each {|f,v| puts "#{f}: #{v}"} # => last-modified: "Tue, 14 Aug 2007 15:21:22 GMT</code> </p>
+<p>I'm not going to mention any names on this particular offending party that was silly to include 2 Last-Modified dates, but <a href="http://www.popsci.com/" title="Popular Science">you know who you are</a>. </p>

@@ -1,0 +1,120 @@
+---
+layout: post
+status: publish
+published: true
+title: Does the OpenDatabase License need CC style Modules?
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 1155
+wordpress_url: http://highearthorbit.com/?p=1155
+date: '2008-11-24 15:18:56 -0500'
+date_gmt: '2008-11-24 19:18:56 -0500'
+categories:
+- OpenStreetMap
+tags:
+- osm
+- OpenStreetMap
+- GeoCommons
+- odbl
+- database
+- license
+- creative commons
+comments:
+- id: 213509
+  author: Tom Chance
+  author_email: telex4@yahoo.com
+  author_url: http://tom.acrewoods.net
+  date: '2008-11-24 18:00:27 -0500'
+  date_gmt: '2008-11-24 22:00:27 -0500'
+  content: "As somebody who was involved with Creative Commons from the very early
+    days, I have to say this would be a really bad idea for data like OpenStreetMap's.\r\n\r\nDifferent
+    licenses are incompatible, and CC only got away with this because (a) there isn't
+    really all that much mixing together of art works so little risk of license conflicts
+    and (b) where conflicts did arise most people are pretty easy going.\r\n\r\nWith
+    geodata, similar to software, there's a much stronger imperative to mix together
+    data sets. If they were incompatible that would undermine one of the key benefits
+    of OSM, especially to small businesses.\r\n\r\nChoice isn't an end unto itself.
+    With CC it made sense simply because their licenses cover a massive variety of
+    use cases, from stock photography through music to literature. They have totally
+    different methods of creation, different traditional financial models and different
+    potentials for transformation down the line. I don't see a similar case for geodata,
+    just some people just not wanting to play by the rules for their own gain rather
+    than joining in a community."
+- id: 213522
+  author: Richard Fairhurst
+  author_email: richard@systemeD.net
+  author_url: http://www.systemeD.net/
+  date: '2008-11-24 19:12:50 -0500'
+  date_gmt: '2008-11-24 23:12:50 -0500'
+  content: "Disregarding attribution (which most people want, or at least, won't refuse),
+    CC has essentially three modules:\r\n\r\n- non-commercial (CC-NC)\r\n- no derivatives
+    (CC-ND)\r\n- 'share-alike' (CC-SA)\r\n\r\nND is just silly for a database - what
+    would be the point? And I may be missing something, but there doesn't seem to
+    be any clamour, at all, for NC on databases. I can think of one edge case where
+    it might have been welcomed but that was arguably for a not very well thought
+    out initiative. (Never mind that the massive resources required to host an OSM-like
+    dataset may make it difficult to be strictly NC.)\r\n\r\nSo you're left with share-alike
+    and \"the absence of share-alike\", i.e. PD/attribution only: two licences.
+    GPL and BSD for databases. Happily, two such licences already exist in the ODbL
+    \"family\": the ODbL itself, and the Open Data Commons Public Domain Dedication
+    &amp; Licence (PDDL). \r\n\r\nCC's branding of their different and usually incompatible
+    licences is essentially clever marketing; good for encouraging adoption of \"Creative
+    Commons\" in the widest sense, but one which has had fundamentalists frothing
+    at the mouth for ages (http://www.fsf.org/licensing/licenses/index_html#which-cc).\r\n\r\nIt
+    actually masks one of CC's biggest failings, which is that the same licence can
+    have wildly varying effects. For example, CC-BY-SA is largely indistinguishable
+    from CC-BY for photos - 95% of uses count as a Collective Work. Contrast with
+    the all-devouring Derivative Work when applied to data, as per OSM. \r\n\r\n\r\nVery
+    aptly, my iTunes has just chosen to play the Richard Stallman vs Rick Astley mashup
+    and is busy exhorting me to \"join us now and share the software\"."
+- id: 284145
+  author: Brett
+  author_email: marigolds6@yahoo.com
+  author_url: ''
+  date: '2009-11-30 17:24:21 -0500'
+  date_gmt: '2009-11-30 21:24:21 -0500'
+  content: "Richard,\r\nI think you underestimate the need for NC. For our local government,
+    NC is critical. Not to keep people from making money off the data, but to prevent
+    people from using old datasets. Basically, NC gets slapped on any dataset that
+    is given out one time. If you want to lift the NC, you have to create an agreement
+    to regularly obtain dataset updates; or to think of it another way, we would want
+    a commercial use license on the dataset that expires after a certain period of
+    time, with the current dataset having a fresh commercial use license.\r\nNC also
+    gets placed on certain datasets on which we cannot be absolved of legal responsibility
+    (e.g. NFIP maps or surveys by county surveyors) if the dataset is used commercially.
+    If we allow commercial use, we are liable for damages arising from inaccuracies
+    in the data. So, we bar commercial use. Ultimately, this makes the dataset \"use
+    at your own risk\" rather than \"non-commercial\".\r\nND has a very specific use
+    too; to prevent the passing on of incomplete datasets. A real common problem is
+    for a cadastral reseller to drop certain parcels, roads, and right of ways from
+    the dataset to compact down the size of the dataset. Nice for them, an expensive
+    nightmare for the department who takes the phone call about a missing parcel or
+    right of way. Obviously, ND is an inapt way of going about this though as compared
+    to a license that would require the dataset to be passed on in full or as a contiguous
+    layer."
+---
+<p><img src="http://highearthorbit.com/wp-content/uploads/2008/11/osm-cc-world1.jpg" width="250" alt="OSM_CC_World" style="float:right; padding-top:5px; padding-bottom:5px; padding-left:5px;" />In the <a href="http://www.openstreetmap.org/" title="OpenStreetMap">OpenStreetMap</a> community there is a known problem with the applicability of <a href="http://creativecommons.org/" title="Creative Commons">Creative Commons</a> licensing to geographic data. The CC licenses are truly meant for <em>creative works</em> and not for the creation and aggregation of factual data.</p>
+<p>To address this, the OpenStreetMap Foundation Board has pursued the development of a more applicable and friendly <a href="http://foundation.openstreetmap.org/the-openstreetmap-license/" title="OpenStreetMap Foundation &Acirc;&raquo; The OpenStreetMap License">Open Database License</a>, ODbL. The goal of this license would be to make it clear the legal protection of geographic data gathered and how it can be used with other data or derived from.</p>
+<p>It is a sign of maturity that an open-data project like OpenStreetMap is dealing with the legal issues that surround the otherwise grassroots crowd-sourced community. Similar parallels occurred with the development of GPL and BSD with open-source software and the Creative Commons in user-generated media. Open-Data is following in the footsteps of open-source, from grassroots "hackers" to <a href="http://www.opengeodata.org/?p=223" title="OpenGeoData &Acirc;&raquo; Blog Archive &Acirc;&raquo; AND donate entire Netherlands to OpenStreetMap">disrupting</a> <a href="http://www.navteq.com/" title="NAVTEQ: Home">some</a> <a href="http://www.teleatlas.com/index.htm" title="Digital Mapping &amp; Navigation Solutions- Tele Atlas">industries</a> and <a href="http://www.google.com/mapmaker" title="Google Map Maker">redirecting</a> others.</p>
+<h3>You spilled your legal all over my data</h3></p>
+<p>However, one difference that has affected these two examples is a valuable guide with how the ODbL and other similar licenses should progress. Software licenses are currently a <a href="http://www.opensource.org/licenses/alphabetical" title="Licenses by Name | Open Source Initiative">myriad of acronyms and terms</a>: <a href="http://www.opensource.org/licenses/bsd-license.php" title="Open Source Initiative OSI - The BSD License:Licensing | Open Source Initiative">BSD</a>, <a href="http://www.opensource.org/licenses/mit-license.php" title="Open Source Initiative OSI - The MIT License:Licensing | Open Source Initiative">MIT</a>, <a href="http://www.opensource.org/licenses/gpl-license.php" title="GPL Licenses | Open Source Initiative">GPL</a>, <a href="http://www.opensource.org/licenses/agpl-v3.html" title="GNU AFFERO GENERAL PUBLIC LICENSE v3 | Open Source Initiative">Affero</a>, <a href="http://www.opensource.org/licenses/apache2.0.php" title="Open Source Initiative OSI - Apache License, Version 2.0:Licensing | Open Source Initiative">Apache</a>, and <a href="http://www.opensource.org/licenses/alphabetical" title="Licenses by Name | Open Source Initiative">more</a>. SourceForge has a <a href="http://sourceforge.net/docman/display_doc.php?docid=778&amp;group_id=1">deprecated license guide</a> and in fact offers at least <a href="http://www.masm32.com/board/index.php?PHPSESSID=3a7780d932288db69e8e0b9e31d52d34&amp;topic=10312.new" title="SourceForge License Options">72 license options</a>.</p>
+<p>The result is a confusion to both software producers and consumers. What licenses enforce which restrictions and usages? How can I bring together software under different licenses and their miscibility. This is a question that even after a decade of mainstream open-source experts still <a href="http://twitter.com/bigeasy/statuses/1007804160" title="Twitter / Alan Gutierrez: Quick, what is the best op ...">ask for advice</a>.</p>
+<h3>A working model</h3></p>
+<p><img src="http://highearthorbit.com/wp-content/uploads/2008/11/creativecommonslicenses.jpg" width="117" height="203" alt="Creative Commons Licenses" style="float:right; padding-top:5px; padding-bottom:5px; padding-left:5px;" /><a href="http://creativecommons.org/">Creative Commons</a> headed this off through some nice modularization of the most popular options. Through clear naming, definitions, and iconography users can understand the concepts encased in otherwise unapproachable legal contracts such as Non-commercial, Attribution, Share-Alike, and No-Derivatives with straight-forward choosing of which modules any user wants to apply to their work.</p>
+<p>This results in easy, lightweight sharing - encouraging people to contribute to public repositories and also make use of these works. By having simple, well understood licenses, one example is Flickr's simple search filter that makes it easy to find Creative Commons only images for use in third party materials and presentations. It's even possible to visualize and determine how you can <a href="http://creativecommons.org.tw/static/choose/license/licwizeng" title="Creative Commons Licenses Compatibility Wizard">mix together</a> content released under various modules.</p>
+<p>The overall result is that the license has become popular and encourages both sharing and use of shared media - effectively <a href="http://thomashawk.com/2005/08/next-step-for-flickr-stock-photography.html" title="Thomas Hawk's Digital Connection: The Next Step For Flickr, Stock Photography">ending the future</a> of traditional stock photography.</p>
+<h3>Open Data Modules</h3></p>
+<p>My point of highlighting Creative Commons is to look at how simple mechanisms can promote effectiveness around licensing of information. The ODbL's primary purpose is making it clear how to produce and use OpenStreetMap data, but in this action it is addressing the growing need to easily define how the true underlying strands of the web will be shared. You can read a <a href="http://foundation.openstreetmap.org/wp-content/uploads/2008/10/open_database_licence_2008-04-10_draft.pdf" title="">draft version</a> of the ODbL.</p>
+<p>The opportunity is to lead the charge on clear, understandable data licenses that citizens can take to their governments to demand the data be released under these terms. There would not be the need for click-throughs of unique terms of service or agreements, but easily shareable data that magnifies the power of any available datasources.</p>
+<p>One counter-point to the pre-defined modules is that users that want variations can "select, modify, or delete" sections as necessary. This is definitely not an option - as it will create unclear and probably invalid licenses. In addition, these variations and spin-offs will be unvetted and untrusted. By handling the majority of cases under one common umbrella, the validity and attractiveness of a standard license decreases the difficulty of any organization to claim it wouldn't work for them.</p>
+<p>I <a href="http://lists.openstreetmap.org/pipermail/legal-talk/2008-November/001723.html" title="[OSM-legal-talk] ODbL modules?">posited this question</a> to the OpenStreetMap Legal mailing list hoping to spark a discussion with the various people currently involved with the license. So far the feedback has surprisingly been negative on the benefits of modular based licenses. OpenStreetMap has a long road ahead even after a new license in drafted in convincing the very large community to switch licenses - an effort I hope does not negatively impact the organization but instead illuminates the need for clear licenses from the start of any open data collection project.</p>
+<p>With <a href="http://www.geocommons.com/" title="GeoCommons - Visual Analytics through Maps">GeoCommons</a>, we are spending a lot of resources gathering, annotating, and sharing out open data sources. Our metadata catalog is shared under a Creative Commons Attribute, Share-Alike license. And nominally all the data we bring in is somehow <em>open</em>, under different monikers. But right now it is very difficult to easily share out the terms of these licenses - so the onus is upon the user to properly use each dataset. With our goal of making geospatial data easy to use for non-experts, we have a very high interest in making geodata licenses as easy to understand as photographs or articles are under Creative Commons.</p>
+<h3>An open question to open data licenses</h3></p>
+<p><img src="http://highearthorbit.com/wp-content/uploads/2008/11/osmcc.png" width="88" height="31" alt="OSMCC" style="float:right; padding-top:5px; padding-bottom:5px; padding-left:5px;" />The question here is whether the module concept of Creative Commons is an effective mechanism that should be applied to the Open Data License. The goal is to make it so easy for anyone to share information that it would take more effort not to do so. That this type of easily shared information is highly preferential by consumers that other datasets under various and unclear licenses such that these other sources conform to best practices.</p>
+<p>What do you think is the best path?</p>

@@ -1,0 +1,113 @@
+---
+layout: post
+status: publish
+published: true
+title: OpenSearch Geo and Time extensions
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 879
+wordpress_url: http://highearthorbit.com/opensearch-geo-and-time-extensions/
+date: '2007-06-20 18:01:00 -0400'
+date_gmt: '2007-06-20 22:01:00 -0400'
+categories:
+- Neogeography
+- OpenSearch
+tags: []
+comments:
+- id: 114386
+  author: Joe
+  author_email: joe@germuska.com
+  author_url: http://blog.germuska.com
+  date: '2007-10-11 14:38:26 -0400'
+  date_gmt: '2007-10-11 18:38:26 -0400'
+  content: "Unfortunately, it looks like the Mapufacture search doesn't quite work
+    right.  When I added it to the Firefox search box and entered \"chicago\", it
+    searched this URL:\r\n\r\nhttp://mapufacture.com/search?keyword=chicago&amp;dtstart={time:start?}&amp;dtend={time:stop?}&amp;location={geo:locationString?}&amp;lat={geo:lat?}&amp;lon={geo:lon?}&amp;distance={geo:radius?}&amp;bbox={geo:box?}&amp;limit=&amp;page=\r\n\r\nwhich
+    yields an error.  Apparently Firefox isn't \"smart\" enough to remove the optional
+    params when there are no values?  Trimming everything after \"chicago\" above
+    gets the correct results.\r\n\r\nAre there any public examples of tools which
+    apply geo parameters to open search?  It sounds like a great building block."
+- id: 128784
+  author: Puzzlepieces &ndash; High Earth Orbit &Acirc;&raquo; Blog Archive &Acirc;&raquo;
+    OpenSearch Geo and Time extensions (June 20, 2007)
+  author_email: ''
+  author_url: http://faganm.com/blog/2007/06/20/851/
+  date: '2007-11-28 13:21:40 -0500'
+  date_gmt: '2007-11-28 17:21:40 -0500'
+  content: "[...] High Earth Orbit &Acirc;&raquo; Blog Archive &Acirc;&raquo; OpenSearch
+    Geo and Time extensions - I was working on something like this back when I was
+    working on OpenSearch, but the industry and formats weren&#8217;t at the right
+    stage. It&#8217;s great that the community is working on this now, there is so
+    much potential. I like Andrew&#8217;s point &#8220;that is almost too easy.&#8221;
+    [...]"
+- id: 275238
+  author: 'OGC Mass Market working group discussion from Darmstadt :: High Earth Orbit'
+  author_email: ''
+  author_url: http://highearthorbit.com/ogc-mass-market-working-group-discussion-from-darmstadt/
+  date: '2009-09-30 09:34:42 -0400'
+  date_gmt: '2009-09-30 13:34:42 -0400'
+  content: "[...] wrote OpenSearch-Geo at WhereCamp 2007 and since then it has stayed
+    as a draft standard with various uptake across [...]"
+- id: 302706
+  author: 'OpenSearch-Geo updates and test viewer :: High Earth Orbit'
+  author_email: ''
+  author_url: http://highearthorbit.com/opensearch-geo-updates-and-test-viewer/
+  date: '2010-03-26 09:06:47 -0400'
+  date_gmt: '2010-03-26 13:06:47 -0400'
+  content: "[...] still continues with the broad adoption of the OpenSearch-Geo extensions
+    written at WhereCamp just about 3 years ago. The current OGC OWS-7 testbed is
+    considering many ways in which to [...]"
+---
+<p>At <a href="http://wherecamp.org" title="WhereCamp">WhereCamp</a> we finally sat down and hashed out a Geo-extension to <a href="http://opensearch.org" title="OpenSearch Homepage">OpenSearch</a>.</p>
+<p>If you're not familiar with OpenSearch, the general concept is a simple format for specifying how to query a web resource, and additional metadata in the results to support syndicating these results. What does that mean to you, the developer/user?</p>
+<p>If you didn't realize it, the Firefox search bar is powered by OpenSearch. Watch for the area to glow on sites that include an OpenSearch definition. Once it's added you can then quickly search the service directly from Firefox. </p>
+<p>Take for example, a popular search engine - let's call it <em>yoogel</em>. yoogel has a simple URL for a query: <code>http://yoogel.biz?q=flumbits</code>. This will search all of yoogel for 'flumbits'. OpenSearch provides a way to define where that search term goes. Essentially it would look like: <code>http://yoogel.biz?q={searchTerms}</code>, where <code>{searchTerms}</code> would be replaced by any general string.</p>
+<p>Aggregators and applications now have a way to simply define a search service and let a user just type in their terms, but then search N search engines. Of course, there are problem millions of hits for 'flumbits'. So how would I know how to paginate and aggregate these results? OpenSearch lets me do <code>http://yoogel.biz?q={searchTerms}&page={startPage?}</code></p>
+<p>Ok, so now you know how to request a page. And the question mark, <em>?</em>, lets me know this is an optional parameter. yoogel won't yell at me if I don't include it. I can know if I need to go to more pages (or how many pages to show my user) by using the nice OpenSearch response elements. These would actually go into the HTML page (or RSS, or other formats) response:</p>
+<pre><code><br />
+ <opensearch:totalResults>4230000</opensearch:totalResults><br />
+<opensearch:startIndex>1</opensearch:startIndex><br />
+<opensearch:itemsPerPage>10</opensearch:itemsPerPage><br />
+</code></pre></p>
+<p>Now I know there were in fact more than 4 million 'flumbits' responses and each page gives me 10 results. </p>
+<p>OpenSearch has a lot more functionality and is especially useful when requesting syndication formats such as Atom or RSS. </p>
+<h3>Now onto the Geo</h3><br />
+So that was a little introduction to OpenSearch - just so you could get the gist of the Geo-extensions. You've seen how you can search for 'flumbits', but what if I only want 'flumbits' in my neck of the woods.</p>
+<p><a href="http://www.opensearch.org/Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1">OpenSearch Geo extensions</a> let me add that type of search definition. Here is how to specify an optional bounding box search:</p>
+<p><code>http://yoogel.biz/?q={searchTerms}&page={startPage?}&bbox={opensearchgeo:box?}</code></p>
+<p>which would actually look like:<br />
+<code>http://yoogel.biz/?q=flumbits&bbox=-111.032,42.943,-119.856,43.039</code></p>
+<p>If you're paying attention, you'll notice the bounding box format is: <em>west, south, east, north</em>. That may not seem special (in fact, it's different than what GeoRSS uses - shucks). But what's <strong>really</strong> cool about that is it's the order already used by a bunch of services you may have heard of such as <a href="http://www.flickr.com/services/api/flickr.photos.search.html" title="Flickr API: photo search">Flickr</a>, <a href="http://code.google.com/apis/kml/documentation/kml_tags_21.html#networklink" title="KML 2.1 Reference: NetworkLink">KML Network links</a> (as used by Google Earth). </p>
+<p>The <a href="http://www.opensearch.org/Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1">OpenSearch Geo extension</a> also includes definitions by: point/distance, polygon, location string (up to each service to do it's own geocoding). </p>
+<p>If you want to see them in action, check out the <a href="http://mapufacture.com/mapufacturesearch.xml" title="Mapufacture OpenSearch Description">Mapufacture OpenSearch description</a>.</p>
+<p>When deciding the format of OpenSearch Geo, the guiding principle was to keep it inline with other emerging, open, geospatial standards such as <a href="http://georss.org" title="GeoRSS Homepage">GeoRSS</a> and <a href="http://geojson.org" title="GeoJSON">GeoJSON</a>. That way, developers and users can learn the concepts and formats in parallel, and then easily switch between them as necessary (they're all mostly just syntaxes and have appropriate uses in the appropriate places). </p>
+<h3>Your choice of flavors</h3><br />
+To illustrate the point of interoperability and formats playing together, let me show you how an OpenSearch description would work for an example site that provided results in a multitude of formats.</p>
+<pre><code><br />
+<OpenSearchDescription><br />
+<ShortName>Mapufacture</ShortName><br />
+<Description>Search for geographic items in Mapufacture</Description><br />
+<Tags>geo georss location kml aggregation geosearch</Tags><br />
+<Contact>robot@mapufacture.com</Contact><br />
+<Image width="16" height="16" type="image/x-icon">http://mapufacture.com/favicon.ico</Image><br />
+<Url type="text/html" template="http://mapufacture.com/search?keyword={searchTerms}&amp;location={opensearchgeo:locationString?}"/><br />
+<Url type="application/rss+xml" template="http://mapufacture.com/search.rss?keyword={searchTerms}&amp;location={opensearchgeo:locationString?}"/><br />
+<Url type="application/vnd.googleearth.xml+kml" template="http://mapufacture.com/search.kml?keyword={searchTerms}&amp;location={opensearchgeo:locationString?}"/><br />
+<Url type="application/json" template="http://mapufacture.com/search.js?keyword={searchTerms}&amp;location={opensearchgeo:locationString?}"/><br />
+</OpenSearchDescription><br />
+</code></pre></p>
+<p>That is almost too easy - in one definition I've specified I can return results in 4 different formats. Internally, it would be easy to write out my results in these formats because again, they're mostly just syntax. (note: of course my text/html would include <a href="http://microformats.org/wiki/geo" title="Microformats Wiki: geo">Microformat geo</a>, though it has a long way to come in handling anything more than point locations)</p>
+<p>By the way - it's tempting to think that this could be reduced to a single definition (I had that thought writing out the definition myself) that included a term for "format". However, there isn't a standard way to refer to formats, so that would almost require a dictionary linking MIME-type to format string, and specifying MIME-type in the URL is ugly and prone to errors. Perhaps something for the future. </p>
+<h3>But it's just 'neogeographers' reinventing the wheel</h3><br />
+Yeah, I know - those in the geo-world are asking, "Isn't this like <a href="http://www.ogcnetwork.net/wfssimple" title="OGC Network: WFS Simple">WFS Simple</a>?" (or any number of other geo-search formats). </p>
+<p>Yes, it is like them. But different too. For one, OpenSearch already has good market share and implementation (you probably don't realize you're using it often), so it makes sense to add Geospatial capability to it. Also, like GeoRSS-Simple is to GML, it's more readily understandable by non-geospatial experts. This means more use and implementation. And hopefully OpenSearch Geo is kept parallel enough that as developers want more complex capabilities, they'll 'graduate' to more complex formats like WFS. </p>
+<h3>But I don't have the time</h3><br />
+We have your time right here. It's not part of Geo (yeah, yeah, I know about Spacetime and the fact that movement through time and space are indistinguishable), so it is it's own extension, <a href="http://www.opensearch.org/Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1">OpenSearch Time extension</a>. </p>
+<p>With OpenSearch Time you can specify time start, finish, and slices for searching data. This would be useful, for oh, Upcoming, Calendar applications, or Blogs. </p>
+<p>For posterity, here is the original <a href="http://www.opensearch.org/Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1" title="Geowanking Mailing Archives: OpenSearch Geo">geowanking mailing list - call for feedback</a>. This is still just a draft specification, so if you have thoughts, ideas, suggestions, now is the time to chime in before the web becomes rampant with OpenSearch geo. </p>

@@ -1,0 +1,59 @@
+---
+layout: post
+status: publish
+published: true
+title: GoogleMaps geocode lookup
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 302
+wordpress_url: http://highearthorbit.com/googlemaps-geocode-lookup/
+date: '2005-10-26 18:30:20 -0400'
+date_gmt: '2005-10-26 23:30:20 -0400'
+categories:
+- Programming
+- Geolocation
+- Web
+- Javascript
+tags: []
+comments:
+- id: 7361
+  author: Rich Gibson
+  author_email: rich@testingrange.com
+  author_url: http://testingrange.com
+  date: '2005-10-29 23:06:52 -0400'
+  date_gmt: '2005-10-30 04:06:52 -0500'
+  content: "It is good to be able to do this...but it is against their TOS.  It is
+    also possible to use a similar hack to get lat/long out of mapquest pages.
+    \ They have hidden it a bit more than Google, but it is the same idea.\r\n\r\nCheers,\r\nRich"
+---
+<p><a href='www.google.com/apis/maps'>GoogleMaps API</a> officially states that they don't provide a geocoder or route lookup via their API. A geocoder is a service that translates a <em>name</em> into geo coordinates like <em>latitude</em> and <em>longitude</em>. </p>
+<p>The most popular and well-known geocoders are <a href='http://geocoder.us'>geocoder.us</a> and Mikel Maron's <a href='http://brainoff.com/geocoder/'>geocoder</a>.</p>
+<p>However, you can actually do a geocode query on GoogleMaps:</p>
+<pre>
+<code><br />
+http://maps.google.com/maps?output=js&q=northville+mi<br />
+</code><br />
+</pre></p>
+<p>The result is an HTML page containing javascript with the location (and nearby locations). You can then parse this output to retrieve the latitude & longitude.</p>
+<pre>
+<code><br />
+<locations><br />
+  <location infoStyle="/maps?file=li&amp;hl=en" id="A">        </p>
+<point lat="42.426245" lng="-83.479355"/>
+  <icon class="noicon"/><br />
+  <info>        </p>
+<address>
+<line>Northville, MI 48167</line><br />
+      </address><br />
+      <description></description><br />
+  </info><br />
+  </location><br />
+</locations><br />
+</code><br />
+</pre></p>

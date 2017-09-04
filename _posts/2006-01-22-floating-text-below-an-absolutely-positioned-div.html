@@ -1,0 +1,106 @@
+---
+layout: post
+status: publish
+published: true
+title: Floating text below an absolutely positioned div
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 355
+wordpress_url: http://highearthorbit.com/floating-text-below-an-absolutely-positioned-div/
+date: '2006-01-22 21:41:55 -0500'
+date_gmt: '2006-01-23 02:41:55 -0500'
+categories:
+- Programming
+- Web
+- Howto
+tags: []
+comments:
+- id: 7485
+  author: ramin
+  author_email: rmiraftabi@gmail.com
+  author_url: http://randomfire.fierymill.net/
+  date: '2006-01-23 03:14:27 -0500'
+  date_gmt: '2006-01-23 08:14:27 -0500'
+  content: "Why don't you use the HTML code:\r\n\r\n\r\n  \r\n  ...\r\n\r\n\r\nWith
+    the following CSS:\r\n\r\n.image {\r\n        padding: 0 3em;\r\n        margin:
+    0 auto;\r\n        text-align: center;\r\n}\r\n\r\n.image img {\r\n        margin:
+    0 auto;\r\n}\r\n\r\n.image p {\r\n        clear: both;\r\n        font-style:
+    italic;\r\n        text-align: left;\r\n}\r\n\r\nThis works in IE, Mozilla/Firefox,
+    and Opera and validates. The caption will remain centered with respect to the
+    image. The only problem that you may have would be that the width of the caption
+    can be greater than the image's width, but that is easily solved."
+- id: 7486
+  author: ramin
+  author_email: rmiraftabi@gmail.com
+  author_url: http://randomfire.fierymill.net/
+  date: '2006-01-23 03:16:11 -0500'
+  date_gmt: '2006-01-23 08:16:11 -0500'
+  content: "Ugh... The previous comment's HTML got mangled, so here's another try:\r\n\r\n<div
+    class=\"image\">\r\n<img src=\"&hellip;\" alt=\"&hellip;\" />\r\n<p>&hellip;</p>\r\n</div>\r\n"
+- id: 7489
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2006-01-23 07:51:07 -0500'
+  date_gmt: '2006-01-23 12:51:07 -0500'
+  content: "The problem with that solution is that the image will \"float\" within
+    it's parent div to remain centered above the text. I need the image to remain
+    fixed to the page, and have the text float beneath it. Using margin: 0 auto; is
+    definitely the solution if you don't mind the image moving.\r\n\r\n<a href='http://highearthorbit.com/projects/CSSTest2.html'
+    rel=\"nofollow\">Ramin Example Here</a>. \r\n"
+- id: 91050
+  author: qgoauxqkvc
+  author_email: vmlmz@wxdgyhl.com
+  author_url: http://qgoauxqkvc.com
+  date: '2007-06-20 20:52:57 -0400'
+  date_gmt: '2007-06-21 00:52:57 -0400'
+  content: Hello! Good Site! Thanks you! glnpfpeqcpjf
+- id: 624499
+  author: Darin
+  author_email: minarchist@gmail.com
+  author_url: ''
+  date: '2012-12-17 18:27:44 -0500'
+  date_gmt: '2012-12-17 22:27:44 -0500'
+  content: "Sorry to reply to such an old thread, but I really need something similar.
+    I had a site designed with text beneath three images, spread horizontally across
+    the page. In attempting a small tweak, I butchered the code and an trying hard
+    to get it back to normal. I have the images back to normal, but can't get the
+    text to align beneath each image.\r\nIf anyone could post the proper coding for
+    this, it would be GREATLY appreciated, as I'm already way behind schedule w/this
+    project.\r\n\r\nI would use the above code, but I don't know where the text should
+    go. Also, the way the site is set up I must input a correct \"div class\" before
+    entering the image name. So I'd need to know where this goes as well. \r\nThank
+    you in advance!"
+---
+<p>This is probably odd to most people, but for a project I had to put a caption below an image on a webpage. But I wanted the image to be fixed in position and the caption would automatically flow and remain centered no matter how long the string was. I knew the size of the image (original div) but not the text string.</p>
+<p><img src='http://highearthorbit.com/wp-images/CSSCaption.jpg' alt='CSS Caption' align='right' hspace='10px' vspace='10px'/>The trick lies in embedding the caption div within another div. Then the outer div should have a <code>left:</code> equal to half the image (or other div)'s width. The relevant CSS is:</p>
+<pre><code><br />
+outercaption {<br />
+	position: relative;<br />
+	left: 13px;<br />
+	}<br />
+.caption {<br />
+	text-align: center;<br />
+	position: relative;<br />
+	left: -50%;<br />
+	white-space: nowrap;<br />
+	}<br />
+</code></pre></p>
+<p>Which will work with this HTML code. </p>
+<pre><code></p>
+<div class="outer">
+<div class="imagecontainer">
+<div class="image"></div></p>
+<div class="outercaption">
+<div id="replaceCaption" class="caption">Short</div><br />
+		</div><br />
+	</div><br />
+</div><br />
+</code></pre></p>
+<p><a href='http://highearthorbit.com/projects/CSSTest.html'>Here is an example</a>. You can even put in your own text to see how it is dynamically sized. </p>

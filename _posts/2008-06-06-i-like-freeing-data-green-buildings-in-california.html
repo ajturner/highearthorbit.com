@@ -1,0 +1,125 @@
+---
+layout: post
+status: publish
+published: true
+title: Green Buildings in California
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 1031
+wordpress_url: http://highearthorbit.com/i-like-freeing-data-green-buildings-in-california/
+date: '2008-06-06 12:03:07 -0400'
+date_gmt: '2008-06-06 16:03:07 -0400'
+categories:
+- KML
+tags:
+- KML
+- Data
+comments:
+- id: 185872
+  author: Andres
+  author_email: info@blinkgeo.com
+  author_url: http://www.blinkgeo.com
+  date: '2008-06-06 12:49:11 -0400'
+  date_gmt: '2008-06-06 16:49:11 -0400'
+  content: "Hi Andrew,\r\n\r\nNicely done.  I'm the one that posted the news story
+    for the green buildings on gs reddit.  Debated whether to use the state's original
+    \"GIS\" label for their little mashup, but ultimately decided that although primitive,
+    the mashup does likely tap into GIS data (though not dynamically).\r\n\r\nYou've
+    brought up an interesting thought/question: 'A Google Map is not GIS.'\r\n\r\nI'm
+    curious where you draw the line?\r\n\r\nIn my opinion, Google Maps is a basic
+    representation of a GIS (data, software, hardware, network, standards, etc.).
+    \ If a Google Maps mashup taps into a PostGIS db serving up KML via featureserver,
+    is that GIS?  Or if someone sets up an ArcGIS 9.3 'Javascript API' site that mimics
+    Google Maps, is that GIS?\r\n\r\nI could argue, though not definitively, that
+    the map you made in 5 minutes is GIS, albeit at a basic/simple level.\r\n\r\nThanks
+    for posting the link to Ars Technica...hadn't seen that.\r\n\r\nCheers,\r\n\r\nAndres"
+- id: 185886
+  author: Andrew
+  author_email: admin@highearthorbit.com
+  author_url: http://highearthorbit.com
+  date: '2008-06-06 13:40:13 -0400'
+  date_gmt: '2008-06-06 17:40:13 -0400'
+  content: "A GoogleMap, or Map in general, does not make something GIS. Is a Road
+    Atlas \"GIS\"? It is a cartographic representation of geospatial data. \r\n\r\nAnd
+    I assume for the CA Green Buildings that it's just placing markers from a database,
+    this perhaps *starts* blurring the line towards GIS, but personally I think of
+    GIS as having more analytic or precision information. \r\n\r\nAnd obviously this
+    meaning changes over time as the technology becomes more commonly available. Interfacing
+    with a network through a terminal used to be Information Technology, not it's
+    just \"surfing the web\" :) Obviously there are aspects of IT (or GIS) utilized
+    to generate the tools and data sources, but the actual simple display or utilization
+    of these tools in a lightweight way seems like a very loose use of \"GIS\"."
+- id: 185926
+  author: Andres
+  author_email: info@blinkgeo.com
+  author_url: http://www.blinkgeo.com
+  date: '2008-06-06 15:32:13 -0400'
+  date_gmt: '2008-06-06 19:32:13 -0400'
+  content: "I think the line is very blurry at present.  Although a Google Map (output)
+    is not GIS, the Google Maps app (and API) running in the 'background' seem to
+    me to be a GIS.  Same goes for a Road Atlas...it is the output of a GIS...\r\n\r\nSo
+    I guess it depends on whether you include an \"a\" before GIS in those sentences.
+    \ As in: a road atlas is not \"a\" GIS, but a road atlas is (part of) GIS (i.e.,
+    a part of the whole).  A Google Map is not \"a\" GIS, but the Google Maps application/system/platform
+    (whatever you want to call it) is GIS.\r\n\r\nBack to my original question: where
+    does one draw the line?  Hmmm...I may need to ask the general question via a blog
+    post.\r\n\r\nHow's that for semantics? :)  Anyway, good food for thought.\r\n\r\nHave
+    a good one.\r\n\r\na/f"
+- id: 186885
+  author: John Fagan (Multimap)
+  author_email: johnfagan@gmail.com
+  author_url: http://www.multimap.com
+  date: '2008-06-09 07:53:45 -0400'
+  date_gmt: '2008-06-09 11:53:45 -0400'
+  content: "It is a GIS, as are other mapping API's (application/system/platform).
+    \ \r\n\r\nIf you look at most definitions of a GIS you could argue that mapping
+    API's fulfill those requirements.\r\n\r\nhttp://www.google.co.uk/search?hl=en&amp;q=define:+GIS\r\n\r\n...
+    and on the analytical side, is a route calculation not \"analytical\"?  For instance,
+    the Multimap API can do standard route, optimised multiple waypoint routes, and
+    matrix routes (search by driving distance).  This is GIS analysis to me.\r\n\r\nIf
+    Andrew extended his demo to allow routing between the buildings and allow users
+    to add their own buildings or edit existing, then i think the argument would be
+    even stronger."
+- id: 188324
+  author: Matt Priour
+  author_email: mpriour@kestrelcomputer.com
+  author_url: http://priour.wordpress.com
+  date: '2008-06-12 12:53:00 -0400'
+  date_gmt: '2008-06-12 16:53:00 -0400'
+  content: "Apparently, you can actually get to the actual data:\r\nhttp://www.documents.dgs.ca.gov/dgs/pio/green/GB%20Spreadsheet.xls"
+- id: 198308
+  author: David
+  author_email: crazyadventures@yahoo.com.au
+  author_url: ''
+  date: '2008-08-14 01:53:49 -0400'
+  date_gmt: '2008-08-14 05:53:49 -0400'
+  content: "I've often wondered about how to explain GIS vs Google Maps - as whilst
+    I don't have a wealth of experience with either, as a project manager you sometimes
+    get asked to justify the difference.\r\n\r\nCorrect me if wrong, but I didn't
+    think Virtual Earth or Google Maps provided APIs to do any spatial queries (i.e.
+    can you do a point-in-polygon query?)\r\n\r\nI tend to think of VE/GMaps as
+    a presentation tool rather than a query engine (which is where a GIS comes into
+    it's own).....\r\n\r\nTo elaborate - suppose one had three sets of spatial data
+    \r\n\r\n1. stations/rail lines\r\n2. Main roads.\r\n3. Homes for sale.....\r\n\r\nNow
+    I want to query this data to find \"all homes for sale, within 2mile of a rail
+    station, but not on a main road and not having the railway line come within 1
+    mi of the home\".....(now that's what I call advanced query for a property search!).\r\n\r\nVE/GMaps
+    as far as I can tell don't provide for this kind of query, one would need something
+    like MapInfo.  \r\n\r\nOf course I am happy to be corrected.....\r\n\r\nIf my
+    understanding is correct, then perhaps the term GIS needs to be expanded.....\r\n\r\nPerhaps
+    we could have GLAS (Geographic Location Analytic System, which just handles the
+    spatial querying) and a GLPS (Geographic Location Presentation System, taking
+    the result set as geocoded points and displaying against map)"
+---
+<p>I like taking data that is thrown up on a map in a completely ad-hoc format and <em>freeing</em> it into an actually usable format. In this case, I recently saw the new <a href="http://www.greenbuildings.dgs.ca.gov/" title="State of California's Green Building Directory">State of California's Green Building Directory</a> (via <a href="http://www.reddit.com/r/geospatial" title="geospatial: geography + technology">geospatial reddit</a>).</p>
+<p>What is particularly funny about this project is its use of the term "GIS Technologies" to describe a very archaic map with stand-up pins. A GoogleMap is not GIS. The original site does allow users to search by specific attributes, but not really in a dynamic way.</p>
+<p>The map is created by directly building markers up in Javascript. Assumedly the back-end is powered by a database, and it would have been nice of them to share out an actual listing of the underlying data. This is a perfect example of the study <a href="http://arstechnica.com/news.ars/post/20080603-study-gov-websites-should-focus-on-rss-xmlnot-redesigns.html" title="Study: .gov web sites should focus on RSS, XML&acirc;&euro;&rdquo;not redesigns">.gov web sites should focus on RSS, XML&acirc;&euro;&rdquo;not redesigns</a>.</p>
+<p><center><img src="http://highearthorbit.com/wp-content/uploads/2008/06/california-green-buildings-database-tm.jpg" alt="California Green Buildings Database" style="float:right; padding-top:5px; padding-bottom:5px; padding-left:5px;" /></center></p>
+<p>So instead I just created a KML version that uses Extended Data to call out the various attributes on the features such as <a href="http://www.usgbc.org/DisplayPage.aspx?CMSPageID=222" title="">LEED</a> rating and number of buildings. You can <a href="http://mapsomething.com/demo/greenbuildings/" title="California Green Buildings Database">see my own mashup</a> and grab the <a href="http://mapsomething.com/demo/greenbuildings/CAGreenBuildings.kml">KML file</a>.</p>
+<p>As I said before, this map I made isn't "GIS". But consider I spent about 5 minutes with the original Javascript and a bunch of RegExps to create the KML. It's up to you to make something useful with it.</p>

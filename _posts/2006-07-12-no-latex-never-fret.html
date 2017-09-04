@@ -1,0 +1,40 @@
+---
+layout: post
+status: publish
+published: true
+title: No LaTeX, never fret
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 460
+wordpress_url: http://highearthorbit.com/no-latex-never-fret/
+date: '2006-07-12 15:43:41 -0400'
+date_gmt: '2006-07-12 20:43:41 -0400'
+categories:
+- Engineering
+- Howto
+- Microsoft
+tags: []
+comments:
+- id: 32863
+  author: Nicole
+  author_email: ndolney@arb.ca.gov
+  author_url: ''
+  date: '2006-07-12 16:17:42 -0400'
+  date_gmt: '2006-07-12 21:17:42 -0400'
+  content: "Hi Andy,\r\n\r\nThis is Nicole.  I was just checking to see if they posted
+    that you won the mapquest contest (BTW Congrats!) and I checked out your blog.
+    \ Cool - ironically I am in the process of writing a big document and your referencing
+    suggestion helped.  Thanks.\r\n\r\nI hope you're doing well.  Tell Corrie I said
+    hello.\r\n\r\ntake care,\r\nNicole D."
+---
+<p>So you're writing a paper with citations and you're wishing you had LaTeX's beautiful self-referencing ability to your list of references. However, for whatever reason, you're stuck using Microsoft Word. And clicking through <em>Insert</em>-><em>Reference</em>-><em>Cross-reference...</em>, then scroll to find your article, and set to paragraph number, etc. has got you really down.</p>
+<p>Bet you didn't know about field codes. Instead, just put your cursor in your citation brackets (or whatever you use), press <em><ctrl></em>-F9, and then <code>REF NameYear \n</code>. </p>
+<pre><code>... demonstrated in on an airship [{REF Turner02 \n}].</code></pre></p>
+<p>The <code>\n</code> specifies that you want the paragraph number of the reference, which equates to the ordered-list number. Later, in your references section, you will <em>Insert</em>-><em>Bookmark</em> and properly name your citations (again, I use NameYear). You then need to hit <em>Alt</em>-<em>F9</em> turn 'hide' all the field codes in your doc and update and they'll all be linked.</p>
+<p>It's not pretty, it's not LaTeX (not that LaTeX is pretty either), but it works.</p>

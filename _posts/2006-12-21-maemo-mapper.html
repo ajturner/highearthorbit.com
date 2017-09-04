@@ -1,0 +1,66 @@
+---
+layout: post
+status: publish
+published: true
+title: Maemo Mapper
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 682
+wordpress_url: http://highearthorbit.com/maemo-mapper/
+date: '2006-12-21 11:55:56 -0500'
+date_gmt: '2006-12-21 15:55:56 -0500'
+categories:
+- Gadgets
+- Nokia
+- Neogeography
+tags: []
+comments:
+- id: 101214
+  author: Victor
+  author_email: vbburger@googlemail.com
+  author_url: ''
+  date: '2007-08-15 10:22:01 -0400'
+  date_gmt: '2007-08-15 14:22:01 -0400'
+  content: "hi\r\nafter trying to install this I get the message that some files are
+    not available: hildon-libxxx. Any idea why?\r\nthanks\r\nVictor"
+---
+<p>Based on Allan Doyle's thoughts on <a href="http://think.random-stuff.org/FrontPage/archive/2006/11/12/georectifying-my-mental-map" title="Think Where - Georectifying my mental map" rel="met">using Maemo Mapper</a>, I was finally inspired enough to figure out how to setup and use <a href="http://gnuite.com:8080/nokia770/maemo-mapper/">Maemo Mapper for the Nokia 770.</p>
+<p><img src="http://highearthorbit.com/wp-content/uploads/2006/12/screenshot03.png" width="300px" vspace="5px"/></p>
+<p><a href="http://gnuite.com:8080/nokia770/maemo-mapper/">Maemo Mapper</a> is a Maemo-specific mapping program that replaced GPSDrive after it kind of sputtered out on being ported to the Nokia 770 platform. </p>
+<h3>Installing & Setting up</h3><br />
+Obviously, you'll first need a Nokia 770 to start. I would also recommend getting a larger MMC card (1GB or 2GB) to store the cached maps and GPX files. A GPS unit is optional. </p>
+<p>It is possible to grab map tiles as you move. This is a good option if you will have a broadband connection, either before hand to "pre-walk" your trip and download tiles, or a mobile data connection. More than likely though, you won't have a data connection everywhere, and it would really be unfortunate to be missing maps just as you get to an area without data - I would assume that will be just when you need the map. </p>
+<p>There is a very nice program called <a href="http://www.avraam.org/winmapper.htm" title="WinMapper">WinMapper</a> that you can use to download specified areas and store the tiles in proper cache directory that Maemo Mapper can use. One thing to be aware of, for zoom levels of 0,2,4 (street-level) there will be thousands of files for relatively small areas, which will take quite a long time to transfer to the memory card. It's probably useful to grab levels 10,8,6 of most of the area you'll be traveling, and then 2,4 for very specific small regions.</p>
+<p>Alternatively, Maemo Mapper now has the ability itself to download large regions of tiles. In "Manage Maps..." you can grab all the tiles for various zoom levels on the currently viewed region. This way you can download the tiles directly to your memory card cache. </p>
+<p>Maemo Mapper is available via a repository, so open the "Tools" -> "Application Manager", and add the following repository to your list:</p>
+<pre>
+Web location: http://repository.maemo.org/contrib/<br />
+Distribution: 2.0<br />
+Components: free<br />
+</pre></p>
+<p>update your list, and then install Maemo Mapper. </p>
+<p>After you open the app for the first time, bring up the menu, and choose "Maps" -> "Manage Repositories". I created a "New" profile for GoogleMaps, and used the following URI:</p>
+<p><code><br />
+http://mt.google.com/mt?n=404&v=w2.29&x=%d&y=%d&zoom=%d<br />
+</code></p>
+<p>You can also put the same URL in <a href="http://www.avraam.org/winmapper.htm" title="WinMapper">WinMapper</a>.  Select the extents that you want (use GoogleEarth, or <a href="http://mapufacture.com">Mapufacture</a>), and the zoom levels (0 is zoomed in, 16 is world view) - 6, 8, 10 is probably a good start. Select "Region" and "Street" and press "Download". It will take awhile, depending on the area you are downloading, so let it go on its way. </p>
+<p>If you want satellite imagery, the URL string is:<br />
+<code><br />
+http://kh.google.com/kh?n=404&v=10&t=%s<br />
+</code></p>
+<p>It's useful to make at least 2 caches, one for street and one for satellite imagery. You can then navigate and zoom on the street view - then switch to the satellite imagery at the same location. </p>
+<p><img src="http://highearthorbit.com/wp-content/uploads/2006/12/screenshot01.png" width="300px" vspace="5px"/></p>
+<p>Also, <a href="http://kotilainen.eu/mapper/">Niko Kotilainen has instructions and a python server for making a Hybrid Map service</a>. It would also be great to cache <a href="http://openstreetmap.org">OpenStreetMap</a> tiles for that extra-special open-goodness taste. </p>
+<h3>My POI</h3><br />
+Maemo Mapper stores all of it's data in GPX format, so you can save tracks for easy output and storage. Also, you can load sets of waypoints on your own for various POI. </p>
+<h3>Alas fair Pacific</h3><br />
+Maemo Mapper doesn't want to cross the International Dateline. This makes it annoying for getting down to New Zealand since you have to push up against the side of the Dateline, zoom, pan back over, zoom, and keep doing this. A small usability shortcoming that isn't apparent until you're in NZ, or trying to cross the <a href="en.wikipedia.org/wiki/Bering_Strait">Bering Straight</a>. </p>
+<h3>Resources</h3><br />
+For more information on Maemo Mapper add-ons and utilities check out the<br />
+<a href="http://www.internettablettalk.com/forums/showthread.php?t=3264" title="Internet Table Talk forums: Maemo-mapper related stuff">Maemo-mapper related stuff on Internet Tablet Talk</a></p>

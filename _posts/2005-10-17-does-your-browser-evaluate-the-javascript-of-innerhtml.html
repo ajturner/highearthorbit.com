@@ -1,0 +1,86 @@
+---
+layout: post
+status: publish
+published: true
+title: Does your browser evaluate the Javascript of innerHTML?
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 294
+wordpress_url: http://highearthorbit.com/does-your-browser-evaluate-the-javascript-of-innerhtml/
+date: '2005-10-17 06:13:37 -0400'
+date_gmt: '2005-10-17 11:13:37 -0400'
+categories:
+- Programming
+- Web
+- Javascript
+tags: []
+comments:
+- id: 7369
+  author: ZildjianB
+  author_email: brian.johnson@comcast.net
+  author_url: ''
+  date: '2005-11-07 09:09:26 -0500'
+  date_gmt: '2005-11-07 14:09:26 -0500'
+  content: I've been wondering the samething.... ever come across the answer?
+- id: 7384
+  author: christian
+  author_email: office@cws-trummer.biz
+  author_url: http://www.cws-trummer.biz
+  date: '2005-12-09 06:23:10 -0500'
+  date_gmt: '2005-12-09 11:23:10 -0500'
+  content: "i have the same problem. it is very annoying and i don't know how i should
+    code a workaround. do you got the answer????\r\nplease mail me back. \r\nTHANKS"
+- id: 7672
+  author: Maulin Shah
+  author_email: maulinpshah@gmail.com
+  author_url: ''
+  date: '2006-02-27 00:22:05 -0500'
+  date_gmt: '2006-02-27 05:22:05 -0500'
+  content: "say dynamicText is the text that is returned... peering into the prototype.js
+    library, i figured out you can do:\r\n\r\nscriptFragment = '(?:)((\\n|.)*?)(?:)';\r\nmatch
+    = new RegExp(scriptFragment, 'im');\r\n  \t        var matches = dynamicText.match(match);\r\n
+    \    \t        for(i=1; i"
+- id: 7673
+  author: Maulin Shah
+  author_email: maulinpshah@gmail.com
+  author_url: ''
+  date: '2006-02-27 00:27:31 -0500'
+  date_gmt: '2006-02-27 05:27:31 -0500'
+  content: "woops, i mean:\r\n\r\n<blockquote>\r\n<code>\r\nscriptFragment = '(?:)((\\n|.)*?)(?:)';\r\n\tmatch
+    = new RegExp(scriptFragment, 'im');\r\n //this will evaluate the first
+    script in the returned text. \r\n// more than that won't work!\r\n  var
+    matches = dynamicText.match(match);\r\n  if (matches.length >= 2)\r\n         eval(matches[1]);\r\n</code>\r\n</blockquote>"
+- id: 272976
+  author: palmerabollo
+  author_email: palmerabollo@hotmail.com
+  author_url: ''
+  date: '2009-09-11 08:11:48 -0400'
+  date_gmt: '2009-09-11 12:11:48 -0400'
+  content: "What I've done based on Maulin code:\r\n\r\n<code>\r\n\ttry {\r\n\t\tvar
+    re = /(.+?)/gim;\r\n\t\twhile (matches = re.exec(html))\r\n\t\t{\r\n\t\t\teval(matches[2]);\r\n\t\t}\r\n\t}
+    catch (e) {\r\n\t}\r\n</code>\r\n\r\nWorks if more than one script is found."
+---
+<p>While playing with some really slick asynchronous javascript stuff (no - not Ajax, there wasn't any XML involved), I ran into an odd behavior that varied between the several browsers.</p>
+<p>What I'm doing is passing back a table from an asynchronous call and placing it into a premade table elementId. The page supports interaction with either javascript, if enabled, or straight href links if javascript is not enabled.</p>
+<p>The problem occurs when my Async call returns a table with a <script> tag containing document.write() calls. </p>
+<blockquote>
+<pre>
+<div id="myelement"></div><br />
+<script><br />
+document.getElementById("myelement").innerHTML =<br />
+"</script><script> document.write('Hello');<br />
+< \/script>";<br />
+</script><br />
+</pre><br />
+</blockquote><br />
+Replace innerHTML with innerText and Safari renders the entire script source, Firefox & Camino ignore it.</p>
+<p>Hrm - so how to dynamically fill in script into the DOM of a page and have it executed?</p>
+<p>The DOM inspector in Firefox correctly shows the Javascript being part of the element, but since the parser has already gone through that element, evaluated the Javascript later in the page, then it doesn't seem to be re-executed.<br />
+<em>Update</em></p>
+<p>It seems as though there is promise in the <code>eval</code> function of Javascript. However, nothing seems apparent yet.</p>

@@ -1,0 +1,79 @@
+---
+layout: post
+status: publish
+published: true
+title: Twitter Location API
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 1021
+wordpress_url: http://highearthorbit.com/twitter-location-api/
+date: '2008-04-24 10:05:58 -0400'
+date_gmt: '2008-04-24 14:05:58 -0400'
+categories:
+- Geolocation
+tags:
+- FireEagle
+- Geolocation
+- twitter
+comments:
+- id: 169723
+  author: Sean Gillies
+  author_email: sgillies@frii.com
+  author_url: http://zcologia.com/sgillies
+  date: '2008-04-24 11:23:20 -0400'
+  date_gmt: '2008-04-24 15:23:20 -0400'
+  content: 'Better yet: curl -X PUT ... ;)'
+- id: 169832
+  author: Henri Bergius
+  author_email: henri.bergius@iki.fi
+  author_url: http://bergie.iki.fi/
+  date: '2008-04-24 22:46:00 -0400'
+  date_gmt: '2008-04-25 02:46:00 -0400'
+  content: "Jaiku has had similar geo capabilities for a long time. I'm using it happily
+    to update FireEagle as my cellphone moves around (Jaiku's S60 client can do positioning
+    based on cell towers).\r\n\r\nhttp://bergie.iki.fi/blog/yahoo-fire_eagle_knows_where_my_phone_moves.html"
+- id: 254873
+  author: Twitter Search
+  author_email: thankseq55@yahoo.com
+  author_url: http://www.twiogle.com
+  date: '2009-05-26 21:24:08 -0400'
+  date_gmt: '2009-05-27 01:24:08 -0400'
+  content: thats great that you are talking about the twitter api,a good example of
+    searching with the twitter api is on twiogle.com because you can search on twitter
+    and google at the same time.
+- id: 287835
+  author: Caramoan
+  author_email: caramoanboy234@gmail.com
+  author_url: http://www.caramoantravel.com
+  date: '2009-12-25 01:26:51 -0500'
+  date_gmt: '2009-12-25 05:26:51 -0500'
+  content: "Twitter is some ways is much better than blogging. I love to Twitter my
+    everyday activities on my friends and relatives.\r\n                ***"
+- id: 295892
+  author: Jake Gomez
+  author_email: jake_gomez374@gmail.com
+  author_url: http://www.pinoygambling.com
+  date: '2010-02-21 02:30:01 -0500'
+  date_gmt: '2010-02-21 06:30:01 -0500'
+  content: i always update my Twitter and i love to                         twitter
+    my daily activities to my friends and loved ones. i also maintain a personal blog
+    for entries which requires more detail.
+---
+<p><a href="http://www.sarver.org/" title="Sarver.org*">Ryan Sarver</a> <a href="http://www.sarver.org/2008/04/23/twitter-adds-profile-geolocation-api/" title="Twitter Adds Profile Geolocation API | Sarver.org*">shares the info on Twitter's new location API</a>. Looks really simple, and really nice. </p>
+<p><code><br />
+curl -u USERNAME:PASSWORD -d location="Arlington, VA" http://twitter.com/account/update_location.json<br />
+</code></p>
+<p>You can even use GET, which means bookmarkable location settings (similar to FireEagle)</p>
+<p><code><br />
+http://username:password@twitter.com/account/update_location.xml?location=Paris,+France<br />
+</code></p>
+<p>There has been a number of <a href="http://highearthorbit.com/geo-twittering/" title="Geo Twittering  ::  High Earth Orbit">GeoTwitter</a> clients and applications show up. And a lot of <a href="http://lists.burri.to/pipermail/geowanking/2008-April/005121.html" title="[Geowanking] Locational Twittering">discussion</a> on alternate <a href="http://microformats.org/wiki/picoformats" title="picoformats - Microformats">picoformats</a> for location markup.</p>
+<p>By extracting this away to Twitter proper, it means any application can set this information how they want, and have it updated in the user's profile. One thing that is lost is the 'home' location of that user as their profile potentially becomes very temporal.</p>
+<p><a href="http://highearthorbit.com/fireeagle/" title="FireEagle Officially Launched  ::  High Earth Orbit">FireEagle</a> as the central store is a good option, however it is just one location store and Twitter's location will no doubt serve as the centralized location store for a number of new applications. As more social or personal applications gain location storing and sharing support, there is a question of how synchronization between these services will easily happen.</p>
+<p>I don't want to have to set my location in multiple services. This is the same <a href="http://factoryjoe.com/blog/2006/08/23/magnolicious/" title="Ma.gnol.icio.us | FactoryCity">problem</a> that troubles social bookmarking sites such as <a href="http://del.icio.us/nilspace">del.icio.us</a> and magnolia. This may become especially problematic if there were automatic updating services that detected a change in FireEagle and then updated your Twitter location, and vice versa - which then updates FireEagle from Twitter. Perhaps causing an implosion of the GeoWeb. </p>

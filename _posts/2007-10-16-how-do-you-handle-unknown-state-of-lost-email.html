@@ -1,0 +1,33 @@
+---
+layout: post
+status: publish
+published: true
+title: How do you handle unknown state of lost email?
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 927
+wordpress_url: http://highearthorbit.com/how-do-you-handle-unknown-state-of-lost-email/
+date: '2007-10-16 18:59:17 -0400'
+date_gmt: '2007-10-16 22:59:17 -0400'
+categories:
+- Technology
+tags: []
+comments: []
+---
+<p><em>I started to write this blog post a couple of weeks ago, but forgot to push "publish" - here it is now</em></p>
+<p>Bad day and a half for the web. Both Skype and DreamHost (and more importantly DreamHost's DNS) were down <strike>last night and today until just now</strike> awhile ago. The effect was that any of my sites appeared down and were unreachable, and again more importantly, no email sent to me would have gotten through. (and here I was amazed that by 11AM I didn't have a single email!)</p>
+<p>So if you sent me an email this morning - I may not have received it. They're slowly trickling in - but if you don't get a response from me, the maybe try resending it, or bonking me on skype/im/twitter/jaiku/plazes/facebook/et al.</p>
+<p>This morning, I tried to login into Basecamp - and I use OpenID, which is rerouted from a .highearthorbit.com URL. So obviously that didn't work. You can instead request a temporary account - but that can't get through since the DNS doesn't work. So - another single point of failure in my system.</p>
+<h3>Broader problem of single points of failure</h3><br />
+While this was a single incident, that probably won't result in (much) lost information, it does point to a broader problem. I have a single email server, and a single service for DNS. If either of these goes down, then I have an unknown state of email - and more than likely anyone sending me email will get either: a bounce-back that the mail was undeliverable, or worse, nothing - and they'll be left thinking I just didn't respond or bother reading their email.</p>
+<p>No one uses "email receipts" anymore - and in general I don't like them. I don't want to share when I've opened your email, because then you get another email that I've read it, flooding your inbox.</p>
+<p>However, I would be able to like to verify that a message was successfully received in some way - either just to the server, or to the client application. I don't care if it's been opened or not, I just want to know it got to wherever it needed to go.</p>
+<p>I'm thinking I need a <em>http://andrew_status.net</em>, or even a more useful <em>http://andrew.turner.mystatus.net</em> - maybe even tied to my OpenID. There would also be a mystatus3 and mystatus4 hosted on other networks and infrastructures with paralleled information. </p>
+<p>On it I would want to, at minimal, post any problems that affect my general communication: Andrew's Email isn't working (1 day), or Andrew sick, or On Vacation. No more of this auto-reply to emails that you're on vacation.</p>
+<p>I live digitally - almost all my contacts are online, and more importantly the ones online can't verify my actual status. I can't "tell" them my email is out. I don't have an office or assistant to answer calls or emails with "Andrew's Sick, he'll be back in on Thursday". Instead I need a MyStatus.com, it's like a HeartBeat for PeopleApps.</p>

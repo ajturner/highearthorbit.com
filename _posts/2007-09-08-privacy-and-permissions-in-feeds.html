@@ -1,0 +1,41 @@
+---
+layout: post
+status: publish
+published: true
+title: Privacy and Permissions in Feeds
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 943
+wordpress_url: http://highearthorbit.com/privacy-and-permissions-in-feeds/
+date: '2007-09-08 09:28:32 -0400'
+date_gmt: '2007-09-08 13:28:32 -0400'
+categories:
+- Standards
+tags: []
+comments: []
+---
+<p>GeoRSS has gained a lot of popularity and has recently shown up in some user tracking applications like <a href="http://blog.dopplr.com/index.php/2007/08/29/things-to-make-and-do-with-dopplrs-atom-feeds/" title="Dopplr Blog &raquo; Things to make and do with Dopplr&#8217;s Atom feeds">Dopplr</a> and <a href="http://blog.plazes.com/?p=171" title="blog.plazes.com  &raquo; Blog Archive   &raquo; Plazes Does Feeds">Plazes</a>. This means you can drop the feeds into your feed reader - or GeoRSS widget or <a href="http://mapufacture.com" title="Mapufacture">aggregator</a> to mix in your friends' or family members' locations with your other feeds. </p>
+<p>However, once you pull the feed out of the original service, you should being to wonder about the privacy. Many of these services required authorization before allowing you to pull down feeds. This way they can make some assurance that only allowed people can grab your location feed. However, once the feed is pulled out, it is out of the hands of an authorization system and has a very easy potential to be made unwittingly public. </p>
+<p>The onus of security is on the application or aggregator that pulled the feed on behalf of the authorized user. But at the same time once the feed has been retrieved, there is no storage of the authorization credentials with the feed itself. It has essentially been stripped of it's shell of potential privacy and looking at the feed itself you would have no idea if it was supposed to be kept private, and visible only to certain, unknown persons. </p>
+<p>What would be nice would be a mechanism to store at least references to permissions and authorization credentials within the feed itself. That way if an application still has the feed, or wishes to store it and re-aggregate it, they can apply the same authorization as the feed originally had. </p>
+<h3>Existing Mechanisms?</h3><br />
+Brian Suda pointed me to the, currently suspended, <a href="http://www.w3.org/P3P/" title="P3P: The Platform for Privacy Preferences">Platform for Privacy Preferences</a>. But this appears to be a rather heavy-handed approach. The <a href="http://www.ietf.org/html.charters/geopriv-charter.html" title="Geographic Location/Privacy (geopriv) Charter">W3C GeoPriv Working Group</a> is also looking at location privacy but not in terms of feeds, and the idea of permissions and privacy aren't specific to location (though that is typically where it gets a large amount of attention).</p>
+<h3>Simple Soutions</h3><br />
+I'm wondering if there exists, or could easily be formulated, an additional markup in Atom to specify permissions. It would still be the responsibility of the application to abide by these permissions - but at least they would have the information necessary to do so.</p>
+<p>Here is a possible solution. Provide a default access (private), but then refer to authorization endpoints for who would be allowed to view this feed. In this example, if the user can provide OpenID authorization to this URL, then they can view the feed:</p>
+<pre>
+<?xml version="1.0" encoding="utf-8"?><br />
+<feed xmlns="http://www.w3.org/2005/Atom" ><br />
+   <title>Andrew's location</title></p>
+<permissions>
+     <default access="none"/></p>
+<permission access="view" href="http://myopenid.com/bobdingle" type="openid"/>
+   </permissions><br />
+   ...</p>
+<p></pre></p>

@@ -1,0 +1,44 @@
+---
+layout: post
+status: publish
+published: true
+title: Rails interfaces to Mac Applications
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 990
+wordpress_url: http://highearthorbit.com/rails-interfaces-to-mac-applications/
+date: '2008-01-08 10:26:57 -0500'
+date_gmt: '2008-01-08 14:26:57 -0500'
+categories:
+- Apple
+- Rails
+tags: []
+comments: []
+---
+<p>The new version of Mac OS X, Leopard, came with a much anticipated feature - an officially supported set of Ruby bridges to Cocoa (the Mac OS X Framework) and AppleScript. Digging around I couldn't find the pre-installed versions, but it was easy enough to <code>gem install rb-appscript</code></p>
+<p>I've been playing around with the very complete examples over the last couple of days and am really impressed with how easy it is to build <em>Cocoa</em> apps in just a few lines of Ruby code and using the new InterfaceBuilder. You get full-fledged support of all OS X's goodness without having to worry about Objective-C. </p>
+<p>However, I hadn't fully considered some of the implications of this until I was stumbled across the open-source <a href="http://omnifocus-ui.rubyforge.org/svn/trunk/README" title="">OmniFocus-UI</a>. It is a Rails app written as an iPhone interface to the Productivity application (<abbr title="Getting Things Done">GTD</abbr>) <a href="http://www.omnigroup.com/applications/omnifocus/" title="The Omni Group - OmniFocus">OmniFocus</a>. It essentially provides a very lightweight web interface to the application by way of the AppleScript interface. <a href="http://rb-appscript.rubyforge.org/" title="rb-appscript">rb-appscript</a> and <a href="http://rubyosa.rubyforge.org/" title="RubyOSA: Ruby/AppleEvent Bridge">RubyOSA</a> are two Ruby AppleScript bridges that make AppleScript actually really nice to work with. </p>
+<p>The fact that it's a Rails app is almost silly. There is no database connection to speak of. All storage and primary functionality is handled by the app itself. OmniFocus-UI could probably be rewritten as a Camping or Merb application very easily with a much smaller footprint. </p>
+<p>The way the Rails app works is that the controllers just route commands via rb-appscript. So when you want a list of contexts (organization of todos), the Rails app just needs to do the following in Ruby:</p>
+<pre>
+require 'appscript'<br />
+doc = Appscript.app("OmniFocus").default_document<br />
+doc.contexts.get.length<br />
+</pre></p>
+<p>Or to see how many Inbox items you have:</p>
+<pre>
+doc.inbox_tasks.count<br />
+</pre></p>
+<p>If instead you want to use RubyOSA, it's really just the Class name that changes (and some more underlying bits):</p>
+<pre>
+require 'rbosa'<br />
+doc = OSA.app("OmniFocus").default_document<br />
+</pre></p>
+<p>What this means is, it's very easy to build web interfaces on top of any AppleScript-able Mac application. The one difficulty, however, is configuring your Mac to make it easily externally accessible from anywhere on the Web. If you're handy on IT, you can always setup port-forwarding on your router. </p>
+<p>However, if you just want setup &amp; forget, you should check out <a href="http://goprism.com" title="Prism">Prism</a> (<a href="http://goprism.com" title="Prism">http://goprism.com</a>) - which creates secure, private web accessible connections to your home computer. </p>

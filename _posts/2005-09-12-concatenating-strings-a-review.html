@@ -1,0 +1,54 @@
+---
+layout: post
+status: publish
+published: true
+title: Concatenating Strings - a review
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 271
+wordpress_url: http://highearthorbit.com/concatenating-strings-a-review/
+date: '2005-09-12 10:56:32 -0400'
+date_gmt: '2005-09-12 15:56:32 -0400'
+categories:
+- Programming
+tags: []
+comments:
+- id: 5953
+  author: wbc5
+  author_email: wbc5atmac.com
+  author_url: ''
+  date: '2005-09-13 20:20:10 -0400'
+  date_gmt: '2005-09-14 01:20:10 -0400'
+  content: "The initially time-consuming, but absurdly useful command in Excel is:\r\n\r\n=CONCATENATE
+    (text 1, [text2]...)\r\n\r\nFurther subformulas allow you to format text, grab
+    specific characters, even assign \"$,00\" to calculations. All of which means
+    that when you're modifying executive summaries you don't hide your pro forma 44%
+    IRR in the summary that reads 11% IRR."
+---
+<p>As I mentioned, I'm learning/employing a bunch of varied programming languages. In fact, I'm employing several programming languages within a single project. While <em>tabbing</em> betwixt <a href='http://www.codingmonkeys.de/subethaedit/'>editor windows</a> I'll often miss tabbing between programming languages. Fortunately, error codes are as they are and they yell at me promptly.</p>
+<p>To review, concatenating strings:</p>
+<h3>Javascript</h3><br />
+<code>var mystring = string1 + " is " + string2;</code></p>
+<h3>Ruby and Python</h3><br />
+<code>mystring = string1 + " is " + string2;</code></p>
+<h3>PHP</h3><br />
+<code>$mystring = $string1." is ".$string2;</code></p>
+<h3>C</h3></p>
+<pre>
+char mystring[50], string1[10], string2[10];</p>
+<p>strcat(mystring, string1);<br />
+strcat(mystring, " is ");<br />
+strcat(mystring, string2);<br />
+</pre></p>
+<h3>C++</h3></p>
+<pre>
+string mystring, string1,string2;<br />
+mystring = string1 + " is " + string2;<br />
+</pre></p>
+<p>Feel free to add any more you know.</p>

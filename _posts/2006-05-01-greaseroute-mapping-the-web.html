@@ -1,0 +1,72 @@
+---
+layout: post
+status: publish
+published: true
+title: GreaseRoute - Mapping the web
+author:
+  display_name: Andrew
+  login: admin
+  email: andrew@highearthorbit.com
+  url: http://highearthorbit.com
+author_login: admin
+author_email: andrew@highearthorbit.com
+author_url: http://highearthorbit.com
+wordpress_id: 405
+wordpress_url: http://highearthorbit.com/greaseroute-mapping-the-web/
+date: '2006-05-01 21:22:24 -0400'
+date_gmt: '2006-05-02 02:22:24 -0400'
+categories:
+- Technology
+- Programming
+- Geolocation
+- Maps
+- Web
+- Open-Source
+- Javascript
+- Howto
+- Google
+tags: []
+comments: []
+---
+<p><img src='http://code.highearthorbit.com/greaseroute/FlockRoute_thumb.png' align='right' hspace='5px;' vspace='5px'/>I've been fairly quiet for the past couple of weeks. I've been focused on some projects, including entries to the <a href='http://mapquest.com/openapi'>MapQuest OpenAPI</a> developers' competition. </p>
+<p>One of my entries, which may or may not actually be considered a "mashup", is a Firefox GreaseMonkey script called <a href='http://code.highearthorbit.com/greaseroute/'>GreaseRoute</a> that creates map and route icons for an <a href='http://microformats.org'>Microformat</a> formatted <a href='http://microformats.org/wiki/adr'>adr</a> or <a href='http://microformats.org/wiki/geo'>geo</a> locations. These are often used in an <a href='http://microformats.org/wiki/hcard'>hcard</a>.</p>
+<p>One of the cooler parts is that the extension automatically determines the location of the person viewing the page. Using the <a href='http://hostip.info'>HostIP</a> IP-to-Location database, the user's location is automatically entered as the starting location. So when a user is viewing the webpage of, for example, a store or business, they can click the "route" link and get turn-by-turn directions to that location. No more copy & pasting street/city/state to a form or asking the person next to you "where are we?"</p>
+<p><a href='http://microformats.org'>Microformats</a> are a stepping stone on the way to the semantic web. They are a simple way to encode useful information for viewing and mining by users and other applications (ala mashups).</p>
+<h3>Example adr</h3><br />
+The proper format of the <em>adr</em> is as follows:</p>
+<pre>
+<div class="adr">
+<div class="street-address">1517 N. Main St.</div></p>
+<div class="extended-address">Box 203</div><br />
+ <span class="locality">Royal Oak</span>,<br />
+ <span class="region">MI</span><br />
+ <span class="postal-code">48067</span></p>
+<div class="country-name">US</div><br />
+</div><br />
+</pre></p>
+<p>which will then be displayed as:</p>
+<div class="adr">
+<div class="street-address">1517 N. Main St.</div></p>
+<div class="extended-address">Box 203</div><br />
+ <span class="locality">Royal Oak</span>,<br />
+ <span class="region">MI</span><br />
+ <span class="postal-code">48067</span></p>
+<div class="country-name">US</div><br />
+</div></p>
+<h3>Example geo</h3><br />
+Instead of an address, one can instead just encode the latitude and longitude:</p>
+<div class="geo">
+<abbr class="latitude" title="37.408183">N 37&Acirc;&deg; 24.491</abbr><br />
+<abbr class="longitude" title="-122.13855">W 122&Acirc;&deg; 08.313</abbr><br />
+</div></p>
+<h2>The Result</h2><br />
+<a href='http://code.highearthorbit.com/greaseroute/'>GreaseRoute</a> has 2 version, the <em>lite</em> version and the <em>embed</em> version. The <em>lite</em> version displays a map and route icon next to the addresses found on the webpage:</p>
+<p><img src='http://code.highearthorbit.com/greaseroute/FlockhCard.png' align='right' hspace='5px;' vspace='5px'/></p>
+<p>The <em>embed</em> version displays a "route" link. When clicked, a pop-up map is displayed between the users location and the encoded address. </p>
+<p>Give <a href='http://code.highearthorbit.com/greaseroute/'>GreaseRoute</a> a try and let me know what you think.</p>
+<p>You can also go over to <a href='http://userscripts.org'>Userscripts.org</a>, the GreaseMonkey script repository, and rate them and leave comments.</p>
+<ul>
+<li><a href='http://userscripts.org/scripts/show/4017'>UserScripts.org: GreaseRoute</a></li>
+<li><a href='http://userscripts.org/scripts/show/4018'>UserScripts.org: GreaseRouteEmbed</a></li>
+<li><a href='http://userscripts.org/scripts/show/4019'>UserScripts.org: MapThis!</a></li><br />
+</ul></p>
