@@ -24,9 +24,9 @@ It was my pleasure to present at the Charlottesville Data Bootcamp on September 
 
 Charlottesville’s stated goals for their site are to…
 
-• promote civic innovation
-• underscore data-driven decision making
-• demonstrate the power of and advocating for open data
+ - promote civic innovation
+ - underscore data-driven decision making
+ - demonstrate the power of and advocating for open data
 
 <iframe src="//www.slideshare.net/slideshow/embed_code/key/Itu84D8VAArDR1" width="595" height="485" 
 frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/ajturner/charlottesville-data-bootcamp-2017" title="Charlottesville Data bootcamp 2017" target="_blank">Charlottesville Data bootcamp 2017</a> </strong> from <strong><a href="https://www.slideshare.net/ajturner" target="_blank">Andrew Turner</a></strong> </div>
@@ -50,6 +50,8 @@ Few Americans think governments are very effective in sharing data they collect 
 People’s baseline level of trust in government strongly shapes how they view the possible impact of open data and open government initiatives on how government functions.
 
 How can we build [Data Driven Citizenship?](https://blogs.esri.com/esri/esri-insider/2016/09/27/data-driven-citizenship/)
+
+## City Ensembles
 
 Cities are complex systems of interoperating infrastructure: buildings, roads, water & electrical utilities, information systems. We tend to measure and work with this data to understand and how the city was built.
 
