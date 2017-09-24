@@ -20,7 +20,17 @@ tags:
 - Government
 comments: []
 ---
-It was my pleasure to present at the Charlottesville Data Bootcamp on September 22, 2017
+It was my pleasure to present at the Charlottesville Data Bootcamp this Friday. The town just recently launched their [open data site](http://opendata.charlottesville.org/) and were eager to teach the community about what was available and hear feedback and ideas on what could be improved and extended. 
+
+The event hosted about 70 people that varied across disciplines and experience. I met librarians, data scientists, attempted politicians, civic advocates, retirees and quite a few government staff. Each conversation was enlightening, giving me insight into expectations, hopes and creative ideas to use the newly available information, tools, and access to start addressing some key issues.
+
+Charlottesville was ahead of the curve by defining [key initiatives guides by strategic goals and measures](http://widget.charlottesville.org/clearpoint.aspx). And [local residents like Nate Day](https://www.nateday.me/tow_forecast.html) were already providing documentation for other community analysts.
+
+But launching an open data site, and posting strategy are just the table stakes for effective engagement. Hosting an in person event where people can meet, build relationships and hear honest feedback is imperative to making this work real and effective.
+
+Below are the slides and notes from my talk. My hope was that it recognizes the work that is necessary to start opening information from government agencies, while also aspiring to greater collaboration and coordination that engages every person in a city to become a direct supporter of community initiatives.
+
+## Talk: Cultivating a Smart Community
 
 Charlottesville’s stated goals for their site are to…
 
@@ -61,10 +71,10 @@ And our cities are not just filled with residents. Cities grow in size through c
 
 Ultimately, everyone has a place they call home. This street, or building or neighborhood is where they make some of the most important decisions in their life. Their largest financial investment, where they fall in love, walk their dog, raise their children, meet with friends - and grow old and pass on. I believe that no one cares more about a neighborhood street than the people who live there. It is ultimately they who are the lifeblood of our cities.
 
-	The real role of government is to create a community that residents, visitors, and business people find to be a great place to live, work, and play.
+  The real role of government is to create a community that residents, visitors, and business people find to be a great place to live, work, and play.
 
-	Hyong Yi
-	Assistant City Manager, City of Charlotte
+  Hyong Yi
+  Assistant City Manager, City of Charlotte
 
 While Every neighborhood is unique, they must act in coordination with one another and the city as a whole. The city is an Ensemble of individual people and streets that cohesively, and coherently comprise the thriving city.
 
@@ -72,7 +82,7 @@ Initiatives are a measurable goal and strategy to improve a particular community
 
 Charlottesville's Goals: 
 
-	"We believe providing the data behind our Strategic Plan Goals will allow for better and more informed decision-making, enhance collaboration among City departments, and engage our community in the activities of our organization."
+  "We believe providing the data behind our Strategic Plan Goals will allow for better and more informed decision-making, enhance collaboration among City departments, and engage our community in the activities of our organization."
 
 ## Example: Vision Zero in DC
 
