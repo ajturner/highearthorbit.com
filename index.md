@@ -7,37 +7,22 @@ banner: https://farm4.staticflickr.com/3725/11452152846_986013a25d_b_d.jpg
 
 ### about
 
-Andrew Turner is the Director and CTO of the [Esri R&amp;D in Washington, DC](http://dc.esri.com) developing new technology for open data, civic technology and geospatial web collaboration. 
+Hi, I'm Andrew. Currently, I'm the Director and CTO of [Esri R&amp;D in Washington, DC](http://dc.esri.com) developing new technology for open data, civic technology, and geospatial web collaboration. 
 
-Andrew's work focuses on cross-domain collaboration and democratizing the map making process -- creating open tools for cartography and analysis. In 2006, he published the popular and widely regarded book [Introduction to Neogeography] which led an industry shift of the GIS market. He is a world-renowned speaker, author, advocate and engineer for crowd-sourced geospatial technology and a successful entrepreneur that has grown and exited two companies through acquisition. 
+My work focuses on cross-domain collaboration and democratizing data-driven decisions by creating open tools for cartography and analysis. I worte the  [Introduction to Neogeography] based on my experiences and vision for a collaborative world improved with open data sharing.  My teams are developing new technologies for government and citizen collaboration to build communities. This includes the global [ArcGIS Hub](http://hub.arcgis.com) for open access to authoritative data, as well as open-source and interactive tools and applications to build and share insights and solutions. I am an active member in many organizations developing and supporting open standards such as the OpenStreetMap, Open Geospatial Consortium, Open Web Foundation, OSGeo, and World Wide Web Consortium. He is also the co-founder of [CrisisCommons](https://crisiscommons.org/), a global community of volunteers leveraging technology to assist in building solutions for disaster response, recovery and rebuilding.
 
-Andrew's team are developing new technologies for government and citizen collaboration to build communities. This includes the global [ArcGIS Hub](http://hub.arcgis.com) for open access to authoritative data, as well as open-source and interactive tools and applications to build and share insights and solutions. Andrew is an active member in many organizations developing and supporting open standards such as the OpenStreetMap, Open Geospatial Consortium, Open Web Foundation, OSGeo, and World Wide Web Consortium. He is also the co-founder of CrisisCommons, a global community of volunteers leveraging technology to assist in building solutions for disaster response, recovery and rebuilding.
-
-He is a resident of Capitol Hill in Washington, DC.
-
-#### developer
-
-Andrew is a prolific software developer, publishing most of his work as [open-source code](https://github.com/ajturner) and he often speaks to audiences on the vision and benefits of collaborative code building.
-
-Andrew is an elected Charter Member the [Open-Source Geospatial Foundation (OSGeo)](http://www.osgeo.org/), the [OpenStreetMap Foundation](http://wiki.openstreetmap.org/wiki/Foundation) and the [Open Web Foundation](http://www.openwebfoundation.org/).
-
-Andrew is the co-founder of [CrisisCommons](https://crisiscommons.org/), a global community of technology volunteers that support humanitarian assistant in disasters.  
 
 #### writer
 
-Andrew is the author of ["Introduction to Neogeography"](http://shop.oreilly.com/product/9780596529956.do) and ["Where2.0: The State of the Geospatial Web"](http://shop.oreilly.com/product/9780596522568.do). He has published articles in Make Magazine, Linux Journal, MacTech, and numerous other civic and technical publications. He blogs personal perspectives at [highearthorbit.com](http://highearthorbit.com) and [Twitter @ajturner](https://twitter.com/ajturner), his work-related projects at [Esri Insider](https://blogs.esri.com/esri/esri-insider/author/ajturner/) and [ArcGIS Blog](https://blogs.esri.com/esri/arcgis/author/ajturner/).
+I am the author of ["Introduction to Neogeography"](http://shop.oreilly.com/product/9780596529956.do) and ["Where2.0: The State of the Geospatial Web"](http://shop.oreilly.com/product/9780596522568.do). He has published articles in Make Magazine, Linux Journal, MacTech, and numerous other civic and technical publications. I write personal perspectives at [highearthorbit.com](http://highearthorbit.com) and [Twitter @ajturner](https://twitter.com/ajturner), an my work-related projects at [Esri Insider](https://blogs.esri.com/esri/esri-insider/author/ajturner/) and [ArcGIS Blog](https://blogs.esri.com/esri/arcgis/author/ajturner/).
 
 #### rocket scientist
 
 ![Aerial Drone](https://farm8.staticflickr.com/7558/15685514648_7f2f76b05c_z_d.jpg)
 
-Andrew received his Bachelors of Science in Aerospace Engineering and Computer Science from the University of Virginia in Charlottesville. His undergraduate thesis was designing a semi-autonomous control system for a robotic, solar-powered, high-altitude airship.
+I received my Bachelors of Science in Aerospace Engineering and Computer Science from the University of Virginia in Charlottesville. My undergraduate thesis was designing a semi-autonomous control system for a robotic, solar-powered, high-altitude airship.
 
-Andrew received his Masters of Science in Aerospace Engineering from Virginia Tech in Blacksburg. His graduate thesis focused on machine-learning, neural networks for autonomous, self-healing spacecraft control systems. He also built an [open-source, spacecraft simulation framework, Open-SESSAME](http://github.com/spacecraft).
-
-#### brewer, trombonist, father
-
-Andrew lives with is wife and two children in Capitol Hill, DC. He loves the history and culture of the United States of America capital and the close neighborhoods and families of the city.
+I received his Masters of Science in Aerospace Engineering from Virginia Tech in Blacksburg. My graduate thesis focused on machine-learning, neural networks for autonomous, self-healing spacecraft control systems. I also built an [open-source, spacecraft simulation framework, Open-SESSAME](http://github.com/spacecraft).
 
 
 ## my work
