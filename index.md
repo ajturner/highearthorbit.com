@@ -7,9 +7,11 @@ banner: https://farm4.staticflickr.com/3725/11452152846_986013a25d_b_d.jpg
 
 ### about
 
-Hi, I'm Andrew. Currently, I'm the Director and CTO of [Esri R&amp;D in Washington, DC](http://dc.esri.com) developing new technology for open data, civic technology, and geospatial web collaboration. 
+Hi, I'm Andrew. 
 
-My work focuses on cross-domain collaboration and democratizing data-driven decisions by creating open tools for cartography and analysis. I worte the  [Introduction to Neogeography] based on my experiences and vision for a collaborative world improved with open data sharing.  My teams are developing new technologies for government and citizen collaboration to build communities. This includes the global [ArcGIS Hub](http://hub.arcgis.com) for open access to authoritative data, as well as open-source and interactive tools and applications to build and share insights and solutions. I am an active member in many organizations developing and supporting open standards such as the OpenStreetMap, Open Geospatial Consortium, Open Web Foundation, OSGeo, and World Wide Web Consortium. I am also the co-founder of [CrisisCommons](https://crisiscommons.org/), a global community of volunteers leveraging technology to assist in building solutions for disaster response, recovery and rebuilding.
+I'm the Director and CTO of [Esri R&amp;D in Washington, DC](http://dc.esri.com) developing new technology for open data, civic technology, and geospatial web collaboration. 
+
+My work focuses on cross-domain collaboration and democratizing data-driven decisions by creating open tools for cartography and analysis. I wrote [Introduction to Neogeography](http://shop.oreilly.com/product/9780596529956.do) based on my experiences and vision for a collaborative world improved with open data sharing.  My teams are developing new technologies for government and citizen collaboration to build communities. This includes the global [ArcGIS Hub](http://hub.arcgis.com) for open access to authoritative data, as well as open-source and interactive tools and applications to build and share insights and solutions. I am an active member in many organizations developing and supporting open standards such as the OpenStreetMap, Open Geospatial Consortium, Open Web Foundation, OSGeo, and World Wide Web Consortium. I am also the co-founder of [CrisisCommons](https://crisiscommons.org/), a global community of volunteers leveraging technology to assist in building solutions for disaster response, recovery and rebuilding.
 
 
 #### writer
