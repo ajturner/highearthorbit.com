@@ -98,7 +98,7 @@ comments:
   content: "[...] years ago I first proposed how KML and GeoRSS could easily support
     one another via cross-links and with HTML documents. Atom has very nice rel [...]"
 - id: 276998
-  author: 'GeoWeb Standards &acirc;&euro;&ldquo; Discoverability &laquo; LocalLab
+  author: 'GeoWeb Standards '&ldquo; Discoverability &laquo; LocalLab
     : Foire aux Infos'
   author_email: ''
   author_url: http://locallab.wordpress.com/2009/10/14/geoweb-standards-%e2%80%93-discoverability/
@@ -215,7 +215,7 @@ Within an HTML file, the <head> element can contain alternate links to the KML r
 </div></p>
 <p>Together, these suggestions allow for parallel use of KML and HTML for content, and GeoRSS for syndication (notification of updates) to that content. It keeps the GeoRSS as a pure markup of the new information, and keeps styling information in HTML and KML. </p>
 <p>Here is a spiffy diagram to help illustrate linking the documents and articles together:</p>
-<p><img src="http://highearthorbit.com/wp-content/uploads/2007/06/kml_georss-diagram.png" alt="GeoRSS, KML, HTML interoperability"/>  </p>
+<p><img src="/assets/uploads/2007/06/kml_georss-diagram.png" alt="GeoRSS, KML, HTML interoperability"/>  </p>
 <p>A last consideration about linking HTML content and KML content. Both formats are merely markups for storing and rendering information and not bound to a specific renderer (e.g. Firefox or GoogleEarth). However, it is still beneficial to link to a richer geospatial markup from an HTML file. <a> elements can optionally utilize the type attribute to specify the link follows to a KML file. It should explicitly noted that opening a link to a KML type should not necessarily open in GoogleEarth. Again, KML is just a richer geospatial markup of information. </p>
 <p>For example, if a user is viewing a location from a GeoRSS file loaded in a 2D map representation, and link in the content points to a KML type, clicking this link should first open the location in the same 2D map representation. If the link is clicked in an HTML file, the appropriate MIME-type handler should be invoked. This is similar to a user clicking a link in an HTML document and opening the link in the HTML renderer. </p>
 <p>Depending on the 2D map rendered, an optional "view in 3D" link could be offered to open the Placemark in GoogleEarth or other KML renderer. </p>
