@@ -8,8 +8,8 @@ title: High Earth Orbit
 author: Andrew Turner
 email: ajturner@highearthorbit.com
 description: >-
-  Andrew Turner on open data, civic technology, the geospatial web, and the
-  systems that connect them.
+  Andrew Turner, CTO of ArcGIS Hub, on open data, civic technology, the
+  geospatial web, and the systems that connect them.
 url: "https://highearthorbit.com"
 # The Pages workflow sets --baseurl to the project path; keep this empty here.
 baseurl: ""
@@ -21,7 +21,7 @@ heo:
   # every page carries noindex. Set false if this build ever serves as the
   # public fallback for WordPress.
   staging: true
-  headshot: https://highearthorbit.com/wp-content/uploads/2021/05/AndrewTurner_Headshot-e1621219239429.jpeg
+  headshot: /assets/images/andrew-turner-640.jpg
   # Your projects from this GitHub account appear only if the repo has the `portfolio` topic.
   github_user: ajturner
   flickr_profile: https://www.flickr.com/photos/ajturner/

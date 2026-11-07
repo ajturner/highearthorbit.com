@@ -9,7 +9,7 @@ content/
   _talks/      talks, with YouTube video and slides
   _projects/   software and civic projects, grouped by era (_data/eras.yml)
   _photos/     Flickr albums
-_data/         homepage text (home.yml), project eras, Flickr include/exclude lists
+_data/         homepage text (home.yml), project eras, Flickr and GitHub include/exclude lists, YouTube video map
 _layouts/ _includes/ assets/css/   the site design (matches the WordPress theme)
 _plugins/heo.rb                    draft visibility and base-path links
 index.html articles/ projects/ talks/ photos/ about.md now.md   site pages
@@ -53,6 +53,8 @@ Common to every type: `source_id` (required), `title`, `slug`, `summary`, `tags`
 
 Article file names follow Jekyll's `YYYY-MM-DD-slug.md` (or `.html`). The URL is `/articles/<slug>/`, the same as WordPress. `featured: true` puts a project or talk on the homepage.
 
+**YouTube matching.** A playlist video is matched to a talk by its `youtube_id`, then by `_data/youtube_map.yml` (video ID to `source_id`, for recordings titled differently from the talk or second recordings of one talk), then by title. A matched talk without a video gets the `youtube_id`; an unmatched video becomes a new hidden talk file.
+
 **Flickr selection.** Albums whose title starts with `YYYY-MM-DD` are added automatically, minus `_data/flickr_exclude.yml` (troop trips with other families' children, conferences), plus `_data/flickr_include.yml` (older trips without a date prefix). Only public photos are read.
 
 ## Setup
@@ -68,7 +70,7 @@ Article file names follow Jekyll's `YYYY-MM-DD-slug.md` (or `.html`). The URL is
 | Secret | Value |
 | --- | --- |
 | `FLICKR_API_KEY` | From the Flickr App Garden |
-| `YOUTUBE_API_KEY` | Google Cloud, YouTube Data API v3 |
+| `YOUTUBE_API_KEY` (optional) | Google Cloud, YouTube Data API v3. Without it the sync reads the public playlist feed, the playlist page and oEmbed, which is slower but complete |
 | `NOTION_TOKEN` | An internal integration from notion.so/profile/integrations with read access, connected to the Writing database (database ••• menu › Connections) |
 | `SYNC_TOKEN` (optional) | Fine-grained token with contents and pull-request write access to this repository. Without it, CI does not run on the sync pull request and the merge does not redeploy the site; the nightly deploy catches up |
 
