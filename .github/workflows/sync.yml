@@ -37,7 +37,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_USER: ajturner
-        run: python -m scripts.heo.sync_github --discover --days 180
+        run: python -m scripts.heo.sync_github --discover --days 180 --pages
       - name: YouTube talks playlist
         if: env.HAS_YOUTUBE == 'true'
         continue-on-error: true

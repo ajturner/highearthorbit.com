@@ -1,0 +1,23 @@
+name: Temporary pages discovery
+on:
+  push:
+    branches: [projects-from-pages]
+    paths: [ci-dump/dump.py, .github/workflows/zz-discover.yml]
+permissions:
+  contents: write
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with: { python-version: "3.12" }
+      - run: pip install -r requirements.txt
+      - run: python ci-dump/dump.py
+        env: { GITHUB_TOKEN: "${{ github.token }}" }
+      - run: python -m scripts.heo.sync_github --pages
+        env: { GITHUB_TOKEN: "${{ github.token }}" }
+      - name: Commit results to this branch
+        run: |
+          git add content ci-dump/pages-repos.json
+          git -c user.name=ci -c user.email=ci@localhost commit -qm "temporary: pages discovery results" && git push
