@@ -1,0 +1,134 @@
+---
+source_id: post:understanding-local-elections
+wp_id: 247
+title: Understanding Local Elections
+slug: understanding-local-elections
+date: 2022-09-28 17:25
+summary: Interested in knowing who you can vote for in DC’s upcoming election? Check out the new GGWash
+  election visualization and how it was built.
+categories:
+- Geo
+- Local
+- Technology
+tags:
+- civic
+- dc
+- election
+- open data
+legacy_url: https://highearthorbit.com/articles/understanding-local-elections/
+format: html
+---
+
+<p class="wp-block-paragraph">Interested in knowing who you can vote for in DC&#8217;s upcoming election? Check out  <a href="https://ggwash.org/view/86803/this-interactive-tool-lets-you-explore-and-candidates-views-on-housing-transportation-and-land-use" target="_blank" rel="noreferrer noopener">Greater Greater Washington</a> to search by your address and learn more about candidates and their positions on important topics.</p>
+
+
+
+<h2 class="wp-block-heading">Where are We?</h2>
+
+
+
+<p class="wp-block-paragraph">DC is a fundamentally geographical city. The boundaries are (originally) a 10-mile by 10-mile diamond that was located to balance preferences of northern &amp; southern colonies and also be a close distance to George Washington&#8217;s home at Mount Vernon. Our roads are organized in a British-style grid of incrementing letter + number names with crisscrossing French-style roads named for each of the current U.S. States.</p>
+
+
+
+<figure class="wp-block-image size-large"><img data-recalc-dims="1" loading="lazy" decoding="async" width="840" height="814" src="https://i0.wp.com/highearthorbit.com/wp-content/uploads/2022/09/Screen-Shot-2022-09-27-at-5.38.49-PM.png?resize=840%2C814&#038;ssl=1" alt="" class="wp-image-251" srcset="https://i0.wp.com/highearthorbit.com/wp-content/uploads/2022/09/Screen-Shot-2022-09-27-at-5.38.49-PM.png?resize=1024%2C992&amp;ssl=1 1024w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2022/09/Screen-Shot-2022-09-27-at-5.38.49-PM.png?resize=300%2C291&amp;ssl=1 300w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2022/09/Screen-Shot-2022-09-27-at-5.38.49-PM.png?resize=768%2C744&amp;ssl=1 768w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2022/09/Screen-Shot-2022-09-27-at-5.38.49-PM.png?w=1267&amp;ssl=1 1267w" sizes="auto, (max-width: 840px) 100vw, 840px" /><figcaption>Washington, DC is governed by 8 wards, 46 Neighborhoods, 345 Single Member Districts </figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">Within the City there are 8 Wards, each with approximately 100,000 residents. The Wards are then subdivided into 46 Advisory Neighborhood Commissions (ANC). And finally, each ANC is subdivided into 345 Single Member Districts (SMD) of approximately 2,000 residents. Combined together every resident has a local neighborhood <em>code</em> like 8C02 (Ward 8, ANC 8C, SMD 8C02).</p>
+
+
+
+<p class="wp-block-paragraph">One aspect that I find remarkable is that while the 8 Ward Councilmembers (and a few At-Large council members) are paid positions, the other 345 SMD representative commissioners are <em><strong>unpaid volunteers</strong></em>! more on that later&#8230;</p>
+
+
+
+<p class="wp-block-paragraph">In 2023, thanks to the U.S. decennial census, the neighborhood boundaries are redrawn to improve equitable representation by balancing population and demographics. Every resident <em>might</em> be assigned a new Ward, ANC, and SMD. (<a href="https://opendata.dc.gov/apps/locate-your-anc-and-smd/explore" target="_blank" rel="noopener">Find yours here!</a>) Within these new boundaries are the people who will represent them on broad city-wide policies to hyperlocal residential building permits, business licenses, and individual road changes. While I&#8217;d love to believe that every city resident has been involved with their local SMD representative and ANC committees, it is more likely that people are unaware of their current, and upcoming, districts and therefore new representatives. </p>
+
+
+
+<h2 class="wp-block-heading">Seeing is Understanding</h2>
+
+
+
+<p class="wp-block-paragraph">We all know where we live. We should be able to easily find out information about our government and neighborhoods with just this information. I&#8217;m passionate about the potential for everyone to learn and be engaged on topics they care about. This is what I&#8217;ve been working on for the past few decades but I&#8217;m often surprised with how difficult it is to find out &#8220;what&#8217;s going on near me?&#8221;</p>
+
+
+
+<p class="wp-block-paragraph">What if you could just type in your address and see what&#8217;s going on and who represents me?</p>
+
+
+
+<p class="wp-block-paragraph">While you can use Google Maps to find local stores &#8211; that doesn&#8217;t really tell you what&#8217;s going on. If you&#8217;re lucky there&#8217;s a <a href="https://hub.arcgis.com/pages/gallery" target="_blank" rel="noopener">local Hub</a> that you can find data, similar to <a href="https://opendata.dc.gov/" target="_blank" rel="noopener">Open Data DC</a>.</p>
+
+
+
+<h2 class="wp-block-heading">Who are my Candidates?</h2>
+
+
+
+<p class="wp-block-paragraph">DC is again a particularly unique part of America. While we are the capital city for the United States, we don&#8217;t have U.S. Senators or Congressional Representatives. Residents of the city have a Mayor, a Ward Councilmember, and then our volunteer ANC representative based on our SMD (Single Member District, like 6C04). Because our ANC representatives are unpaid volunteers they have little budget or ability to campaign other than walking door-to-door to meet over 2,000 constituents.</p>
+
+
+
+<p class="wp-block-paragraph">I appreciate and applaud the efforts of my neighbors to take on significant and important work to represent our neighborhood. For the past year I have been a (volunteer) member of my neighborhood <em>Transportation &amp; Public Space Committee </em>(yes, we have TPS reports), so I&#8217;ve become more involved in local issues but I&#8217;m not ready to <em>run for office. </em></p>
+
+
+
+<p class="wp-block-paragraph">So, I took the opportunity to collaborate with <a href="https://ggwash.org/" target="_blank" rel="noopener">Greater Greater Washington</a>, a local news organization, to create informative, interactive, and accessible visualizations of their comprehensive candidate surveys. We&#8217;ve created a few versions through the summer, including the <a href="https://ajturner.github.io/dc-elections/2022/primary_mayor.html" target="_blank" rel="noopener">Mayor&#8217;s Primary</a>, <a href="https://ggwash.org/view/85342/a-visualization-of-dc-council-candidates-responses-to-our-endorsement-questionnaire" target="_blank" rel="noopener">Ward Council</a>, and the <a href="https://ggwash.org/view/86450/see-dc-council-at-large-candidates-views-on-housing-transportation-and-land-use" target="_blank" rel="noopener">At-Large Council members</a>. Each of these races are city-wide, so location (within the city) isn&#8217;t very relevant. That&#8217;s very different with the hyper-local SMD candidates.</p>
+
+
+
+<p class="wp-block-paragraph">You can now search by address or neighborhood district to find local candidate responses. Since these candidates are <em>volunteers</em> they only have their personal budget and time for any campaigning. Creating an accessible tool like this supports all candidates by making it easy for voters to find out more about the candidates. </p>
+
+
+
+<figure class="wp-block-image size-large"><img data-recalc-dims="1" loading="lazy" decoding="async" width="787" height="1024" src="https://i0.wp.com/highearthorbit.com/wp-content/uploads/2022/09/Screen-Shot-2022-09-27-at-8.26.25-PM.png?resize=787%2C1024&#038;ssl=1" alt="DC Election map responses" class="wp-image-256" srcset="https://i0.wp.com/highearthorbit.com/wp-content/uploads/2022/09/Screen-Shot-2022-09-27-at-8.26.25-PM.png?resize=787%2C1024&amp;ssl=1 787w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2022/09/Screen-Shot-2022-09-27-at-8.26.25-PM.png?resize=231%2C300&amp;ssl=1 231w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2022/09/Screen-Shot-2022-09-27-at-8.26.25-PM.png?resize=768%2C999&amp;ssl=1 768w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2022/09/Screen-Shot-2022-09-27-at-8.26.25-PM.png?w=841&amp;ssl=1 841w" sizes="auto, (max-width: 787px) 100vw, 787px" /><figcaption>Find your DC ANC candidates at <a href="https://ggwash.org/view/86803/this-interactive-tool-lets-you-explore-and-candidates-views-on-housing-transportation-and-land-use" target="_blank" rel="noreferrer noopener">Greater Greater Washington</a></figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">Unfortunately, not all candidates responded to the survey. That was their decision and it leaves their potential constituents without any information on their positions and priorities. Maybe candidates will still respond and the tool will automatically update with their new responses. </p>
+
+
+
+<h2 class="wp-block-heading">How was it built?</h2>
+
+
+
+<p class="wp-block-paragraph">This was a fun project to build as it uses several interesting and new technology standards. The visualization is a <em><a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components" target="_blank" rel="noopener">web component</a></em> where software developers can create new HTML elements that work in any webpage or web application framework.</p>
+
+
+
+<ul class="wp-block-list"><li><a href="https://stenciljs.com/" target="_blank" rel="noopener">Stencil.js</a> tools from Ionic which simplify the development + builds.</li><li><a href="https://developers.arcgis.com/javascript" target="_blank" rel="noopener">ArcGIS JSAPI</a> for geographic maps</li><li>Data from <a href="https://opendata.dc.gov" target="_blank" rel="noopener">OpenData DC</a> and <a href="https://www.dcboe.org/Elections/2022-Elections" target="_blank" rel="noopener">DC Board of Elections</a></li><li>TypeScript, HTML, + CSS</li></ul>
+
+
+
+<p class="wp-block-paragraph">The web component makes it very easy to embed into a website like GGWash &#8211; or any other site built with common website editors (WordPress, Drupal, Wix, etc.). You would just add this code to your website:</p>
+
+
+
+<pre class="wp-block-code"><code>&lt;dc-election-survey 
+  id="anc" 
+  filename="https://ajturner.github.io/dc-elections/assets/2022_anc.csv"
+  candidates-files="https://ajturner.github.io/dc-elections/assets/2022_anc_candidates.csv"
+  format="surveymonkey"
+  show-filter=true
+  filter=""
+&gt;&lt;/dc-election-survey&gt;
+
+&lt;script type="module" src="https://ajturner.github.io/dc-elections/build/dc-election.esm.js"&gt;&lt;/script&gt;
+&lt;script nomodule src="https://ajturner.github.io/dc-elections/build/dc-election.js"&gt;&lt;/script&gt;
+&lt;link rel='stylesheet' type='text/css' href='https://cdn.jsdelivr.net/npm/@esri/calcite-components@1.0.0-next.292/dist/calcite/calcite.css' /&gt;
+&lt;script type='module' src='https://cdn.jsdelivr.net/npm/@esri/hub-components@4.0.0-beta.341/dist/hub-components/hub-components.esm.js'&gt;&lt;/script&gt;</code></pre>
+
+
+
+<p class="wp-block-paragraph">The web component are like building blocks. They can be used independently or put together into a <em>composition</em> that integrates several components together. You can see an overview of the dc-election visualization components and how they load data:</p>
+
+
+
+<figure class="wp-block-image size-full"><img data-recalc-dims="1" loading="lazy" decoding="async" width="840" height="529" src="https://i0.wp.com/highearthorbit.com/wp-content/uploads/2022/09/Screen-Shot-2022-09-28-at-10.13.36-AM.png?resize=840%2C529&#038;ssl=1" alt="" class="wp-image-258" srcset="https://i0.wp.com/highearthorbit.com/wp-content/uploads/2022/09/Screen-Shot-2022-09-28-at-10.13.36-AM.png?w=841&amp;ssl=1 841w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2022/09/Screen-Shot-2022-09-28-at-10.13.36-AM.png?resize=300%2C189&amp;ssl=1 300w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2022/09/Screen-Shot-2022-09-28-at-10.13.36-AM.png?resize=768%2C484&amp;ssl=1 768w" sizes="auto, (max-width: 840px) 100vw, 840px" /><figcaption>Technical overview of election visualization components</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">The entire code project is open-source at <a href="https://github.com/ajturner/dc-elections" target="_blank" rel="noopener">https://github.com/ajturner/dc-elections</a>. Feel free to check it out and re-use it. There aren&#8217;t currently any tests, and quite a bit of complex logic that emerged as we progressively built the visualizations over time. In future iterations I plan to refactor the project and settle early on a standard format which would simplify a lot of the code.</p>

@@ -9,6 +9,8 @@ tags:
 - Government
 banner: https://pbs.twimg.com/media/DKF6TfwUQAALTtY.jpg:large
 format: markdown
+wp_id: 67
+legacy_url: https://highearthorbit.com/articles/the-digital-transformation-of-social-impact/
 ---
 
 <h2>The Digital Transformation of Social Impact</h2>
