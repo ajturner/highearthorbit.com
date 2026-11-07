@@ -1,0 +1,24 @@
+name: Temporary preview export
+on:
+  push:
+    branches: [ci/preview]
+permissions:
+  contents: write
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+      - run: bundle exec jekyll build --baseurl /highearthorbit.com
+      - name: Push the built site (without uploads) to ci/preview-site
+        run: |
+          rm -rf _site/assets/uploads
+          cd _site
+          git init -q -b ci/preview-site
+          git add -A
+          git -c user.name=ci -c user.email=ci@localhost commit -qm "built site"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" ci/preview-site
