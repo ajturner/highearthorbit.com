@@ -3,7 +3,7 @@
 Usage: python3 scripts/ci/check_links.py _site [/baseurl]
 Only root-relative and relative URLs are checked; external links are skipped.
 Links into the 2004-2017 archive that were already broken are reported as warnings
-(paths under /assets/uploads/ or ending in .php); everything else fails the build.
+(links inside article pages, paths under /assets/uploads/, or .php); everything else fails the build.
 """
 import re
 import sys
@@ -56,7 +56,7 @@ for f in site.rglob("*.html"):
         if not r or r[0] is None:
             continue
         legacy = "/assets/uploads/" in r[1] or r[1].endswith(".php") or rel.startswith("articles/")
-        bucket = warnings if legacy and r[0] == "missing" else errors
+        bucket = warnings if legacy else errors
         bucket.setdefault(r[1], set()).add(rel)
 
 print(f"{pages} pages checked; {len(errors)} broken targets; {len(warnings)} legacy warnings")

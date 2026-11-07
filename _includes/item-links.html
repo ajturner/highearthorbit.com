@@ -4,6 +4,11 @@
 {%- if i.slides_url %}<a href="{{ i.slides_url }}">Slides</a>{% endif -%}
 {%- if i.repo %}<a href="{{ i.repo }}">Repository</a>{% endif -%}
 {%- if i.demo %}<a href="{{ i.demo }}">Demo</a>{% endif -%}
-{%- if i.writeup_url %}<a href="{{ i.writeup_url | replace: 'https://highearthorbit.com', '' }}">Write-up</a>{% endif -%}
+{%- if i.writeup_url -%}
+  {%- comment %} Link to this build's copy of the write-up when it has one, else to the live site. {% endcomment -%}
+  {%- assign wpath = i.writeup_url | replace: site.url, "" -%}
+  {%- assign wpost = site.posts | where: "url", wpath | first -%}
+  <a href="{% if wpost %}{{ wpath }}{% else %}{{ i.writeup_url }}{% endif %}">Write-up</a>
+{%- endif -%}
 {%- endcapture -%}
 {%- if links != "" %}<p class="item-links">{{ links }}</p>{% endif -%}
