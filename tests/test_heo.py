@@ -92,3 +92,56 @@ def test_import_cleans_wordpress_slugs():
     assert clean_slug("professional-civic-engineering%ef%bf%bc") == "professional-civic-engineering"
     assert clean_slug("2012") == "2012"
     assert norm_title("CrisisCommons &amp; Congress") == norm_title("crisiscommons & congress")
+
+
+FEED = """<feed xmlns="http://www.w3.org/2005/Atom" xmlns:yt="http://www.youtube.com/xml/schemas/2015"
+ xmlns:media="http://search.yahoo.com/mrss/"><title>Andrew Turner Talks</title>
+<entry><yt:videoId>zYSEOML_0Xo</yt:videoId><title>GeoAI and the Future of Mapping: Implications for 21st-Century Digital Resilience</title>
+<author><name>National Academies</name></author><published>2023-05-22T18:00:00+00:00</published>
+<media:group><media:thumbnail url="https://i.ytimg.com/vi/zYSEOML_0Xo/hqdefault.jpg"/><media:description>Workshop talk.</media:description></media:group></entry>
+</feed>"""
+
+
+def _talk(stem, **meta):
+    return Item(path=Path(f"content/_talks/{stem}.md"), meta={"source_id": f"talk:{stem}", "date": "2020-01-01", "event": "X", **meta})
+
+
+def test_youtube_feed_and_page_parsing():
+    from scripts.heo.sync_youtube import parse_feed, playlist_page_ids
+
+    (v,) = parse_feed(FEED)
+    assert v["id"] == "zYSEOML_0Xo" and v["published_at"] == "2023-05-22" and v["channel"] == "National Academies"
+    assert v["description"] == "Workshop talk." and v["thumbnail"].endswith("hqdefault.jpg")
+    page = ('"url":"/watch?v=w3C1lRx0k44\\u0026list=PLX\\u0026index=1" href="/watch?v=DTU_jSWpQPE&amp;list=PLX" '
+            '"/watch?v=w3C1lRx0k44&list=PLX" "/watch?v=zzzzzzzzzzz" "/watch?v=yyyyyyyyyyy&list=PLOTHER"')
+    assert playlist_page_ids(page, "PLX") == ["w3C1lRx0k44", "DTU_jSWpQPE"]
+
+
+def test_youtube_video_matches_talk_by_id_map_or_title():
+    from scripts.heo.sync_youtube import match_talk, normalize
+
+    by_id = _talk("a", title="Something Else", youtube_id="AAAAAAAAAAA")
+    mapped = _talk("b", title="Where 2.0 That Matters")
+    titled = _talk("c", title="Lessons Learned from Neogeography")
+    short = _talk("d", title="Hub")
+    talks = [by_id, mapped, titled, short]
+    mapping = {"w3C1lRx0k44": "talk:b"}
+
+    def video(vid, title):
+        return {"id": vid, "title": title, "published_at": "", "channel": "", "description": "", "thumbnail": ""}
+
+    assert match_talk(video("AAAAAAAAAAA", "Anything"), talks, mapping) is by_id
+    assert match_talk(video("w3C1lRx0k44", 'Where 2.0 2010: Andrew Turner, "Crisis Mapping"'), talks, mapping) is mapped
+    assert match_talk(video("Ci3R-Kx9ODw", "Lessons Learned from Neogeography Applied to GIS"), talks, mapping) is titled
+    assert match_talk(video("BBBBBBBBBBB", "Hub"), talks, mapping) is None  # too short to trust
+    assert match_talk(video("CCCCCCCCCCC", "An Unrelated Keynote"), talks, mapping) is None
+    assert normalize('Where 09:  Andrew Turner, "Are Geospatial Tools..." #esri') == "where 09 are geospatial tools"
+
+
+def test_youtube_map_points_at_existing_talks():
+    from scripts.heo.content import iter_items
+    from scripts.heo.sync_youtube import video_map
+
+    ids = {i.meta["source_id"] for i in iter_items(["_talks"])}
+    missing = {v: s for v, s in video_map().items() if s not in ids}
+    assert missing == {}

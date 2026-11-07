@@ -1,0 +1,13 @@
+# Video ID -> source_id of the talk it belongs to.
+#
+# The YouTube sync matches a playlist video to a talk by its `youtube_id` first, then by
+# this table, then by title. List a video here when its YouTube title does not match the
+# talk (a conference recording titled differently, an interview about the talk, a second
+# recording of the same talk). Videos that match nothing become new hidden talk files.
+videos:
+  w3C1lRx0k44: slideshare:3597607          # Where 2.0 2010 "Crisis Mapping" -> Where 2.0 That Matters
+  I7aAH6qtvVw: slideshare:1973447          # Gov 2.0 Summit 09 "Rapid Fire: Location, Location, Location"
+  yQ5P0kL9jxw: slideshare:1152081          # VoteReport at SXSW 2009
+  Ci3R-Kx9ODw: slideshare:1060438          # Lessons Learned from Neogeography Applied to GIS (NC GIS 2009)
+  zYSEOML_0Xo: talk:2023-nasem-geoai       # GeoAI and the Future of Mapping (National Academies)
+  jg9N4FcHLVg: talk:2017-devsummit-geobots # GeoBots Alexa demo: second recording of the GeoBots talk
