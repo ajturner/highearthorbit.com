@@ -5,8 +5,8 @@ era: neogeography
 role: Co-creator and maintainer
 status: archived
 year: 2006
-github: mapstraction/mapstraction
-repo: https://github.com/mapstraction/mapstraction
+github: mapstraction/mxn
+repo: https://github.com/mapstraction/mxn
 summary: Open-source JavaScript library with one developer interface over more than a dozen map providers, including Google, Yahoo, OpenLayers, MapQuest and Yandex.
 ---
 

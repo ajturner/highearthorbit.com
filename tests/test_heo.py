@@ -145,3 +145,20 @@ def test_youtube_map_points_at_existing_talks():
     ids = {i.meta["source_id"] for i in iter_items(["_talks"])}
     missing = {v: s for v, s in video_map().items() if s not in ids}
     assert missing == {}
+
+
+def test_github_discovery_labels_and_drafts():
+    from scripts.heo.sync_github import discovery
+
+    def repo(name, **kw):
+        return {"full_name": f"ajturner/{name}", "fork": False, "private": False, "topics": [], "pushed_at": "2020-01-01", "has_pages": False, **kw}
+
+    covered = {"ajturner/plan-stuff-a-thon"}
+    args = dict(covered=covered, cutoff="2026-01-01", recent=True, pages=True, topics=["portfolio"])
+    assert discovery(repo("holocene", topics=["history", "portfolio"]), **args) == "labeled"
+    assert discovery(repo("plan-stuff-a-thon", topics=["portfolio"]), **args) is None  # excluded wins
+    assert discovery(repo("fieldkey", topics=["portfolio"], private=True), **args) is None
+    assert discovery(repo("site", has_pages=True), **args) == "found"
+    assert discovery(repo("fresh", pushed_at="2026-06-01"), **args) == "found"
+    assert discovery(repo("old"), **args) is None
+    assert discovery(repo("tagged", topics=["portfolio"]), **{**args, "topics": []}) is None
