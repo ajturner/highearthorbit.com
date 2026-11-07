@@ -207,8 +207,27 @@ function heo_rest_upsert( WP_REST_Request $req ) {
 	if ( ! $existing && ! empty( $p['wp_id'] ) ) {
 		$candidate = get_post( (int) $p['wp_id'] );
 		if ( $candidate && $candidate->post_type === $type && 'trash' !== $candidate->post_status ) {
-			$existing = $candidate;
-			$action   = 'adopted';
+			// Never take over a post that another content file already manages:
+			// a wrong wp_id would otherwise overwrite an unrelated post.
+			$owner = (string) get_post_meta( $candidate->ID, 'heo_source_id', true );
+			if ( '' !== $owner && $owner !== $source_id ) {
+				return new WP_Error(
+					'heo_wp_id_taken',
+					sprintf( 'Post #%d is already managed by %s', $candidate->ID, $owner ),
+					array( 'status' => 409 )
+				);
+			}
+			// Adopt without overwriting: the WordPress copy may hold edits made after
+			// the repository copy was exported. Link the post and record the file's
+			// hash; the content is sent the next time the file changes.
+			update_post_meta( $candidate->ID, 'heo_source_id', $source_id );
+			update_post_meta( $candidate->ID, '_heo_hash', (string) ( $p['hash'] ?? '' ) );
+			return array(
+				'id'     => $candidate->ID,
+				'status' => $candidate->post_status,
+				'action' => 'adopted',
+				'link'   => get_permalink( $candidate ),
+			);
 		}
 	}
 	if ( ! $existing ) {

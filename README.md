@@ -85,7 +85,9 @@ Not needed for staging. When you are ready:
 3. A `production` environment with secrets `WP_USER`, `WP_APP_PASSWORD`, `SSH_PRIVATE_KEY`, `SSH_KNOWN_HOSTS`, `SSH_USER`, `SSH_HOST` and variables `WP_PATH`, `WP_URL`, `HEO_NEW_STATUS` (`draft` at first).
 4. Run **Deploy plugin and theme**, then **Publish content** with *dry run* checked, and review.
 
-Before the first real publish, two changes are planned for the 2004-2017 archive posts: adopt them without overwriting the WordPress copy (which may have later edits), and rewrite `/assets/uploads/` image paths to `/wp-content/uploads/`.
+Archive posts are matched to their WordPress posts by `wp_id` and **adopted without overwriting**: the first publish links the post and records the file's hash, leaving the WordPress copy as it is. Content is sent only when you later edit the file (or run with *force*). A `wp_id` that points at a post another file already manages is refused rather than overwritten.
+
+Still to do before editing archive posts here: rewrite `/assets/uploads/` image paths to `/wp-content/uploads/` when sending them to WordPress.
 
 ## Local commands
 
