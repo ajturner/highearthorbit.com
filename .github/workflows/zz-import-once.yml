@@ -1,4 +1,4 @@
-name: Temporary WordPress import (run 2)
+name: Temporary WordPress import (run 3)
 on:
   push:
     branches: [import-wordpress-posts]

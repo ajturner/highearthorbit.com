@@ -27,7 +27,7 @@ from .http import check, require_env, session
 
 
 def plain(text: str) -> str:
-    text = re.sub(r"<[^>]+>", "", text or "")
+    text = re.sub(r"<[^>]+>", "", text or "").replace("\ufffc", "")
     text = html.unescape(text).replace("\xa0", " ")
     text = re.sub(r"\s*\[(&hellip;|…)\]\s*$", "", text)
     text = re.sub(r"\s*\[…\]\s*$", "", text)
@@ -91,6 +91,10 @@ def main(argv: list[str] | None = None) -> int:
     by_title = {}
     for i in unlinked:
         by_title.setdefault(norm_title(i.meta.get("title", "")), []).append(i)
+    # Last resort: a post retitled on WordPress still shares its publication date.
+    by_date = {}
+    for i in unlinked:
+        by_date.setdefault(str(i.meta.get("date", ""))[:10], []).append(i)
 
     written = skipped = adopted = 0
     unmatched_twins = []
@@ -111,6 +115,9 @@ def main(argv: list[str] | None = None) -> int:
             twin = None
             if p["id"] not in by_wp_id:
                 candidates = by_slug.get(slug) or by_title.get(norm_title(title)) or []
+                same_day = by_date.get(p["date"][:10], [])
+                if not candidates and len(same_day) == 1:
+                    candidates = same_day
                 if len(candidates) == 1:
                     twin = candidates[0]
                 elif len(candidates) > 1:
@@ -121,7 +128,7 @@ def main(argv: list[str] | None = None) -> int:
                 twin.meta["wp_id"] = p["id"]
                 twin.meta["legacy_url"] = p["link"]
                 save(twin)
-                for group in (by_slug, by_title):
+                for group in (by_slug, by_title, by_date):
                     for lst in group.values():
                         if twin in lst:
                             lst.remove(twin)
