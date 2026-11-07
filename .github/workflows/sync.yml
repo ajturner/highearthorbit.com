@@ -20,7 +20,6 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     env:
-      HAS_YOUTUBE: ${{ secrets.YOUTUBE_API_KEY != '' }}
       HAS_FLICKR: ${{ secrets.FLICKR_API_KEY != '' }}
     steps:
       - uses: actions/checkout@v5
@@ -39,7 +38,7 @@ jobs:
           GITHUB_USER: ajturner
         run: python -m scripts.heo.sync_github --discover --days 180 --pages
       - name: YouTube talks playlist
-        if: env.HAS_YOUTUBE == 'true'
+        # Works without a key (public feed, playlist page and oEmbed); the key is faster.
         continue-on-error: true
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
