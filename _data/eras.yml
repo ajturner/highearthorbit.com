@@ -3,6 +3,12 @@
   label: Esri and ArcGIS Hub
 - key: civic
   label: Civic projects
+- key: personal
+  label: Personal projects
+- key: crisiscommons
+  label: CrisisCommons
+- key: geoiq
+  label: GeoIQ
 - key: neogeography
   label: Neogeography
 - key: aerospace
