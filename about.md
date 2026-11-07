@@ -12,7 +12,7 @@ I wrote [*Introduction to Neogeography*](https://www.oreilly.com/library/view/in
 
 ## Aerospace
 
-I have a BS in aerospace engineering, with a computer science minor, from the University of Virginia, where my thesis was a [semi-autonomous control system for a solar-powered, high-altitude airship](/assets/files/Turner%20-%20Development%20of%20a%20Semi-Autonomous%20Control%20System%20for%20the%20UVA%20Solar%20Airship%20Aztec.pdf). My MS in aerospace engineering from Virginia Tech covered [neural networks for adaptive spacecraft attitude control](/assets/files/Turner%20-%20Adaptive%20Spacecraft%20Attitude%20Control%20Using%20Neural%20Networks.pdf), and I built [Open-SESSAME](/projects/open-sessame/), an [open-source spacecraft simulation framework](/assets/files/Turner%20-%20An%20Open-Source%20Extensible%20Spacecraft%20Simulation%20Framework.pdf).
+I have a BS in aerospace engineering, with a computer science minor, from the University of Virginia, where my thesis was a [semi-autonomous control system for a solar-powered, high-altitude airship](/assets/files/Turner%20-%20Development%20of%20a%20Semi-Autonomous%20Control%20System%20for%20the%20UVA%20Solar%20Airship%20Aztec.pdf). My MS in aerospace engineering from Virginia Tech covered [neural networks for adaptive spacecraft attitude control](/assets/files/Turner%20-%20Adaptive%20Spacecraft%20Attitude%20Control%20Using%20Neural%20Networks.pdf), and I built [Open-SESSAME](https://github.com/ajturner/spacecraft), an [open-source spacecraft simulation framework](/assets/files/Turner%20-%20An%20Open-Source%20Extensible%20Spacecraft%20Simulation%20Framework.pdf).
 
 ## Speaking
 
