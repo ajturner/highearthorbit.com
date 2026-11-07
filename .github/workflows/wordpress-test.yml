@@ -1,6 +1,6 @@
 name: WordPress test
 
-# Publishes the content into a throwaway WordPress and checks every page type.
+# Publishes a sample of the content into a throwaway WordPress and checks every page type.
 # Runs only when the WordPress code or the publishing scripts change.
 on:
   pull_request:
@@ -9,6 +9,10 @@ on:
 
 permissions:
   contents: read
+
+concurrency:
+  group: wordpress-test-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   wordpress:

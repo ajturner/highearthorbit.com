@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Throwaway WordPress test: install WordPress on SQLite, load this repo's plugin
-# and theme, publish all content, and check that every page type renders.
+# and theme, publish a sample of the content, and check that every page type renders.
 # Used by CI on each pull request; also runs locally. Needs php (with pdo_sqlite), git, curl, python3.
 #
 # Usage: scripts/ci/wp-test.sh [workdir]
@@ -63,12 +63,14 @@ SERVER=$!
 trap 'kill $SERVER 2>/dev/null || true' EXIT
 for _ in $(seq 1 30); do curl -s -o /dev/null --noproxy '*' "$URL/" && break; sleep 0.5; done
 
-echo "::group::Publish content (all items, new items published)"
+echo "::group::Publish content (sample: the 25 newest articles and every other item)"
 cd "$REPO"
 export NO_PROXY="127.0.0.1,localhost" no_proxy="127.0.0.1,localhost"
-WP_URL="$URL" WP_USER=heo-sync WP_APP_PASSWORD="$APP_PASSWORD" HEO_NEW_STATUS=publish python3 -m scripts.heo.publish
+# The full archive (~1,000 posts) takes too long to publish twice per pull request.
+mapfile -t SAMPLE < <(ls content/_posts/* | sort | tail -25; ls content/_projects/*.md content/_talks/*.md content/_photos/*.md content/_external/*.md 2>/dev/null)
+WP_URL="$URL" WP_USER=heo-sync WP_APP_PASSWORD="$APP_PASSWORD" HEO_NEW_STATUS=publish python3 -m scripts.heo.publish "${SAMPLE[@]}"
 echo "Second run must change nothing:"
-WP_URL="$URL" WP_USER=heo-sync WP_APP_PASSWORD="$APP_PASSWORD" python3 -m scripts.heo.publish | tee "$WORK/second.txt"
+WP_URL="$URL" WP_USER=heo-sync WP_APP_PASSWORD="$APP_PASSWORD" python3 -m scripts.heo.publish "${SAMPLE[@]}" | tee "$WORK/second.txt"
 grep -q "unchanged" "$WORK/second.txt" && ! grep -qE "created|updated|adopted" "$WORK/second.txt"
 echo "::endgroup::"
 
