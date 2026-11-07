@@ -4,9 +4,12 @@ For every project with a `github: owner/repo` field, refresh its `synced` block
 (stars, language, description, homepage, last push, topics, archived).
 With --discover, also create hidden project files for your own public,
 non-fork repositories pushed within --days that no project file covers yet.
+With --pages, do the same for every public, non-fork repository that publishes a
+GitHub Pages site, whatever its age. New files are hidden until you review them.
+Repositories listed in _data/github_exclude.yml are never added.
 
 Environment: GITHUB_TOKEN (optional, raises the rate limit), GITHUB_USER (default ajturner)
-Usage: python -m scripts.heo.sync_github [--discover] [--days 365]
+Usage: python -m scripts.heo.sync_github [--discover] [--days 365] [--pages]
 """
 from __future__ import annotations
 
@@ -15,14 +18,27 @@ import datetime as dt
 import os
 import sys
 
-from .content import CONTENT, Item, iter_items, merge_synced, save, slugify
+import yaml
+
+from .content import CONTENT, DATA, Item, iter_items, merge_synced, save, slugify
 from .http import check, session
 
 API = "https://api.github.com"
 
 
+def pages_url(r: dict) -> str:
+    """Public URL of the repository's GitHub Pages site, or "" if it has none."""
+    if not r.get("has_pages"):
+        return ""
+    owner, name = r["full_name"].split("/")
+    if name.lower() in (f"{owner.lower()}.github.io", f"{owner.lower()}.github.com"):
+        return f"https://{owner.lower()}.github.io/"
+    return f"https://{owner.lower()}.github.io/{name}/"
+
+
 def repo_synced(r: dict) -> dict:
     return {
+        "pages_url": pages_url(r),
         "description": r.get("description") or "",
         "stars": r.get("stargazers_count", 0),
         "forks": r.get("forks_count", 0),
@@ -39,6 +55,7 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--discover", action="store_true")
     ap.add_argument("--days", type=int, default=365)
+    ap.add_argument("--pages", action="store_true", help="discover repositories with a GitHub Pages site")
     args = ap.parse_args(argv)
 
     headers = {"Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28"}
@@ -49,6 +66,11 @@ def main(argv: list[str] | None = None) -> int:
 
     projects = list(iter_items(["_projects"]))
     covered = {str(p.meta["github"]).lower() for p in projects if p.meta.get("github")}
+    # Repositories listed in _data/github_exclude.yml are never added.
+    exclude_file = DATA / "github_exclude.yml"
+    if exclude_file.exists():
+        data = yaml.safe_load(exclude_file.read_text()) or {}
+        covered |= {str(e["name"]).lower() for e in data.get("repos", []) if e.get("name")}
     updated = created = 0
 
     for item in projects:
@@ -63,7 +85,7 @@ def main(argv: list[str] | None = None) -> int:
         if save(item):
             updated += 1
 
-    if args.discover:
+    if args.discover or args.pages:
         cutoff = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=args.days)).isoformat()[:10]
         page = 1
         while True:
@@ -73,7 +95,8 @@ def main(argv: list[str] | None = None) -> int:
             for r in repos:
                 if r["fork"] or r["private"] or r["full_name"].lower() in covered:
                     continue
-                if (r.get("pushed_at") or "")[:10] < cutoff:
+                recent = args.discover and (r.get("pushed_at") or "")[:10] >= cutoff
+                if not (recent or (args.pages and r.get("has_pages"))):
                     continue
                 path = CONTENT / "_projects" / f"{slugify(r['name'])}.md"
                 if path.exists():
@@ -85,6 +108,7 @@ def main(argv: list[str] | None = None) -> int:
                 }, body="")
                 merge_synced(item, repo_synced(r))
                 save(item)
+                covered.add(r["full_name"].lower())
                 created += 1
             page += 1
 
