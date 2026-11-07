@@ -3,5 +3,5 @@
 <li>
   {% include kicker.html item=w %}
   <h3><a href="{{ href }}">{{ w.title }}</a>{% if w.collection == "external" %}<span class="badge" style="color:var(--accent)">External</span>{% endif %}{% if w.draft_badge %}<span class="badge">Draft</span>{% endif %}</h3>
-  {%- if w.summary %}<p class="summary">{{ w.summary }}</p>{% else %}<p class="summary">{{ w.excerpt | strip_html | normalize_whitespace | truncatewords: 40 }}</p>{% endif %}
+  {%- if w.summary %}<p class="summary">{{ w.summary | truncatewords: 40 }}</p>{% else %}<p class="summary">{{ w.excerpt | strip_html | normalize_whitespace | truncatewords: 40 }}</p>{% endif %}
 </li>
