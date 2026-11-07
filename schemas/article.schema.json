@@ -42,6 +42,10 @@
       "type": "integer",
       "description": "Existing WordPress post ID to adopt on first publish."
     },
+    "legacy_wp_id": {
+      "type": "integer",
+      "description": "Post ID in the WordPress database the 2004-2017 archive was exported from. Not an ID on the current site."
+    },
     "synced": {
       "type": "object",
       "description": "Written by sync jobs only."
