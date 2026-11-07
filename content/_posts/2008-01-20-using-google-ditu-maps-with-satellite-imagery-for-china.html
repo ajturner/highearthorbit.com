@@ -1,0 +1,24 @@
+---
+source_id: wp-996
+title: Using Google Ditu maps with Satellite imagery for China
+date: 2008-01-20 21:18:02 -0500
+categories:
+- Maps
+- Chinese
+- Mapstraction
+- OpenStreetMap
+tags:
+- openstreetmap googleditu googlemaps mapstraction erikwi
+wp_id: 996
+legacy_url: http://highearthorbit.com/using-google-ditu-maps-with-satellite-imagery-for-china/
+format: html
+---
+
+<p><a href="http://dret.typepad.com" title="dretblog">Erik Wilde</a> was <a href="http://dret.typepad.com/dretblog/2008/01/mapping-china.html" title="dretblog: Mapping China">pointing out the disparities between Google Maps and Google Ditu, or their Chinese version of maps</a>. However, Google Ditu doesn't have satellite imagery. </p>
+<p>There are several easy ways to fix this. The first was to look at the Ditu tiles, and confirm they are the same as Google's nominal tiling scheme. Which means you can add the China Street tiles as a simple GTileLayerOverlay with Google Maps standard satellite view underneath. This was incredibly easy with Mapstraction and I <a href="http://mapsomething.com/demo/mapstraction/china.html" title="China Map overlay using Mapstraction">put up a demo here</a>.</p>
+<p><a href="http://www.flickr.com/photos/ajturner/2208066242/" title="China Map overlay using Mapstraction by Andrew Turner, on Flickr"><img src="http://farm3.static.flickr.com/2322/2208066242_79666e5eb3.jpg" width="500" height="440" alt="China Map overlay using Mapstraction" /></a></p>
+<p>For bonus points I even added a <a href="http://spanring.eu/blog/2007/06/27/local-traffic-information/" title="Local traffic information &laquo; Austria, &Ouml;AMTC, Feed, GeoRSS, Interoperability, KML, Mobile, Syndication, Traffic information &laquo; Christian Spanring">Mapufacture syndicated feed</a> of Erik's venues for LocWeb2008 and nearby Wikipedia articles from Geonames. </p>
+<h3>The other way</h3><br />
+The terms of how mixing Google's various tiles together isn't clear.  So the other way to address his issue is to use the freely available data. </p>
+<p>Namely, <a href="http://www.openstreetmap.org/" title="OpenStreetMap">OpenStreetMap</a> for roads, <a href="http://openaerialmap.org/" title="A Free View of the World -- OpenAerialMap">OpenAerialMap</a> or other remote imagery, and run in OpenLayers. <a href="http://mapsomething.com/demo/mapstraction/china_osm.html#" title="China Map overlay using OSM, OAM, OL">Here is the same map done with open data and open source</a>. The resolution or completeness isn't there yet, but you can see where it's going and the ability to be use the information as you want is very appealing.</p>
+<p><a href="http://www.flickr.com/photos/ajturner/2208126616/" title="China Map overlay using OSM, OAM, OL by Andrew Turner, on Flickr"><img src="http://farm3.static.flickr.com/2091/2208126616_8226fee4a8.jpg" width="500" height="360" alt="China Map overlay using OSM, OAM, OL" /></a></p>

@@ -1,0 +1,9 @@
+# Order and headings for the Projects page. Each project's `era` must be one of these keys.
+- key: esri
+  label: Esri and ArcGIS Hub
+- key: civic
+  label: Civic projects
+- key: neogeography
+  label: Neogeography
+- key: aerospace
+  label: Aerospace

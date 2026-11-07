@@ -1,0 +1,40 @@
+---
+source_id: wp-755
+title: GeoRSS Location Collections?
+date: 2007-02-27 15:18:07 -0500
+categories:
+- Technology
+- GeoRSS
+- Neogeography
+wp_id: 755
+legacy_url: http://highearthorbit.com/georss-location-collections/
+format: html
+---
+
+<p>There is a discussion that crops up every once in awhile on the GeoRSS mailing list whether it is useful or appropriate to support 'multiple locations' in a single RSS item. </p>
+<p>For example, currently you can only embed a single point, line, or polygon in GeoRSS Simple: </p>
+<p><code></p>
+<pre>
+<georss:point>45.256 -71.92</georss:point><br />
+</pre><br />
+</code></p>
+<p>GML adds a bunch of features, but "location collection" still isn't one of them. </p>
+<p>What this means is, every item can have one, and only one, location. But what happens if you are, for example, writing about all of the hospitals in a city, or telling about your trip and a couple of hikes or cities you visited?</p>
+<p>I would like to see something along the lines of this as a <em>pseudo-example</em>:</p>
+<pre><code><br />
+<entry><br />
+     <title>Visiting New Zealand</title></p>
+<summary>We had a great time in
+<div id="Auckland">Auckland</a> and
+<div id="Hokitika">Hokitika</a>.</summary><br />
+     <georss:where><br />
+          <georss:point references="Auckland">-38.333332,176.00</georss:point><br />
+          <georss:point references="Hokitika">-42.709,170.97</georss:point><br />
+     <georss:where><br />
+</entry><br />
+</code></pre></p>
+<p>GeoRSS doesnt' currently support that type of functionality. The current solution is to put each of these locations in a separate item, but that isn't really coincident with the idea that you're writing a single 'item'. </p>
+<p>Another possible solution is to use Microformats within the post content to actually markup the locations or tracks, but that doesn't really solve the problem since Microformat adr and geo have a hard time specifying the associated content, and it definitely doesn't handle complex geometries like line or polygon. </p>
+<p>GeoRSS is an open-standard, it is live and changing, and open for discussion. However, like any decent standard it is built on what users want and use. And working with GeoPress, I've been constantly, and pleasantly, surprised what some people are using geoblogs for that I wouldn't have originally thought of.</p>
+<h3>SMS your vote in now</h3><br />
+So my question to you is, do you see a need for this type of functionality? What do you currently do? Or am I just chasing an arbitrary idea?</p>

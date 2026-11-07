@@ -1,0 +1,24 @@
+---
+source_id: wp-199
+title: Obtaining Lat/Lon of a City
+date: 2005-05-08 17:23:44 -0400
+categories:
+- Geolocation
+wp_id: 199
+legacy_url: http://highearthorbit.com/obtaining-latlon-of-a-city/
+format: html
+---
+
+<p><a href='http://brainoff.com/worldkit/geocoder/'>Geocoder</a> was developed by Mikel Maron at <a href='http://brainoff.com'>Worldkit</a>. It's an interface to <a href='http://geocoder.us/'>geocoder.us</a> that provides th e latitude/longitude of any city via a REST interface.</p>
+<p>What this means is, it's possible to send an HTTP query to the worldkit interface and receive the latitude and longitude via an RDF response. This is very slick for being able to get and plot lat/lon of a city given only it's name. I have already been doing this via large files from CAIDA on my own projects, but providing this REST interface may make it nicer to distribute on mobile platforms or quicker integrate into new projects/desktop apps.</p>
+<p>The interface is:<br />
+<code>http://brainoff.com/worldkit/geocoder/rest/?city=Northville,MI,US</code><br />
+followed by the response</p>
+<pre>
+   <rdf :RDF xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><br />
+     <geo:Point><br />
+         <geo:long>-83.43243<br />
+         <geo:lat>42.41729<br />
+        </geo><br />
+   </rdf><br />
+</pre></p>

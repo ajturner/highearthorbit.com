@@ -1,0 +1,39 @@
+---
+source_id: wp-1218
+title: CJK Fonts in OpenStreetMap tiles
+date: 2009-04-03 09:56:00 -0400
+categories:
+- OpenStreetMap
+tags:
+- osm
+- OpenStreetMap
+- neocartography
+- Howto
+wp_id: 1218
+legacy_url: http://highearthorbit.com/cjk-fonts-in-openstreetmap-tiles/
+format: html
+---
+
+<p><a href="/assets/uploads/2009/04/osm-thailand.png"><img src="/assets/uploads/2009/04/osm-thailand-tm.jpg" width="271" height="171" alt="OSM Thailand.png" style="float:right; padding-top:5px; padding-bottom:5px; padding-left:5px;" /></a> I spent many hours on Thursday configuring and installing <a href="http://wiki.openstreetmap.org/index.php/Mapnik" title="Mapnik - OpenStreetMap">OpenStreetMap tile rendering</a>, via Mapnik and mod_tile and at the very last step ran into a glaring issue: Japan, China, Korea, Thailand fonts (often referred to as <a href="http://en.wikipedia.org/wiki/CJK" title="CJK characters - Wikipedia, the free encyclopedia">CJK</a>) were just [] symbols instead of the appropriate characters.</p>
+<p>Out of the box, the OpenStreetMap style, <code>osm.xml</code>, doesn't have <em>fallback font</em> support. What this means is that when the default font, DejaVu Sans, is missing the specified character then Mapnik doesn't know where else to try to get the character. Mapnik has support for this, but for some reason the default OSM style or package doesn't include it.</p>
+<p>Thanks to the late-night help of <a href="http://www.ohloh.net/p/mapnik/contributors/21212843495116" title="mapnik Contributors - Dane Springmeyer - Ohloh">Dane Springmeyer</a> (and looking past the very bad April Fools joke of telling me Mapnik now has Ruby bindings and KML rendering support), I managed to get it working.</p>
+<h3>Steps to Reproduce</h3></p>
+<p>The solution is quite straight-forward, and I have added my notes to the <a href="http://wiki.openstreetmap.org/index.php/Mapnik" title="Mapnik - OpenStreetMap">OSM wiki on Mapnik</a>.</p>
+<ol>
+<li>Download the <a href="http://unifoundry.com/unifont.html" title="GNU Unifont Glyphs">GNU Unifont Glyphs</a>.</li>
+<li>Unpack and put the <code>ttf</code> file in your <code>/usr/local/lib/mapnik/fonts</code> (or appropriate path) directory with the other Mapnik fonts.</li>
+<li>Modify your <code>osm.xml</code>. Replace <code>face_name="DejaVu Sans Book"</code> with <code>fontset_name="DejaVu Sans Book"</code>.</li>
+<li>Underneat the <Map/> declaration, add the font set styling for fallback:
+<pre>
+<code><FontSet name="DejaVu Sans Book"><br />
+<Font face_name="DejaVu Sans Book" /><br />
+<Font face_name="unifont Medium" /><br />
+</FontSet><br />
+</code><br />
+</pre><br />
+  </li></p>
+<li>Repeat for <em>Bold</em> and <em>Oblique</em>.</li>
+<li>Delete your tile cache and re-render.</li><br />
+</ol></p>
+<p>You can view my <a href="http://gist.github.com/89744" title="gist: 89744 - GitHub">modified osm.xml here</a>.</p>
+<p>It is really impressive how well Mapnik and OpenStreetMap work together, and the simplicity of styling. The next step is to figure out how to add English names to all the local language renderings, so that someone can look at &times;&ordf;&Ouml;&micro;&Ouml;&frac14;&times;&oelig;&Ouml;&frac34;&times;&Ouml;&cedil;&times;&lsquo;&Ouml;&acute;&times;&trade;&times;&lsquo;-&times;&trade;&Ouml;&cedil;&times;&curren;&times;&bull;&Ouml;&sup1; and also recognize it as Tel-Aviv.</p>

@@ -1,0 +1,2 @@
+{%- comment -%} Posts and external articles merged, newest first. Sets `writing`. {%- endcomment -%}
+{%- assign writing = site.posts | concat: site.external | sort: "date" | reverse -%}

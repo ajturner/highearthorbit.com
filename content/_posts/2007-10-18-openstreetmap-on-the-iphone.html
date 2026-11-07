@@ -1,0 +1,17 @@
+---
+source_id: wp-968
+title: OpenStreetMap on the iPhone
+date: 2007-10-18 21:07:50 -0400
+categories:
+- Mobile
+- OpenStreetMap
+wp_id: 968
+legacy_url: http://highearthorbit.com/openstreetmap-on-the-iphone/
+format: html
+---
+
+<p><img src="http://farm3.static.flickr.com/2293/1622319811_95d7b58c94_m_d.jpg"  align="right" hspace="5px" vspace="5px" />Mikel was inspired to put free data on his iPhone - so he figured out how to<br />
+<a href="http://brainoff.com/weblog/2007/10/19/1271" title="Brain Off &raquo; OpenStreetMap on the iPhone!">use OpenStreetMap on his iPhone Maps Application</a>. </p>
+<p>We tried a number of methods - it should be as simple as changing the tile url that the Maps application queries. But initial "peeking" under the hood didn't reveal where <code>GMMServerURL</code> is set. In the meantime - Mikel ended up finding the tile cache sqlite database (you don't want to continually download tiles) and stuffing it with OSM tiles instead. So as far as the Maps application is concerned, its serving cached tiles. Pretty slick.</p>
+<p>As Mikel points out, there are some issues to resolve - tile sizes are different on the iPhone, so the zoom levels are off. That would be easy to verify by loading a KML file with markers. </p>
+<p>It's also a slightly sweet answer to Google's <a href="http://www.mgmaps.com/news.php?item=136">Cease &amp; Desist to MGMaps</a> for using the tiles. Mikel's "hack" shouldn't violate anything, he's just be very considerate to his data provider by pre-caching tiles that have amenable <abbr title="Terms of Service">TOS</abbr>. :)</p>

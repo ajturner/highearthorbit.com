@@ -1,0 +1,7 @@
+{%- assign p = include.item -%}
+<div class="card">
+  {% include kicker.html item=p %}
+  <h3><a href="{{ p.url }}">{{ p.title }}</a>{% if p.draft_badge %}<span class="badge">Draft</span>{% endif %}</h3>
+  {%- if p.summary %}<p class="summary">{{ p.summary }}</p>{% endif %}
+  {% include item-links.html item=p %}
+</div>

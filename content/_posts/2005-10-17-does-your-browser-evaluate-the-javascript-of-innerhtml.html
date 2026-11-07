@@ -1,0 +1,31 @@
+---
+source_id: wp-294
+title: Does your browser evaluate the Javascript of innerHTML?
+date: 2005-10-17 06:13:37 -0400
+categories:
+- Programming
+- Web
+- Javascript
+wp_id: 294
+legacy_url: http://highearthorbit.com/does-your-browser-evaluate-the-javascript-of-innerhtml/
+format: html
+---
+
+<p>While playing with some really slick asynchronous javascript stuff (no - not Ajax, there wasn't any XML involved), I ran into an odd behavior that varied between the several browsers.</p>
+<p>What I'm doing is passing back a table from an asynchronous call and placing it into a premade table elementId. The page supports interaction with either javascript, if enabled, or straight href links if javascript is not enabled.</p>
+<p>The problem occurs when my Async call returns a table with a <script> tag containing document.write() calls. </p>
+<blockquote>
+<pre>
+<div id="myelement"></div><br />
+<script><br />
+document.getElementById("myelement").innerHTML =<br />
+"</script><script> document.write('Hello');<br />
+< \/script>";<br />
+</script><br />
+</pre><br />
+</blockquote><br />
+Replace innerHTML with innerText and Safari renders the entire script source, Firefox & Camino ignore it.</p>
+<p>Hrm - so how to dynamically fill in script into the DOM of a page and have it executed?</p>
+<p>The DOM inspector in Firefox correctly shows the Javascript being part of the element, but since the parser has already gone through that element, evaluated the Javascript later in the page, then it doesn't seem to be re-executed.<br />
+<em>Update</em></p>
+<p>It seems as though there is promise in the <code>eval</code> function of Javascript. However, nothing seems apparent yet.</p>

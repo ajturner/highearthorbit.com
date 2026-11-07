@@ -1,0 +1,19 @@
+---
+source_id: wp-786
+title: open-uri and can't convert Hash into String
+date: 2007-03-19 00:03:06 -0400
+categories:
+- Programming
+- Ruby
+wp_id: 786
+legacy_url: http://highearthorbit.com/open-uri-and-cant-convert-hash-into-string/
+format: html
+---
+
+<p>I'm posting this in hopes that search engines grab it and put it at the top of their list when other poor soul's run into this problem.</p>
+<p>If you're trying to grab a web resource using <a href="http://www.ruby-doc.org/stdlib/libdoc/open-uri/rdoc/classes/OpenURI.html">Open-URI</a>, and you are using basic authentication (username/password) then you'll need to make sure to <code>require 'open-uri'</code> or you'll get:</p>
+<pre>
+open("http://example.com/site", :http_basic_authentication => ["username", "password"])<br />
+TypeError: can't convert Hash into String<br />
+</pre></p>
+<p>Of course, then you toss some yummy <a href="http://code.whytheluckystiff.net/hpricot/" title="Hpricot">Hpricot</a> into the mix for parsing/scraping the good bits of the HTML.</p>

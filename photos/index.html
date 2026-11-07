@@ -1,0 +1,12 @@
+---
+layout: default
+title: Photos
+---
+<div class="wrap">
+  <h1>Photos</h1>
+  <p class="lede">Albums from trips, mirrored from <a href="{{ site.heo.flickr_profile }}">Flickr</a>.</p>
+  <div class="grid cols-3">
+    {%- assign albums = site.photos | sort: "date" | reverse %}
+    {%- for a in albums %}{% include album-tile.html item=a h="h3" %}{% endfor %}
+  </div>
+</div>

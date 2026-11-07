@@ -1,0 +1,21 @@
+{%- comment -%} The small line above a title. Usage: include kicker.html item=doc {%- endcomment -%}
+{%- assign i = include.item -%}
+{%- assign parts = "" | split: "" -%}
+{%- case i.collection -%}
+{%- when "posts" -%}
+  {%- assign d = i.date | date: "%b %-d, %Y" -%}{%- assign parts = parts | push: d -%}
+  {%- if i.categories.size > 0 -%}{%- assign parts = parts | push: i.categories.first -%}{%- endif -%}
+{%- when "external" -%}
+  {%- assign d = i.date | date: "%b %-d, %Y" -%}{%- assign parts = parts | push: d | push: i.publication -%}
+{%- when "talks" -%}
+  {%- assign parts = parts | push: i.event -%}{%- assign y = i.date | date: "%Y" -%}{%- assign parts = parts | push: y -%}
+{%- when "projects" -%}
+  {%- assign parts = parts | push: i.era -%}
+  {%- if i.synced.language -%}{%- assign parts = parts | push: i.synced.language -%}{%- elsif i.year -%}{%- assign parts = parts | push: i.year -%}{%- endif -%}
+  {%- if i.synced.stars -%}{%- assign s = i.synced.stars | append: " stars" -%}{%- assign parts = parts | push: s -%}{%- endif -%}
+{%- when "photos" -%}
+  {%- if i.place -%}{%- assign parts = parts | push: i.place -%}{%- endif -%}
+  {%- if i.synced.count -%}{%- assign c = i.synced.count | append: " photos" -%}{%- assign parts = parts | push: c -%}{%- endif -%}
+{%- endcase -%}
+{%- assign parts = parts | compact -%}
+{%- if parts.size > 0 %}<p class="kicker{% if include.class %} {{ include.class }}{% endif %}">{{ parts | join: " · " }}</p>{% endif -%}

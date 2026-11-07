@@ -1,0 +1,50 @@
+name: Publish content
+
+# Publishes content/ to WordPress through the REST API when run.
+# Items whose stored hash matches are skipped, so a run only sends what changed.
+# New items are created with the status in the HEO_NEW_STATUS repository variable
+# (draft until you set it to "publish"); existing items keep their WordPress status.
+# Manual only while GitHub Pages is the staging site. To publish on every merge,
+# add back:  push: { branches: [master], paths: ["content/**"] }  and a nightly schedule.
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Report changes without writing"
+        type: boolean
+        default: false
+      force:
+        description: "Resend every item even if unchanged"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m scripts.heo.validate
+      - name: Publish
+        env:
+          WP_URL: ${{ vars.WP_URL || 'https://highearthorbit.com' }}
+          WP_USER: ${{ secrets.WP_USER }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+          HEO_NEW_STATUS: ${{ vars.HEO_NEW_STATUS || 'draft' }}
+        run: |
+          args=""
+          [ "${{ inputs.dry_run }}" = "true" ] && args="$args --dry-run"
+          [ "${{ inputs.force }}" = "true" ] && args="$args --force"
+          python -m scripts.heo.publish $args

@@ -1,0 +1,23 @@
+---
+source_id: wp-1263
+title: GeoCommons Open-Sourced Geocoder
+date: 2009-07-10 11:33:23 -0400
+categories:
+- Open-Source
+- Neogeography
+- OpenStreetMap
+tags:
+- Neogeography
+- OpenStreetMap
+wp_id: 1263
+legacy_url: http://highearthorbit.com/geocommons-open-sourced-geocoder/
+format: html
+---
+
+<p><a href="/assets/uploads/2009/07/200907101730.jpg"><img src="/assets/uploads/2009/07/200907101730-tm.jpg" width="300" height="174" alt="200907101730.jpg" style="float:right; padding-top:5px; padding-bottom:5px; padding-left:5px;" /></a>At <a href="http://www.stateofthemap.org/" title="State Of The Map 2009">State of the Map</a> today in Amsterdam I announced that we were open-sourcing our geocoder. You can get the LGPL-licensed code on <a href="http://github.com/geocommons/geocoder">GitHub</a> and also check out my <a href="http://www.slideshare.net/ajturner/geocommons-opensource-geocoder" title="GeoCommons Open-Source GeoCoder">lightning talk presentation</a> announcement on Slideshare.</p>
+<p>The geocoder was built as part of our FGDC CAP Grant to help <a href="http://www.fgdc.gov/grants/2009CAP/projects/G09AC00107">GeoEnable Government Tabular Data</a> and utilizes the free and open TIGER/Line street data as well as various address parsing and metaphone components for US level address parsing. Also, not everyone can call to a web-service, abide by the terms of service, or be limited by the speed and amount of geocoding queries.</p>
+<p>The reason we're open-sourcing it because primarily an open-source geocoder has been a sorely missing piece of the open-source geospatial stack. You have <a href="http://postgis.refractions.net/" title="PostGIS : Home">storage</a>, <a href="http://www.osor.eu/case_studies/sextante-a-geographic-information-system-for-the-spanish-region-of-extremadura">analysis</a>, <a href="http://modestmaps.com/">rendering</a>, geolocation, and even <a href="http://graphserver.sourceforge.net/" title="Graphserver - The Open-Source Multi-Modal Trip Planner">routing</a> - but not geocoding, at least not in an active project way. <a href="http://geocoder.us/" title="geocoder.us: a free US address geocoder">GeoCoder::US</a> has been around for a long-time and well built, in Perl, and despite it's long-standing solid service at geocoder.us, it didn't fit our needs.<br /></p>
+<p>So instead we worked closely with <a href="http://iconocla.st/" title="iconocla.st -- a weblog by Schuyler D. Erle">Schuyler Erle</a>, one of the original developers of GeoCoder::US, to rebuild it in a modular way (in fact he finished it once and promptly rebuilt it again), and also in a popular, modern language, Ruby(that we happen to use as well).</p>
+<p>We're also hoping to engage the community in building out the Geocoder. Right now it has components for the United States - but we hope that others will add components for their countries. <a href="http://www.openstreetmap.org/" title="OpenStreetMap">OpenStreetMap</a> is coming along very well with adding both ranged, and even parcel level, address data. So a good first task would be to build out an OpenStreetMap data importer.</p>
+<p>Feel free to check out the code on <a href="http://github.com/geocommons/geocoder">GitHub</a> - fork it, let us know what you're working on, any issues you run into, and how we can make the best, and open-source, geocoder out there. Look forward to more detailed posts on how we built it and how we're using it in <a href="http://www.geocommons.com/" title="GeoCommons">GeoCommons</a> and <a href="http://www.fortiusone.com/cloud">GeoIQ</a>.</p>
+<p>GEOPRESS_LOCATION(Amsterdam, Netherlands)</p>

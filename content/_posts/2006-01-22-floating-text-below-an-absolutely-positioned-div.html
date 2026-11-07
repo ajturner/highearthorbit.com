@@ -1,0 +1,39 @@
+---
+source_id: wp-355
+title: Floating text below an absolutely positioned div
+date: 2006-01-22 21:41:55 -0500
+categories:
+- Programming
+- Web
+- Howto
+wp_id: 355
+legacy_url: http://highearthorbit.com/floating-text-below-an-absolutely-positioned-div/
+format: html
+---
+
+<p>This is probably odd to most people, but for a project I had to put a caption below an image on a webpage. But I wanted the image to be fixed in position and the caption would automatically flow and remain centered no matter how long the string was. I knew the size of the image (original div) but not the text string.</p>
+<p><img src='http://highearthorbit.com/wp-images/CSSCaption.jpg' alt='CSS Caption' align='right' hspace='10px' vspace='10px'/>The trick lies in embedding the caption div within another div. Then the outer div should have a <code>left:</code> equal to half the image (or other div)'s width. The relevant CSS is:</p>
+<pre><code><br />
+outercaption {<br />
+	position: relative;<br />
+	left: 13px;<br />
+	}<br />
+.caption {<br />
+	text-align: center;<br />
+	position: relative;<br />
+	left: -50%;<br />
+	white-space: nowrap;<br />
+	}<br />
+</code></pre></p>
+<p>Which will work with this HTML code. </p>
+<pre><code></p>
+<div class="outer">
+<div class="imagecontainer">
+<div class="image"></div></p>
+<div class="outercaption">
+<div id="replaceCaption" class="caption">Short</div><br />
+		</div><br />
+	</div><br />
+</div><br />
+</code></pre></p>
+<p><a href='http://highearthorbit.com/projects/CSSTest.html'>Here is an example</a>. You can even put in your own text to see how it is dynamically sized. </p>

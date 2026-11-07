@@ -1,0 +1,24 @@
+---
+source_id: wp-95
+title: Firefox Extension getting website Meta
+date: 2004-11-23 19:40:02 -0500
+categories:
+- Programming
+wp_id: 95
+legacy_url: http://highearthorbit.com/?p=95
+format: html
+---
+
+<p>Aha! I *finally* figured out how to have my Firefox extension get the Meta tags from the current webpage:</p>
+<p><code><br />
+allMetas = window._content.document.getElementsByTagName("meta");</p>
+<p> for(var i = 0; i < allMetas.length; i++)<br />
+ {<br />
+        if(allMetas[i].name == "METATAG")<br />
+        {<br />
+                 // do something with METATAG<br />
+                 break;<br />
+        }<br />
+ }</p>
+<p></code></p>
+<p>THAT was annoying. Now I can finally finish up the ICBM/geo.position firefox extension.</p>

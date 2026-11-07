@@ -1,0 +1,70 @@
+/*
+Theme Name: High Earth Orbit
+Theme URI: https://highearthorbit.com
+Author: Andrew Turner
+Description: Block theme for highearthorbit.com: writing, projects, talks and photos. Deployed from the highearthorbit-content repository.
+Requires at least: 6.9
+Requires PHP: 8.1
+Version: 1.0.0
+License: GPL-2.0-or-later
+Text Domain: heo
+*/
+
+/* Small uppercase line above titles: dates, events, eras. */
+.heo-kicker {
+	font-family: var(--wp--preset--font-family--mono);
+	font-size: 0.8125rem;
+	letter-spacing: 0.04em;
+	color: var(--wp--preset--color--muted);
+	margin: 0;
+}
+.heo-kicker.is-accent { color: var(--wp--preset--color--accent); font-weight: 500; }
+.heo-kicker.is-warm { color: var(--wp--preset--color--warm); font-weight: 500; }
+
+/* Cards used for projects and asides. */
+.heo-card {
+	background: var(--wp--preset--color--surface);
+	border: 1px solid var(--wp--preset--color--rule);
+	border-radius: 6px;
+	padding: 1.5rem;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+/* A list of entries separated by rules. */
+.heo-list .wp-block-post { border-top: 1px solid var(--wp--preset--color--rule); padding-block: 1.25rem; }
+.heo-list .wp-block-post-title { margin-block: 0.25rem; }
+.heo-list .wp-block-post-excerpt__excerpt { margin: 0; }
+
+.heo-section-head { align-items: baseline; }
+
+/* Video embed, 16:9. */
+.heo-video { position: relative; aspect-ratio: 16 / 9; background: #1E2329; border-radius: 6px; overflow: hidden; }
+.heo-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* Links under a project or talk. */
+.heo-item-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; font-size: 0.875rem; margin: 0; }
+
+/* Album cover tiles and the album photo grid. */
+.heo-cover img { aspect-ratio: 1 / 1; object-fit: cover; width: 100%; border-radius: 6px; background: var(--wp--preset--color--placeholder); }
+.heo-photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.75rem; }
+.heo-photo-grid figure { margin: 0; }
+.heo-photo-grid img { width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; display: block; }
+.heo-photo-credit { font-size: 0.875rem; }
+
+/* Headshot. */
+.heo-headshot img { border-radius: 6px; aspect-ratio: 4 / 5; object-fit: cover; }
+
+/* Rules above and below the header and the Now strip. */
+.heo-header { border-bottom: 1px solid var(--wp--preset--color--rule); }
+.heo-footer { border-top: 1px solid var(--wp--preset--color--rule); }
+
+/* Larger intro paragraph. */
+.heo-lede { font-size: 1.125rem; color: var(--wp--preset--color--body); max-width: 42rem; }
+.heo-summary { color: var(--wp--preset--color--body); margin: 0; }
+
+/* Titles and summaries inside cards and lists stay compact. */
+.heo-card .wp-block-post-title, .heo-list .wp-block-post-title { font-size: var(--wp--preset--font-size--large); }
+.heo-list h4.wp-block-post-title { font-size: 1.0625rem; }
+.heo-card .heo-summary { font-size: 0.9375rem; }
+.heo-card .heo-kicker { font-size: 0.75rem; }

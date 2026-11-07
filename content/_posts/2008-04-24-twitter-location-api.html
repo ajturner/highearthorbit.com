@@ -1,0 +1,27 @@
+---
+source_id: wp-1021
+title: Twitter Location API
+date: 2008-04-24 10:05:58 -0400
+categories:
+- Geolocation
+tags:
+- FireEagle
+- Geolocation
+- twitter
+wp_id: 1021
+legacy_url: http://highearthorbit.com/twitter-location-api/
+format: html
+---
+
+<p><a href="http://www.sarver.org/" title="Sarver.org*">Ryan Sarver</a> <a href="http://www.sarver.org/2008/04/23/twitter-adds-profile-geolocation-api/" title="Twitter Adds Profile Geolocation API | Sarver.org*">shares the info on Twitter's new location API</a>. Looks really simple, and really nice. </p>
+<p><code><br />
+curl -u USERNAME:PASSWORD -d location="Arlington, VA" http://twitter.com/account/update_location.json<br />
+</code></p>
+<p>You can even use GET, which means bookmarkable location settings (similar to FireEagle)</p>
+<p><code><br />
+http://username:password@twitter.com/account/update_location.xml?location=Paris,+France<br />
+</code></p>
+<p>There has been a number of <a href="http://highearthorbit.com/geo-twittering/" title="Geo Twittering  ::  High Earth Orbit">GeoTwitter</a> clients and applications show up. And a lot of <a href="http://lists.burri.to/pipermail/geowanking/2008-April/005121.html" title="[Geowanking] Locational Twittering">discussion</a> on alternate <a href="http://microformats.org/wiki/picoformats" title="picoformats - Microformats">picoformats</a> for location markup.</p>
+<p>By extracting this away to Twitter proper, it means any application can set this information how they want, and have it updated in the user's profile. One thing that is lost is the 'home' location of that user as their profile potentially becomes very temporal.</p>
+<p><a href="http://highearthorbit.com/fireeagle/" title="FireEagle Officially Launched  ::  High Earth Orbit">FireEagle</a> as the central store is a good option, however it is just one location store and Twitter's location will no doubt serve as the centralized location store for a number of new applications. As more social or personal applications gain location storing and sharing support, there is a question of how synchronization between these services will easily happen.</p>
+<p>I don't want to have to set my location in multiple services. This is the same <a href="http://factoryjoe.com/blog/2006/08/23/magnolicious/" title="Ma.gnol.icio.us | FactoryCity">problem</a> that troubles social bookmarking sites such as <a href="http://del.icio.us/nilspace">del.icio.us</a> and magnolia. This may become especially problematic if there were automatic updating services that detected a change in FireEagle and then updated your Twitter location, and vice versa - which then updates FireEagle from Twitter. Perhaps causing an implosion of the GeoWeb. </p>

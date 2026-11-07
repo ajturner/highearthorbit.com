@@ -1,0 +1,19 @@
+---
+layout: default
+title: Talks
+---
+<div class="narrow">
+  <h1>Talks</h1>
+  <p class="lede">Recorded talks and slides. The full <a href="https://www.youtube.com/playlist?list=PLJN4HgE09_NTKB8WYsGL8_1AIPfu0eemF">YouTube playlist</a> has more.</p>
+  <ul class="list">
+    {%- assign talks = site.talks | sort: "date" | reverse %}
+    {%- for t in talks %}
+    <li>
+      {% include kicker.html item=t %}
+      <h3><a href="{{ t.url }}">{{ t.title }}</a>{% if t.draft_badge %}<span class="badge">Draft</span>{% endif %}</h3>
+      {%- if t.summary %}<p class="summary">{{ t.summary }}</p>{% endif %}
+      {% include item-links.html item=t %}
+    </li>
+    {%- endfor %}
+  </ul>
+</div>
