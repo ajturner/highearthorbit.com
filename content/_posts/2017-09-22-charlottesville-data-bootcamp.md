@@ -9,6 +9,8 @@ tags:
 - Government
 banner: https://farm5.staticflickr.com/4388/36565206074_55fd4fa215_k_d.jpg
 format: markdown
+wp_id: 62
+legacy_url: https://highearthorbit.com/articles/charlottesville-data-bootcamp/
 ---
 
 It was my pleasure to present at the Charlottesville Data Bootcamp this Friday. The town just recently launched their [open data site](http://opendata.charlottesville.org/) and were eager to teach the community about what was available and hear feedback and ideas on what could be improved and extended. 

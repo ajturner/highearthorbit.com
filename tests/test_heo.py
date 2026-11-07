@@ -85,3 +85,10 @@ def test_only_synced_detects_curated_changes(tmp_path, monkeypatch):
     f.write_text("---\nsource_id: project:a\ntitle: A renamed\nera: civic\nsynced:\n  stars: 2\n---\n")
     run("git", "-c", "user.name=t", "-c", "user.email=t@t", "commit", "-qam", "title")
     assert only_synced.main(["main", "sync"]) == 1
+
+
+def test_import_cleans_wordpress_slugs():
+    from scripts.heo.import_wordpress import clean_slug, norm_title
+    assert clean_slug("professional-civic-engineering%ef%bf%bc") == "professional-civic-engineering"
+    assert clean_slug("2012") == "2012"
+    assert norm_title("CrisisCommons &amp; Congress") == norm_title("crisiscommons & congress")
