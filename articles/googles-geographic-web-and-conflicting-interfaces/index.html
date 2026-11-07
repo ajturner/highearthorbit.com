@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>Google's 'Geographic Web' and conflicting interfaces · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/googles-geographic-web-and-conflicting-interfaces/">
+  <meta property="og:title" content="Google's 'Geographic Web' and conflicting interfaces">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/googles-geographic-web-and-conflicting-interfaces/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Dec 12, 2006 · Google</p>
+  <h1>Google's 'Geographic Web' and conflicting interfaces</h1>
+  <div class="prose">
+    <p><a href="http://radar.oreilly.com/archives/2006/12/googles_geograp.html" title="O'Reilly Radar: Google's Geographic Layer Permalink">Brady points out on O'Reilly Radar</a> some of the new layers in GoogleEarth. Most interesting though is his recap of feedback from Flickr's Dan Catt on why Google isn't currently displaying Flickr photos (despite perhaps the obvious that (Flickr! < Yahoo!) != Google).  </p>
+<p>His claim is that they take their bounding box parameters in different order: bbox=x1,y1,x2,y2. vs. box=x1,y1,x2,y2. However, based on my research of the API's, they look comparable. For example, Google Earth's <a href="http://earth.google.com/kml/kml_tut.html#refresh_queries" title="KML Tutorial: refresh queries">view based refresh</a> will do a bounding box request: </p>
+<p>  <code>longitude_west, latitude_south, longitude_east, latitude_north</code></p>
+<p>and the Flickr <a href="http://www.flickr.com/services/api/flickr.photos.search.html" title="Flickr API: search">photo search expects</a> the following BBox:</p>
+<p> <code>minimum_longitude, minimum_latitude, maximum_longitude, maximum_latitude</code></p>
+<p>You can see that <code>minimum_longitude</code> is the same parameter as <code>longitude_west</code>, and so on. So I'm not sure why Dan Catt uses that as his explanation that the parameters don't line up. </p>
+<p>However, as Brady points out, what would really help everyone is if the services all spoke common languages, like Flickr outputting KML, or GoogleEarth consuming GeoRSS (since Flickr can output GeoRSS). My money would be on the latter, since there seems less impetus for a company like Flickr/Yahoo to export their data in a proprietary format. </p>
+<p>Of course, the translation between the two formats, especially for basic geometry such as points, is trivial, so implementing both on both sides, or simple conversion utilities in the middle, would be straight-forward. </p>
+<h3>Extra Credit</h3><br />
+For extra credit, implement said conversion utility to convert KML <=> GeoRSS using XSLT, or other language of your choice.</p>
+<p>There are also various other Flickr/GoogleEarth utilities out there like <a href="http://www.beaugunderson.com/flickr/">displaying grids of  the # of Flickr images</a> in GoogleEarth. </p>
+<h3>Pleasant Surprise</h3><br />
+While researching parts of this post, I found a new Flickr API method that I didn't know existed before:</p>
+<p><a href="http://www.flickr.com/services/api/flickr.photos.getWithGeoData.html">flickr.photos.getWithGeoData</a>  - "Returns a list of your geo-tagged photos." However, you can't do a search within this set other than by date. But at least now you can pull up a trail of your travels based on your photos. </p>
+<p>"Where were you on the night of the 13th?!"</p>
+<p>In the past, when using my Feed URL to get geotagged photos, I just made sure that photos had a tag "geotagged" and then grabbed all the photos with that tag. </p>
+
+  </div>
+  <p class="terms">Google · GeoRSS · Neogeography</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/links-for-2006-12-12/">← links for 2006-12-12</a></span>
+    <span><a href="/highearthorbit.com/articles/links-for-2006-12-13/">links for 2006-12-13 →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

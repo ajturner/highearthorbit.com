@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>Making your Rails project setup easier · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/making-your-rails-project-setup-easier/">
+  <meta property="og:title" content="Making your Rails project setup easier">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/making-your-rails-project-setup-easier/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Jul 27, 2006 · Programming</p>
+  <h1>Making your Rails project setup easier</h1>
+  <div class="prose">
+    <p><a href='http://www.lukeredpath.co.uk' title='Luke Redpath blog'>Luke Redpath</a> has come up with a brilliant, and simple solution for having to install a large set of standard Rails plugins with each new Rails project.  <a href='http://www.lukeredpath.co.uk/index.php/2006/07/27/install-your-favorite-rails-plugins-easily-with-rails-plugin-packs/'>Rails Plugin Packs&acirc;&bdquo;&cent;</a> is a YAML file defined set of plugins that his Plugin will then go through and install.</p>
+<p>Therefore, you can build up your set of Location based plugins, such as:</p>
+<ul>
+<li><a href='http://thepochisuperstarmegashow.com/ProjectsDoc/ym4r_mapstraction-doc/'>YM4R Mapstraction</a> </li>
+<li><a href='http://rubyforge.org/projects/georuby/'>Georuby</a></li>
+<li><a href='http://dev.robotcoop.com/Libraries/'>Yahoo Geocoder and Search</a></li>
+<li><a href='http://dev.robotcoop.com/Libraries/metacarta-geoparser/'>Metacarta Geoparser</a></li><br />
+</ul></p>
+<h2>Plugin Packs</h2></p>
+<pre><code><br />
+about:<br />
+  name: Mapping Pack<br />
+  description: A set of mapping and geocoding plugins<br />
+  author: Andrew Turner<br />
+  email: rails@highearthorbit.com<br />
+  website: http://www.highearthorbit.com<br />
+plugins:<br />
+  ym4r_mapstraction:<br />
+    source: svn://rubyforge.org/var/svn/ym4r/Plugins/Mapstraction/trunk/ym4r_mapstraction<br />
+  GeoRuby:<br />
+    source:<br />
+  metacarta-geoparser:<br />
+    source: http://opensource.agileevolved.com/svn/root/rails_plugins/unobtrusive_javascript/tags/rel-0.1<br />
+  yahoo-geocode:<br />
+    source: http://opensource.agileevolved.com/svn/root/rails_plugins/navigation_mappings/trunk<br />
+</code></pre></p>
+<pre><code><br />
+about:<br />
+  name: User site<br />
+  description: Plugins for a standard site with users for authentication and basic cms<br />
+  author: Andrew Turner<br />
+  email: rails@highearthorbit.com<br />
+  website: http://www.highearthorbit.com<br />
+plugins:<br />
+  acts_as_authenticated:<br />
+    source: http://svn.techno-weenie.net/projects/plugins/acts_as_authenticated<br />
+  comatose:<br />
+    source: http://mattmccray.com/svn/rails/plugins<br />
+</code></pre></p>
+
+  </div>
+  <p class="terms">Programming · Ruby · Rails</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/ruby-and-mapstraction/">← Ruby and Mapstraction</a></span>
+    <span><a href="/highearthorbit.com/articles/google-hosting/">Google Hosting →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

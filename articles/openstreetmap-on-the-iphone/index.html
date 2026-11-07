@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>OpenStreetMap on the iPhone · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/openstreetmap-on-the-iphone/">
+  <meta property="og:title" content="OpenStreetMap on the iPhone">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/openstreetmap-on-the-iphone/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Oct 18, 2007 · Mobile</p>
+  <h1>OpenStreetMap on the iPhone</h1>
+  <div class="prose">
+    <p><img src="http://farm3.static.flickr.com/2293/1622319811_95d7b58c94_m_d.jpg"  align="right" hspace="5px" vspace="5px" />Mikel was inspired to put free data on his iPhone - so he figured out how to<br />
+<a href="http://brainoff.com/weblog/2007/10/19/1271" title="Brain Off &raquo; OpenStreetMap on the iPhone!">use OpenStreetMap on his iPhone Maps Application</a>. </p>
+<p>We tried a number of methods - it should be as simple as changing the tile url that the Maps application queries. But initial "peeking" under the hood didn't reveal where <code>GMMServerURL</code> is set. In the meantime - Mikel ended up finding the tile cache sqlite database (you don't want to continually download tiles) and stuffing it with OSM tiles instead. So as far as the Maps application is concerned, its serving cached tiles. Pretty slick.</p>
+<p>As Mikel points out, there are some issues to resolve - tile sizes are different on the iPhone, so the zoom levels are off. That would be easy to verify by loading a KML file with markers. </p>
+<p>It's also a slightly sweet answer to Google's <a href="http://www.mgmaps.com/news.php?item=136">Cease &amp; Desist to MGMaps</a> for using the tiles. Mikel's "hack" shouldn't violate anything, he's just be very considerate to his data provider by pre-caching tiles that have amenable <abbr title="Terms of Service">TOS</abbr>. :)</p>
+
+  </div>
+  <p class="terms">Mobile · OpenStreetMap</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/how-do-you-handle-unknown-state-of-lost-email/">← How do you handle unknown state of lost email?</a></span>
+    <span><a href="/highearthorbit.com/articles/arbcamp-unconferences-and-the-appropriate-uses-of-a-community-brand/">ArbCamp, Unconferences, and the appropriate uses of a Community Brand →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

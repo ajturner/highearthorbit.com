@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>Developing websites and web applications in a proper dev environments · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/developing-websites-in-a-proper-dev-environments/">
+  <meta property="og:title" content="Developing websites and web applications in a proper dev environments">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/developing-websites-in-a-proper-dev-environments/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Apr 18, 2006 · Programming</p>
+  <h1>Developing websites and web applications in a proper dev environments</h1>
+  <div class="prose">
+    <p>When developing a website using <a href='http://ajaxian.com'>Ajax</a>, Javascript, and DOM manipulation, debugging is often relegated to just hitting <em>Refresh</em> to see <em>if it worked</em>. Your node doesn't update, something times out, and you're not sure what caused it. Putting in <code>alert()</code> everywhere has gotten you tired of hitting <em>enter</em> a hundred times on every page refresh. </p>
+<p>Enter some really nice web application development tools. Most of these use <a href='http://www.mozilla.com/firefox/'>Firefox</a>, and modify the <em>user</em>-centric application into a <em>developer</em>'s tool. </p>
+<p>The <a href='http://chrispederick.com/work/webdeveloper/'>Web Developer Firefox Extension</a> is probably the most well known/common. It adds a toolbar that allows you to quickly and easily inspect a webpage's layout, disable cookies, view source, modify the css on the fly, or do browser teting. It's indispensable for developing your own site's layout as well as understanding how other site layouts are handled. </p>
+<p>Firefox comes with the <a href='http://www.mozilla.org/projects/inspector/'>DOM Inspector</a>, which is a separate window you can pull up to select and inspect DOM elements of a page, traverse the tree, and dynamically change node attributes and values. This is nice if you want to check out what the class or ID is of a page element, especially with dynamically added elements (i.e. via Javascript) where they aren't visible in the page's source. </p>
+<p>For checking CSS errors, Javascript errors, and POST/GET requests returned to your browser, check out <a href='http://www.joehewitt.com/software/firebug/'>Firebug</a> (via <a href='http://times.usefulinc.com/2006/01/22-firebug'>Behind the Times</a>). It sits in the bottom menu-bar of Firefox and shows a counter of errors on a per-page basis (rather than the Javascript Debugger which is built into Firefox, which shows all errors received to the entire Firefox application, not just the current page). Firebug is very useful for watching incoming Ajax requests. Just be careful, this can eat up a lot of memory when left active on sites with lots of errors (e.g. <a href='http://gmail.com'>GMail</a>, which typically runs up in the thousands of errors very quickly)</p>
+<p>Even heavier application development and debugging may lead you to the <a href='http://www.mozilla.org/projects/venkman/'>Venkman Javascript Debugger</a>. It is a full Javascript development and debugging environment where you can pull up all of the javascript files, view variables, set breakpoints, run an interactive console, etc. It's pretty big and complex, so you probably want to check out tutorials like <a href='http://www.svendtofte.com/code/learning_venkman/'>Learning Venkman</a>.</p>
+<p>The last tool is not Firefox specific, but is a special build of Apple's Safari and KHTML engine which provides a very nice DOM inspector: <a href='http://webkit.opendarwin.org/blog/?p=41'>Safari/Webkit Web Inspector</a>.</p>
+<p>Happy debugging!</p>
+
+  </div>
+  <p class="terms">Programming · Web · Javascript</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/cloning-is-the-sincerest-form-of/">← Cloning is the sincerest form of...</a></span>
+    <span><a href="/highearthorbit.com/articles/google-calendar-api/">Google Calendar API →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

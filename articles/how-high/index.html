@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>How high? · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/how-high/">
+  <meta property="og:title" content="How high?">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/how-high/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Jun 12, 2007 · Engineering</p>
+  <h1>How high?</h1>
+  <div class="prose">
+    <p>Ever need to know the altitude at a given location on the Earth?</p>
+<p>Well, there are several free resources to the rescue:</p>
+<p>EarthTools has a <a href="http://www.earthtools.org/webservices.htm#height" title="EarthTools Webservices: Height">webservice</a> that covers the US and Europe using the <abbr title="Shuttle Radar Topography Mission">SRTM</abbr> data. Given a latitude/longitude it returns the height above sea-level in feet and meters. (found from <a href="http://quakr.blogspot.com/" title="Quakr blog">Quakr Viewr</a>)</p>
+<p>Geonames offers <a href="http://www.geonames.org/export/" title="Geonames Export">two services</a> using the SRTM data, and also the GTOPO30 from the USGS. Geonames gets bonus points for also returning the results in JSON. Geonames also uses a larger dataset - lands within 60 degrees north and 56 degrees south.</p>
+<p>As "points" become rather ubiquitous among neogeographers/web-mappers, they're moving into more complex geometries and especially 3D space. Having access to data means it is very easy to tie into services and applications. For example, making a hiking profile given just 2-d ground waypoints.</p>
+<p>You can <a href="http://www2.jpl.nasa.gov/srtm/cbanddataproducts.html">download the data</a> yourself to do whatever you want with it. Perhaps make yourself a very cool, high-res 3D model of the earth. </p>
+<p>It's not clear how accurate the data is. The reports seem to say within 9m vertical accuracy. But I assume this is measuring the "surface" that the Shuttle saw - so that would include roof tops. But with smoothing/filtering, would this be washed out to represent an average 'ground height'?</p>
+
+  </div>
+  <p class="terms">Engineering · Neogeography</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/neogeography-on-the-radio/">← Neogeography on the Radio</a></span>
+    <span><a href="/highearthorbit.com/articles/mapquest-support-in-mapstraction/">MapQuest support in Mapstraction →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

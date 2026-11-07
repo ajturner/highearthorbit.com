@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>Exiftool is easy to use · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/exiftool-is-easy-to-use/">
+  <meta property="og:title" content="Exiftool is easy to use">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/exiftool-is-easy-to-use/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Jan 30, 2005 · Programming</p>
+  <h1>Exiftool is easy to use</h1>
+  <div class="prose">
+    <p><a href='http://owl.phy.queensu.ca/~phil/exiftool/'>Exiftool</a> is a very easy to use, complete, command-line interface to image EXIF data. It also (and especially) works with GPS data and tiff files.</p>
+<p>For instance, to view the filename, size and latitude of an image:<br />
+<code>exiftool -filename -imagesize -gps:GPSLatitude IMGP0737.tif </code></p>
+<p>To set the new latitude of an image:<br />
+<code><del>exiftool -gps:GPSLatitude="52 deg 47' 22.5894" IMGP0737.tif </del></p>
+<p>I read the <a href='http://www.exif.org/specifications.html'>Exif 2.2 spec</a> (ya know, light reading), and realized that I was formatting the GPS info tag incorrectly. Exiftool formats the correct version to look pretty (and as above). However, the official spec states that the latitude and longitude info should be <em>dd,mm,ss</em> or <em>dd,mmmm</em> and then the North/South and East/West specified in the GPSLatitudeRef and GPSLongitudeRef as N/S, or E/W.  Therefore, the correct format is:</p>
+<p><code>exiftool -GPSMapDatum="WGS-84" -gps:GPSLatitude="34,57,57" -gps:GPSLatitudeRef="N" -gps:GPSLongitude="83,17,59" -gps:GPSLongitudeRef="W" -gps:GPSAltitudeRef="0" -GPSAltitude=1426 -gps:GPSMeasureMode=2  -City="RabunBald" -State="North Carolina" -Country="USA" ~/Desktop/RabunBaldSummit_NC.jpg</code></code></p>
+
+  </div>
+  <p class="terms">Programming · Geolocation · Linux</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/snowshoe-cass-benton-park/">← Snowshoe - Cass Benton Park</a></span>
+    <span><a href="/highearthorbit.com/articles/detroit-beer-company/">Detroit Beer Company →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

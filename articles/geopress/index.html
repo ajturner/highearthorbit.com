@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>GeoPress · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/geopress/">
+  <meta property="og:title" content="GeoPress">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/geopress/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Sep 20, 2006 · Maps</p>
+  <h1>GeoPress</h1>
+  <div class="prose">
+    <p><a href="/highearthorbit.com/assets/uploads/2006/09/geopressexample.PNG" title="GeoPress example"><img src="/highearthorbit.com/assets/uploads/2006/09/geopressexample.thumbnail.PNG" align="right" hspace="5px" vspace="5px"/></a><br />
+<a href='http://radar.oreilly.com/archives/2006/09/geopress_adds_maps_to_wordpres.html' title="O'Reilly Radar: GeoPress adds maps to wordpress">O'Reilly Radar</a> was the first to announce the <em>release</em> of <a href="http://www.georss.org/geopress" title="GeoPress homepage">GeoPress</a>, a WordPress blog engine plugin that allows you to easily add location to blog posts, embed dynamic maps, and add <a href="http://georss.org" title="GeoRSS homepage">GeoRSS</a> encoding to your RSS output. </p>
+<p>There have been other geo plugins before. However, they usually required you to make your own modifications to your template and provided a fairly arcane interface. The goal of GeoPress was to make adding location as simple as possible. Once you install GeoPress (copy and unzip to a <code>wp-content/plugins/geopress</code> directory on your WordPress site), and activate it (on the plugins panel), your configuration is done. Then go to write a blog post and you'll see a new area with a map and boxes underneath the post.</p>
+<p>You can enter an address, or a city, or just a country, or even click on the map to set the location. You can then add a name which will be saved and can later be used for quick reuse. If you want to insert a map into your post, just type INSERT_.MAP somewhere in your post. You can also use INSERT_.ADDRESS and INSERT_.COORDS, which will insert the address and coordinates, in appropriate adr and geo Microformats. Since GeoPress uses <a href="http://mapstraction.com" title="Mapstraction">Mapstraction</a>, you can switch between displaying Yahoo, Google, or Microsoft maps with just a quick select in your settings. </p>
+<p>There are also some PHP functions for modifying your template to embed maps or post locations. Using <code>geopress_map()</code> you can embed a map of all your locations. <code>the_address()</code> can be used in your post metadata to always automatically output something like "this post was written by Bob from Waikiki, Hawaii". </p>
+<p>Lastly, the part that will be most useful in the future, is that the locations your write about will be embedded as GeoRSS in your RSS feeds. Aggregators like <a href="http://mapufacture.com" title="Mapufacture">Mapufacture</a> or <a href="http://fofredux.sf.net" title="FoFRedux">FoFRedux</a> will now be able to aggregate your geographic data and allow others to easily find interesting places, and build mashups. </p>
+<p>Please let me know what you think!</p>
+
+  </div>
+  <p class="terms">Maps · Project · GeoRSS · GeoPress</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/links-for-2006-09-20/">← links for 2006-09-20</a></span>
+    <span><a href="/highearthorbit.com/articles/links-for-2006-09-22/">links for 2006-09-22 →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

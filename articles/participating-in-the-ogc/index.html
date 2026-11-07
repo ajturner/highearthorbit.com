@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>Participating in the OGC · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/participating-in-the-ogc/">
+  <meta property="og:title" content="Participating in the OGC">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/participating-in-the-ogc/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Jul 31, 2007 · Standards</p>
+  <h1>Participating in the OGC</h1>
+  <div class="prose">
+    <p>If you're involved with geospatial technology, you've probably at least heard of <em>the OGC</em>. The <a href="http://opengeospatial.org" title="OGC homepage">OGC, Open Geospatial Consortium,</a> is a standards organization that guides, stabilizes, and supports geospatial formats. It's like the W3C for maps. They're responsible for formats like WMS, WFS, GML, et al. </p>
+<p>I give this introduction because if you're a <a href="http://oreilly.com/catalog/neogeography" title="Introduction to Neogeography" rel="me">neogeographer</a>, or somehow ancillary to <em>traditional</em> GIS, then you may not really know what the OGC does or how it operates. From my experience, and the crowds I hang out in, the OGC is a mysterious entity that rains down schemas and complex formats. One major problem, in my opinion, of the OGC is that it requires membership to join or participate, and sometimes to even view working documents, and <a href="http://www.opengeospatial.org/ogc/join" title="Join the OGC">membership requires sums of money</a> (amount depending on the size of your organization). So if you use geospatial standards, but not heavily invested in formulating new ones, you're kind of left out in the cold to wait and see what emerges from these 'smoke filled rooms'.</p>
+<p>Therefore, it was interesting to see that <a href="http://google.com" title="Google Homepage">Google</a> decided to 'open' the <a href="http://code.google.com/apis/kml" title="Google KML documentation">KML</a> format by submitting it to OGC for standardization and further development. By moving the format outside of itself, Google assumedly hopes to gain broader acceptance of the format so that other companies and software feel more comfortable implementing KML and also possibly guiding its future development. </p>
+<h3>Organizing Geospatial Committees</h3><br />
+OGC itself is really just an administrative organization. By itself the OGC doesn't actually develop and implement standards. Instead, it coordinates the activities of companies and developers to do this. Technical Committees (TC) are formed from OGC Member organizations that meet regularly to discuss the standards, and then develop <em>reference implementations</em> of these standards. For fairly stable formats, such as <a href="http://www.opengeospatial.org/standards/gml" title="OGC Geography Markup Language">GML</a>, this is done incrementally. </p>
+<p>However, when a sponsoring organization (OGC member that pays a lot of money) has a particular task they would like completed, a Testbed is formed that will more quickly, and focused, develop aspects of a standard. This is the case with Google and KML. They would like the OGC to quickly discuss and adopt KML and move forward on future directions that KML will take. And then they would like several organizations to develop example, or reference, implementations of KML for publishing and consuming to exercise the standard (and find any little bugs along the way). </p>
+<p>The OGC lumps several of these tasks together into a larger OGC Web Services Testbed, or OWS. The newest one is the <a href="http://www.opengeospatial.org/standards/requests/40" title="OGC Web Services, Phase 5 (OWS-5) Request For Quotation and Call For Participation">OWS-5 testbed</a>, that involves several 'threads', one of which is "Agile Geography". It is this thread that includes the task to adopt and advance KML. </p>
+<p><a href="http://www.rajsingh.org" title="Raj Singh's blog" rel="coworker">Raj Singh</a>, Director of  Interoperability Programs at the OGC gives a <a href="http://www.rajsingh.org/blog/?p=30" title="Raj Singh's blog: KML, Mapping and the OWS-5 Testbed 2007">great introduction to KML as part of the OWS-5 testbed</a>.</p>
+<h3>Enter the fray</h3><br />
+So... Why am I going into such depth on the OGC? Our newest venture, <a href="http://mapufacture.com" title="Mapufacture" rel="me">Mapufacture</a>, was selected to participate in the Agile Geography thread of the OWS-5 testbed. In particular, we will be implementing KML 2.2 and also moving forward on many aspects of advancing KML to better operate with other standards such as GML and WFS (heavy-weight), as well as express the interoperability with lighter-weight standards such as <a href="http://georss.org" title="GeoRSS Homepage">GeoRSS</a> and <a href="http://www.opensearch.org/Specifications/OpenSearch/Extensions/Geo/1.0/Draft_1" title="OpenSearch Geo extension draft">OpenSearch-Geo</a>.</p>
+<p>But I also have another goal. Having been an outsider of the OGC and the standardization process, it has seemed like an opaque operation that is disconnected from the emergent and dynamic geospatial web. If you've dealt with any of the standards before you too may be frustrated by the silent communications, the thick (hundreds of pages) PDF documents behind click-through licenses, and obscure explanations and esoteric formats. </p>
+<p>So my goal is to make my participation in the process as transparent as possible. As part of the thread, we are going to share our conversations and drafts along the way to elicit feedback and comments from the broader community. The entire purpose of the testbed is to develop a format that is useable and understandable by people that are not GIS experts - but just want to <strong>use</strong> the format to express locations and geography as it relates to their non-geo-centric activities. (i.e. someone building a photo-sharing site does not want to read a 400 page document on WFS and then have to deal with 10-level deep XML). </p>
+<p>However, I've also that there are justifiable concerns with how open the process can be. Intellectual Property rights concerns, and more importantly the concern that unscrupulous types would try to <em>claim-jump</em> formats and patent them for their own nefarious uses exists. This isn't as much as a concern for KML, which already exists as a format - and we're making use of other existing formats - so this shouldn't be as much a concern. But it was enlightening to learn why in the past there has been a somewhat lack of outside communication during a development process. Of course, there was also the somewhat greedy desire to have "first dibs" on formats by being a member. </p>
+<p>The kick-off meeting was yesterday and today in Reston, VA where we are meeting with the 'sponsoring organization' (Google) and the other members of the thread to do general discussion of goals, issues to discuss, and tasks to perform for the next couple of months and over the entire 6-month length of the testbed efforts. I already have several pages of notes on what we've discussed, so watch this space for specific requests for feedback on the updates to KML. I'm looking forward to sharing the experience of developing a standard and how the inner cogs of the OGC operate. </p>
+<p>INSERT_MAP</p>
+
+  </div>
+  <p class="terms">Standards</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/links-for-2007-07-31/">← links for 2007-07-31</a></span>
+    <span><a href="/highearthorbit.com/articles/links-for-2007-08-01/">links for 2007-08-01 →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

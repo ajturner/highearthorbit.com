@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>GeoIQ relaunched and GeoCommons streamlined · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/geoiq-relaunched-and-geocommons-streamlined/">
+  <meta property="og:title" content="GeoIQ relaunched and GeoCommons streamlined">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/geoiq-relaunched-and-geocommons-streamlined/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Oct 2, 2010 · GeoCommons</p>
+  <h1>GeoIQ relaunched and GeoCommons streamlined</h1>
+  <div class="prose">
+    <p><a href="http://geocommons.com" target="new"><img src="/highearthorbit.com/assets/uploads/2010/10/GeoCommons-tm.jpg" width="350" height="202" alt="GeoCommons.png" style="float:right; padding-top:5px; padding-bottom:5px; padding-left:5px;" /></a>This week was many months in the making. Since Spring of this year, the engineering team at FortiusOne has been very hard at work writing a major refactor of GeoIQ, the underlying platform behind <a href="http://geocommons.com/" title="GeoCommons">GeoCommons</a>. Originally, GeoIQ was actually <strong>three</strong> web applications that communicated to one another over HTTP REST interfaces. In many ways it was an elegant solution but also an element of pre-mature architecture. HTTP is not a good medium for very high-rate communications and we found a lot of redundant code in the corresponding Finder, Maker, and Core applications. Besides this, the separation of functionality was a decent user experience detriment. Besides the plaform refactoring we also had a major refactoring of the visualization of (the app formerly known as) Maker.</p>
+<p>The end result is a much more streamlined, and maintainable platform. On Sunday we deployed this update to <a href="http://geocommons.com">GeoCommons</a> and already you can see an improvement. In addition, implemented a number of new capabilities that we'll be rolling out over the next few weeks. The first one we've released is temporal visualization. Similar to spatial panning of the geographic area, you can now pan and animate through time as well. We've extended the brewer process to ask users to let us know which attributes to use in the visualization. More on that to come.</p>
+<p>Another major effort of our work in relaunching the GeoIQ platform was sharing an early edition of the <a href="http://geocommons.com/help/Developer_API" title="GeoCommons">GeoIQ API</a>. <a href="http://blog.programmableweb.com/2010/09/29/geoiq-relaunches-with-first-location-analytics-platform/" title="GeoIQ Relaunches with First Location Analytics Platform">ProgrammableWeb</a> covered the news and highlighted the data management, thematic visualization, and analysis methods that are available. It is all based on REST so should be straight-forward for developers to dive in and start building applications. We've also completely wrapped the Map visualization with a JavaScript interface for control on the interactivity and styling of the map and controls. You can now programmatically create your choropleth maps with animated twitter streams - or whatever you want - in a few lines of code.</p>
+<p>We already have a number of clients building on our API, so we thought the rest of the World should too. You'll start seeing some <em>major</em> organizations launching GeoIQ enabled sites and tools in the next few months - prepare for an onslaught of open geodata and collaboration.</p>
+<p>Give the new <a href="http://geocommons.com/" title="GeoCommons">GeoCommons</a> a try. We're excited to <a href="http://getsatisfaction.com/geocommons" title="Community-powered support for GeoCommons">hear your feedback</a>, ideas, and thoughts on additional things we should be providing for you.</p>
+<p>GEOPRESS_LOCATION(Boston, MA)</p>
+
+  </div>
+  <p class="terms">GeoCommons · GeoCommons</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/crisiscommons-at-harvard-and-sloan-foundation/">← CrisisCommons at Harvard and Sloan Foundation</a></span>
+    <span><a href="/highearthorbit.com/articles/map-tiles-to-go/">Map Tiles to go →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

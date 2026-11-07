@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>KML 3 Kick-off, Module: Metadata · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/kml-3-kick-off-module-metadata/">
+  <meta property="og:title" content="KML 3 Kick-off, Module: Metadata">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/kml-3-kick-off-module-metadata/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Aug 6, 2007 · KML</p>
+  <h1>KML 3 Kick-off, Module: Metadata</h1>
+  <div class="prose">
+    <p>Continuing my <a href="http://highearthorbit.com/ogc-agile-geography-kick-off-discussion-of-kml-3/" title="HighEarthOrbit" rel="me">series on the OGC KML 3 kick-off</a>, lets talk a little bit about Metadata. </p>
+<p>To date, metadata in KML has been somewhat confusing, ill-defined, and just kind of "wishy-washy". This is the effect of several causes. First, KML is 'lightweight' and has been used by many mappers that haven't had an interest in adding richer information to their pretty maps - yet. This is changing, as the concept of mapping, geography, and information is becoming easier to do and the concept more clear, more users are looking for how to include extra information about their geodata.</p>
+<p>Another problem is the term <em>Metadata</em>, which has different meanings in different spheres. In GIS, Metadata are the supporting information that describe the data set: when it was created, who did the collecting, how complete is it, what are the license terms, keywords, coverage, and so on. The <a href="http://www.fgdc.gov/metadata/index_html/?searchterm=metadata" title="FDGC.gov metadata">Federal Geographic Data Committee (FGDC) gives definition</a>. For an example, check out the <a href="http://gis.brgov.com/metadata/Files/Lots.htm" title="Lots, 2004, East Baton Rouge Parish, Louisiana">Baton Rouge GIS Metadata for Lots, 2004, East Baton Rouge Parish, Louisiana</a>. </p>
+<p>By contrast, programmers and general users have learned to refer to Metadata that is more generically "data about data". This typically means just extra information that goes <em>with</em> the data, instead of primarily <em>about</em> the data. Examples include categories, tags, number of lanes for road, building type, and so on. GIS practitioners refer to these as <em>attributes</em> instead of metadata.</p>
+<p>Anyways, the result has been that people often just become confused when talking with one another because of a different vocabulary. In the end, everyone just wants to be able to describe their data and add more information to it than just the strict geometry. See what the <a href="http://dublincore.org/" title="Dublin Core Metadata Initiative">Dublin Core Metadata Initiative</a> has done for HTML and RSS. </p>
+<h3>What's the current situation?</h3><br />
+Many developers have started pushing the envelope of what is possible in KML, and more directly, what Google Earth supports natively. Mano Marks at the Google Developer Knowledge Database <a href="http://code.google.com/support/bin/answer.py?answer=65628" title="Google Developer Knowledge Base: Adding Metadata to your KML files">provided a good document on how to possibly use XML in the Metadata tag</a>.</p>
+<p><a href="http://blog.fortiusone.com/2007/04/23/chiming-in-on-kml-metadata/" title="Moving Past Pushpins: Chming in on KML Metadata">Chris at FortiusOne</a> has been blogging a lot about the how it is currently possible to use Metadata in KML 2.1 for thematic mapping. <a href="http://www.jasonbirch.com/nodes/2007/06/29/101/i-heart-kml-schema/" title="Random Nodes: I Heart KML Schema!">Jason Birch</a> has found some really intriguing uses of the Schema tags that Google Earth actually uses for styling balloons. </p>
+<p>Getting back to KML 3 and the OGC Technical Committee, one thing that seems difficult about the current KML Schema and Metadata support is that it allows (requires) users to define and use their own tags, or elements. Using Jason Birch's example, he's defined a schema for newts:</p>
+<pre>
+<Newt><br />
+   <name>Sammy G</name></p>
+<styleUrl>http://www.jasonbirch.com/files/kml_schema_style.kml#newt_style</styleUrl><br />
+   <Point><br />
+     <coordinates>1.75,1.75,0</coordinates><br />
+   </Point><br />
+   <newt_id>36</newt_id><br />
+   <newt_breed>Common Orange Slitherer</newt_breed><br />
+   <newt_slime_factor>7.2</newt_slime_factor><br />
+   <newt_tail_length>6</newt_tail_length><br />
+ </Newt><br />
+</pre></p>
+<p>This is really powerful, but what this now requires is that any KML client or library that wishes to support metadata now has to delve into some fairly complex XML creation and parsing. The <code><newt/></code> was created on the fly in the schema definition, which the client will have to parse and then use to parse the rest of the document to extract any information at all. A client couldn't simply say "I don't understand Metadata" and still successfully get the geometry out of the KML document. </p>
+<p>This is especially important using the concept of <a href="http://highearthorbit.com/kml-3-kick-off-module-core/" title="HighEarthOrbit: KML core module">modules</a> that allow KML implementations to only include pertinent areas of functionality. If a mobile phone client want to display markers, but isn't going to use Metadata it shouldn't be required to implement the complex Schema parsing just to get at the markers.</p>
+<h3>Don't remove my schema tags!</h3><br />
+I personally have heard this a couple of times, and fear not, we're not talking about doing away with Metadata or 'schema tags'. Instead, we're considering just simplifying how they're used. Primarily, we want to support lightweight addition of additional data without requiring you to use that data to understand the underlying geometry.</p>
+<p>To illustrate, check out the <a href="http://www.ogcnetwork.net/node/286" title="OGC Network: KML Metadata">example document at the OGC Network</a>. Returning to Jason's example, we're going to define the Schema (to provide for more 'strictness' to make XML-heads happy)</p>
+<pre>
+<Schema name="newt_data"><br />
+    <SimpleField type="int" name="newt_id"></SimpleField><br />
+    <SimpleField type="string" name="newt_breed"></SimpleField><br />
+    <SimpleField type="decimal" name="newt_slime_factor"></SimpleField><br />
+    <SimpleField type="decimal" name="newt_tail_length"></SimpleField><br />
+</Schema><br />
+</pre></p>
+<p>And then our actual placemark can use these attributes:</p>
+<pre>
+<Placemark class="newt" id="sammyg_newt"><br />
+  <name>Sammy G</name><br />
+  <gml:Point><br />
+    <gml:pos>1.75 1.75 0</gml:pos><br />
+  </gml:Point></p>
+<link type="application/html" href="http://mynewtfarm.com/list#sammyg_newt"/>
+  <Metadata class="newt_data"></p>
+<property name="newt_id">36</property></p>
+<property name="newt_breed">Common Orange Slitherer</property></p>
+<property name="newt_slime_factor">7.2</property></p>
+<property name="newt_tail_length">6</property><br />
+  </Metadata><br />
+</Placemark><br />
+</pre></p>
+<p>What this now allows is for someone to easily add metadata, or attributes, without requiring a client to use it to just show a marker where 'Sammy' currently is located. In addition, the metadata could be more complex than just a simple string or numeric value if required. </p>
+<h3>But I want my real Metadata</h3><br />
+While KML is a lightweight geospatial interchange format, it shouldn't restrict users from referencing more formal data formats as necessary. In fact, it would be straight-forward to publish a simple KML file referencing all of your more complex geodata and then let users choose which data they want to investigate.</p>
+<p>Using the <code><atom:link></code>, we can easily reference a <em>related</em> document that includes a full GML Metadata description.</p>
+<pre>
+<Placemark id="newt_10"><br />
+  <atom:link rel="related" type="application/xml+gml" href="http://mygisserver.com/lizards/newt/10"/><br />
+  <Point>
+<pos>43 82</pos></Point><br />
+</Placemark><br />
+</pre></p>
+<p>(Note: <code>application/xml+gml</code> isn't a valid MIME type that I'm aware of, I'm just using it as an example of how you can indicate to an application what is at the endpoint)</p>
+<p>This way, a developer can include lightweight attributes, or Metadata, but also reference richer Metadata as necessary.</p>
+<p>We still have to look at how this affects styling - we want to allow for templating marker descriptions (BalloonStyle) and also possibly apply styling based on values of the Metadata. If you have some suggestions - we'd love to hear them.</p>
+
+  </div>
+  <p class="terms">KML</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/links-for-2007-08-06/">← links for 2007-08-06</a></span>
+    <span><a href="/highearthorbit.com/articles/links-for-2007-08-07/">links for 2007-08-07 →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>Down with Applescript, up with Javascript! · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/down-with-applescript-up-with-javascript-2/">
+  <meta property="og:title" content="Down with Applescript, up with Javascript!">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/down-with-applescript-up-with-javascript-2/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Sep 28, 2005 · Technology</p>
+  <h1>Down with Applescript, up with Javascript!</h1>
+  <div class="prose">
+    <p>I've been fiddling with Applescript on and off for about a year, using it in various applications, and home automation tasks. However, I always feel like I'm bashing my head against it. It doesn't seem to always make sense, has an odd syntax, and the Dictionaries? Hah! Unreadable is a good, but incomplete, description.</p>
+<p>Anyways, for other projects/work on Windows I've been implementing a Javascript interface to the application's functionality & dark, musty interiors. Javascript, once beginning to go the way of Java, Fortran, or Smalltalk (yes, they're out there, but does anyone learn these anymore?), it has been completely revitalized and now seems to be the cool, modern-way to do webapps/sites (<a href='http://en.wikipedia.org/wiki/AJAX'>Ajax</a>, <a href='http://developer.apple.com/macosx/tiger/dashboard.html'>Widgets</a>, <a href='http://greasemonkey.mozdev.org'>GreaseMonkey</a>, <a href='http://extensionroom.mozdev.org/'>Firefox Extensions</a>, and more).  </p>
+<p>Applescript has had a good run, yay. However, it seems antiquated to keep up a proprietary and somewhat odd OS Scripting language. Furthermore, it's not <em>really</em> a <a href='http://en.wikipedia.org/wiki/Scripting_programming_language'>scripting language</a> since it is compiled rather than intepreted. </p>
+<p><a href='http://www.mozilla.org/js/spidermonkey/'>SpiderMonkey</a> is a Javascript-C engine that allows developers to provide an Javascript API to their applications similar to <a href='http://developer.apple.com/cocoa/applescriptforapps.html'>Applescript</a> <a href='http://www.mactech.com/articles/mactech/Vol.16/16.07/AppleScripttoCocoa/'>integration</a> to <a href='http://www.macdevcenter.com/pub/a/mac/2002/02/22/applescript.html'>Cocoa Apps</a>.</p>
+<p>Javascript is a pretty nice syntax. I really wonder how many non-programmers really feel more comfortable in the "English-like" syntax of Applescript. I, as a programmer, find it confusing at times. Though Script Editor is a very nice tool even though it apparently hasn't been updated in years. </p>
+<p>Javascript enabling OS X apps would prevent widgets from having to do things like:</p>
+<p><code><br />
+var obj = widget.system("/usr/bin/osascript -e 'tell application "iTunes"' -e 'name of current track' -e 'end tell'");</p>
+<p>print(obj.outputString);<br />
+</code></p>
+<p>and requiring a widget access to the system to make a call to an app. A better solution may be:</p>
+<p><code><br />
+var string = application.iTunes.getCurrentTrack();<br />
+</code></p>
+<p>or </p>
+<p><code><br />
+var string = finder.geApplication("iTunes").getCurrentTrack();<br />
+</code></p>
+<p>Really, I'm missing decent scripting of apps and the OS in Windows, and Linux. Apple really shines in this respect.  <a href='http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnanchor/html/scriptinga.asp'>Windows has scripting</a> via <a href='http://msdn.microsoft.com/library/default.asp?url=/library/en-us/script56/html/vtoriVBScript.asp'>VBScript</a> and <a href='http://msdn.microsoft.com/library/default.asp?url=/library/en-us/script56/html/js56jsoriJScript.asp'>JScript</a>, but I'm looking for something a little less... <em>proprietary</em> and even more arcane.</p>
+
+  </div>
+  <p class="terms">Technology · Programming · Apple</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/279/">← XBox hacking alive and very well</a></span>
+    <span><a href="/highearthorbit.com/articles/adding-speechrecognition-to-your-os-x-app/">Adding SpeechRecognition to your OS X App →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

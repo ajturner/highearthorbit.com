@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>Flickr as my photoblog - better TIFF support · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/flickr-as-my-photoblog-better-tiff-support/">
+  <meta property="og:title" content="Flickr as my photoblog - better TIFF support">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/flickr-as-my-photoblog-better-tiff-support/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Apr 24, 2005 · Photography</p>
+  <h1>Flickr as my photoblog - better TIFF support</h1>
+  <div class="prose">
+    <p>I'm in the process of learning the <a href='http://www.flickr.com/services/api/'>Flickr API</a> and writing a weblog/gallery page for displaying images in my Flickr gallery. This has a lot of benefits in terms of storage space, ease of sharing/uploading, provided thumbnails in small, and square formats, and building photosets.</p>
+<p>Overall Flickr is great, and I even opted now for the $25/year "pro" membership that gives me 2GB upload/month. This beats the current 250MB that I'm currently allowed <em>total</em> at my current hosting service. And the API allows for full interface to all of my photos, sets, data, etc. that is stored on Flickr.</p>
+<p>Also, there are some great tools for working with Flickr. By far the most useful to me is Spier's <a href='http://www.speirs.org/flickrexport/'>FlickrExport</a>, which is a direct export from iPhoto to Flickr. One can build photosets, add tags, resize, and convert from TIFF. However, the last issue is causing me problems.  Somewhere from my iPhoto library, through FlickrExport to Flickr, the EXIF data is being lost. Exporting JPG images to Flickr works fine, but I think FlickrExport drops it. Losing the EXIF data is definitely <b>not</b> an option. However, I currently archive all my images in TIFF to avoid artifacts showing up in editing/saving.</p>
+<p>So now I need to figure out if I have to save all my images in JPG format, and just be careful; check out FlickrExport code and see if I can modify how it converts from TIFF to JPG for upload, or use another, external uploader <a href='http://flickr.com/tools/'>tool</a>. </p>
+
+  </div>
+  <p class="terms">Photography</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/gps-enabled-powerbooks/">← GPS-enabled powerbooks</a></span>
+    <span><a href="/highearthorbit.com/articles/yabm-yet-another-blog-map/">YABM: Yet Another Blog Map →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

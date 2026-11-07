@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>scrAPI - Microformat Parsing in Ruby · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/scrapi-microformat-parsing-in-ruby/">
+  <meta property="og:title" content="scrAPI - Microformat Parsing in Ruby">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/scrapi-microformat-parsing-in-ruby/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Aug 4, 2006 · Programming</p>
+  <h1>scrAPI - Microformat Parsing in Ruby</h1>
+  <div class="prose">
+    <p>I was looking for some nice Ruby utility to help in parsing out <a href='http://microformats.com/' title='Microformats homepage'>Microformats</a> from webpages. There are 3 projects currently on <a href='http://rubyforge.org' title='RubyForge homepage'>RubyForge</a>:</p>
+<ul>
+<li><a href='http://rubyforge.org/projects/uformatparser/' title='uformatparser RubyForge project page'>uformatparser</a> - looks very flexible and mature. developed by <a href='http://blog.labnotes.org' title='LabNotes Blog'>LabNotes</a></li>
+<li><a href='http://rubyforge.org/projects/uformats/' title='uformats RubyForge project page'>uformats</a> - pretty good, only supports a couple of formats</li>
+<li><a href='http://rubyforge.org/projects/mftools/' title='mfTools RubyForge project page'>mfTools</a> - nothing released yet, unknown status</li><br />
+</ul></p>
+<p>Talking on <code>#microformats</code> I was pointed to <a href='http://blog.labnotes.org' title='LabNotes Blog'>LabNotes</a> newer incarnation of a parser: <a href='http://blog.labnotes.org/2006/07/11/scraping-with-style-scrapi-toolkit-for-ruby/' title='scrAPI announcement'>scrAPI</a>. It's a much more generic HTML parser/scraper, that can handle getting data from HTML by structure, class, or id. <a href='http://blog.labnotes.org/wp-content/uploads/mashup-camp-ii/index.html' title='Presentation about scrAPI'>Here is Assaf's presentation</a> at Mashup Camp II where he gives some good tutorials and discussion about the API. </p>
+<h2>Down and dirty with the code</h2><br />
+To illustrate <a href='http://blog.labnotes.org/2006/07/11/scraping-with-style-scrapi-toolkit-for-ruby/' title='scrAPI announcement'>scrAPI</a>, I'll show you the code needed to parse <a href='http://microformats.com/wiki/geo' title='Microformats Wiki: geo'>geo</a> location data from a webpage. </p>
+<p>First we just do bring in the necessary libraries, and get an example HTML page:</p>
+<pre><code><br />
+require 'scrapi/lib/scrapi'<br />
+require "net/http"</p>
+<p>h = Net::HTTP.new("code.highearthorbit.com", 80)<br />
+resp, data = h.get("/greaseroute/index.php")<br />
+</code></pre></p>
+<p>Then we define our scrapers. The <a href='http://microformats.com/wiki/geo' title='Microformats Wiki: geo'>geo</a> microformat looks like: </p>
+<div class="geo">
+  <span class="latitude">35.126</span>,<br />
+  <span class="longitude">-80.764</span><br />
+</div></p>
+<p>The <code>process</code> method of the <code>Geo</code> class can take a HTML structure path, CSS class or id, and then the attribute to store. Also, our general <code>Location</code> scraper will look for all <code>geo</code> class tags in the HTML, and fill out the <code>geos</code> array using the <code>Geo</code> class Scraper.</p>
+<pre><code><br />
+class Geo < Scraper::Base<br />
+  process ".latitude", :latitude => :text<br />
+  process ".longitude", :longitude => :text<br />
+end</p>
+<p>class Location < Scraper::Base<br />
+  array :geos<br />
+  process ".geo", :geos => Geo<br />
+  result :geos<br />
+end<br />
+</code></pre></p>
+<p>Finally, now that we've built up our "tools", we can scrape the data, and output all the found locations.</p>
+<pre><code><br />
+locations = Location.scrape(data)</p>
+<p>locations.each {|loc| puts "[#{loc.latitude} x #{loc.longitude}]" }<br />
+</code></pre></p>
+<p>That was really easy, and effective. Additionally, due to the <a href='http://microformats.com/' title='Microformats homepage'>Microformats</a> standards, we can feel pretty confident on changes to the original site's markup to not mess up our parsing. </p>
+
+  </div>
+  <p class="terms">Programming · Ruby · Project</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/rubycocoa/">← RubyCocoa</a></span>
+    <span><a href="/highearthorbit.com/articles/microformat-ruby-parser/">Microformat Ruby Parser →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

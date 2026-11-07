@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>uninitialized constant ActionMailer · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/uninitialized-constant-actionmailer/">
+  <meta property="og:title" content="uninitialized constant ActionMailer">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/uninitialized-constant-actionmailer/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Apr 26, 2006 · Technology</p>
+  <h1>uninitialized constant ActionMailer</h1>
+  <div class="prose">
+    <p>A word to the wise of rails developers. Hopefully this makes it to Google search, because when I looked it up, there wasn't an answer. </p>
+<p>If you're configuring ActionMailer and you try to run the console and get the following messages:<br />
+<code></p>
+<pre>
+[host]$ script/console<br />
+Loading development environment.<br />
+./script/../config/../config/environment.rb:41:NameError:<br />
+  uninitialized constant ActionMailer<br />
+/home/highearth/.gems/gems/actionpack-1.12.1/lib/action_controller/integration.rb:15:<br />
+  NameError: uninitialized constant ActionController::Integration::Session::Test<br />
+./script/../config/../config/../app/controllers/application.rb:3:<br />
+  NameError: uninitialized constant ActionController::Base</p>
+<p></pre><br />
+</code></p>
+<p>Make sure your ActionMailer configuration in your <code>config/environment.rb</code> file is <strong>after</strong> your <code>Rails::Initializer.run do |config|</code> block. </p>
+
+  </div>
+  <p class="terms">Technology · Programming · Open-Source · Ruby · Rails</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/creating-inline-embedded-png-images/">← Creating inline (embedded) PNG images</a></span>
+    <span><a href="/highearthorbit.com/articles/the-craig-of-the-craigslist/">The Craig of The Craigslist →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>Set Latitude & Longitude of photos in iView Media Pro · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/set-latitude-longitude-in-iview-media-pro/">
+  <meta property="og:title" content="Set Latitude & Longitude of photos in iView Media Pro">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/set-latitude-longitude-in-iview-media-pro/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Dec 27, 2005 · Programming</p>
+  <h1>Set Latitude & Longitude of photos in iView Media Pro</h1>
+  <div class="prose">
+    <p>I'm making the transition to a much more stable, usable, and tool-rich photo management tool, <a href="">iView Media Pro 3</a>. I got tired of dealing with the <strong>incredibly</strong> slow interface to iPhoto thanks to Apple's incapable handling & testing of EXIF metadata in storing to their library.</p>
+<p>But I digress.</p>
+<h3>Behold, there was scripting</h3><br />
+... and it was good.</p>
+<p>I had written an Applescript to <a href="http://highearthorbit.com/289/">set the latitude & longitude</a> (and other location info) to selected photos in iPhoto. iPhoto was often beligerent and required a restart of the iPhoto (and possible database recreation) to read the location information (which was viewable in the "info" panel).</p>
+<p>iView puts the location info as a user-editable set of fields in the EXIF data fields. Users can set city, region, country, etc. But for whatever reason, they are unable to change the latitude & longitude.</p>
+<p>I paired down my iPhoto script to just handle latitude & longitude and handle getting the file name from iView. The tough part was how to get from the iView example <em>selected_images</em> to a useful POSIX path to feed to <a href="http://www.sno.phy.queensu.ca/~phil/exiftool/">exiftool</a>. This code does the trick.</p>
+<pre><code><br />
+set selectedID to selected_images(1)<br />
+if selectedID = {} then<br />
+	display dialog "No photos selected"<br />
+	return<br />
+end if</p>
+<p>repeat with this_photo in selectedID<br />
+	set photo_path to path of this_photo<br />
+	set the image_file to the POSIX path of photo_path<br />
+</code></pre></p>
+<h3>Installing & Using the script</h3><br />
+<a href="http://highearthorbit.com/wp-images/iViewLocation_latitude.jpg"><img src='http://highearthorbit.com/wp-images/thumb-iViewLocation_latitude.jpg' alt='iView Location Plugin - User Entry' align="right" hspace="10px"/></a><a href="http://highearthorbit.com/projects/applescript/SetLatLon.zip">Download the script here</a> and expand it in your <em>~/Library/Application Support/iView/Plug-ins/Scripts</em> folder and then reload iView.  You will also need <a href="http://www.sno.phy.queensu.ca/~phil/exiftool/">exiftool</a>, as it is the real magic behind the smoke & mirrors.</p>
+<p>To use the script, select whatever photos you want to apply the <em>same</em> location information to. Then go to the "Scripts" icon in the menu bar, and choose the "Set Lat/Lon" script. Enter the latitude, longitude, and altitude in decimal format, pressing "OK" after each field. Wait a little while, and then a dialog will tell you how many photos were processed.</p>
+<p><a href='http://highearthorbit.com/wp-images/iViewLocation_post_export.jpg' ><img src='http://highearthorbit.com/wp-images/thumb-iViewLocation_post_export.jpg' alt='iView Location Plugin - Post Export' align="right" hspace="10px"/></a>Back in iView, you should see the latitude & longitude information in the right side-bar. You can also turn on lat/lon view in the thumbnail view by pressing <em>Command-J</em> and selecting "Latitude" "Longitude" "Altitude". You may need to press <em>Command-B</em> to rebuild the thumbnail to have the info show up the first time (or on updates). </p>
+<p>When exporting images (say to <a href="http://flickr.com">flickr!</a>), your geo-annotated data will stay intact and can then be <a href="http://geobloggers.com">mapped</a> (or <a href='http://www.flickrmap.com/'>mapped</a>).</p>
+
+  </div>
+  <p class="terms">Programming · Apple · Photography · Open-Source · Applescript</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/design-mode-document-editing-and-you/">← Design mode, document editing, and you</a></span>
+    <span><a href="/highearthorbit.com/articles/obtaining-latitude-longitude/">Obtaining Latitude & Longitude →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

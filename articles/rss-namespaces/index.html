@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>RSS Namespaces · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/rss-namespaces/">
+  <meta property="og:title" content="RSS Namespaces">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/rss-namespaces/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Sep 28, 2006 · Web</p>
+  <h1>RSS Namespaces</h1>
+  <div class="prose">
+    <p><a href='http://rss-extensions.org/wiki/Main_Page' title='RSS-Extensions Wiki'>RSS-Extensions Wiki</a> is like <a href='http://microformats.org'>Microformats</a> documentation for RSS. It is a central point for looking up the various encodings, formats, uses, and resources for extensions like <a href="http://backend.userland.com/creativeCommonsRssModule" title="creativeCommons RSS Module">creativeCommons</a>, <a href="http://weather.yahoo.com/rss" title="Yahoo Weather RSS">Yahoo Wather</a>, or <a href="http://rss-extensions.org/wiki/Apple_iTunes_RSS_Tags">Apple iTunes RSS</a>. </p>
+<p>There is a link to some good articles on how to <a href="http://www.disobey.com/detergent/2002/extendingrss2/">extend RSS</a> by adding your own namespaces. <a href="http://lists.eogeo.org/pipermail/georss/2006-September/000803.html" title="GeoRSS mailing list archives">A discussion like this</a> is currently ongoing in GeoRSS on how best to add named locations, addresses, non-Political features (oceans for example), and general areas (like USGS regions). It's a mixture of what is understandable by the user (web devs & programmers who will actually use these extensions), covers most use cases (so users are happy and use the extension and don't go and try to make their own), and hopefully builds or uses existing formats. </p>
+<p>Pat Cappelaere, who developed the very cool GeoBliki, proposed the following extension:</p>
+<pre><code><br />
+    <geonames:geonames><br />
+      <geonames:countryCode>BR</geonames:countryCode><br />
+      <geonames:countryName>Brazil</geonames:countryName><br />
+      <geonames:adminCode></geonames:adminCode><br />
+      <geonames:adminName></geonames:adminName></p>
+<p>      <geonames:zoneNumber>729</geonames:zoneNumber><br />
+      <geonames:zoneName>Antarctica</geonames:zoneName><br />
+      <geonames:regionNumber>50</geonames:regionNumber><br />
+      <geonames:regionName>Antarctica</geonames:regionName></p>
+<p>      <geonames:nearBy>S&Atilde;&shy;tio do Mato</geonames:nearBy><br />
+      <geonames:nearBy>Estreito</geonames:nearBy><br />
+    </geonames:geonames><br />
+</code></pre><br />
+which does a good job of providing a fairly simple format for users to produce and parse when developing tools. This is important because while people aren't really meant to read RSS, they're still developing the tools to handle the RSS, and therefore need to understand it. </p>
+<p><a href='http://rss-extensions.org/wiki/Main_Page' title='RSS-Extensions Wiki'>RSS-Extensions Wiki</a> also a great list of <a href="http://rss-extensions.org/wiki/Syndication_Hacks" title="RSS Syndication Hacks">RSS Syndication Hacks</a>, which is full of ideas for projects, or integration into your existing projects, like programming/code todo's (@todo in source or repository commits), or <a href="http://www.lifehacker.com/software/entertainment/how-to-find-and-add-media-to-your-itunes-library-with-delicious-110812.php" title="LifeHacker article">finding media to add to your iTunes</a>.</p>
+
+  </div>
+  <p class="terms">Web</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/links-for-2006-09-28/">← links for 2006-09-28</a></span>
+    <span><a href="/highearthorbit.com/articles/writing-microformats/">Writing Microformats →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

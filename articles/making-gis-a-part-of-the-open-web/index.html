@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>Making GIS a Part of the Open Web · High Earth Orbit</title>
+  <meta name="description" content="GeoServices provide a common API across all of GIS for users and developers to easily access information. Today is GIS Day, an annual celebration and sharing to our communities about the use of geo...">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/making-gis-a-part-of-the-open-web/">
+  <meta property="og:title" content="Making GIS a Part of the Open Web">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/making-gis-a-part-of-the-open-web/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Nov 19, 2014 · Web</p>
+  <h1>Making GIS a Part of the Open Web</h1>
+  <div class="prose">
+    <p><em><strong>GeoServices provide a common API across all of GIS for users and developers to easily access information.</strong></em></p>
+<p>Today is GIS Day, an annual celebration and sharing to our communities about the use of geospatial technology to understand, affect, and engage with our physical world. You can join any of hundreds of local events around the globe to meet local experts, developers, analysts, government staff, and engaged citizens to learn about how to access open data and spatial analysis tools that help you make sense of complex relationships.</p>
+<p><strong>Common Services</strong></p>
+<p>At the interface of GIS is a commonly overlooked, but incredibly powerful mechanism that makes it possible to uniformly access data regardless of the underlying technology or source of the data. It is this interface which allows for a smartphone application to work with web sites and desktop analysis tools'&rdquo;meaning that people can use the user experience that most fits their needs but they are working from the same common information system.</p>
+<p><a id="more"></a><a id="more-1794"></a>The web is designed on this same principle that loosely coupled systems are more scalable, flexible, and usable through community and industry standards. The HyperText Transfer Protocol, or HTTP, is the protocol that nearly everyone has become familiar with as we enter website URLs into our browsers. There are <a href="http://en.wikipedia.org/wiki/Application_layer" target="_blank">many comparable services</a> such as SMTP for Email, FTP for file sharing, SSH for remote computer access and so on. These are application layers that work on top of the rest of the <a href="http://en.wikipedia.org/wiki/Internet_protocol_suite" target="_blank">Internet protocol suite</a> and enable Twitter to talk to Gmail to Amazon to Skype and so on.</p>
+<p><strong>GeoServices</strong></p>
+<p>In GIS, there are similar <a href="http://en.wikipedia.org/wiki/GIS_file_formats">application protocols</a> - the most common of which are the <a href="http://www.esri.com/industries/landing-pages/geoservices/geoservices">GeoServices standard</a> which is the common API (Application Programming Interface) across all of ArcGIS. This specification is the nervous system of GIS makes all of the technology work together.</p>
+<p>[caption id="attachment_3899" align="aligncenter" width="635"]<img class="size-full wp-image-3899" src="http://blogs.esri.com/esri/esri-insider/files/2014/11/GeoServices-Architecture.png" alt="" width="635" height="325" /> GeoServices Architecture.[/caption]</p>
+<p>From interoperability to mashups, an API is the gateway to dynamically requests information. Through one common interface, any developer can access data independent of the underlying database, technology or information domain. This means that users can access parcel data, next to <a href="https://developers.arcgis.com/en/features/geo-enrichment/">business and demographics</a>, with air quality, all through the same interface. We are seeing <a href="http://www.esri.com/software/arcgis/arcgisonline/arcgis-open-data">thousands of organizations making their data openly available</a> from the source through the GeoServices API.</p>
+<p>The <a href="http://resources.arcgis.com/en/help/arcgis-rest-api/#/The_ArcGIS_REST_API/02r300000054000000/">GeoServices documentation</a> covers the broad and deep functionality, from <a href="https://developers.arcgis.com/en/features/cloud-storage/">simple data storage, filtering</a>, to more complex statistical analysis, <a href="http://resources.arcgis.com/en/help/arcgis-rest-api/#/Geometry_Service/02r3000000qs000000/">spatial processing</a>, <a href="https://developers.arcgis.com/en/features/geocoding/">geocoding</a>, and<a href="https://developers.arcgis.com/en/features/mapping/">visualization</a>. Through an simple HTTP-based interface, application developers can create their own unique applications powered by data coming from GIS hosted by authoritative government agencies or enterprise business data centers.</p>
+<p>There are also <a href="https://developers.arcgis.com/documentation/">numerous supported software toolkits</a> and open-source libraries that make it easy to work with this API, including <a href="https://github.com/esri/geoservices-js">Javascript</a>, <a href="https://github.com/jasonbot/arcrest">Python</a>, <a href="https://github.com/esri/geoservices-ruby">Ruby</a>.</p>
+<p><strong>Services that Grow</strong></p>
+<p>ArcGIS supports many open standards that make it easy for GIS to work in whatever application the user needs to work. What's most exciting about the GeoServices interface is the comprehensiveness of capabilities, formats, and broad support. It is also a continually evolving specification that grows to support new features of the web such as <a href="https://developers.arcgis.com/javascript/jssamples/layers_streamlayer.html">realtime</a> <a href="http://blogs.esri.com/esri/arcgis/2014/02/12/35327/">stream services</a>.</p>
+<p>So on GIS Day, learn how to use the world of data that is already out there, ready for you to explore and re-use in creative and meaningful ways.</p>
+
+  </div>
+  <p class="terms">Web · Standards · Web</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/so-you-want-to-fly-spacecraft/">← So you want to fly spacecraft?</a></span>
+    <span><a href="/highearthorbit.com/articles/building-better-civil-solutions-with-agile-government/">Building Better Civil Solutions with Agile Government →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>GeoWeb Standards - Current Problems · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/geoweb-standards-current-problems/">
+  <meta property="og:title" content="GeoWeb Standards - Current Problems">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/geoweb-standards-current-problems/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Aug 11, 2009 · Neogeography</p>
+  <h1>GeoWeb Standards - Current Problems</h1>
+  <div class="prose">
+    <p><a href="http://www.flickr.com/photos/gorbould/3531940727"><img style="float:right; hspace=5px" src="http://farm3.static.flickr.com/2448/3531940727_610dbf68de_m.jpg" width="240" height="160" /></a></p>
+<p>Part 3 in looking at the current state of GeoWeb Standards. See the <a href="http://highearthorbit.com/geoweb-standards-intro/">introduction here</a>.</p>
+<p>It's time to take a hard look across the board at where we're coming up short and issues that need to be addressed. One way to summarize:<br /></p>
+<blockquote><p>
+  GeoRSS, KML, and GeoJSON are the itching powder, squirting ink pen, and dribble cup of geodata formats.<br /><br />
+  - <a href="http://highearthorbit.com/geoweb-standards-your-thoughts/#comment-266090">Sean Gillies</a><br />
+</blockquote></p>
+<p>Sean is definitely known for his candor, and his viewpoint definitely has merit. Overall the various formats and standards fulfill various needs, but still don't provide for all use cases, align well with best practices, or make sense to users and developers.</p>
+<p>The simplest overall problem with many of these formats, and how they fit into the Web, is that they lack proper web-type descriptions. One primary mechanism that Web clients know how to present data is through the use of MIME-Types. MIME types provide a way for the server to notify clients that the data is in a format such as XML, Text, a PNG Image, and so on. These must be formally registered, but also ad-hoc, or vendor specific, types are commons.</p>
+<p>In addition, MIME types allow crawlers and registries to easily record the type of the file in the metadata.</p>
+<p>Looking over our list of various GeoWeb standards, it's very easy to identify which formats abide by this and which don't.</p>
+<p>Atom, JSON, HTML, and SQLite all provide format specific MIME-Types, allowing clients to easily employ the proper applications. However, none provide a special mechanism for notifying that the data includes geospatial markup. Not necessarily a problem, geo shouldn't be <strong>that</strong> special.</p>
+<p>KML is perhaps the only format that has a geospatial specific MIME-type. However, despite it now being an OGC standard, the <a href="http://code.google.com/apis/kml/documentation/kml_tut.html#kml_server" title="KML Tutorial - KML - Google Code">MIME Type</a> is still the vendor specific: <code>application/vnd.google-earth.kml+xml</code>. However, KML was particulary ingenious in also providing for the compressed, or zipped, format as a unique MIME-type: <code>vnd.google-earth.kmz</code>.</p>
+<p>GML is just XML, so that is entirely not useful in notifying a client that it should try and pass this onto a geo-enabled application. And Shapefiles are agglomeration of multiple files, and even zipped up are only marked as compressed files.</p>
+<p>More broadly in services, the OGC has a mime type for service descriptions and responses: <code>application/vnd.ogc.wms_xml</code>, though errors have their own MIME-types: <code>application/vnd.ogc.se_xml</code>.</p>
+<p>OpenSearch has a special MIME Type, and obviously Tiles and Image files have MIME-types.</p>
+<h3>Doesn't matter if you can't download it</h3></p>
+<p>Another major issues facing many of the GeoWeb formats is their file size. Generally, the web bounces back and forth between disregarding sizes due to assumed, ubiquitous high-speed and reliable connectivity, and trying to speed up pages. But even more important is the fact that many potential users don't have access to high-speed internet and so their is a huge difference between 10k and 100k or 1MB of data.</p>
+<p>To compare the sizes, I took a relatively large dataset from GeoCommons, <a href="http://%EF%AC%81nder.geocommons.com/overlays/3201">Statistics Canada, Land and freshwater area, Canada, 2005</a> and exported it in a variety of formats, both uncompressed, and compressed via standard zip algorithms.</p>
+<table summary="Full, and compressed file sizes of several popular GeoWeb formats">
+<thead>
+<tr>
+<th>Format</th></p>
+<th>Size</th></p>
+<th>Zipped</th><br />
+    </tr><br />
+  </thead></p>
+<tbody>
+<tr>
+<td>CSV</td></p>
+<td>1.3 KB</td></p>
+<td></td><br />
+    </tr></p>
+<tr>
+<td>Shapefile</td></p>
+<td>5.4 MB</td></p>
+<td>3.6 MB</td><br />
+    </tr></p>
+<tr>
+<td>GeoRSS</td></p>
+<td>3.3 MB</td></p>
+<td>1.1 MB</td><br />
+    </tr></p>
+<tr>
+<td>KML</td></p>
+<td>7.3 MB</td></p>
+<td>2.4 MB</td><br />
+    </tr></p>
+<tr>
+<td>Spatialite</td></p>
+<td>5.4 MB</td></p>
+<td>3.6 MB</td><br />
+    </tr></p>
+<tr>
+<td>JSON</td></p>
+<td>7.9 MB</td></p>
+<td>2.3 MB</td><br />
+    </tr><br />
+  </tbody><br />
+</table></p>
+<p>CSV just includes latitude and longitude columns of the centroid - so obviously not fully representative. An option would be to include the EWKB in a column for the full geometry - but that is far from any kind of 'standard' that other tools would know how to intepret.</p>
+<p>Perhaps most surprising from these results are that JSON is so large. Unfortunately, the syntax for complex geometries requires a lot of syntax that adds up in representing polygonal data.</p>
+<h3>Linkability, Durability, and Discoverability</h3></p>
+<p>Moving past purely file format and data type specifications brings up the issue of discoverability and linkability in GeoWeb standards. The Web is more than a list of documents that mention resources, but that they can actually link to <strong>durable</strong> endpoints that can be resolved, queried, accessed, and parsed.</p>
+<p>Non-web native formats have no concept of linking. CSV, Shapefiles, and SQLite contain data, but no links. By contrast, Atom, GML, and KML are chock-full of links, although not always used to great effect. JSON can contain links, but without a schema, who knows what the link means.</p>
+<p>Obviously the best model to follow here is HTML, which provides automatic links to feeds, OpenSearch description documents, pages, media, styles, and scripts.</p>
+<p>However, what happens when a resource disappears and is no longer resolvable? How do you know where else to get another version of the same data, and is it the same data? This is becoming a big problem in the larger web, made more problematic by the use of <a href="http://joshua.schachter.org/2009/04/on-url-shorteners.html" title="joshua's blog: on url shorteners">URL shorteners</a>, but also especially disconcerting when it affects the provenance and accuracy of geospatial data.</p>
+<h3>But without Complexity</h3></p>
+<p>While linkability, durability, and discoverability are vital to GeoWeb standards, the cost of complexity inhibits adoption and probability of support.</p>
+<p>This is a long argument in many circles - often made more difficult by practitioners that have been working in a field for years or decades and consider the most opaque formats or concepts commonplace. Look to the OWL/RDF/SemanticWeb space for an example of how there is a mismatch between proponents and the general public.</p>
+<p>A standard needs to have clear value to developers and users for it to even begin to be considered. No one is going to dive into a dense specification of a format without even knowing why they would want to use it or how it fits into workflows and architecture.</p>
+<p>And complexity can also surface in small ways - inconsistant capitalization of element names (you know who you are KML), or by supporting a plethora of similar, but different flavors making it unclear which to use (GeoRSS).</p>
+<h3>Tools</h3></p>
+<p>In this last section of the overall problems we're facing with GeoWeb standards, the most prevalent, and easy to address, is the lack of tools that interact and convert between these formats. Really, formats don't matter to users - they have data from one source such as their camera, PND, blog posts, Government agency, etc. and they want to do something with it like understand what's going on around them, find their favorite restaurant, save the rainforest, provide services, get their car fixed, or just share stories with their family.</p>
+<p>Easy to use, engaging, and data agnostic tools are vital for adoption of any formats. Again you only have to look as far as KML's meteoric rise from application specific format to perhaps the most ubiquitous, and growing, GeoWeb standard due to the compelling reason of "I want to see my house and things going on around the world".</p>
+<p>Why do none of the major RSS news readers really support GeoRSS? Every site should offer KML and Atom output of their data. Mobile devices should allow me to open in whatever mapping interface or app any of my data from any of my services.</p>
+<h3>Missing Middle Ground</h3></p>
+<p><a href="/highearthorbit.com/assets/uploads/2009/08/GeoWeb-Standards-Missing-Middle-Ground.jpg"><img src="/highearthorbit.com/assets/uploads/2009/08/GeoWeb-Standards-Missing-Middle-Ground-tm.jpg" width="400" height="116" alt="GeoWeb Standards - Missing Middle Ground.jpg" style="padding-top:5px; padding-bottom:5px; padding-left:5px;" /></a></p>
+<p>Amongst the plethora of formats, we're really missing some middle ground. Each of these formats are quite independent and unique of one another, with little cross pollination and linking occuring.</p>
+<ul>
+<li>Why can't my KML file link to Atom updates and also to other formats?</li>
+<li>Can OpenSearch describe my tile pyramid?</li>
+<li>How do I describe my path through life, media, events, places I've lived, worked, and people I've known?</li><br />
+</ul></p>
+<p>We too easily get caught either in this "this format must solve all possible problems", or "it's good enough so why change it". In between we need to converge to understand use cases, and how these formats and specifications can cross various barriers - connecting the experts with the amateurs, the citizens and the authorities, one with another.<br /></p>
+<p>GeoWeb Standards Series</p>
+<ol>
+<li><span style="font-family: 'Lucida Grande', sans-serif; font-size: medium;"><a href="http://highearthorbit.com/geoweb-standards-intro//" title="HighEarthOrbit: GeoWeb standards, where we are" style="text-decoration: underline; color: #003366;">Introduction</a></span></li>
+<li><span style="font-family: 'Lucida Grande', sans-serif; font-size: medium;"><a href="http://highearthorbit.com/geoweb-standards-where-we-are/" title="HighEarthOrbit: GeoWeb standards, where we are" style="text-decoration: underline; color: #003366;">Where We Are</a></span></li>
+<li><span style="font-family: 'Lucida Grande', sans-serif; font-size: medium;">Problems</span></li><br />
+</ol></p>
+
+  </div>
+  <p class="terms">Neogeography · Standards · Neogeography</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/geoweb-standards-where-we-are/">← GeoWeb Standards - Where we are</a></span>
+    <span><a href="/highearthorbit.com/articles/open-data-standards-dont-apply-to-the-military/">Open Data Standards don't apply to the Military? →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>Bug-tracking software · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/bug-tracking-software/">
+  <meta property="og:title" content="Bug-tracking software">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/bug-tracking-software/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Jan 5, 2006 · Programming</p>
+  <h1>Bug-tracking software</h1>
+  <div class="prose">
+    <p>As per one of my New Year's resolutions (as most resolutions occur, after months and months of your conscious constantly pinging you on the matter), I am looking at bug-tracking software.</p>
+<p>I would like something simple, web-based, but complete. I want to allow guests and new people to register and file bugs, track the progress of bugs, search through bugs/feature requests/solutions. Some of the projects are open-source, so it would be great to refer to/link the actual source, but there are also some closed-source (but free) projects.</p>
+<p>Here's a quick summary of what I see are 4 big players, actively supported bug-tracking systems out there. I've left out <a href="http://sourceforge.net">Sourceforge.net</a> and <a href="http://berlios.de">Berlios</a> since those are clunky, very advertising heavy, and typically also host the projects. I want to host my projects. And GForge (or whatever the open-source version is now called) is not a good solution.</p>
+<p><a href='http://flyspray.rocks.cc/'>Flyspray</a> meets the simple category. I've used up to v0.97, and v0.99 is currently out, but I haven't tried it. The interface features most things a bug-tracker should, multiple projects, categories, comments, related tasks, assigning etc. But when I first "walk-in" it doesn't give me a quick run-down of all my assigned tasks, new tasks, etc. I know there are bugs in there, it's just not really up-front about it.</p>
+<p><a href='http://projects.edgewall.com/trac/'>Trac</a> is a Subversion styled version of CVSTrac, and *much* nicer. It includes tickets, a wiki, and source browsing. All of these great features. The problems are: 1) setup is <em>insane</em>. I've spent about 8 hours on it, got it to finally run on a port when running the tracd daemon, but can't set it up through a shared host and apache to just serve up, and 2) administration is via files. So it's not the easiest to add new components, versions. etc. Apparently you can get <a href='http://www.wush.net/subversion.php'>professionally hosted trac installations</a>.</p>
+<p><a href='http://www.mantisbt.org/'>Manstis Bug Tracking</a> has a clean interface, very good "entry-point" where I can view all of my current bugs, new bugs, bugs by version, etc. No source browsing/linking however.</p>
+<p><a href='http://www.atlassian.com/software/jira/'>Atlassian's Jira</a> was recommended by independent devs at <a href="http://www.drunkenblog.com/drunkenblog-archives/000662.html">Evening at the Adler</a>. I can say it looks very nice, is professionally supported and developed (and therefore costs $$ for closed-source projects). However, there are free licenses for open-source/community projects. It runs Java, and on a shared host, I can't get past the 99% CPU usage on loading. My hosting company kills the process after about 1.5 seconds of that nonsense. Support must be from overseas and is sporadic, because the emails come in the middle-of-the-night and they haven't really understood or resolved me issue.</p>
+<p>So, to summarize, there are some very good options in all 4 of those projects. I am currently {attempting to setup, using, about given up on} each of those projects. I would like to use Trac, but am really banging my head on getting it setup and configured. Jira is all cool, but it's proprietary (more power to them - looks like a good product), but I can't mod anything and I don't think it plays well on shared hosts. </p>
+
+  </div>
+  <p class="terms">Programming · Open-Source · Comparison</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/javascript-controls/">← Javascript Controls</a></span>
+    <span><a href="/highearthorbit.com/articles/but-does-it-run-python/">"But does it run Python?" →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

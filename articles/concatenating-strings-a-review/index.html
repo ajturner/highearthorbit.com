@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>Concatenating Strings - a review · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/concatenating-strings-a-review/">
+  <meta property="og:title" content="Concatenating Strings - a review">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/concatenating-strings-a-review/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Sep 12, 2005 · Programming</p>
+  <h1>Concatenating Strings - a review</h1>
+  <div class="prose">
+    <p>As I mentioned, I'm learning/employing a bunch of varied programming languages. In fact, I'm employing several programming languages within a single project. While <em>tabbing</em> betwixt <a href='http://www.codingmonkeys.de/subethaedit/'>editor windows</a> I'll often miss tabbing between programming languages. Fortunately, error codes are as they are and they yell at me promptly.</p>
+<p>To review, concatenating strings:</p>
+<h3>Javascript</h3><br />
+<code>var mystring = string1 + " is " + string2;</code></p>
+<h3>Ruby and Python</h3><br />
+<code>mystring = string1 + " is " + string2;</code></p>
+<h3>PHP</h3><br />
+<code>$mystring = $string1." is ".$string2;</code></p>
+<h3>C</h3></p>
+<pre>
+char mystring[50], string1[10], string2[10];</p>
+<p>strcat(mystring, string1);<br />
+strcat(mystring, " is ");<br />
+strcat(mystring, string2);<br />
+</pre></p>
+<h3>C++</h3></p>
+<pre>
+string mystring, string1,string2;<br />
+mystring = string1 + " is " + string2;<br />
+</pre></p>
+<p>Feel free to add any more you know.</p>
+
+  </div>
+  <p class="terms">Programming</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/damn-funny-for-mac-users/">← Damn Funny for Mac Users</a></span>
+    <span><a href="/highearthorbit.com/articles/shared-birthdays-im-so-honored/">Shared Birthdays - I'm so honored →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

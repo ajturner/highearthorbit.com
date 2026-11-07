@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>Publish iCal to Google Calendar · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/publish-ical-to-google-calendar/">
+  <meta property="og:title" content="Publish iCal to Google Calendar">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/publish-ical-to-google-calendar/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Apr 13, 2006 · Technology</p>
+  <h1>Publish iCal to Google Calendar</h1>
+  <div class="prose">
+    <p>Let me attempt to redeem my prior remarks about Google Calendar by offering this bit of how to publish your iCal (via <a href='http://www.apple.com/ical/ '>iCal</a> or <a href='www.mozilla.org/projects/calendar/sunbird.html'>Mozilla Sunbird</a>) to Google. This was inspired by <a href='http://www.tuaw.com/2006/04/13/howto-subscribe-to-a-google-calendar-using-ical/#comments'>How to subscribe to Google Calendar in iCal</a>.</p>
+<h3>Create your calendar</h3><br />
+You have numerous options for creating your calendar: <a href='http://www.apple.com/ical/ '>iCal</a> (Mac), <a href='www.mozilla.org/projects/calendar/sunbird.html'>Mozilla Sunbird</a> (Mac, Windows, Linux), <a href='http://sourceforge.net/projects/outlook2ical/'>Outlook2iCal</a> (Windows), etc. </p>
+<h3>Setup a public server to host your calendar</h3><br />
+You have several options to publish your iCal calendar:</p>
+<ul>
+<li><a href='http://www.apple.com/dotmac/'>Apple .Mac</a> provides iCal hosting, but costs $$ (or &Acirc;&pound;, &acirc;&sbquo;&ordf;, &aring;&oelig;&ldquo;, &iuml;&middot;&frac14;, etc.)</li>
+<li><a href='http://www.umdnj.edu/webctweb/design/webdavhowto.html'>Setup WebDav</a> on your own server to host calendars</li>
+<li><a href='http://icalx.com'>iCal Exchange</a> is a free calendar sharing host</li>
+<li><a href='http://www.macosxhints.com/article.php?story=20051020063242208&query=webdav'>Just FTP/Automator</a> your iCal file to a public server</li><br />
+</ul></p>
+<h3>Publish your calendar</h3><br />
+Using one of the prescribed methods above, you will then want to actually publish your calendar to the host (or upload via FTP/SSH/SFTP/carrier pigeon on 5.25" floppy disk). You can turn on "Publish Changes Automatically" to have your changes on your computer automatically uploaded to Google Calendar.</p>
+<h3>Subscribe to your calendar in Google Calendar</h3><br />
+Do the following:</p>
+<ol>
+<li>Manage Calendars</li>
+<li>then under "Other Calendars", click "Add calendar"</li>
+<li>Fill in the URL of your published calendar - this is probably supplied by the hosting server (like iCal Exchange, .Mac, or you can figure it out for your own server)</li>
+<li>Click "Ok" and wait a little bit for it to be uploaded</li><br />
+</ol><br />
+<img src='http://highearthorbit.com/wp-images/AddCalendar.jpg' alt='Add Calendar'  hspace='5px' vspace='5px'/></p>
+<p><img src='http://highearthorbit.com/wp-images/Subscribe.jpg' alt='Subscribe to the Calendar'  hspace='5px' vspace='5px'/></p>
+<h3>Bask in the warming, glowing warmth...</h3><br />
+You're now done and have a Google Calendar version of your local iCal calendar. Unfortunately, at this point, Google Calendar doesn't let you edit this "public" calendar, though you can add events from this calendar to one of your Google Calendar calendars (if that makes sense, you're astute). Now you can just publish when you'll be available to stop at the local pub for a brew!</p>
+
+  </div>
+  <p class="terms">Technology · Web · Howto · Article · Google</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/google-calendar-quick-analysis/">← Google Calendar - quick analysis</a></span>
+    <span><a href="/highearthorbit.com/articles/google-calendar-and-abusingnot-using-xml/">Google Calendar and abusing/not-using XML →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

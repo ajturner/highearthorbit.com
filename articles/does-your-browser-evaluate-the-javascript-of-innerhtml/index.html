@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>Does your browser evaluate the Javascript of innerHTML? · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/does-your-browser-evaluate-the-javascript-of-innerhtml/">
+  <meta property="og:title" content="Does your browser evaluate the Javascript of innerHTML?">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/does-your-browser-evaluate-the-javascript-of-innerhtml/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Oct 17, 2005 · Programming</p>
+  <h1>Does your browser evaluate the Javascript of innerHTML?</h1>
+  <div class="prose">
+    <p>While playing with some really slick asynchronous javascript stuff (no - not Ajax, there wasn't any XML involved), I ran into an odd behavior that varied between the several browsers.</p>
+<p>What I'm doing is passing back a table from an asynchronous call and placing it into a premade table elementId. The page supports interaction with either javascript, if enabled, or straight href links if javascript is not enabled.</p>
+<p>The problem occurs when my Async call returns a table with a <script> tag containing document.write() calls. </p>
+<blockquote>
+<pre>
+<div id="myelement"></div><br />
+<script><br />
+document.getElementById("myelement").innerHTML =<br />
+"</script><script> document.write('Hello');<br />
+< \/script>";<br />
+</script><br />
+</pre><br />
+</blockquote><br />
+Replace innerHTML with innerText and Safari renders the entire script source, Firefox & Camino ignore it.</p>
+<p>Hrm - so how to dynamically fill in script into the DOM of a page and have it executed?</p>
+<p>The DOM inspector in Firefox correctly shows the Javascript being part of the element, but since the parser has already gone through that element, evaluated the Javascript later in the page, then it doesn't seem to be re-executed.<br />
+<em>Update</em></p>
+<p>It seems as though there is promise in the <code>eval</code> function of Javascript. However, nothing seems apparent yet.</p>
+
+  </div>
+  <p class="terms">Programming · Web · Javascript</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/dataplace-a-demographics-clearinghouse-of-fun/">← Dataplace - a demographics clearinghouse of fun</a></span>
+    <span><a href="/highearthorbit.com/articles/georss/">GeoRSS →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

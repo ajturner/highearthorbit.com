@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>RubyCocoa · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/rubycocoa/">
+  <meta property="og:title" content="RubyCocoa">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/rubycocoa/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Aug 4, 2006 · Programming</p>
+  <h1>RubyCocoa</h1>
+  <div class="prose">
+    <p><a href='http://rubycocoa.sourceforge.net/' title='RubyCocoa bridge'>RubyCocoa</a> is a bridge between the Mac OS X Cocoa Framework API that makes it callable from Ruby code. You can create applications, objects, call Mac OS X Services. You can even call Applescript:</p>
+<pre><code><br />
+require 'osx/cocoa'<br />
+include OSX<br />
+def speak (str)<br />
+  str.gsub! (/"/, '\"')<br />
+  src = %(say "#{str}")<br />
+  NSAppleScript.alloc.initWithSource(src).executeAndReturnError(nil)<br />
+end<br />
+speak "Hello World!"<br />
+speak "Kon nich Wah. Ogan key desu ka?"<br />
+</code></pre></p>
+<p><a href='http://blog.bleything.ne' title='Ben Bleything blog'>Ben Bleything</a> submitted a talk to RubyConf, titled "<a href='http://blog.bleything.net/pages/harmonize'>Harmonize: Exploiting RubyCocoa and Sync Services for Fun and Profit</a>"  where he discusses making a wrapper around the SyncAPI in Ruby. (<a href='http://blog.bleything.net/articles/2006/08/04/introducing-harmonize' title='blethythingblog: Introducing Harmonize'>blog post introducing Harmonize</a>) </p>
+<p><a href='http://rubycocoa.sourceforge.net/' title='RubyCocoa bridge'>RubyCocoa</a> looks like it may have stagnated a little as the last release was November 2005, but perhaps with such a renewed interest in <a href='http://radar.oreilly.com/archives/2006/07/ruby_book_sales_pass_perl.html' title="O'Reilly: Ruby Book Sales Pass Perl ">Ruby</a>, and Mac OS X gaining popularity, perhaps new life with be breathed into it. Projects such as <a href='http://www.syncbridge.com/' title='SyncBridge'>SyncBridge</a> and <a href='http://blog.bleything.net/pages/harmonize' title='Harmonize homepage'>Harmonize</a> also obviously help. </p>
+<p><strong>Update</strong>: Check out the very good examples and information at <a href='http://www.rubycocoa.com/'>RubyCocoa.com</a>, including how to <a href='http://www.rubycocoa.com/appleremote/1'>use your Apple Remote from RubyCocoa</a> .</p>
+
+  </div>
+  <p class="terms">Programming · Apple · Ruby · Applescript · Mac OS X</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/heo-dna/">← HEO DNA</a></span>
+    <span><a href="/highearthorbit.com/articles/scrapi-microformat-parsing-in-ruby/">scrAPI - Microformat Parsing in Ruby →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

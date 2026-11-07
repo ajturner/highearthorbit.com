@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>Answer: SQLite in Applescript · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/212/">
+  <meta property="og:title" content="Answer: SQLite in Applescript">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/212/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">May 16, 2005 · Programming</p>
+  <h1>Answer: SQLite in Applescript</h1>
+  <div class="prose">
+    <p><img src='http://highearthorbit.com/wp-images/applescriptdataevents4le.png' alt='Applescript SQL Diagram' align='right' hspace='10px' vspace='10px' />Thanks to responses on a <a href='http://bbs.applescript.net/viewtopic.php?id=12697'>post  thread</a> I made over at <a href='http://macscripter.net/'>MacScripter</a> I now have a lead on integrating SQLite db's into my applescripts. </p>
+<p>b.visser discovered:</p>
+<blockquote><p>
+There is a faceless app called 'Database Events'. You can find it by opening a new dictionary from the file menu.<br />
+</blockquote></p>
+<p>Special thanks to <a href='http://www.winforums.org/'>guardian34</a>, a little diagram and applescript example helps illustrate the point. </p>
+<pre>
+set theFolder to choose folder<br />
+tell application "Database Events"<br />
+   set theDB to make new database &Acirc;&not;<br />
+       with properties {name:"Test", location:theFolder}<br />
+   tell theDB<br />
+       set theRecord to make new record &Acirc;&not;<br />
+           with properties {name:"SomeRecord", id:1}<br />
+   end tell<br />
+   tell theRecord<br />
+       set field1 to make new field &Acirc;&not;<br />
+           with properties {name:"ID", value:1}<br />
+       set field2 to make new field &Acirc;&not;<br />
+           with properties {name:"Name", value:"foo"}<br />
+   end tell</p>
+<p>   return {(value of field1), (value of field2)}<br />
+end tell<br />
+</pre></p>
+<p>Unfortunately, I don't have a cool script/CSS design for prettifying Applescript code, so you'll have to deal with the monochromed type. </p>
+
+  </div>
+  <p class="terms">Programming · Apple</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/a-little-yak-shaving-mayhaps/">← A little yak shaving mayhaps?</a></span>
+    <span><a href="/highearthorbit.com/articles/travel-guides/">Travel Guides →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

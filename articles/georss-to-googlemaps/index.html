@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>GeoRSS to GoogleMaps · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/georss-to-googlemaps/">
+  <meta property="og:title" content="GeoRSS to GoogleMaps">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/georss-to-googlemaps/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Feb 2, 2006 · Technology</p>
+  <h1>GeoRSS to GoogleMaps</h1>
+  <div class="prose">
+    <p>Mikel Maron wrote up a small Javascript class to parse a <a href='http://georss.org'>GeoRSS</a> marked XML file and display the points with GoogleMaps. You can see <a href='http://brainoff.com/gmaps/mgeorss.html'>MGeoRSS</a> here. It currently just handles the W3C format for RSS (example of usage for <a href='http://earthquake.usgs.gov/recenteqsww/catalogs/eqs7day-M5.xml'>earthquakes).</p>
+<pre>
+<geo :lat>-21.1765</geo><geo :long>169.5617</geo><br />
+</pre></p>
+<p>In response to his posting to the GeoRSS mailing list, I added a<br />
+</a><a href='http://highearthorbit.com/projects/map/mgeorss.html'>GeoRSS Simple parsing</a> class. </p>
+<pre>
+<georss :point>45.256 -71.92</georss><br />
+</pre></p>
+<p>Still need to add the full <a href='http://georss.org/gml.html'>GML</a> spec which calls out boxes, polygons, lines, etc. In addition, the ability to automatically detect and parse the correct format (Atom, RSS 0.92, RSS 1.0, RSS 2.0; GML, Simple, W3C) would be really nice. </p>
+
+  </div>
+  <p class="terms">Technology · Programming · Maps · Web · Open-Source · Javascript</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/happy-tet/">← Happy Tet!</a></span>
+    <span><a href="/highearthorbit.com/articles/ah-the-pretentiousness-of-some-companies/">Ah the pretentiousness of some companies →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

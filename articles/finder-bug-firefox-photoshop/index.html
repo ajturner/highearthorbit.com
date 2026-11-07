@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>Finder Bug: Firefox -> Photoshop · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/finder-bug-firefox-photoshop/">
+  <meta property="og:title" content="Finder Bug: Firefox -> Photoshop">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/finder-bug-firefox-photoshop/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Aug 29, 2005 · Programming</p>
+  <h1>Finder Bug: Firefox -> Photoshop</h1>
+  <div class="prose">
+    <p>In case you were wondering, and wanted to try, let me tell you upfront:</p>
+<p>You cannot drag an image from Firefox and drop it onto the Photoshop dock icon. It does bad things like:</p>
+<p><code><br />
+crashdump[3807]: Dock crashed<br />
+crashdump[3807]: crash report written to: /Library/Logs/CrashReporter/Dock.crash.log<br />
+</code></p>
+<p>and locks up Firefox. This will lose any work/emails/browsing you were currently performing in Firefox as well as resetting the Finder and the Dashboard.</p>
+<p>The Dock.crash.log shows the call stack as thus:<br />
+<code><br />
+0   com.apple.CoreFoundation 	0x90729484 __CFStringCreateImmutableFunnel3 + 716<br />
+1   com.apple.CoreFoundation 	0x90735340 CFStringCreateWithBytes + 48<br />
+2   com.apple.CoreFoundation 	0x907818cc CFURLCreateWithBytes + 44<br />
+3   com.apple.LaunchServices 	0x918bff2c LSHandlePasteboard_PBItemsApplier(CFPasteboardApplyFunctionData const*, void*) + 1136<br />
+4   com.apple.CoreFoundation 	0x907b363c CFPasteboardApplyFunction + 600<br />
+5   com.apple.LaunchServices 	0x918c1290 _LSHandlePasteboardItems + 232<br />
+6   com.apple.LaunchServices 	0x918b3584 _LSHandlePasteboardUsingApplication + 176<br />
+</code></p>
+<p>Which sounds like something bad on the Firefox handing out the data for the image to Photoshop. Now, why this makes Dock crash is fairly odd. It must crash trying to "funnel" (hence the name) from Firefox to Photoshop.</p>
+<p>However, <code>CFStringCreateImmutableFunnel3</code> shows up nowhere in the Apple Developer documentation or google in general which makes me also think this is one of them thar <em>undokum'antad funk-shuns</em>.</p>
+<p>Read more about it on <a href='https://bugreport.apple.com/cgi-bin/WebObjects/RadarWeb.woa/3/wo/R4Y5A4jkydCAjzkytEXnCM/8.27'>Apple Radar #4236860</a> </p>
+
+  </div>
+  <p class="terms">Programming · Apple</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/dashsaver-v11/">← DashSaver v1.1</a></span>
+    <span><a href="/highearthorbit.com/articles/smugmug-maps/">smugMug Maps →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

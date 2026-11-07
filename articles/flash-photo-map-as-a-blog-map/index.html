@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>Flash Photo map as a blog map · High Earth Orbit</title>
+  <meta name="description" content="I've written a php "feed" that outputs information sufficient for loading up the Flash Photomap by Mark Zeman. It's a pretty slick flash map that's getting better with every quick release.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/flash-photo-map-as-a-blog-map/">
+  <meta property="og:title" content="Flash Photo map as a blog map">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/flash-photo-map-as-a-blog-map/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Apr 30, 2005 · Geolocation</p>
+  <h1>Flash Photo map as a blog map</h1>
+  <div class="prose">
+    <p>I've written a php "feed" that outputs information sufficient for loading up the <a href='http://www.allthegoodness.com/projects/map/'>Flash Photomap</a> by Mark Zeman. It's a pretty slick flash map that's getting better with every quick release. </p>
+<p>This was modified from the <code>wp-rss.php</code> file. Grab the code from <a href='http://highearthorbit.com/code/wp-photomap.txt'>wp-photomap.txt</a> and rename to php on your server in your wordpress directory. You also need to modify your <code>config.xml</code> file for the Flash Photomap to point to the <code>wp-photomap.php</code> file. This <code>config.xml</code> file needs to reside in the same directory as the page where you are including the map.</p>
+<p>To see an example, check out my growing <a href='http://highearthorbit.com/maps'>maps</a> page.</p>
+<p>There isn't currently a "photo"  displayed. I'm not sure what this would be. </p>
+<p>Also, since the current geo plugin to Wordpress is lacking in poweful functionality, you can't list a "location" by name. The best idea would be to create a new table of locations, and then have a reference with each post linking to the corresponding location record in the location table. Each location record would include the name, latitude, longitude, altitude, hyperlink, and some description. I could then go to a 'page' (ala WP lingo) that listed all the locations and the corresponding blog entries at that location. </p>
+
+  </div>
+  <p class="terms">Geolocation</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/follow-ancient-man-across-the-world/">← Follow ancient man across the world</a></span>
+    <span><a href="/highearthorbit.com/articles/public-libraries-are-amazing/">Public Libraries are amazing →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

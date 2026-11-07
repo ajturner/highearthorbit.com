@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>Hooking up GPS · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/hooking-up-gps/">
+  <meta property="og:title" content="Hooking up GPS">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/hooking-up-gps/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Sep 2, 2004 · Technology</p>
+  <h1>Hooking up GPS</h1>
+  <div class="prose">
+    <p>If you're trying to hook up your GPS unit (in my case,  a Garmin eTrex) to your mac, it's worth it to (1) buy the <a href='http://www.keyspan.com/products/usb/USA19HS/'>Keyspan USA-19HS serial-usb adapter</a> - it just *works* and (2) make sure your GPS is in Garmin (or appropriate) mode, and not just NMEA if the application you're using to communicate expects the Garmin Serial protocol. Yeah, that was about a day of 'debugging'. It was compounded by the fact that <a href='http://www.macstumbler.com/'>MacStumbler</a> can accept the NMEA protocol, and so would actually mark the acceess points it found, and therefore I didn't think anything was wrong.</p>
+<p>In the end, however, the connection works terrifically. <a href='http://gpsbabel.sourceforge.net/'>GPSBabel</a> works (both in GUI form and in command line form) as well as <a href='http://www.chimoosoft.com/gpsconnect.html'>GPSConnect</a> and <a href='http://www.chimoosoft.com/terrabrowser.html'>Terrabrowser</a>, both by <a href='http://www.chimoosoft.com'>Chimoosoft</a>.</p>
+<p>I want a decent Photo-GPS linking application. If only Terrabrowser was open-source I wouldn't be tempted to make my own solution from the ground up.</p>
+
+  </div>
+  <p class="terms">Technology · Programming · Apple</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/programming-as-an-art-form/">← Programming as an art form</a></span>
+    <span><a href="/highearthorbit.com/articles/primus-live-downloads/">Primus Live Downloads →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

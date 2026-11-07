@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>Interplanetary Mapping · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/interplanetary-mapping/">
+  <meta property="og:title" content="Interplanetary Mapping">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/interplanetary-mapping/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Oct 4, 2006 · Maps</p>
+  <h1>Interplanetary Mapping</h1>
+  <div class="prose">
+    <p>All the emerging standards for simple markup and syndication of location are Earth-centric (and sometimes just US/North American-centric). Granted, most people are probably only interested in locations that they can actually go to anytime soon. </p>
+<p>However, with the increasing number of interplanetary rovers, observations of moons, and perhaps future excursions, it is still useful to define how to properly handle these other reference frames. <a href="http://microformats.org/wiki/luna" title="Microformats Wiki: Luna">Luna</a> and <a href="http://microformats.org/wiki/mars" title="Microformats Wiki: Mars">Mars</a> are two suggested Microformats that are starting the discussion on how one might mark locations on the two bodies. Additionally, the OGC is working now on determining standards for scientists and developers to publish and share data sources of planets, moons, asteroids, comets, 'oh my'. </p>
+<p>And why does the Earth have to be the only one with cool, "slippy maps". I quickly put together a <a href="http://location.highearthorbit.com/space/mars.html" title="Mars Map" rel="me">map of Mars</a>. It uses the powerful <a href="http://openlayers.org" title="OpenLayers homepage">OpenLayers</a> Javascript mapping library to display the tiles from a <a href="http://onmars.jpl.nasa.gov/" title="NASA JPL OnMars Map">NASA WMS server</a>. </p>
+<p><a href="http://location.highearthorbit.com/space/mars.html" title="Mars Map" rel="me"><img src="/highearthorbit.com/assets/uploads/2006/10/marsmap.png" title="Mars Map thumbnail" alt="Mars Map screenshot"/></a><br />
+To produce the locations for the map, I put up a <a href="http://location.highearthorbit.com/space/blog/" title="Space Blog" rel="me">Space Blog</a>, using WordPress and a slightly modified <a href="http://georss.org/geopress" title="GeoPress homepage on GeoRSS.org" rel="me">GeoPress</a> to publish Mars lander locations and landing dates. I altered the published Microformats produced by GeoPress to make the class "geo mars" as a suggested way to markup Mars coordinates. The published GeoRSS feeds from the Space Blog then produce the locations and layers automatically on the OpenLayers Mars Map. </p>
+<h2>To Do: CRS and You</h2><br />
+So this is all very neat, and in the end, really easy to setup. However, this is just a demonstration and in no way should be construed as "the way to do it". Specifically, there are these questions left unanswered:</p>
+<ol>
+<li>How to define the Microformat and GeoRSS for non-Earth (and non-WGS84) reference frames</li>
+<li>How to define the Microformats and GeoRSS/Geonames location for non-Earth locations (like "Ares Vallis")</li>
+<li>More sources for interplanetary map servers</li>
+<li>Ways to syndicate, and subscribe to, specific bodies</li>
+<li>Support for publishing, consuming, and drawing lines - in order to plot out mission profiles</li>
+<li>Support for publishing, consuming, and drawing areas - in order to plot out mission profiles, landing sites, and expected areas of "mission failures"</li><br />
+</ol></p>
+<p>I'm sure there are more issues, so please speak up. You know who you space geeks are.</p>
+
+  </div>
+  <p class="terms">Maps · Space · Project · GeoRSS</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/links-for-2006-10-04/">← links for 2006-10-04</a></span>
+    <span><a href="/highearthorbit.com/articles/geo-your-wiki/">Geo your Wiki →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

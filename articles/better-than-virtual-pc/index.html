@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>Better than Virtual PC · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/better-than-virtual-pc/">
+  <meta property="og:title" content="Better than Virtual PC">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/better-than-virtual-pc/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Aug 24, 2005 · Technology</p>
+  <h1>Better than Virtual PC</h1>
+  <div class="prose">
+    <p>I frequently telecommute (or would ethercommute be more appropriate? WOIP - work over IP) and have no windows machines on my person or at my abode. However, much of my work work involves (nay, requires) the use of Windows boxxen.</p>
+<p>While VNC as a remote interface to a computer desktop is very nice and all (yay Bell Labs), it is not fast enough for most work. It also really bogs the server machine down (which is especially important when doing remote compiles and running intensive processes).</p>
+<p>Instead, I have been incredibly impressed with Microsoft's <a href="http://www.microsoft.com/windowsxp/downloads/tools/rdclientdl.mspx">Remote Desktop Connection</a> is a desktop viewing service that is built into Windows XP with clients available for all versions of Windows (post '95) as well as a <a href="http://www.microsoft.com/mac/otherproducts/otherproducts.aspx?pid=remotedesktopclient">client for Mac OS X</a>.</p>
+<p>What RDC lets me do is sit on my G5 at home, connect to my internal work network and view the Windows desktop of any of my work machines in a window on my G5 within Mac OS X. What is really suprising is the speed of RDC. It is only slightly more sluggish than working directly at the keyboard of the remote Windows machine.</p>
+<p>Due to security, our only open connection at work is via SSH. Therefore, I have to 'tunnel' my RDC connection through SSH, which doesn't slow the connection down much at all (and that's without using compression on the SSH connection - need to try that out)</p>
+<p>To remotely connect up an RDC session via ssh, perform the following from your client machine (assuming you have SSH installed, which most decent OS's do - Windows of course does not by default, get yourself WinSSH) </p>
+<p><code>ssh -L 3389:remotemachinename:3389 -p 12345 username@remoteserver</code></p>
+<p>This command does the following:</p>
+<ol>
+<li>Connect to the remote server, <code>remoteserver</code> with the username <code>username</code></li>
+<li>Connects to the SSH service on the remote server at port <em>12345</em> (you don't have your ssh running on port 22 do you? tsk-tsk)</li>
+<li>Forwards port 3389 (which is what RDC uses) to the targeted remote machine on the work internal network. 'Forwarding' means that any data that heads to port 3389 from your machine will be transported - tunneled - to that remote machine instead</li><br />
+</ol></p>
+<p>Then you need to start Remote Desktop Connection and choose <em>localhost</em> as the remote machine to connect to. Soon you will be greeted by the necessary, if blueish, Windows XP login screen.</p>
+<p>Resources</p>
+<ul>
+<li><a href="http://www.microsoft.com/windowsxp/downloads/tools/rdclientdl.mspx">Remote Desktop Connection client for Windows</a></li>
+<li><a href="http://www.microsoft.com/mac/otherproducts/otherproducts.aspx?pid=remotedesktopclient">Remote Desktop Connection client for Mac OS X</a></li>
+<li><a href="http://www.realvnc.com/">RealVNC</a> - VNC Server and Client for Windows</li>
+<li><a href="http://www.tightvnc.com/">TightVNC</a> - Windows and Unix, GPL'd server & client</li>
+<li><a href="http://www.redstonesoftware.com/vnc.html">OSXVnc</a> - VNC server for Mac OS X</li>
+<li><a href="http://sourceforge.net/projects/cotvnc/">Chicken of the VNC</a> - VNC client for Mac OS X</li><br />
+</ul></p>
+
+  </div>
+  <p class="terms">Technology · Apple · Mobile</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/claim-the-fifth-says-i/">← Claim the Fifth says I</a></span>
+    <span><a href="/highearthorbit.com/articles/dashsaver-v11/">DashSaver v1.1 →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

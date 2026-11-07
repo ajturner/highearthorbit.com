@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>Sunlight Datakit - Congress in your App · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/sunlight-datakit-congress-in-your-app/">
+  <meta property="og:title" content="Sunlight Datakit - Congress in your App">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/sunlight-datakit-congress-in-your-app/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Feb 28, 2007 · Programming</p>
+  <h1>Sunlight Datakit - Congress in your App</h1>
+  <div class="prose">
+    <p><a href="http://sunlightlabs.com" title="Sunlight Labs homepage">Sunlight Labs</a> has released a public API, their <a href="http://sunlightlabs.com/datakit/" title="Sunlight Labs Datakit">Sunlight Datakit</a>. It's a straight-forward, simple API for getting access to their Civic data, like Congressional Representatives, zipcodes, timezones, and some geographic information.</p>
+<blockquote><p>
+There is some basic information about elected representatives that makes politico mashups easier: the ability to tie a name to a state, the district and zip codes that they represent, their office telephone number, and so on. We have put together a simple labs "datakit" that does this for us, drawing from several publicaly available data sources. We are making this fully available and have provided a fully documented API for the methods we have developed for those sources. Find out about the datakit here.<br />
+</blockquote></p>
+<p>Of course, any API needs a nice little client to tie it into your applications. Here is my Ruby client. It's very simple, because is uses the fallback <code>method_missing</code> to handle any function passed to the class. This also allows the class to be extended by implementing specific methods if more processing of the response is needed.</p>
+<pre><span class="ident">require</span> <span class="punct">'</span><span class="string">open-uri</span><span class="punct">'</span><br />
+<span class="ident">require</span> <span class="punct">'</span><span class="string">rexml/document</span><span class="punct">'</span><br />
+<span class="ident">require</span> <span class="punct">'</span><span class="string">cgi</span><span class="punct">'</span><br />
+<span class="constant">SUNLIGHT_HOST</span> <span class="punct">=</span> <span class="punct">'</span><span class="string">http://sunlightlabs.com/datakit/</span><span class="punct">'</span></p>
+<p><span class="keyword">class </span><span class="class">Sunlight</span><br />
+  <span class="keyword">def </span><span class="method">self.method_missing</span><span class="punct">(</span><span class="ident">service_method</span><span class="punct">,</span> <span class="punct">*</span><span class="ident">args</span><span class="punct">)</span><br />
+    <span class="ident">params</span> <span class="punct">=</span> <span class="ident">args</span><span class="punct">[</span><span class="number">0</span><span class="punct">].</span><span class="ident">collect</span> <span class="punct">{|</span><span class="ident">k</span><span class="punct">,</span><span class="ident">v</span><span class="punct">|</span> <span class="constant">CGI</span><span class="punct">.</span><span class="ident">escape</span><span class="punct">(</span><span class="ident">k</span><span class="punct">.</span><span class="ident">to_s</span><span class="punct">)</span> <span class="punct">+</span> <span class="punct">'</span><span class="string">=</span><span class="punct">'</span> <span class="punct">+</span> <span class="constant">CGI</span><span class="punct">.</span><span class="ident">escape</span><span class="punct">(</span><span class="ident">v</span><span class="punct">.</span><span class="ident">to_s</span><span class="punct">)}.</span><span class="ident">join</span><span class="punct">('</span><span class="string">&amp;</span><span class="punct">')</span><br />
+    <span class="ident">url</span> <span class="punct">=</span> <span class="constant">SUNLIGHT_HOST</span> <span class="punct">+</span> <span class="ident">service_method</span><span class="punct">.</span><span class="ident">to_s</span> <span class="punct">+</span> <span class="punct">"</span><span class="string">?</span><span class="punct">"</span> <span class="punct">+</span> <span class="ident">params</span><br />
+    <span class="ident">open</span><span class="punct">(</span><span class="ident">url</span><span class="punct">).</span><span class="ident">read</span><span class="punct">.</span><span class="ident">split</span><span class="punct">("</span><span class="string">|</span><span class="punct">")</span><br />
+  <span class="keyword">end</span><br />
+<span class="keyword">end</span></p>
+<p><span class="ident">resp</span> <span class="punct">=</span> <span class="constant">Sunlight</span><span class="punct">.</span><span class="ident">getDistrictFromZip5</span><span class="punct">({</span><span class="symbol">:zip</span> <span class="punct">=></span> <span class="number">20740</span><span class="punct">})</span><br />
+<span class="ident">puts</span> <span class="ident">resp</span><span class="punct">.</span><span class="ident">inspect</span><br />
+  <span class="comment"># MD:5</span><br />
+  <span class="comment"># MD:4</span></p>
+<p><span class="ident">resp</span> <span class="punct">=</span> <span class="constant">Sunlight</span><span class="punct">.</span><span class="ident">getRepresentativeNameFromCityState</span><span class="punct">({</span><span class="symbol">:city</span> <span class="punct">=></span> <span class="punct">'</span><span class="string">Detroit</span><span class="punct">',</span> <span class="symbol">:state</span> <span class="punct">=></span> <span class="punct">"</span><span class="string">MI</span><span class="punct">"})</span><br />
+<span class="ident">puts</span> <span class="ident">resp</span><span class="punct">.</span><span class="ident">inspect</span><br />
+  <span class="comment"># Kilpatrick, Carolyn C.</span><br />
+  <span class="comment"># Conyers, John  Jr.</span><br />
+  <span class="comment"># Levin, Sander M.</span><br />
+  <span class="comment"># McCotter, Thaddeus G.</span><br />
+  <span class="comment"># Dingell, John D.</span></p>
+<p></pre></p>
+<p>The Sunlight Datakit currently offers the following functions. Check out the <a href="http://sunlightlabs.com/datakit/" title="Sunlight labs datakit">documentation</a> for information on the parameters and returned values. </p>
+<ul>
+<li>getDistrictFromZip5</li>
+<li>getStateFromZip5</li>
+<li>getDistrictFromZip9</li>
+<li>getStateFromZip9.php</li>
+<li>getRepresentativeNameFromDistrict</li>
+<li>getRepresentativePhoneNumberFromDistrict</li>
+<li>getRepresentativeRoomNumberFromDistrict</li>
+<li>getCityFromZip5</li>
+<li>getCityStateFromZip5</li>
+<li>getLatitudeFromCityState</li>
+<li>getLongitudeFromCityState</li>
+<li>getZipCodesFromCityState</li>
+<li>getTimezoneFromCityState</li>
+<li>getRepresentativeNameFromCityState</li>
+<li>getRepresentativeNameFromState</li>
+<li>getStateAbbreviationFromStateName</li>
+<li>getStateNameFromStateAbbreviation</li><br />
+</ul></p>
+
+  </div>
+  <p class="terms">Programming · Web · Ruby · Mashup</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/links-for-2007-02-28/">← links for 2007-02-28</a></span>
+    <span><a href="/highearthorbit.com/articles/links-for-2007-03-01/">links for 2007-03-01 →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

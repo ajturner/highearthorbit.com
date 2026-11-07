@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>Urban Mapping Neighborhood API opens up  · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/urban-mapping-api-opens-up/">
+  <meta property="og:title" content="Urban Mapping Neighborhood API opens up ">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/urban-mapping-api-opens-up/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Jan 9, 2008 · Project</p>
+  <h1>Urban Mapping Neighborhood API opens up </h1>
+  <div class="prose">
+    <p>Need to add hyperlocalization to your mashup/site/app? Users searching for "Pizza in Dogpatch" and your geocoder just falls over? Well, Urban Mapping pulled a some what surprising, and incredibly great move today and <a href="http://ws.urbanmapping.com/neighborhoods/doc" title="UMI Urbanware API - Neighborhoods">announced they are opening up the API to their neighborhood database</a>.  </p>
+<p>If you haven't heard before, Urban Mapping provides the data to most of the major mapping users on defining areas like "Little Italy", or "Soho". This includes Google, MapQuest, and others. By opening their API, third-party developers can now build this type of capability into their own applications. It's something we'll definitely be adding to <a href="http://mapufacture.com/" title="Mapufacture - helping build the geospatial web">Mapufacture</a> very soon.</p>
+<p><a href='/highearthorbit.com/assets/uploads/2008/01/urban-mapping-api-demo.jpg' title='Urban Mapping API Demo'><img src='/highearthorbit.com/assets/uploads/2008/01/urban-mapping-api-demo.jpg' alt='Urban Mapping API Demo' /></a></p>
+<p>There are numerous other geocoders out there, not least of which is the excellent and open <a href="http://www.geonames.org/" title="GeoNames">GeoNames</a>. However, an API for looking up ambiguous, and changing local definitions of a neighborhood has been missing. UMI fills that by providing multiple mechanisms for finding and defining 'hoods. For example, you can <a href="http://ws.urbanmapping.com/neighborhoods/service/getNeighborhoodsByLatLng" title="Urban Mapping API Demo">look up the neighborhoods at a location</a>, <a href="http://ws.urbanmapping.com/neighborhoods/service/getNeighborhoodsByLatLng" title="Urban Mapping API Demo">by name</a>, or even get <a href="http://ws.urbanmapping.com/neighborhoods/service/getNeighborhoodsByLatLng" title="Urban Mapping API Demo">the exonyms of a neighborhood</a>, depending on the language. There are a number of other methods and demos available. Check out the very good<br />
+<a href="http://ws.urbanmapping.com/neighborhoods/doc" title="UMI Urbanware API - Neighborhoods">documentation</a> that links to each of the demos and even includes code snippets in Ruby and PHP for how to call the API. </p>
+<p>As  <a href="http://radar.oreilly.com/archives/2008/01/urban-mapping-free-neighborhood-api.html" title="Urban Mapping Gives Us Free Neighborhoods">Brady points out on O'Reilly Radar</a>, the API is using SOAP, and not REST. The API was developed just as REST was "becoming all the rage", but had various reasons for being SOAP based. Still, the code examples show how easy it is to use a SOAP library to create a simple wrapper around the API. [via <a href="http://suda.co.uk/" title="suda.co.uk">Brian Suda</a>]</p>
+<p>Of course, I'm perhaps a little biased on the Urban Mapping demos and documentation - considering I helped developed them. Urban Mapping is a great company to work with and I'm really looking forward to their continued expansion of their data products and APIs.</p>
+
+  </div>
+  <p class="terms">Project · Neogeography</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/rails-interfaces-to-mac-applications/">← Rails interfaces to Mac Applications</a></span>
+    <span><a href="/highearthorbit.com/articles/geo-search-in-leopard-spotlight/">Geo search in Leopard Spotlight →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>

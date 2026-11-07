@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><title>Rails interfaces to Mac Applications · High Earth Orbit</title>
+  <meta name="description" content="Andrew Turner on open data, civic technology, the geospatial web, and the systems that connect them.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://highearthorbit.com/articles/rails-interfaces-to-mac-applications/">
+  <meta property="og:title" content="Rails interfaces to Mac Applications">
+  <meta property="og:site_name" content="High Earth Orbit">
+  <link rel="icon" type="image/png" href="/highearthorbit.com/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+  <link rel="stylesheet" href="/highearthorbit.com/assets/css/site.css">
+  <link rel="alternate" type="application/atom+xml" title="High Earth Orbit" href="/highearthorbit.com/feed.xml">
+</head>
+<body>
+  <div class="staging-bar">Staging copy. The live site is <a href="https://highearthorbit.com/articles/rails-interfaces-to-mac-applications/">highearthorbit.com</a>.</div>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="/highearthorbit.com/">High Earth Orbit</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="/highearthorbit.com/articles/" aria-current="page">Writing</a>
+        <a href="/highearthorbit.com/projects/">Projects</a>
+        <a href="/highearthorbit.com/talks/">Talks</a>
+        <a href="/highearthorbit.com/photos/">Photos</a>
+        <a href="/highearthorbit.com/about/">About</a>
+        <a href="/highearthorbit.com/now/">Now</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article class="narrow">
+  <p class="kicker">Jan 8, 2008 · Apple</p>
+  <h1>Rails interfaces to Mac Applications</h1>
+  <div class="prose">
+    <p>The new version of Mac OS X, Leopard, came with a much anticipated feature - an officially supported set of Ruby bridges to Cocoa (the Mac OS X Framework) and AppleScript. Digging around I couldn't find the pre-installed versions, but it was easy enough to <code>gem install rb-appscript</code></p>
+<p>I've been playing around with the very complete examples over the last couple of days and am really impressed with how easy it is to build <em>Cocoa</em> apps in just a few lines of Ruby code and using the new InterfaceBuilder. You get full-fledged support of all OS X's goodness without having to worry about Objective-C. </p>
+<p>However, I hadn't fully considered some of the implications of this until I was stumbled across the open-source <a href="http://omnifocus-ui.rubyforge.org/svn/trunk/README" title="">OmniFocus-UI</a>. It is a Rails app written as an iPhone interface to the Productivity application (<abbr title="Getting Things Done">GTD</abbr>) <a href="http://www.omnigroup.com/applications/omnifocus/" title="The Omni Group - OmniFocus">OmniFocus</a>. It essentially provides a very lightweight web interface to the application by way of the AppleScript interface. <a href="http://rb-appscript.rubyforge.org/" title="rb-appscript">rb-appscript</a> and <a href="http://rubyosa.rubyforge.org/" title="RubyOSA: Ruby/AppleEvent Bridge">RubyOSA</a> are two Ruby AppleScript bridges that make AppleScript actually really nice to work with. </p>
+<p>The fact that it's a Rails app is almost silly. There is no database connection to speak of. All storage and primary functionality is handled by the app itself. OmniFocus-UI could probably be rewritten as a Camping or Merb application very easily with a much smaller footprint. </p>
+<p>The way the Rails app works is that the controllers just route commands via rb-appscript. So when you want a list of contexts (organization of todos), the Rails app just needs to do the following in Ruby:</p>
+<pre>
+require 'appscript'<br />
+doc = Appscript.app("OmniFocus").default_document<br />
+doc.contexts.get.length<br />
+</pre></p>
+<p>Or to see how many Inbox items you have:</p>
+<pre>
+doc.inbox_tasks.count<br />
+</pre></p>
+<p>If instead you want to use RubyOSA, it's really just the Class name that changes (and some more underlying bits):</p>
+<pre>
+require 'rbosa'<br />
+doc = OSA.app("OmniFocus").default_document<br />
+</pre></p>
+<p>What this means is, it's very easy to build web interfaces on top of any AppleScript-able Mac application. The one difficulty, however, is configuring your Mac to make it easily externally accessible from anywhere on the Web. If you're handy on IT, you can always setup port-forwarding on your router. </p>
+<p>However, if you just want setup &amp; forget, you should check out <a href="http://goprism.com" title="Prism">Prism</a> (<a href="http://goprism.com" title="Prism">http://goprism.com</a>) - which creates secure, private web accessible connections to your home computer. </p>
+
+  </div>
+  <p class="terms">Apple · Rails</p>
+  <nav class="pager" aria-label="More articles">
+    <span><a href="/highearthorbit.com/articles/2007-year-in-review/">← 2007 Year in Review</a></span>
+    <span><a href="/highearthorbit.com/articles/urban-mapping-api-opens-up/">Urban Mapping Neighborhood API opens up  →</a></span>
+  </nav>
+</article>
+
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© 2026 Andrew Turner · highearthorbit.com</p>
+      <p><a href="/highearthorbit.com/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>
