@@ -1,0 +1,35 @@
+---
+source_id: wp-394
+title: Google Calendar and abusing/not-using XML
+date: 2006-04-17 13:17:22 -0400
+categories:
+- Technology
+- Programming
+- Google
+- Google Calendar
+wp_id: 394
+legacy_url: http://highearthorbit.com/google-calendar-and-abusingnot-using-xml/
+format: html
+---
+
+<p><strong>Update:</strong> - Google has added a <em>full</em> mode (replace <em>basic</em> in the feed XML url) which provides very nice XML. <code>startDate</code> and <code>endDate are attributes of the </code><code>gd:when</code> tag. Also, another nice thing was the expansion of recurring events by specifying a window of dates to query. The events are both marked as recurring (and still using iCal recurring format) as well as specifically placed at each recurring event time. This allows devs and users to quickly use the XML feed and provide recurring events without having to deal with that massive hoard of confusing logic (every other Tuesday in April and June except on the 3rd Tuesday of June)</p>
+<p>I spent the weekend digging further into the Google Calendar tidbits and putting together a project. There are some odd things about the XML output.</p>
+<p>The actual date and time of the event are stored as plain text in the <em>summary</em> node:<br />
+<code><br />
+When: 2006-05-14 20:30:00 to 2006-05-14 22:30:00<br />Who: Where: Boston Logan Airport, Boston, MA<br />Event Status: CONFIRMED<br />
+</code></p>
+<p>Why didn't Google use some form of XML, perhaps inspired by the <a href='http://microformats.org/wiki/hcalendar'>Microformats hCalendar</a> format? This is especially important because as Google demonstrated, it seems to change between using <br> to properly formed <br/> tags (breaking my parsing code). </p>
+<p>What is even more puzzling are recurring events:<br />
+<code><br />
+Recurring Event<br />First start: 2006-04-18 09:00:00<br />Duration: 5400<br />Who: Public,Where: Warren, Michigan<br />Event Status: CONFIRMED<br />
+</code></p>
+<p>There is no actual output of the ending date, or type of recurrance the appointment has. iCal specifies it as the following:</p>
+<p><code><br />
+DTSTART;TZID=America/New_York:20060418T090000<br />
+DURATION:PT5400S<br />
+RRULE:FREQ=WEEKLY;BYDAY=TU;UNTIL=20060627T130000Z<br />
+</code></p>
+<p>which covers all the pertinent information for recreating the output. This is perhaps why the Google Calendar homepage add-in doesn't yet support recurring events. It's currently impossible to! </p>
+<p>And don't trying going to <a href='http://schemas.google.com/'>http://schemas.google.com/</a>, which is where the schema tag points to. </p>
+<p>Lastly, it would be very nice if the <a href='http://www.httpsniffer.com/http/1426.htm'>If-None-Match</a> request-header was honored for updating the calendar RSS feeds.</p>
+<p>Hopefully Google fleshes this out soon.</p>

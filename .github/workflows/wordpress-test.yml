@@ -1,0 +1,24 @@
+name: WordPress test
+
+# Publishes the content into a throwaway WordPress and checks every page type.
+# Runs only when the WordPress code or the publishing scripts change.
+on:
+  pull_request:
+    paths: ["wordpress/**", "scripts/**", "schemas/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  wordpress:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Publish into a throwaway WordPress and check pages
+        run: scripts/ci/wp-test.sh "$RUNNER_TEMP/wp"

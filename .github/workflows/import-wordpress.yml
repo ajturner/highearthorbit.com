@@ -1,0 +1,36 @@
+name: Import from WordPress
+
+# Copies published WordPress posts that are not in content/_posts/ yet (matched by
+# wp_id) into the repository and opens a pull request. Reads the public REST API;
+# no credentials needed.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Import posts
+        env:
+          WP_URL: ${{ vars.WP_URL || 'https://highearthorbit.com' }}
+        run: python -m scripts.heo.import_wordpress
+      - run: python -m scripts.heo.validate
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          branch: import/wordpress
+          delete-branch: true
+          commit-message: "Import WordPress posts not yet in the repository"
+          title: "Import WordPress posts"
+          body: Posts from the live WordPress site that were missing from `content/_posts/`. Existing files were matched by `wp_id` and left alone.
+          add-paths: content/**
+          token: ${{ secrets.SYNC_TOKEN || secrets.GITHUB_TOKEN }}

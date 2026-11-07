@@ -1,0 +1,42 @@
+<!-- wp:template-part {"slug":"header","area":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"heo-main","layout":{"type":"constrained"},"style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}}} -->
+<main class="wp-block-group heo-main">
+<!-- wp:group {"layout":{"type":"constrained"},"align":"wide"} -->
+<div class="wp-block-group alignwide">
+<!-- wp:heading {"level":1} -->
+<h1 class="wp-block-heading">Talks</h1>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"heo-lede"} -->
+<p class="heo-lede">Recorded talks and slides.</p>
+<!-- /wp:paragraph -->
+<!-- wp:query {"queryId":10,"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","inherit":true},"className":"heo-list"} -->
+<div class="wp-block-query heo-list">
+<!-- wp:post-template {} -->
+<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"heo/field","args":{"key":"kicker"}}}},"className":"heo-kicker"} -->
+<p class="heo-kicker"></p>
+<!-- /wp:paragraph -->
+<!-- wp:post-title {"level":2,"isLink":true} /-->
+<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"heo/field","args":{"key":"summary"}}}},"className":"heo-summary"} -->
+<p class="heo-summary"></p>
+<!-- /wp:paragraph -->
+<!-- wp:heo/item-links /-->
+<!-- /wp:post-template -->
+<!-- wp:query-pagination -->
+<!-- wp:query-pagination-previous /-->
+<!-- wp:query-pagination-numbers /-->
+<!-- wp:query-pagination-next /-->
+<!-- /wp:query-pagination -->
+<!-- wp:query-no-results -->
+<!-- wp:paragraph {} -->
+<p>Nothing here yet.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results -->
+</div>
+<!-- /wp:query -->
+</div>
+<!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","area":"footer","tagName":"footer"} /-->

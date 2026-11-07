@@ -1,0 +1,21 @@
+---
+source_id: wp-437
+title: Metacarta Parsing FoFRedux
+date: 2006-06-19 07:33:32 -0400
+categories:
+- Technology
+- Programming
+- Web
+- Project
+- FoFRedux
+- Mashup
+- Neogeography
+wp_id: 437
+legacy_url: http://highearthorbit.com/metacarta-parsing-fofredux/
+format: html
+---
+
+<p>I <a href='http://highearthorbit.com/where20-metacarta/'>mentioned</a> <a href='http://metacarta.com' title='Metacarta Homepage'>Metacarta</a> last week after I saw their presentation at Where2.0.</p>
+<p>They mentioned having a <a href='http://labs.metacarta.com/GeoParser/documentation.html'>public GeoParser API</a> available for developers to play around with. So I passed in one of the output feeds from <a href='http://fofredux.sf.net'>FoFRedux</a> (a feed aggregator that supports GeoRSS) through the <a href='http://metacarta.com' title='Metacarta Homepage'>Metacarta</a> GeoParser to produce a map of locations that show up in my feeds. </p>
+<p>FoFRedux -> Metacarta Example: <a href='http://labs.metacarta.com/GeoParser/?output=png&clear_cache=1&width=1024&height=768&url=http://code.highearthorbit.com/fofredux/fofredux_head/rss.php?feed=9'>SlashDot article locations</a></p>
+<p>So now you can use a feed aggregator to display, say locations of articles and posts for your friends feeds. Or locations of Flickr photos, or even UPS/Fedex package tracking. The example just shows the image output, but the <a href='http://labs.metacarta.com/GeoParser/documentation.html'>GeoParser</a> can output GML or GeoMarkup XML, and JSON for better intergration into other applications. </p>

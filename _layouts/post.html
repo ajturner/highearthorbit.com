@@ -1,65 +1,19 @@
 ---
 layout: default
-hide_edit_link: false
-banner: https://farm8.staticflickr.com/7348/11452221493_8523f98888_b_d.jpg
-active_path: posts
 ---
-
-<section itemscope itemtype="http://schema.org/Blog">
-  <article itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
-<div class="col-xs-12 col-sm-9">
-  <h2 itemprop="name">{{ page.title }}</h2>
-    <div class="article-text" itemprop="articleText">
-     {{ content }}
-    </div>
-   <div class="PageNavigation">
-     {% if page.previous.url %}
-       <a class="prev" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
-     {% endif %}
-     {% if page.next.url %}
-       <a class="next" href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
-     {% endif %}
-   </div>
-</div>
-
-<div class="col-xs-12 col-sm-3">
-   <h3>About this article</h3>
-   written on <span itemprop="datePublished" content="{{ page.date | date_to_xmlschema}}">{{ page.date | date: '%B %e, %Y' }}</span><br/>
-
-   posted in <span itemprop="keywords">{{ page.categories }}</span>
-
-   <a href="#topofpage" class="btn btn-link" style="bottom: 10px; position: fixed;">Back to Top</a>
-
-  <!-- <a href="{{paginator.next_page_path}}">Next Article</a> <br />
-  <a href="{{paginator.previous_page_path}}">Previous Article</a> -->
-
-  <!-- <div class="list-group" style="padding-bottom: 30vh;">
-    <div class="list-group-item active">Navigation</div>
-    <div class="list-group-item"><a href="#breadcrumbs">Breadcrumbs</a></div>
-    <div class="list-group-item"><a href="#buttons">Buttons</a></div>
-    <a href="#topofpage" class="btn btn-link" style="bottom: 10px; position: fixed;">Back to Top</a>
-  </div> -->
-</div>
-</article>
-</section>
-
-
+<article class="narrow">
+  {%- if page.banner %}<img class="banner" src="{{ page.banner }}" alt="">{% endif %}
+  {% include kicker.html item=page %}
+  <h1>{{ page.title }}{% if page.draft_badge %}<span class="badge">Draft</span>{% endif %}</h1>
+  <div class="prose">
+    {{ content }}
   </div>
-</div>
-
-<div class="row post-footer">
-  <div class="container" role="">
-    <div class="col-xs-12 col-sm-6">
-      <h3>About the Author</h3>
-      {% include _bio.html %}
-    </div>
-    <div class="col-xs-12 col-sm-6">
-      <h3>Related Posts</h3>
-      <ul>
-        {% for post in site.related_posts %}
-          <li>
-            <a href="{{ post.url }}">{{ post.title }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
+  {%- capture terms %}{{ page.categories | join: " · " }}{% if page.categories.size > 0 and page.tags.size > 0 %} · {% endif %}{{ page.tags | join: " · " }}{% endcapture %}
+  {%- if terms != "" %}
+  <p class="terms">{{ terms }}</p>
+  {%- endif %}
+  <nav class="pager" aria-label="More articles">
+    <span>{% if page.previous %}<a href="{{ page.previous.url }}">← {{ page.previous.title }}</a>{% endif %}</span>
+    <span>{% if page.next %}<a href="{{ page.next.url }}">{{ page.next.title }} →</a>{% endif %}</span>
+  </nav>
+</article>

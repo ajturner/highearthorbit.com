@@ -1,0 +1,20 @@
+---
+layout: default
+title: Writing
+---
+{%- include writing.html -%}
+{%- assign years = writing | group_by_exp: "w", "w.date | date: '%Y'" -%}
+<div class="narrow">
+  <h1>Writing</h1>
+  <p class="lede">{{ writing.size }} articles since 2004, newest first. Articles published elsewhere are marked External.</p>
+  <p class="jump">{% for y in years %}<a href="#y{{ y.name }}">{{ y.name }}</a>{% endfor %}</p>
+  {%- for y in years %}
+  <h2 class="year" id="y{{ y.name }}">{{ y.name }}</h2>
+  <ul class="titles">
+    {%- for w in y.items %}
+    {%- if w.collection == "external" %}{% assign href = w.href %}{% else %}{% assign href = w.url %}{% endif %}
+    <li><time datetime="{{ w.date | date_to_xmlschema }}">{{ w.date | date: "%b %-d" }}</time><span><a href="{{ href }}">{{ w.title }}</a>{% if w.collection == "external" %} <span class="badge" style="color:var(--accent)">External</span>{% endif %}{% if w.draft_badge %}<span class="badge">Draft</span>{% endif %}</span></li>
+    {%- endfor %}
+  </ul>
+  {%- endfor %}
+</div>

@@ -1,0 +1,9 @@
+{%- assign i = include.item -%}
+{%- capture links -%}
+{%- if i.youtube_id or i.video_url %}<a href="{% if i.youtube_id %}https://www.youtube.com/watch?v={{ i.youtube_id }}{% else %}{{ i.video_url }}{% endif %}">Video</a>{% endif -%}
+{%- if i.slides_url %}<a href="{{ i.slides_url }}">Slides</a>{% endif -%}
+{%- if i.repo %}<a href="{{ i.repo }}">Repository</a>{% endif -%}
+{%- if i.demo %}<a href="{{ i.demo }}">Demo</a>{% endif -%}
+{%- if i.writeup_url %}<a href="{{ i.writeup_url | replace: 'https://highearthorbit.com', '' }}">Write-up</a>{% endif -%}
+{%- endcapture -%}
+{%- if links != "" %}<p class="item-links">{{ links }}</p>{% endif -%}

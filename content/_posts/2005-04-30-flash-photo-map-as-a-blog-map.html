@@ -1,0 +1,18 @@
+---
+source_id: wp-189
+title: Flash Photo map as a blog map
+date: 2005-04-30 09:06:16 -0400
+summary: I've written a php "feed" that outputs information sufficient for loading up the Flash Photomap
+  by Mark Zeman. It's a pretty slick flash map that's getting better with every quick release.
+categories:
+- Geolocation
+wp_id: 189
+legacy_url: http://highearthorbit.com/?p=189
+format: html
+---
+
+<p>I've written a php "feed" that outputs information sufficient for loading up the <a href='http://www.allthegoodness.com/projects/map/'>Flash Photomap</a> by Mark Zeman. It's a pretty slick flash map that's getting better with every quick release. </p>
+<p>This was modified from the <code>wp-rss.php</code> file. Grab the code from <a href='http://highearthorbit.com/code/wp-photomap.txt'>wp-photomap.txt</a> and rename to php on your server in your wordpress directory. You also need to modify your <code>config.xml</code> file for the Flash Photomap to point to the <code>wp-photomap.php</code> file. This <code>config.xml</code> file needs to reside in the same directory as the page where you are including the map.</p>
+<p>To see an example, check out my growing <a href='http://highearthorbit.com/maps'>maps</a> page.</p>
+<p>There isn't currently a "photo"  displayed. I'm not sure what this would be. </p>
+<p>Also, since the current geo plugin to Wordpress is lacking in poweful functionality, you can't list a "location" by name. The best idea would be to create a new table of locations, and then have a reference with each post linking to the corresponding location record in the location table. Each location record would include the name, latitude, longitude, altitude, hyperlink, and some description. I could then go to a 'page' (ala WP lingo) that listed all the locations and the corresponding blog entries at that location. </p>

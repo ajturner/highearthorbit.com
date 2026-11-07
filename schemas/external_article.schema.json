@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://highearthorbit.com/schemas/external_article.json",
+  "title": "external_article",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "source_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9:._/-]{2,120}$",
+      "description": "Stable key used to find the matching WordPress post. Never change it once published."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "summary": {
+      "type": "string",
+      "description": "One or two sentences shown in lists and as the excerpt."
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    },
+    "hidden": {
+      "type": "boolean",
+      "default": false,
+      "description": "true keeps the item off the site (published as a draft)."
+    },
+    "wp_id": {
+      "type": "integer",
+      "description": "Existing WordPress post ID to adopt on first publish."
+    },
+    "synced": {
+      "type": "object",
+      "description": "Written by sync jobs only."
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}([T ]\\d{2}:\\d{2}(:\\d{2})?)?$"
+    },
+    "publication": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https?://"
+    },
+    "format": {
+      "enum": [
+        "markdown",
+        "html"
+      ],
+      "default": "markdown",
+      "description": "Body format. Posts imported from WordPress keep their original HTML."
+    }
+  },
+  "required": [
+    "source_id",
+    "title",
+    "date",
+    "publication",
+    "url"
+  ]
+}

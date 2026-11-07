@@ -1,0 +1,32 @@
+---
+source_id: wp-281
+title: Down with Applescript, up with Javascript!
+date: 2005-09-28 08:53:46 -0400
+categories:
+- Technology
+- Programming
+- Apple
+wp_id: 281
+legacy_url: http://highearthorbit.com/down-with-applescript-up-with-javascript-2/
+format: html
+---
+
+<p>I've been fiddling with Applescript on and off for about a year, using it in various applications, and home automation tasks. However, I always feel like I'm bashing my head against it. It doesn't seem to always make sense, has an odd syntax, and the Dictionaries? Hah! Unreadable is a good, but incomplete, description.</p>
+<p>Anyways, for other projects/work on Windows I've been implementing a Javascript interface to the application's functionality & dark, musty interiors. Javascript, once beginning to go the way of Java, Fortran, or Smalltalk (yes, they're out there, but does anyone learn these anymore?), it has been completely revitalized and now seems to be the cool, modern-way to do webapps/sites (<a href='http://en.wikipedia.org/wiki/AJAX'>Ajax</a>, <a href='http://developer.apple.com/macosx/tiger/dashboard.html'>Widgets</a>, <a href='http://greasemonkey.mozdev.org'>GreaseMonkey</a>, <a href='http://extensionroom.mozdev.org/'>Firefox Extensions</a>, and more).  </p>
+<p>Applescript has had a good run, yay. However, it seems antiquated to keep up a proprietary and somewhat odd OS Scripting language. Furthermore, it's not <em>really</em> a <a href='http://en.wikipedia.org/wiki/Scripting_programming_language'>scripting language</a> since it is compiled rather than intepreted. </p>
+<p><a href='http://www.mozilla.org/js/spidermonkey/'>SpiderMonkey</a> is a Javascript-C engine that allows developers to provide an Javascript API to their applications similar to <a href='http://developer.apple.com/cocoa/applescriptforapps.html'>Applescript</a> <a href='http://www.mactech.com/articles/mactech/Vol.16/16.07/AppleScripttoCocoa/'>integration</a> to <a href='http://www.macdevcenter.com/pub/a/mac/2002/02/22/applescript.html'>Cocoa Apps</a>.</p>
+<p>Javascript is a pretty nice syntax. I really wonder how many non-programmers really feel more comfortable in the "English-like" syntax of Applescript. I, as a programmer, find it confusing at times. Though Script Editor is a very nice tool even though it apparently hasn't been updated in years. </p>
+<p>Javascript enabling OS X apps would prevent widgets from having to do things like:</p>
+<p><code><br />
+var obj = widget.system("/usr/bin/osascript -e 'tell application "iTunes"' -e 'name of current track' -e 'end tell'");</p>
+<p>print(obj.outputString);<br />
+</code></p>
+<p>and requiring a widget access to the system to make a call to an app. A better solution may be:</p>
+<p><code><br />
+var string = application.iTunes.getCurrentTrack();<br />
+</code></p>
+<p>or </p>
+<p><code><br />
+var string = finder.geApplication("iTunes").getCurrentTrack();<br />
+</code></p>
+<p>Really, I'm missing decent scripting of apps and the OS in Windows, and Linux. Apple really shines in this respect.  <a href='http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnanchor/html/scriptinga.asp'>Windows has scripting</a> via <a href='http://msdn.microsoft.com/library/default.asp?url=/library/en-us/script56/html/vtoriVBScript.asp'>VBScript</a> and <a href='http://msdn.microsoft.com/library/default.asp?url=/library/en-us/script56/html/js56jsoriJScript.asp'>JScript</a>, but I'm looking for something a little less... <em>proprietary</em> and even more arcane.</p>

@@ -1,0 +1,21 @@
+---
+source_id: wp-538
+title: The hidden goodness of the new Flickr geo
+date: 2006-09-01 10:37:16 -0400
+categories:
+- Maps
+- GeoRSS
+- microformats
+wp_id: 538
+legacy_url: http://highearthorbit.com/the-hidden-goodness-of-the-new-flickr-geo/
+format: html
+---
+
+<p>As most people who read this blog are probably aware, Flickr added mapping directly. What they didn't advertise or get talked about is the formatting they're supporting.</p>
+<p>Hidden underneath the "taken..." line is a bit of <a href='http://microformat.org/wiki/geo' title='Microformat Wiki: geo'>Microformat geo</a>:</p>
+<p><span class="geo" style="display:none"><br />
+&nbsp;&nbsp;<span class="latitude">38.017804</span>,<br />
+&nbsp;&nbsp;<span class="longitude">-78.475342</span><br />
+</span></p>
+<p>Additionally, in the RSS output, you can get <a href='http://georss.org' title='GeoRSS homepage'>GeoRSS</a> tags. You need to add the following to your URL: <code>&georss=1</code>. </p>
+<p>It's a great example, and source, of how easy it is to add some simple markup to your HTML and RSS to add geographic annotation. </p>

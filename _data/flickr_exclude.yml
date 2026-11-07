@@ -1,0 +1,18 @@
+# Albums never published to the site, even if their title starts with a date.
+# Sync jobs set any matching album file to hidden: true.
+albums:
+- id: '72177720336439445'
+  title: 2026-06-30 Goshen Scout Camp
+  reason: Troop trip with other families' children
+- id: '72177720336260904'
+  title: 2026-07-13 Esri UC
+  reason: Conference, not a trip
+- id: '72177720336240093'
+  title: 2023-11-11 Wilderness Survival
+  reason: Troop trip with other families' children
+- id: '72177720335144143'
+  title: 2026-08-02 Maine High Adventure
+  reason: Troop trip with other families' children
+- id: '72177720312780630'
+  title: 2026-01-30 Okpik Dogsled
+  reason: Troop trip with other families' children
