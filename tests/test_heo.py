@@ -92,3 +92,55 @@ def test_import_cleans_wordpress_slugs():
     assert clean_slug("professional-civic-engineering%ef%bf%bc") == "professional-civic-engineering"
     assert clean_slug("2012") == "2012"
     assert norm_title("CrisisCommons &amp; Congress") == norm_title("crisiscommons & congress")
+
+
+def _page(tags, status):
+    return {"properties": {
+        "Tags": {"type": "multi_select", "multi_select": [{"name": t} for t in tags]},
+        "Status": {"type": "status", "status": {"name": status} if status else None},
+    }}
+
+
+def test_notion_selection_needs_blog_and_published():
+    from scripts.heo.sync_notion import is_published
+    assert is_published(_page(["Blog"], "Published"))
+    assert is_published(_page(["blog", "published"], "Draft"))
+    assert not is_published(_page(["Blog"], "Draft"))
+    assert not is_published(_page(["Journal"], "Published"))
+
+
+def test_notion_blocks_to_markdown():
+    from scripts.heo.sync_notion import Converter
+
+    def rt(text, **ann):
+        return [{"type": "text", "plain_text": text, "annotations": ann, "href": ann.pop("href", None)}]
+
+    blocks = [
+        {"type": "heading_1", "heading_1": {"rich_text": rt("Intro")}},
+        {"type": "paragraph", "paragraph": {"rich_text": rt("Hello ") + rt("world", bold=True)}},
+        {"type": "bulleted_list_item", "bulleted_list_item": {"rich_text": rt("one")},
+         "children": [{"type": "bulleted_list_item", "bulleted_list_item": {"rich_text": rt("nested")}}]},
+        {"type": "bulleted_list_item", "bulleted_list_item": {"rich_text": rt("two")}},
+        {"type": "numbered_list_item", "numbered_list_item": {"rich_text": rt("first")}},
+        {"type": "numbered_list_item", "numbered_list_item": {"rich_text": rt("second")}},
+        {"type": "code", "code": {"language": "python", "rich_text": rt("print(1)")}},
+        {"id": "abc-1", "type": "image", "image": {"type": "file", "file": {"url": "https://s3/x.png"}, "caption": []}},
+        {"type": "child_page", "child_page": {"title": "skip me"}},
+    ]
+    md = Converter(lambda url, bid: f"/assets/notion/{bid}.png").convert(blocks)
+    assert md == (
+        "## Intro\n\n"
+        "Hello **world**\n\n"
+        "- one\n\n    - nested\n- two\n\n"
+        "1. first\n2. second\n\n"
+        "```python\nprint(1)\n```\n\n"
+        "![](/assets/notion/abc-1.png)"
+    )
+
+
+def test_portfolio_rule_applies_to_own_repositories_only():
+    from scripts.heo.content import portfolio_excluded
+    assert portfolio_excluded({"github": "ajturner/geopress", "synced": {"topics": ["wordpress"]}})
+    assert not portfolio_excluded({"github": "ajturner/geopress", "synced": {"topics": ["Portfolio"]}})
+    assert not portfolio_excluded({"github": "koopjs/koop", "synced": {"topics": []}})
+    assert not portfolio_excluded({"title": "No repo"})

@@ -1,6 +1,6 @@
 name: Weekly sync
 
-# Pulls GitHub, YouTube and Flickr data into content/ and opens one pull request.
+# Pulls GitHub, YouTube, Flickr and Notion data into content/ and opens one pull request.
 # If the only changes are inside `synced:` blocks, the PR is set to auto-merge
 # once CI passes. Anything else (new items, curated fields) waits for review.
 on:
@@ -22,6 +22,7 @@ jobs:
     env:
       HAS_YOUTUBE: ${{ secrets.YOUTUBE_API_KEY != '' }}
       HAS_FLICKR: ${{ secrets.FLICKR_API_KEY != '' }}
+      HAS_NOTION: ${{ secrets.NOTION_TOKEN != '' }}
     steps:
       - uses: actions/checkout@v5
         with:
@@ -37,7 +38,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_USER: ajturner
-        run: python -m scripts.heo.sync_github --discover --days 180 --pages
+        run: python -m scripts.heo.sync_github --discover
       - name: YouTube talks playlist
         if: env.HAS_YOUTUBE == 'true'
         continue-on-error: true
@@ -51,6 +52,12 @@ jobs:
           FLICKR_API_KEY: ${{ secrets.FLICKR_API_KEY }}
           FLICKR_USER_ID: "51648834@N00"
         run: python -m scripts.heo.sync_flickr
+      - name: Notion blog posts (tagged Blog, status Published)
+        if: env.HAS_NOTION == 'true'
+        continue-on-error: true
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: python -m scripts.heo.sync_notion
       - name: Validate
         run: python -m scripts.heo.validate
 
@@ -60,15 +67,17 @@ jobs:
         with:
           branch: sync/weekly
           delete-branch: true
-          commit-message: "Weekly sync: GitHub, YouTube, Flickr"
-          title: "Weekly sync: GitHub, YouTube, Flickr"
+          commit-message: "Weekly sync: GitHub, YouTube, Flickr, Notion"
+          title: "Weekly sync: GitHub, YouTube, Flickr, Notion"
           body: |
             Automated sync of external sources into `content/`.
 
-            - Changes only inside `synced:` blocks auto-merge after CI passes.
+            - Changes only inside `synced:` blocks, and posts published from Notion, auto-merge after CI passes.
             - New items arrive with `hidden: true`. Write a summary and set `hidden: false` to publish them.
           labels: sync
-          add-paths: content/**
+          add-paths: |
+            content/**
+            assets/notion/**
           # A fine-grained token (contents + pull requests: write) lets CI run on this PR
           # and lets the merge trigger the publish workflow. Without it, the nightly
           # publish run picks the change up instead.

@@ -23,7 +23,7 @@ from pathlib import Path
 
 import markdown
 
-from .content import CONTENT, ROOT, Item, iter_items, load
+from .content import CONTENT, ROOT, Item, iter_items, load, portfolio_excluded
 from .http import check, require_env, session
 
 TYPE_FIELDS = {
@@ -60,7 +60,7 @@ def payload(item: Item, new_status: str) -> dict:
         "content": render_body(item),
         "excerpt": m.get("summary", ""),
         "date": str(m["date"]) if m.get("date") else None,
-        "hidden": bool(m.get("hidden", False)),
+        "hidden": bool(m.get("hidden", False)) or portfolio_excluded(m),
         "new_status": new_status,
         "tags": m.get("tags", []),
         "meta": meta,
