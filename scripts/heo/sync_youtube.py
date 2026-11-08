@@ -93,14 +93,21 @@ def playlist_page_ids(page_html: str, playlist: str) -> list[str]:
 def fetch_playlist_public(s, playlist: str) -> list[dict]:
     """No API key: the feed gives the newest 15 videos in full; older ones come from the
     playlist page (IDs), oEmbed (title, channel, thumbnail) and the watch page (date)."""
-    videos = parse_feed(check(s.get(FEED, params={"playlist_id": playlist}, timeout=30)).text)
+    try:
+        videos = parse_feed(check(s.get(FEED, params={"playlist_id": playlist}, timeout=30)).text)
+    except Exception as exc:  # YouTube has returned 404 for playlist feeds; the page still works
+        print(f"warning: playlist feed not read ({str(exc)[:120]}); using the playlist page only")
+        videos = []
     known = {v["id"] for v in videos}
     try:
         page = check(s.get(PAGE, params={"list": playlist}, headers=BROWSER_UA, timeout=30)).text
         ids = playlist_page_ids(page, playlist)
     except Exception as exc:  # the feed alone is still useful
-        print(f"warning: playlist page not read ({exc}); only the newest videos were checked")
+        print(f"warning: playlist page not read ({str(exc)[:120]}); only the newest videos were checked")
         ids = []
+    if not videos and not ids:
+        raise RuntimeError("neither the playlist feed nor the playlist page could be read; "
+                           "set the YOUTUBE_API_KEY secret to use the YouTube Data API")
     for vid in ids:
         if vid in known:
             continue

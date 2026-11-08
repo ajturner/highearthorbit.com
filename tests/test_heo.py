@@ -216,6 +216,20 @@ def test_github_discovery_labels_and_drafts():
     assert discovery(repo("tagged", topics=["portfolio"]), **{**args, "topics": []}) is None
 
 
+def test_notion_filter_uses_existing_blog_option():
+    from scripts.heo.sync_notion import blog_filter
+
+    def schema(*opts):
+        return {"properties": {"Tags": {"type": "multi_select", "multi_select": {"options": [{"name": o} for o in opts]}}}}
+
+    assert blog_filter(schema("Journal", "Work")) is None
+    assert blog_filter(schema("Journal", "blog")) == {"property": "Tags", "multi_select": {"contains": "blog"}}
+    assert blog_filter(schema("Blog", "BLOG")) == {"or": [
+        {"property": "Tags", "multi_select": {"contains": "Blog"}},
+        {"property": "Tags", "multi_select": {"contains": "BLOG"}},
+    ]}
+
+
 def test_flickr_cover_is_never_a_private_photo():
     from scripts.heo.sync_flickr import cover_url
 
