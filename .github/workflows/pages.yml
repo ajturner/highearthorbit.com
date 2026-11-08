@@ -48,20 +48,17 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
-      - name: Check the deployed site uses this build
-        # If Settings > Pages > Source is "Deploy from a branch", GitHub serves its own
-        # Jekyll build of master instead of this one. That build skips _plugins, so pages
-        # lose the base path and render without styles. Fail loudly when that happens.
+      - name: Check that Pages serves this workflow's build
+        # With Settings > Pages > Source set to "Deploy from a branch", GitHub also runs
+        # its own Jekyll build of master after every push. That build skips _plugins/,
+        # so pages lose the base path and render without styles, and it usually lands
+        # after this deploy, so the site looks fine for a few seconds and then breaks.
         env:
-          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+          GH_TOKEN: ${{ github.token }}
         run: |
-          base=$(echo "$PAGE_URL" | sed -E 's#https?://[^/]+##; s#/$##')
-          for i in 1 2 3 4 5 6; do
-            html=$(curl -fsSL "${PAGE_URL}talks/" || true)
-            if echo "$html" | grep -q "href=\"${base}/assets/css/site.css\""; then
-              echo "Deployed pages link ${base}/assets/css/site.css"; exit 0
-            fi
-            sleep 20
-          done
-          echo "::error::The live staging pages do not come from this build (stylesheet path lacks ${base}). Set Settings > Pages > Source to GitHub Actions."
-          exit 1
+          source=$(gh api "repos/${{ github.repository }}/pages" --jq .build_type)
+          if [ "$source" != "workflow" ]; then
+            echo "::error::Pages source is '$source'. Set Settings > Pages > Source to GitHub Actions, or GitHub's branch build will replace this deploy."
+            exit 1
+          fi
+          echo "Pages source is the workflow"

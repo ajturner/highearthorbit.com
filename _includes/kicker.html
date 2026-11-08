@@ -15,7 +15,7 @@
   {%- if i.synced.stars -%}{%- assign s = i.synced.stars | append: " stars" -%}{%- assign parts = parts | push: s -%}{%- endif -%}
 {%- when "photos" -%}
   {%- if i.place -%}{%- assign parts = parts | push: i.place -%}{%- endif -%}
-  {%- if i.synced.count -%}{%- assign c = i.synced.count | append: " photos" -%}{%- assign parts = parts | push: c -%}{%- endif -%}
+  {%- if i.synced.count -%}{%- if i.synced.count == 1 %}{% assign c = "1 photo" %}{% else %}{% assign c = i.synced.count | append: " photos" %}{% endif -%}{%- assign parts = parts | push: c -%}{%- endif -%}
 {%- endcase -%}
 {%- assign parts = parts | compact -%}
 {%- if parts.size > 0 %}<p class="kicker{% if include.class %} {{ include.class }}{% endif %}">{{ parts | join: " · " }}</p>{% endif -%}
