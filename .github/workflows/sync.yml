@@ -37,7 +37,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_USER: ajturner
-        run: python -m scripts.heo.sync_github --discover
+        # Only repositories tagged portfolio are added; others would be left off the site anyway.
+        run: python -m scripts.heo.sync_github --topic portfolio
       - name: YouTube talks playlist
         # Works without a key (public feed, playlist page and oEmbed); the key is faster.
         continue-on-error: true
