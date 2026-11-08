@@ -12,7 +12,8 @@ uploaded to Notion are downloaded into assets/notion/, since Notion's file
 links expire after an hour.
 
 Notion is the source for these posts: edit them there, not in the file. A page that
-still contains a `[TK: ...]` placeholder (see docs/voice/style-guide.md) is skipped.
+still contains a `[TK: ...]` placeholder or a `[verify]` note (see docs/voice/style-guide.md) is skipped.
+Callouts marked 🎙️ or 🔍 are editing notes and are left out of the post.
 
 Environment: NOTION_TOKEN (an internal integration with access to the Writing
 database), NOTION_DATABASE_ID (default: the Writing database)
@@ -36,6 +37,10 @@ NOTION_VERSION = "2022-06-28"
 DEFAULT_DATABASE = "1ae8069c359380e3a02aeb21a918bc2d"
 ASSETS = ROOT / "assets" / "notion"
 BLOG_TAG = "blog"
+# Callouts with these icons hold editing notes for Andrew and are never published.
+EDITORIAL_ICONS = {"\U0001F399\uFE0F", "\U0001F399", "\U0001F50D"}  # studio microphone, magnifying glass
+# A page still holding one of these markers isn't ready; the site keeps the last synced version.
+UNFINISHED = ("[TK:", "[verify")
 PUBLISHED = "published"
 
 
@@ -157,6 +162,8 @@ class Converter:
             return "\n".join(f"{indent}> {l}".rstrip() for l in lines)
         if kind == "callout":
             icon = (v.get("icon") or {}).get("emoji", "")
+            if icon in EDITORIAL_ICONS:
+                return None  # notes for Andrew (voice pass, review), not part of the post
             kids = self.children(b, "")
             lines = ((icon + " " if icon else "") + text + ("\n\n" + kids if kids else "")).split("\n")
             return "\n".join(f"{indent}> {l}".rstrip() for l in lines)
@@ -312,8 +319,9 @@ def main(argv: list[str] | None = None) -> int:
             full["wp_id"] = current.meta["wp_id"]
         full["format"] = "markdown"
         body = convert.convert(blocks(s, page["id"]))
-        if "[TK:" in body:
-            print(f"skipped {meta['title']!r}: it still has [TK: ...] placeholders; the site keeps the last synced version")
+        open_marks = [m for m in UNFINISHED if m in body]
+        if open_marks:
+            print(f"skipped {meta['title']!r}: it still has {', '.join(m + ' ...]' for m in open_marks)} to resolve; the site keeps the last synced version")
             continue
         item = Item(path=path, meta=full, body=body)
         if args.dry_run:
