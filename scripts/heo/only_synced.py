@@ -1,7 +1,9 @@
 """Exit 0 if the changes between two git refs touch only `synced` blocks of existing files.
 
 The weekly sync PR is merged automatically only when this holds: no new files,
-no deleted files, and no curated field or body changed.
+no deleted files, and no curated field or body changed. Posts synced from Notion
+(source_id notion:...) and their images under assets/notion/ are the exception:
+they were published in Notion, so adding or changing them also merges.
 
 Usage: python -m scripts.heo.only_synced BASE_REF [HEAD_REF]
 """
@@ -33,6 +35,12 @@ def main(argv: list[str]) -> int:
         return 0
     for status, *paths in changes:
         path = paths[-1]
+        if path.startswith("assets/notion/") and status in ("A", "M"):
+            continue
+        if path.startswith("content/_posts/") and status in ("A", "M"):
+            text = git("show", f"{head}:{path}")
+            if str(parse(text, Path(path)).meta.get("source_id", "")).startswith("notion:"):
+                continue
         if status != "M" or not (path.startswith("content/") and path.endswith((".md", ".html"))):
             print(f"not synced-only: {status} {path}")
             return 1

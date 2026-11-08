@@ -87,6 +87,11 @@
       "type": "string",
       "format": "uri",
       "description": "Header image URL, shown at the top of the article."
+    },
+    "notion_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "The Notion page this post is synced from (sync_notion.py)."
     }
   },
   "required": [

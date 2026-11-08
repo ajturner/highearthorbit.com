@@ -22,6 +22,8 @@ heo:
   # public fallback for WordPress.
   staging: true
   headshot: /assets/images/andrew-turner-640.jpg
+  # Your projects from this GitHub account appear only if the repo has the `portfolio` topic.
+  github_user: ajturner
   flickr_profile: https://www.flickr.com/photos/ajturner/
   links:
     - { label: Mastodon, url: "https://nullisland.social/@ajturner", rel: me }

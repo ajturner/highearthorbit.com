@@ -2,6 +2,11 @@
 
 For every project with a `github: owner/repo` field, refresh its `synced` block
 (stars, language, description, homepage, last push, topics, archived).
+Only your repositories with the `portfolio` topic appear on the site: a project
+backed by one of your repositories without that topic is left out of the build and
+of WordPress publishing (content.portfolio_excluded). Projects from other owners
+are curated by hand and always shown. The weekly sync runs with --topic portfolio.
+
 With --discover, also create hidden project files for your own public,
 non-fork repositories pushed within --days that no project file covers yet.
 With --pages, do the same for every public, non-fork repository that publishes a

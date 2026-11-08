@@ -26,7 +26,7 @@ wordpress/     mu-plugin and block theme for the WordPress site
 | --- | --- | --- |
 | `ci.yml` | Every pull request and push to `master` | Validates content, runs tests, builds the site, checks internal links. The built site is attached to the run as the `site` artifact |
 | `pages.yml` | Push to `master`, nightly, or by hand | Builds and deploys the staging site to GitHub Pages |
-| `sync.yml` | Mondays, or by hand | Pulls GitHub repo stats, the YouTube talks playlist and dated Flickr albums into `content/`, opens one pull request. Changes only inside `synced:` blocks auto-merge |
+| `sync.yml` | Mondays, or by hand | Pulls GitHub repo stats and `portfolio` repositories, the YouTube talks playlist, dated Flickr albums and Notion blog posts into `content/`, opens one pull request. Changes only inside `synced:` blocks, and posts published from Notion, auto-merge |
 | `import-wordpress.yml` | By hand | Copies WordPress posts missing from `content/_posts/` (matched by `wp_id`) into a pull request |
 | `wordpress-test.yml` | Pull requests that change `wordpress/`, `scripts/` or `schemas/` | Publishes everything into a throwaway WordPress and checks every page type |
 | `publish.yml`, `deploy-code.yml` | By hand only, for now | Publish content to WordPress; deploy the plugin and theme over SSH |
@@ -35,6 +35,8 @@ Rules:
 
 - **Curated vs synced fields.** Sync jobs only rewrite the `synced:` block. Everything else in a file is yours.
 - **Drafts.** `hidden: true` keeps an item off the live site. On staging (`heo.staging: true` in `_config.yml`) hidden items are shown with a Draft badge so you can review them, and every page has `noindex`. Hidden or excluded photo albums are never shown.
+- **Portfolio projects.** Your own repositories appear on the Projects page only when they have the GitHub topic `portfolio` (repository page › About › gear icon › Topics). The weekly sync adds a project file for each new `portfolio` repository; removing the topic takes the project off the site but keeps its file. Projects from other owners (Koop, Cedar) are curated by hand and always shown.
+- **Blog posts from Notion.** A page in the Notion Writing database becomes a post when its Tags include **Blog** and its Status is **Published** (or its Tags include **Published**). Edit those posts in Notion; the sync overwrites the file. Removing the tag or status hides the post rather than deleting it.
 - **Never change `source_id`.** It is how the publisher finds the matching WordPress post.
 
 ## Content fields
@@ -51,7 +53,7 @@ Common to every type: `source_id` (required), `title`, `slug`, `summary`, `tags`
 
 Article file names follow Jekyll's `YYYY-MM-DD-slug.md` (or `.html`). The URL is `/articles/<slug>/`, the same as WordPress. `featured: true` puts a project or talk on the homepage.
 
-**GitHub selection.** A public repository tagged with the `portfolio` topic gets a visible project file on the next sync. Other recent repositories, and those with a Pages site, arrive hidden for review. `_data/github_exclude.yml` overrides both. Private repositories are not read, so add those by hand with `demo` and no `github`.
+**GitHub selection.** A public repository of yours tagged with the `portfolio` topic gets a visible project file on the next sync; your repositories without the topic are left off the site. `_data/github_exclude.yml` overrides the topic. Private repositories are not read, so add those by hand with `demo` and no `github`.
 
 **YouTube matching.** A playlist video is matched to a talk by its `youtube_id`, then by `_data/youtube_map.yml` (video ID to `source_id`, for recordings titled differently from the talk or second recordings of one talk), then by title. A matched talk without a video gets the `youtube_id`; an unmatched video becomes a new hidden talk file.
 
@@ -71,6 +73,7 @@ Article file names follow Jekyll's `YYYY-MM-DD-slug.md` (or `.html`). The URL is
 | --- | --- |
 | `FLICKR_API_KEY` | From the Flickr App Garden |
 | `YOUTUBE_API_KEY` (optional) | Google Cloud, YouTube Data API v3. Without it the sync reads the public playlist feed, the playlist page and oEmbed, which is slower but complete |
+| `NOTION_TOKEN` | An internal integration from notion.so/profile/integrations with read access, connected to the Writing database (database ••• menu › Connections) |
 | `SYNC_TOKEN` (optional) | Fine-grained token with contents and pull-request write access to this repository. Without it, CI does not run on the sync pull request and the merge does not redeploy the site; the nightly deploy catches up |
 
 GitHub repo stats need no key.

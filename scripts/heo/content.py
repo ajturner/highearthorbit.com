@@ -122,3 +122,19 @@ def slugify(text: str, max_len: int = 60) -> str:
 def merge_synced(item: Item, synced: dict[str, Any]) -> None:
     """Replace only the `synced` block; curated fields stay as they are."""
     item.meta["synced"] = synced
+
+
+GITHUB_USER = "ajturner"
+PORTFOLIO_TOPIC = "portfolio"
+
+
+def portfolio_excluded(meta: dict, user: str = GITHUB_USER) -> bool:
+    """A project backed by one of your own repositories is shown only when the
+    repository has the `portfolio` topic. Projects from other owners are curated
+    by hand and are not affected."""
+    full = str(meta.get("github") or "")
+    if full.split("/")[0].lower() != user.lower():
+        return False
+    topics = [str(t).lower() for t in (meta.get("synced") or {}).get("topics") or []]
+    return PORTFOLIO_TOPIC not in topics
+

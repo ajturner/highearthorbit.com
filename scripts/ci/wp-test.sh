@@ -91,9 +91,15 @@ check /articles/ ""
 check /projects/ "heo-card"
 check /talks/ ""
 check /photos/ ""
-first_project="$(ls content/_projects/*.md 2>/dev/null | head -1)"
-if [ -n "$first_project" ]; then
-  slug="$(python3 -c "import sys; sys.path.insert(0,'.'); from scripts.heo.content import load, slugify; from pathlib import Path; i=load(Path('$first_project')); print(i.meta.get('slug') or slugify(i.meta['title']))")"
+# A project page that should be public: not hidden, and not left out by the portfolio rule.
+slug="$(python3 -c "
+import sys; sys.path.insert(0, '.')
+from scripts.heo.content import iter_items, portfolio_excluded, slugify
+for i in iter_items(['_projects']):
+    if not i.meta.get('hidden') and not portfolio_excluded(i.meta):
+        print(i.meta.get('slug') or slugify(i.meta['title'])); break
+")"
+if [ -n "$slug" ]; then
   check "/projects/$slug/" "heo-kicker"
 fi
 if [ -s "$SITE/wp-content/debug.log" ]; then
