@@ -1,0 +1,9 @@
+{%- comment -%}
+The site's sections, from site.heo.nav in _config.yml. Used in the header and the footer.
+Usage: include site-nav.html label="Main" class="site-nav"
+{%- endcomment -%}
+<nav class="{{ include.class | default: 'site-nav' }}" aria-label="{{ include.label | default: 'Main' }}">
+  {%- for item in site.heo.nav %}
+  <a href="{{ item.url }}"{% if page.url contains item.url %} aria-current="page"{% endif %}>{{ item.label }}</a>
+  {%- endfor %}
+</nav>

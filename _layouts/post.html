@@ -2,6 +2,7 @@
 layout: default
 ---
 <article class="narrow">
+  {% include crumbs.html %}
   {%- if page.banner %}<img class="banner" src="{{ page.banner }}" alt="">{% endif %}
   {% include kicker.html item=page %}
   <h1>{{ page.title }}{% if page.draft_badge %}<span class="badge">Draft</span>{% endif %}</h1>
@@ -12,8 +13,5 @@ layout: default
   {%- if terms != "" %}
   <p class="terms">{{ terms }}</p>
   {%- endif %}
-  <nav class="pager" aria-label="More articles">
-    <span>{% if page.previous %}<a href="{{ page.previous.url }}">← {{ page.previous.title }}</a>{% endif %}</span>
-    <span>{% if page.next %}<a href="{{ page.next.url }}">{{ page.next.title }} →</a>{% endif %}</span>
-  </nav>
+  {% include pager.html all="All writing" %}
 </article>

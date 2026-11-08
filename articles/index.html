@@ -12,7 +12,7 @@ title: Writing
   <h2 class="year" id="y{{ y.name }}">{{ y.name }}</h2>
   <ul class="titles">
     {%- for w in y.items %}
-    {%- if w.collection == "external" %}{% assign href = w.href %}{% else %}{% assign href = w.url %}{% endif %}
+    {%- assign href = w.url %}
     <li><time datetime="{{ w.date | date_to_xmlschema }}">{{ w.date | date: "%b %-d" }}</time><span><a href="{{ href }}">{{ w.title }}</a>{% if w.collection == "external" %} <span class="badge" style="color:var(--accent)">External</span>{% endif %}{% if w.draft_badge %}<span class="badge">Draft</span>{% endif %}</span></li>
     {%- endfor %}
   </ul>

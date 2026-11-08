@@ -50,7 +50,9 @@ collections:
     output: true
     permalink: /photos/:name/
   external:
-    output: false
+    # Each outside article gets a record page here; the full text stays at the publisher.
+    output: true
+    permalink: /articles/elsewhere/:name/
 
 defaults:
   - scope: { path: "", type: posts }
@@ -61,6 +63,8 @@ defaults:
     values: { layout: project }
   - scope: { path: "", type: photos }
     values: { layout: album }
+  - scope: { path: "", type: external }
+    values: { layout: external }
   - scope: { path: "" }
     values: { layout: page }
 

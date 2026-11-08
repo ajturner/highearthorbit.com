@@ -2,21 +2,36 @@
 layout: default
 ---
 <article class="wrap">
-  <div class="narrow" style="padding:0">
+  <div class="album-text">
+    {% include crumbs.html %}
     {% include kicker.html item=page %}
     <h1>{{ page.title }}</h1>
     {%- if page.summary %}<p class="lede">{{ page.summary }}</p>{% endif %}
-    <div class="prose">{{ content }}</div>
+    {%- assign body = content | strip %}{% if body != "" %}<div class="prose">{{ content }}</div>{% endif %}
   </div>
   {%- assign photos = page.synced.photos %}
   {%- if photos and photos.size > 0 %}
-  <div class="photo-grid">
+  <div class="photo-grid" data-lightbox>
     {%- for p in photos %}
-    <figure><a href="{{ p.page_url }}"><img src="{{ p.src }}" alt="{{ p.title | escape }}" loading="lazy"{% if p.width > 0 %} width="{{ p.width }}" height="{{ p.height }}"{% endif %}></a></figure>
+    <figure>
+      <a href="{{ p.src }}" data-caption="{{ p.title | escape }}"><img src="{{ p.src }}" alt="{{ p.title | default: page.title | escape }}" loading="lazy"{% if p.width > 0 %} width="{{ p.width }}" height="{{ p.height }}"{% endif %}></a>
+    </figure>
     {%- endfor %}
   </div>
+  <dialog class="lightbox" aria-label="Photo viewer">
+    <button class="lb-close" type="button" aria-label="Close">×</button>
+    <button class="lb-prev" type="button" aria-label="Previous photo">‹</button>
+    <figure><img alt=""><figcaption></figcaption></figure>
+    <button class="lb-next" type="button" aria-label="Next photo">›</button>
+  </dialog>
+  <script src="/assets/js/lightbox.js" defer></script>
   {%- elsif page.synced.cover_url %}
-  <p><a href="{{ page.synced.url }}"><img class="banner" src="{{ page.synced.cover_url }}" alt="{{ page.title | escape }}"></a></p>
+  <p><img class="banner" src="{{ page.synced.cover_url }}" alt="{{ page.title | escape }}"></p>
   {%- endif %}
-  <p>{% if page.synced.url %}<a href="{{ page.synced.url }}">{% if page.synced.count %}All {{ page.synced.count }} photos{% else %}The album{% endif %} on Flickr</a> · {% endif %}<a href="/photos/">All albums</a></p>
+  <div class="album-text">
+    {%- if page.synced.url %}
+    <p class="item-links">{% if photos and page.synced.count > photos.size %}<span>{{ photos.size }} of {{ page.synced.count }} photos shown</span>{% endif %}<a class="out" href="{{ page.synced.url }}">Full album on Flickr</a></p>
+    {%- endif %}
+    {% include pager.html all="All albums" %}
+  </div>
 </article>
