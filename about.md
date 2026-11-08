@@ -4,7 +4,7 @@ title: About
 
 I'm Andrew Turner, CTO of [ArcGIS Hub](https://hub.arcgis.com) and Director of Esri's R&D Center in Washington, DC. I lead product architecture, roadmap and delivery for the team building Hub: open access to authoritative government data, and tools for communities to use it. Organizations from the World Bank and the World Resources Institute to federal agencies and city governments use it as public digital infrastructure for civic engagement.
 
-My work sits where geospatial technology, open data and government meet. Before Esri I was CTO of GeoIQ (GeoCommons), which Esri acquired in 2012, and co-founded Mapufacture, which GeoIQ acquired in 2008. I also co-founded [CrisisCommons](https://crisiscommons.org/), a volunteer community that builds technology for disaster response and recovery.
+My work sits where geospatial technology, open data and government meet. Before Esri I was CTO of GeoIQ (GeoCommons), which Esri acquired in 2012, and co-founded Mapufacture, which GeoIQ acquired in 2008. I also co-founded [CrisisCommons](https://crisiscommons.org/), a volunteer community that builds technology for disaster response and recovery. Government Technology named my CrisisCommons co-founders Heather Blanchard, Noel Dickover and me to its [2012 Top 25 Doers, Dreamers and Drivers](https://www.govtech.com/top-25/CrisisCommons-Co-Founders.html).
 
 ## Community and standards
 
