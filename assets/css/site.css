@@ -150,6 +150,7 @@ a.out::after { content: "\2197"; display: inline-block; margin-left: 0.15em; fon
 .pager-all { font: 500 0.8125rem/1.6 var(--mono); text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
 
 /* Album viewer */
+.album-text { max-width: var(--content); }
 .photo-grid a { display: block; cursor: zoom-in; }
 .lightbox { width: min(96vw, 1400px); max-width: none; max-height: 96vh; padding: 0; border: 0; border-radius: 6px; background: #111; color: #eee; overflow: hidden; }
 .lightbox::backdrop { background: rgba(10, 12, 14, 0.88); }

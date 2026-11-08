@@ -2,7 +2,7 @@
 layout: default
 ---
 <article class="wrap">
-  <div class="narrow" style="padding:0">
+  <div class="album-text">
     {% include crumbs.html %}
     {% include kicker.html item=page %}
     <h1>{{ page.title }}</h1>
@@ -28,7 +28,7 @@ layout: default
   {%- elsif page.synced.cover_url %}
   <p><img class="banner" src="{{ page.synced.cover_url }}" alt="{{ page.title | escape }}"></p>
   {%- endif %}
-  <div class="narrow" style="padding:0">
+  <div class="album-text">
     {%- if page.synced.url %}
     <p class="item-links">{% if photos and page.synced.count > photos.size %}<span>{{ photos.size }} of {{ page.synced.count }} photos shown</span>{% endif %}<a class="out" href="{{ page.synced.url }}">Full album on Flickr</a></p>
     {%- endif %}
