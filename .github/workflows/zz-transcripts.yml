@@ -1,0 +1,44 @@
+name: Temporary talk transcripts
+on:
+  push:
+    branches: [ci/transcripts]
+    paths: [.github/workflows/zz-transcripts.yml]
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with: { python-version: "3.12" }
+      - run: pip install -q yt-dlp youtube-transcript-api
+      - name: Fetch captions
+        run: |
+          mkdir -p ci/transcripts
+          python - <<'PY'
+          import json, pathlib
+          from youtube_transcript_api import YouTubeTranscriptApi
+          api = YouTubeTranscriptApi()
+          ok = 0
+          for vid in pathlib.Path("ci/ids.txt").read_text().split():
+              try:
+                  t = api.fetch(vid, languages=["en", "en-US"])
+                  text = " ".join(s.text for s in t)
+                  pathlib.Path(f"ci/transcripts/{vid}.txt").write_text(text)
+                  ok += 1; print("ok", vid, len(text))
+              except Exception as e:
+                  print("fail", vid, type(e).__name__, str(e)[:120].replace("\n", " "))
+          print("transcripts:", ok)
+          PY
+      - name: yt-dlp fallback for the rest
+        run: |
+          for vid in $(cat ci/ids.txt); do
+            [ -f ci/transcripts/$vid.txt ] && continue
+            yt-dlp -q --skip-download --write-auto-subs --write-subs --sub-langs "en.*" --sub-format vtt -o "ci/vtt/%(id)s.%(ext)s" "https://www.youtube.com/watch?v=$vid" 2>&1 | tail -1 || true
+          done
+          ls ci/vtt 2>/dev/null | head
+      - name: Commit
+        run: |
+          git add ci
+          git -c user.name=ci -c user.email=ci@localhost commit -qm "temporary: transcripts" && git push || echo nothing
