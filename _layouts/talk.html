@@ -2,13 +2,19 @@
 layout: default
 ---
 <article class="narrow">
+  {% include crumbs.html %}
   {% include video.html item=page %}
   {% include kicker.html item=page %}
   <h1>{{ page.title }}{% if page.draft_badge %}<span class="badge">Draft</span>{% endif %}</h1>
   {%- if page.summary %}<p class="lede">{{ page.summary }}</p>{% endif %}
+  {%- if page.role %}<p class="summary"><strong>Role:</strong> {{ page.role }}</p>{% endif %}
+  {%- if page.location %}<p class="summary">{{ page.location }} · {{ page.date | date: "%B %-d, %Y" }}</p>{% endif %}
   {% include item-links.html item=page %}
+  {%- assign body = content | strip %}
+  {%- if body != "" %}
   <div class="prose" style="margin-top:1.5rem">
     {{ content }}
   </div>
-  <p><a href="/talks/">All talks</a></p>
+  {%- endif %}
+  {% include pager.html all="All talks" %}
 </article>

@@ -54,9 +54,21 @@ section { margin-bottom: 3.5rem; }
 .site-nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; font-size: 0.9375rem; }
 .site-nav a { color: var(--contrast); text-decoration: none; }
 .site-nav a:hover, .site-nav a[aria-current] { color: var(--accent); text-decoration: underline; }
-.site-footer { border-top: 1px solid var(--rule); font-size: 0.875rem; color: var(--muted); }
-.site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; padding-top: 1.25rem; padding-bottom: 1.25rem; }
-.site-footer p { margin: 0; }
+.site-footer { border-top: 1px solid var(--rule); font-size: 0.875rem; color: var(--muted); background: var(--surface); }
+.site-footer .wrap { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.6fr) minmax(0, 1.4fr); gap: 1.5rem 2.5rem; padding-top: 2rem; padding-bottom: 2rem; }
+.site-footer p { margin: 0 0 0.5rem; }
+.site-footer .site-title { font-size: 1rem; color: var(--contrast); }
+.footer-nav { display: flex; flex-direction: column; gap: 0.3rem; }
+.footer-nav a { color: var(--contrast); text-decoration: none; }
+.footer-nav a:hover, .footer-nav a[aria-current] { color: var(--accent); text-decoration: underline; }
+
+/* Breadcrumb above an item's title */
+.crumbs { display: flex; flex-wrap: wrap; gap: 0.4rem; font: 400 0.8125rem/1.5 var(--mono); color: var(--muted); margin: 0 0 1rem; }
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs a:hover { color: var(--accent); text-decoration: underline; }
+
+/* Links to other sites are marked; links within the site are not */
+a.out::after { content: "\2197"; display: inline-block; margin-left: 0.15em; font-size: 0.85em; text-decoration: none; }
 
 /* Small line above titles: dates, events, eras */
 .kicker { font: 400 0.8125rem/1.5 var(--mono); letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.35rem; }
@@ -133,7 +145,23 @@ section { margin-bottom: 3.5rem; }
 .prose iframe, .prose embed, .prose object, .prose video { max-width: 100%; }
 .banner { display: block; width: 100%; max-height: 420px; object-fit: cover; border-radius: 6px; margin-bottom: 1.5rem; }
 .terms { font: 400 0.8125rem/1.6 var(--mono); color: var(--muted); border-top: 1px solid var(--rule); padding-top: 1rem; margin-top: 2rem; }
-.pager { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.9375rem; margin-top: 1.5rem; }
+.pager { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 1rem; align-items: start; font-size: 0.9375rem; margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); }
+.pager > span:last-child { text-align: right; }
+.pager-all { font: 500 0.8125rem/1.6 var(--mono); text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
+
+/* Album viewer */
+.album-text { max-width: var(--content); }
+.photo-grid a { display: block; cursor: zoom-in; }
+.lightbox { width: min(96vw, 1400px); max-width: none; max-height: 96vh; padding: 0; border: 0; border-radius: 6px; background: #111; color: #eee; overflow: hidden; }
+.lightbox::backdrop { background: rgba(10, 12, 14, 0.88); }
+.lightbox figure { margin: 0; display: grid; place-items: center; }
+.lightbox img { max-width: 100%; max-height: calc(96vh - 3rem); object-fit: contain; border-radius: 0; }
+.lightbox figcaption { font: 400 0.8125rem/1.5 var(--mono); padding: 0.75rem 1rem; color: #ccc; }
+.lightbox button { position: absolute; z-index: 1; border: 0; background: rgba(0, 0, 0, 0.55); color: #fff; font-size: 2rem; line-height: 1; width: 2.75rem; height: 2.75rem; border-radius: 50%; cursor: pointer; }
+.lightbox button:hover, .lightbox button:focus-visible { background: rgba(0, 0, 0, 0.8); }
+.lb-close { top: 0.75rem; right: 0.75rem; }
+.lb-prev { left: 0.75rem; top: 45%; }
+.lb-next { right: 0.75rem; top: 45%; }
 .era { margin-top: 2.5rem; }
 
 @media (max-width: 860px) {
@@ -141,6 +169,10 @@ section { margin-bottom: 3.5rem; }
   .grid.cols-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 720px) {
+  .site-footer .wrap { grid-template-columns: minmax(0, 1fr); }
+  .footer-nav { flex-direction: row; flex-wrap: wrap; gap: 0.3rem 1.25rem; }
+  .pager { grid-template-columns: minmax(0, 1fr); }
+  .pager > span:last-child { text-align: left; }
   .hero, .split, .split.talks { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
   .headshot { max-width: 220px; order: -1; }
   .grid.cols-3 { grid-template-columns: minmax(0, 1fr); }

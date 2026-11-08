@@ -228,3 +228,13 @@ def test_notion_filter_uses_existing_blog_option():
         {"property": "Tags", "multi_select": {"contains": "Blog"}},
         {"property": "Tags", "multi_select": {"contains": "BLOG"}},
     ]}
+
+
+def test_flickr_cover_is_never_a_private_photo():
+    from scripts.heo.sync_flickr import cover_url
+
+    album = {"primary": "9", "server": "1", "secret": "s"}
+    grid = [{"src": "https://live.staticflickr.com/1/2_x_b.jpg"}]
+    assert cover_url(album, {"url_l": "PRIVATE"}, {"2", "3"}, grid) == grid[0]["src"]
+    assert cover_url(album, {"url_l": "PUBLIC"}, {"9", "2"}, grid) == "PUBLIC"
+    assert cover_url(album, {}, set(), []) == ""

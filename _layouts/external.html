@@ -1,0 +1,13 @@
+---
+layout: default
+---
+<article class="narrow">
+  {% include crumbs.html %}
+  {% include kicker.html item=page %}
+  <h1>{{ page.title }}</h1>
+  {%- if page.summary %}<p class="lede">{{ page.summary }}</p>{% endif %}
+  <p class="summary">Written for {{ page.publication }} and published there on {{ page.date | date: "%B %-d, %Y" }}. The full text is on the publisher's site.</p>
+  {%- assign body = content | strip %}{% if body != "" %}<div class="prose">{{ content }}</div>{% endif %}
+  <p class="item-links"><a class="out" href="{{ page.href }}">Read it at {{ page.publication }}</a></p>
+  {% include pager.html all="All writing" %}
+</article>

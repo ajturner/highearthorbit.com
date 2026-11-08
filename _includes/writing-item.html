@@ -1,5 +1,5 @@
 {%- assign w = include.item -%}
-{%- if w.collection == "external" %}{% assign href = w.href %}{% else %}{% assign href = w.url %}{% endif -%}
+{%- assign href = w.url -%}
 <li>
   {% include kicker.html item=w %}
   <h3><a href="{{ href }}">{{ w.title }}</a>{% if w.collection == "external" %}<span class="badge" style="color:var(--accent)">External</span>{% endif %}{% if w.draft_badge %}<span class="badge">Draft</span>{% endif %}</h3>

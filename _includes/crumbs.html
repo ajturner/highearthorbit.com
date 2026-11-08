@@ -1,0 +1,4 @@
+{%- comment -%} Link back to the section an item belongs to, above its title. Usage: include crumbs.html {%- endcomment -%}
+{%- assign section = nil -%}
+{%- for item in site.heo.nav %}{% if page.url contains item.url %}{% assign section = item %}{% endif %}{% endfor -%}
+{%- if section %}<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="{{ section.url }}">{{ section.label }}</a></nav>{% endif -%}

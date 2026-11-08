@@ -51,6 +51,15 @@ def select_albums(albums: list[dict], exclude: dict, include: dict) -> list[dict
     return chosen
 
 
+def cover_url(album: dict, primary: dict, public_ids: set[str], grid: list[dict]) -> str:
+    """The album's cover, only if it is one of its public photos. An album's primary
+    photo can be private even when the album is public; then use the first public photo."""
+    if str(album.get("primary")) in public_ids:
+        return (primary.get("url_l") or primary.get("url_m")
+                or f"https://live.staticflickr.com/{album['server']}/{album['primary']}_{album['secret']}_b.jpg")
+    return grid[0]["src"] if grid else ""
+
+
 def album_synced(s, key: str, user: str, album: dict, max_photos: int) -> dict:
     aid = album["id"]
     photos, page = [], 1
@@ -65,6 +74,7 @@ def album_synced(s, key: str, user: str, album: dict, max_photos: int) -> dict:
         page += 1
     taken = sorted(p["datetaken"][:10] for p in photos if p.get("datetaken") and p.get("datetakenunknown") != "1")
     primary = album.get("primary_photo_extras", {})
+    public_ids = {str(p["id"]) for p in photos}
     grid = []
     for p in photos[:max_photos]:
         src, w, h = (p.get("url_l"), p.get("width_l"), p.get("height_l")) if p.get("url_l") else (p.get("url_m"), p.get("width_m"), p.get("height_m"))
@@ -79,8 +89,7 @@ def album_synced(s, key: str, user: str, album: dict, max_photos: int) -> dict:
         "count": len(photos),
         "date_start": taken[0] if taken else None,
         "date_end": taken[-1] if taken else None,
-        "cover_url": primary.get("url_l") or primary.get("url_m")
-        or f"https://live.staticflickr.com/{album['server']}/{album['primary']}_{album['secret']}_b.jpg",
+        "cover_url": cover_url(album, primary, public_ids, grid),
         "url": f"https://www.flickr.com/photos/{user}/albums/{aid}",
         "photos": grid,
         "updated": album.get("date_update"),
