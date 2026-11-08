@@ -7,8 +7,14 @@ date: '2026-08-11'
 hidden: false
 synced:
   title: 2026-08-11 Pisgah National Forest
-  count: 3
-  cover_url: https://live.staticflickr.com/65535/55464249106_8bc2a593f8_b.jpg
+  count: 1
+  cover_url: https://live.staticflickr.com/65535/55463269372_aedc414db4_b.jpg
   url: https://www.flickr.com/photos/51648834@N00/albums/72177720336260899
-  photos: []
+  photos:
+  - id: '55463269372'
+    title: Old switchboard wiring at PARI
+    src: https://live.staticflickr.com/65535/55463269372_aedc414db4_b.jpg
+    width: 1024
+    height: 576
+    page_url: https://www.flickr.com/photos/51648834@N00/55463269372/in/album-72177720336260899/
 ---

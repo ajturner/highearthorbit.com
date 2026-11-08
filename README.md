@@ -63,7 +63,7 @@ Article file names follow Jekyll's `YYYY-MM-DD-slug.md` (or `.html`). The URL is
 
 ### Staging site (GitHub Pages)
 
-1. Settings › Pages › Build and deployment › Source: **GitHub Actions**.
+1. Settings › Pages › Build and deployment › Source: **GitHub Actions**. With "Deploy from a branch", GitHub serves its own build, which skips `_plugins/`, so every page loses its styles and nav links. The deploy workflow checks for this and fails.
 2. Same page, Custom domain: clear `highearthorbit.com` (the domain stays with WordPress). The site is then at `https://ajturner.github.io/highearthorbit.com/`. To use a subdomain such as `staging.highearthorbit.com` instead, add a CNAME DNS record pointing to `ajturner.github.io` and enter it here.
 3. Settings › General › Pull Requests: enable **Allow auto-merge** (for the weekly sync).
 

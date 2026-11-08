@@ -1,0 +1,8 @@
+{%- comment -%} Previous and next item in the same collection, and a link to the whole section. Usage: include pager.html all="All talks" {%- endcomment -%}
+{%- assign section = nil -%}
+{%- for item in site.heo.nav %}{% if page.url contains item.url %}{% assign section = item %}{% endif %}{% endfor -%}
+<nav class="pager" aria-label="More">
+  <span>{% if page.previous %}<a href="{{ page.previous.url }}">← {{ page.previous.title }}</a>{% endif %}</span>
+  {%- if section and include.all %}<a class="pager-all" href="{{ section.url }}">{{ include.all }}</a>{% endif %}
+  <span>{% if page.next %}<a href="{{ page.next.url }}">{{ page.next.title }} →</a>{% endif %}</span>
+</nav>

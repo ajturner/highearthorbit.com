@@ -27,11 +27,7 @@
   <header class="site-header">
     <div class="wrap">
       <a class="site-title" href="/">{{ site.title }}</a>
-      <nav class="site-nav" aria-label="Main">
-        {%- for item in site.heo.nav %}
-        <a href="{{ item.url }}"{% if page.url contains item.url %} aria-current="page"{% endif %}>{{ item.label }}</a>
-        {%- endfor %}
-      </nav>
+      {% include site-nav.html label="Main" %}
     </div>
   </header>
   <main>
@@ -39,8 +35,16 @@
   </main>
   <footer class="site-footer">
     <div class="wrap">
-      <p>© {{ site.time | date: "%Y" }} Andrew Turner · highearthorbit.com</p>
-      <p><a href="/feed.xml">Atom feed</a> · Published from <a href="https://github.com/ajturner/highearthorbit.com">a Git repository</a>.</p>
+      <div class="footer-about">
+        <p class="site-title">{{ site.title }}</p>
+        <p>{{ site.description }}</p>
+      </div>
+      {% include site-nav.html label="Sections" class="footer-nav" %}
+      <div class="footer-meta">
+        <p><a href="/feed.xml">Writing feed</a> · <a href="/talks/feed.xml">Talks feed</a> · <a href="/projects/feed.xml">Projects feed</a></p>
+        <p>Elsewhere: {% for l in site.heo.links %}<a class="out" href="{{ l.url }}"{% if l.rel %} rel="{{ l.rel }}"{% endif %}>{{ l.label }}</a> · {% endfor %}<a class="out" href="{{ site.heo.flickr_profile }}">Flickr</a></p>
+        <p>© {{ site.time | date: "%Y" }} Andrew Turner · Published from <a class="out" href="https://github.com/ajturner/highearthorbit.com">its Git repository</a></p>
+      </div>
     </div>
   </footer>
 </body>
