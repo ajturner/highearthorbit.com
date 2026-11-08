@@ -11,7 +11,8 @@ the page in Notion changes its title but not its URL. Pages that stop matching
 uploaded to Notion are downloaded into assets/notion/, since Notion's file
 links expire after an hour.
 
-Notion is the source for these posts: edit them there, not in the file.
+Notion is the source for these posts: edit them there, not in the file. A page that
+still contains a `[TK: ...]` placeholder (see docs/voice/style-guide.md) is skipped.
 
 Environment: NOTION_TOKEN (an internal integration with access to the Writing
 database), NOTION_DATABASE_ID (default: the Writing database)
@@ -310,7 +311,11 @@ def main(argv: list[str] | None = None) -> int:
         if current and current.meta.get("wp_id"):
             full["wp_id"] = current.meta["wp_id"]
         full["format"] = "markdown"
-        item = Item(path=path, meta=full, body=convert.convert(blocks(s, page["id"])))
+        body = convert.convert(blocks(s, page["id"]))
+        if "[TK:" in body:
+            print(f"skipped {meta['title']!r}: it still has [TK: ...] placeholders; the site keeps the last synced version")
+            continue
+        item = Item(path=path, meta=full, body=body)
         if args.dry_run:
             print(f"would write {path.relative_to(ROOT)}")
             continue

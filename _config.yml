@@ -79,6 +79,8 @@ feed:
     projects: { path: projects/feed.xml }
 
 exclude:
+  - docs/
+  - CLAUDE.md
   - README.md
   - Gemfile
   - Gemfile.lock

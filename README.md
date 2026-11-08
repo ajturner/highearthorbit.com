@@ -37,6 +37,7 @@ Rules:
 - **Drafts.** `hidden: true` keeps an item off the live site. On staging (`heo.staging: true` in `_config.yml`) hidden items are shown with a Draft badge so you can review them, and every page has `noindex`. Hidden or excluded photo albums are never shown.
 - **Portfolio projects.** Your own repositories appear on the Projects page only when they have the GitHub topic `portfolio` (repository page › About › gear icon › Topics). The weekly sync adds a project file for each new `portfolio` repository; removing the topic takes the project off the site but keeps its file. Projects from other owners (Koop, Cedar) are curated by hand and always shown.
 - **Blog posts from Notion.** A page in the Notion Writing database becomes a post when its Tags include **Blog** and its Status is **Published** (or its Tags include **Published**). Edit those posts in Notion; the sync overwrites the file. Removing the tag or status hides the post rather than deleting it.
+- **Voice.** Posts follow `docs/voice/style-guide.md`, measured from Andrew's own posts and talks. `python -m scripts.heo.voice_check FILE` checks a draft; a Notion page with a `[TK: …]` placeholder left in it does not sync.
 - **Never change `source_id`.** It is how the publisher finds the matching WordPress post.
 
 ## Content fields
