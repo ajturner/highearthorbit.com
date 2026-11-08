@@ -238,3 +238,53 @@ def test_flickr_cover_is_never_a_private_photo():
     assert cover_url(album, {"url_l": "PRIVATE"}, {"2", "3"}, grid) == grid[0]["src"]
     assert cover_url(album, {"url_l": "PUBLIC"}, {"9", "2"}, grid) == "PUBLIC"
     assert cover_url(album, {}, set(), []) == ""
+
+
+GENERATED = """I'm increasingly convinced the most interesting form factor for AI isn't another screen.
+
+It's the opposite: a computer you don't touch.
+
+A pendant is not a phone replacement. It's not a smart speaker. It's not a chatbot.
+
+## What it is
+
+- A searchable timeline of the day
+- Lightweight summaries
+- Extracted commitments
+- Context for the next conversation
+
+That's it.
+
+## Why now
+
+- Transcription was too expensive
+- Retrieval was too hard
+- The output wasn't shaped for action
+
+## Closing thought
+
+The scarce resource isn't information.
+
+It's continuity.
+""" * 2
+
+
+def test_voice_check_flags_generated_rhythm_and_passes_his_posts(tmp_path):
+    from scripts.heo.voice_check import check
+    from pathlib import Path
+    draft = tmp_path / "draft.md"
+    draft.write_text(GENERATED)
+    fails = " ".join(check(draft).failures)
+    assert "fragments" in fails and "single short line" in fails and "stock phrases" in fails
+    # Two of his own posts, from 2009 and 2015, pass.
+    for slug in ("taking-remote-imagery-offline-to-nigeria", "apple-watch-internet-of-humans"):
+        (post,) = Path("content/_posts").glob(f"*-{slug}.html")
+        assert check(post).failures == [], (post.name, check(post).failures)
+
+
+def test_voice_check_blocks_tk_placeholders(tmp_path):
+    from scripts.heo.voice_check import check
+    p = tmp_path / "d.md"
+    p.write_text(("Last week I was in Raleigh for the conference and talked with people about maps and data. " * 12)
+                 + "\n\n[TK: who said it]\n")
+    assert any("placeholder" in f for f in check(p).failures)
