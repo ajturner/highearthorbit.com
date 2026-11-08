@@ -200,13 +200,26 @@ class Converter:
 
 # ---------------------------------------------------------------- Notion API
 
+def blog_filter(schema: dict) -> dict | None:
+    """A query filter for pages tagged Blog, built from the Tags options that exist.
+    Notion rejects a filter naming an option the property doesn't have, so with no
+    Blog option yet there is nothing to ask for."""
+    tags = (schema.get("properties", {}).get("Tags") or {}).get("multi_select") or {}
+    names = [o["name"] for o in tags.get("options", []) if o.get("name", "").lower() == BLOG_TAG]
+    if not names:
+        return None
+    clauses = [{"property": "Tags", "multi_select": {"contains": n}} for n in names]
+    return clauses[0] if len(clauses) == 1 else {"or": clauses}
+
+
 def query(s, database: str) -> list[dict]:
-    body = {
-        "filter": {"or": [
-            {"property": "Tags", "multi_select": {"contains": name}} for name in ("Blog", "blog", "BLOG")
-        ]},
-        "page_size": 100,
-    }
+    schema = check(s.get(f"{API}/databases/{database}", timeout=60)).json()
+    flt = blog_filter(schema)
+    if flt is None:
+        print('Notion: the Writing database has no "Blog" tag yet; nothing to sync. '
+              "Add the tag to a page (type Blog in its Tags) and set Status to Published.")
+        return []
+    body = {"filter": flt, "page_size": 100}
     pages, cursor = [], None
     while True:
         if cursor:
