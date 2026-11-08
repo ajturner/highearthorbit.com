@@ -1,0 +1,61 @@
+---
+source_id: wp-401
+title: Creating inline (embedded) PNG images
+date: 2006-04-23 09:55:53 -0400
+categories:
+- Programming
+- Web
+- Open-Source
+- Javascript
+- Howto
+legacy_wp_id: 401
+legacy_url: http://highearthorbit.com/creating-inline-embedded-png-images/
+format: html
+---
+
+<p>Sometimes it's necessary, or nice, to be able to directly embed an image <em>in code</em>. Like a modern form of ASCII art, you then don't have to distribute icons and images with your source, because the image is in the source itself. The method uses Base64 encoding. See the <a href='http://www.ietf.org/rfc/rfc2397.txt'>RFC for Data URI</a>.</p>
+<blockquote><p>
+"Base64" format used by MIME-encoded documents such as electronic mail messages with embedded images and audio files.<br />
+</blockquote></p>
+<p>To convert a PNG (for example) image to Base64, you will need some utility. <a href='http://www.fourmilab.ch/webtools/base64/'>base64</a> is an open-source converter that does just this. </p>
+<p>Do the configure, compile jig:</p>
+<pre>
+$ ./configure<br />
+$ make<br />
+$ sudo make install<br />
+</pre></p>
+<p>Then encode your image:<br />
+<code><br />
+base64 -e my_image.png my_image.png.base64<br />
+</code></p>
+<p>Open the <code>my_image.png.base64</code> file in a text editor and then copy it into your code. An example is shown below, written in Javascript. </p>
+<p><code></p>
+<pre>
+const png_image_src = 'data:image/png;base64,'+<br />
+'iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAANbY1E9YMgAAABl0' +<br />
+'RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAGAUExURcDYv1C8WdPrtIDAeWqk' +<br />
+'Oqnd2VLWaOX0x7ftwZzZlIjGxr7gxanLkdfu1FumybHSsJ3Cutbyx4S9fm2paMrq0Lfo1L/a' +<br />
+'o6PHiozL11aZJpnW2oG0ZLTcm5zjvovbvM3qtcror2q5vUaIRHLGZWWkR0aQGSR/BYy5baHY' +<br />
+'imrbd/z+/HO9bPb69m29xHy8c2OeMUGJPZDThZPPi3ivdGazzZbBgCuCEd3x2jaICs7ksqLZ' +<br />
+'mTp/N6zwtWu/YLDWvZHHeqLS0affzKfvsWDYpn7CvJHJh0+cSGWbY6PQka/Xkvj894W2a4DQ' +<br />
+'qIrDhF+hQ8fexJDN24PYgYGzWnXJy6zXpp3Fm5jCg37NdI++dWejWmCwVnSrT6nuyTuLELvh' +<br />
+'pV2gO6DSwI3qnd3wv6rQxK/fz1OZxrTvtaLim3rRr+bv5TuCN+jw557FiK7NlWzRkHDGhHLd' +<br />
+'fnHWmm2zx7Xe1m21zW65z9Ts0HTHaHrGb3vJb3yvVbTaxVGUTITLtV6w0////94DUpYAAACA' +<br />
+'dFJOU///////////////////////////////////////////////////////////////////' +<br />
+'////////////////////////////////////////////////////////////////////////' +<br />
+'//////////////////////////////8AOAVLZwAAAQxJREFUeNpiqAcCc87wcuVKTl4Qm6G+' +<br />
+'XstKOU6eu9ouxNbICySgZajBzluWUuzgkOyqpwMUsNJIEuQVYWUNkOCysxeqZzBXZk+z4RCV' +<br />
+'kiopquVUcPNn4JSRd4oRkZAwUSwsKPAQN2YIZ0pPFBUpNQnWZGNj0xOrYShPCtSUdeTTlXNm' +<br />
+'0WcUtjRgUE4Kz5Plq0vVzWAJkoy0zGKokDeU4+JjYWHRr+KJVhVTYjDylMn34WPJzeXhiRBX' +<br />
+'sXBnKIti0tZW1M9VV/eWlg6LV2Oo943wZHaR5BEXz/EOUzHTYajXEfZWSJBUVY2NN1UxywR5' +<br />
+'TsfYIFRAQIDfws8sG+xbICGsZG2tpKamBWQDBBgAU049f2kd9aAAAAAASUVORK5CYII=';</p>
+<p>var my_link = document.createElement('a');<br />
+my_link.title = "Go to example.com"<br />
+my_image = document.createElement('img');<br />
+my_image.src = png_image_src;<br />
+route_image.border = 0;<br />
+my_link.href  = "http://example.com";<br />
+my_link.appendChild(my_image);</p>
+<p>document.body.insertBefore(my_link, document.body.lastChild);<br />
+</pre><br />
+</code></p>

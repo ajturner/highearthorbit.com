@@ -1,0 +1,3 @@
+{%- if include.item.youtube_id -%}
+<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/{{ include.item.youtube_id }}" title="{{ include.item.title | escape }}" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+{%- endif -%}

@@ -1,0 +1,50 @@
+name: CI
+
+# Every pull request and push to master: schema validation, unit tests, PHP lint,
+# and a full Jekyll build with a link check. The built site is attached to the run
+# as an artifact so it can be reviewed before merging.
+on:
+  pull_request:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Validate content against schemas
+        run: python -m scripts.heo.validate
+      - name: Unit tests
+        run: python -m pytest -q
+      - name: PHP lint
+        run: find wordpress -name '*.php' -print0 | xargs -0 -n1 php -l
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+      - name: Build the site as GitHub Pages serves it
+        run: bundle exec jekyll build --strict_front_matter --baseurl "/${{ github.event.repository.name }}"
+        env:
+          JEKYLL_ENV: production
+      - name: Check internal links
+        run: python3 scripts/ci/check_links.py _site "/${{ github.event.repository.name }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: _site
+          retention-days: 7

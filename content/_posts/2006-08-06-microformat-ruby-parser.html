@@ -1,0 +1,50 @@
+---
+source_id: wp-489
+title: Microformat Ruby Parser
+date: 2006-08-06 13:42:51 -0400
+categories:
+- Programming
+- Ruby
+legacy_wp_id: 489
+legacy_url: http://highearthorbit.com/microformat-ruby-parser/
+format: html
+---
+
+<p>With help from <a href='http://blog.labnotes.org/'>Assaf</a>, I've generalized the <a href='http://microformats.org/wiki'>Microformat</a> parsers even more. Now, there is a base-class <code>Microformat</code> that provides a structure for any sub-class to be created that specifies a Microformat that you want to parse.</p>
+<p>It's not robust, in that it assumes that the important information is actually in the text of the tag, and nothing is in any of the tag's attributes. This should probably be added, where the properties would be an array that specify if the value comes from text or a named attribute.</p>
+<pre>
+<code><br />
+class Microformat < Scraper::Base  def self.properties(*symbols)<br />
+    symbols.each do |symbol|<br />
+      html_class = symbol.to_s.gsub(/_/, "-")<br />
+      process ".#{html_class}", symbol=>["abbr@title", "a@href", :text]<br />
+    end<br />
+  end<br />
+end</p>
+<p>class Geo < Microformat<br />
+  properties :latitude, :longitude<br />
+end<br />
+class Adr < Microformat<br />
+  properties :post_office_box,<br />
+    :extended_address,<br />
+    :street_address,<br />
+    :locality,<br />
+    :region,<br />
+    :postal_code,<br />
+    :country_name<br />
+end<br />
+</code><br />
+</pre></p>
+<p>To use you just have a generalized scraper:</p>
+<pre>
+<code><br />
+class Location < Scraper::Base   array :geos<br />
+  array :adrs<br />
+  process ".adr", :adrs => Adr<br />
+  process ".geo", :geos => Geo<br />
+  result :geos, :adrs<br />
+end<br />
+</code></pre></p>
+<p>which will now return an object with a <code>.geos</code> and <code>.adrs</code> for <a href='http://microformats.org/wiki/geo'>geo</a> and <a href='http://microformats.org/wiki/adr'>adr</a> attributes, respectively. </p>
+<p><strong>Updated</strong>: Assaf pointed out that he added the ability to pull out the correct data if the microformat was stored in an abbr vs. a span.<br />
+<code>process ".#{html_class}", symbol=>["abbr@title", "a@href", :text]</code></p>

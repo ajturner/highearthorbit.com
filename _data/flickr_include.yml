@@ -1,0 +1,3 @@
+# Albums to publish even though their title has no YYYY-MM-DD prefix (e.g. older trips).
+# Add entries as: - {id: "7215...", title: "New Zealand"}
+albums: []

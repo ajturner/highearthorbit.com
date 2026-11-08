@@ -1,0 +1,30 @@
+---
+source_id: wp-119
+title: Adding search yumminess to Firefox
+date: 2005-01-02 17:31:49 -0500
+categories:
+- Technology
+legacy_wp_id: 119
+legacy_url: http://highearthorbit.com/?p=119
+format: html
+---
+
+<p>There is a pretty simple means to add a search to the Firefox search collection: (via <a href='http://mesh.typepad.com'>Mike Chambers blog</a>)</p>
+<p>Call this javascript code from within Firefox:<br />
+<code><br />
+window.sidebar.addSearchEngine(<br />
+      "http://mesh.typepad.com/firefox/search/"+name+".src",<br />
+      iconPath,<br />
+      name,<br />
+      cat );<br />
+</code></p>
+<p>where the "src" file is:<br />
+<code><br />
+<search<br />
+	version="1.1"<br />
+   name="engadget"<br />
+   method="GET"<br />
+   action="www.engadget.com/search/"><br />
+<input name="sourceid" value="Mozilla-search"><br />
+<input name="q" user></p>
+<p></code></p>

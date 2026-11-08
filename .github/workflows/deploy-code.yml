@@ -1,0 +1,65 @@
+name: Deploy plugin and theme
+
+# Deploys wordpress/mu-plugins/heo-content.php and wordpress/themes/heo/ over SSH.
+# Takes a database backup first, writes only to those two paths, then flushes
+# permalinks so new post types resolve.
+#
+# Secrets: SSH_PRIVATE_KEY (deploy key, no passphrase), SSH_KNOWN_HOSTS (output of
+#   `ssh-keyscan -t ed25519 your.host`), SSH_USER, SSH_HOST
+# Variables: WP_PATH (WordPress root on the server, e.g. /home/you/highearthorbit.com),
+#   SSH_PORT (optional, default 22), BACKUP_DIR (optional, default ~/heo-backups)
+# Manual only while GitHub Pages is the staging site. To deploy on merge, add back:
+#   push: { branches: [master], paths: ["wordpress/**"] }
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      WP_PATH: ${{ vars.WP_PATH }}
+      PORT: ${{ vars.SSH_PORT || '22' }}
+      BACKUP_DIR: ${{ vars.BACKUP_DIR || '~/heo-backups' }}
+    steps:
+      - uses: actions/checkout@v5
+      - name: Lint PHP
+        run: find wordpress -name '*.php' -print0 | xargs -0 -n1 php -l
+      - name: Configure SSH
+        run: |
+          test -n "$WP_PATH" || { echo "Set the WP_PATH repository variable"; exit 1; }
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          printf '%s\n' "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          cat >> ~/.ssh/config <<EOF
+          Host deploy-target
+            HostName ${{ secrets.SSH_HOST }}
+            User ${{ secrets.SSH_USER }}
+            Port $PORT
+            IdentityFile ~/.ssh/deploy_key
+            StrictHostKeyChecking yes
+          EOF
+      - name: Back up the database
+        run: |
+          stamp=$(date -u +%Y%m%dT%H%M%SZ)
+          ssh deploy-target "mkdir -p $BACKUP_DIR && cd '$WP_PATH' && \
+            if command -v wp >/dev/null; then wp db export $BACKUP_DIR/heo-$stamp.sql --quiet && gzip $BACKUP_DIR/heo-$stamp.sql && echo 'backup: $BACKUP_DIR/heo-$stamp.sql.gz'; \
+            else echo 'WP-CLI not found on the server; no backup taken' >&2; exit 1; fi"
+      - name: Deploy site plugin and theme
+        run: |
+          ssh deploy-target "mkdir -p '$WP_PATH/wp-content/mu-plugins' '$WP_PATH/wp-content/themes/heo'"
+          rsync -az --checksum -e ssh wordpress/mu-plugins/heo-content.php deploy-target:"$WP_PATH/wp-content/mu-plugins/heo-content.php"
+          rsync -az --checksum --delete -e ssh wordpress/themes/heo/ deploy-target:"$WP_PATH/wp-content/themes/heo/"
+      - name: Flush permalinks and check the site
+        run: |
+          ssh deploy-target "cd '$WP_PATH' && wp rewrite flush --quiet && wp eval 'echo post_type_exists(\"project\") ? \"post types ok\" : \"post types missing\";'"
+          code=$(curl -s -o /dev/null -w '%{http_code}' "${{ vars.WP_URL || 'https://highearthorbit.com' }}/")
+          echo "homepage HTTP $code"; test "$code" = "200"

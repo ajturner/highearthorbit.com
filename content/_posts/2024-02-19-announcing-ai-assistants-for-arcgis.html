@@ -1,0 +1,160 @@
+---
+source_id: post:announcing-ai-assistants-for-arcgis
+wp_id: 379
+title: Announcing AI Assistants for ArcGIS
+slug: announcing-ai-assistants-for-arcgis
+date: 2024-02-19 13:47
+summary: Last week, I shared our work at Esri adding generative AI to ArcGIS. Over the past year, I’ve
+  been leading a new ArcGIS Hub AI Assistant in close collaboration with the city of Washington, DC to
+  support easy access and understanding of open data about the city. This work builds from my talk at
+  the
+categories:
+- Geo
+- Technology
+tags:
+- ArcGIS
+- ArcGIS Hub
+- augmented reality
+- civic
+- conference
+legacy_url: https://highearthorbit.com/articles/announcing-ai-assistants-for-arcgis/
+format: html
+---
+
+<p class="wp-block-paragraph">Last week, I shared our work at Esri adding generative AI to ArcGIS. Over the past year, I&#8217;ve been leading a new ArcGIS Hub AI Assistant in close collaboration with the city of Washington, DC to support easy access and understanding of <a href="https://opendata.dc.gov/" target="_blank" rel="noopener" title="">open data about the city.</a> This work builds from <a href="https://highearthorbit.com/articles/geoai-and-the-future-of-mapping/" title="">my talk at the National Academies</a> on the future of GeoAI and the potential for improved access to information. </p>
+
+
+
+<p class="wp-block-paragraph">The future is exciting, and these AI assistants will be progressively released throughout 2024. They are just a few examples of the many generative AI related projects across Esri. </p>
+
+
+
+<iframe loading="lazy" id="kmsembed-1_opret32t" width="608" height="402" src="https://mediaspace.esri.com/embed/secure/iframe/entryId/1_opret32t/uiConfId/49806163/pbc/334881262/st/0" class="kmsembed" allowfullscreen webkitallowfullscreen mozAllowFullScreen allow="autoplay *; fullscreen *; encrypted-media *" referrerPolicy="no-referrer-when-downgrade" sandbox="allow-downloads allow-forms allow-same-origin allow-scripts allow-top-navigation allow-pointer-lock allow-popups allow-modals allow-orientation-lock allow-popups-to-escape-sandbox allow-presentation allow-top-navigation-by-user-activation" frameborder="0" title="ArcGIS and Generative AI Assistants"></iframe>
+
+
+
+<p class="wp-block-paragraph">My colleague, Adam Pfister, and I presented at the Esri FedGIS 2024 conference. You can watch the <a href="https://mediaspace.esri.com/media/t/1_opret32t" target="_blank" rel="noopener" title="">video recording here</a> or read the transcript below which may be easier to read and understand what we&#8217;re doing.</p>
+
+
+
+<h2 class="wp-block-heading">ArcGIS and Generative AI Assistants</h2>
+
+
+
+<p class="wp-block-paragraph">Over the past several years, Esri has been adding machine learning and <a href="https://www.esri.com/en-us/capabilities/geoai/overview" title="">GeoAI</a> to ArcGIS to provide you with advanced spatial analysis capabilities.</p>
+
+
+
+<p class="wp-block-paragraph">Last year, there was a revolutionary shift with the development of Large Language Models, or LLMs, used in Generative AI. These advancements have opened new avenues for interactive, accessible experiences. You might have heard of <a href="https://copilot.microsoft.com/" title="">Microsoft’s CoPilot</a> and <a href="https://openai.com/" title="">OpenAI’s ChatGPT</a>. These capabilities change how people work by providing creative reasoning and natural language interfaces.</p>
+
+
+
+<p class="wp-block-paragraph">Across Esri, we’ve been exploring new capabilities that use generative AI to automate and accelerate workflows.</p>
+
+
+
+<p class="wp-block-paragraph">It starts by following the WebGIS pattern. Publish your data as services, including high-quality metadata. Use these data services as layers in a map, and use in Applications.</p>
+
+
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img data-recalc-dims="1" loading="lazy" decoding="async" width="840" height="625" src="https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image.png?resize=840%2C625&#038;ssl=1" alt="" class="wp-image-381" style="width:442px;height:auto" srcset="https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image.png?resize=1024%2C762&amp;ssl=1 1024w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image.png?resize=300%2C223&amp;ssl=1 300w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image.png?resize=768%2C572&amp;ssl=1 768w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image.png?w=1376&amp;ssl=1 1376w" sizes="auto, (max-width: 840px) 100vw, 840px" /></figure>
+</div>
+
+
+<p class="wp-block-paragraph">We are developing new “AI Assistants” that extend these Apps which use Agents with specialized training, prompt engineering, and LLM to provide particular skills. These use our Tools to access the live data and services – which is important to ensure that answers are accurate and trustworthy.</p>
+
+
+
+<p class="wp-block-paragraph">We envision generative AI being available across ArcGIS. I’m going to show you a few examples of our research developing AI Assistants into ArcGIS Hub, Survey123, and integrates ArcGIS System.</p>
+
+
+
+<h2 class="wp-block-heading">Open Data DC</h2>
+
+
+
+<p class="wp-block-paragraph">The city of Washington, DC uses <a href="https://opendata.dc.gov/" title="">hub to share their data, documents, and apps through a focused catalog</a> that supports constituents, partners, and developers to use in their own decision making. The data can be explored, downloaded, access via APIs, and integrated into configurable apps.</p>
+
+
+
+<figure class="wp-block-image size-large"><img data-recalc-dims="1" loading="lazy" decoding="async" width="840" height="1000" src="https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-1.png?resize=840%2C1000&#038;ssl=1" alt="" class="wp-image-382" srcset="https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-1.png?resize=860%2C1024&amp;ssl=1 860w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-1.png?resize=252%2C300&amp;ssl=1 252w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-1.png?resize=768%2C915&amp;ssl=1 768w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-1.png?resize=1290%2C1536&amp;ssl=1 1290w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-1.png?w=1604&amp;ssl=1 1604w" sizes="auto, (max-width: 840px) 100vw, 840px" /></figure>
+
+
+
+<p class="wp-block-paragraph">Our research indicated that generative AI could help people more quickly &amp; easily get answers to common questions. We are developing a new Hub AI Assistant that will be integrated into ArcGIS Hub and configurable for your organizations’ sites.</p>
+
+
+
+<p class="wp-block-paragraph">We connected the Hub AI Assistant to DC’s Open Data site so that all responses are using their authoritative, up-to-date data and information. When I moved into the city, my first question was “<strong>when is trash day</strong>”</p>
+
+
+
+<p class="wp-block-paragraph">Now, people can ask this common question to discover relevant information to explore. They can then find the days specific to their address – let’s see at “<strong>check at 800 east capitol st ne</strong>”</p>
+
+
+
+<p class="wp-block-paragraph">With generative AI it’s important to ensure the source data are accurate, so the AI Assistant provides links to the data source as well as a map and the geocoded location so the person can verify the information is correct.</p>
+
+
+
+<p class="wp-block-paragraph">You can also ask broader questions like “<strong>How many trees are in the city?</strong>” The DC Urban Forestry team publishes datasets with each tree, species, size, and health. You can then ask it to create a map of trees nearby our location. And because the AI Assistant is using the live services – when the forestry team plants a new tree, the next time someone asks the question they will see the newest trees.</p>
+
+
+
+<figure class="wp-block-image size-large"><img data-recalc-dims="1" loading="lazy" decoding="async" width="840" height="684" src="https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-2.png?resize=840%2C684&#038;ssl=1" alt="" class="wp-image-383" srcset="https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-2.png?resize=1024%2C834&amp;ssl=1 1024w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-2.png?resize=300%2C244&amp;ssl=1 300w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-2.png?resize=768%2C626&amp;ssl=1 768w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-2.png?resize=1536%2C1252&amp;ssl=1 1536w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-2.png?resize=2048%2C1669&amp;ssl=1 2048w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-2.png?w=1680&amp;ssl=1 1680w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-2.png?w=2520&amp;ssl=1 2520w" sizes="auto, (max-width: 840px) 100vw, 840px" /><figcaption class="wp-element-caption">The Hub AI Assistant can query data and summarize documents and policies.</figcaption></figure>
+
+
+
+<p class="wp-block-paragraph">The Hub AI Assistant answers general questions using the documents, and apps in the city’s Hub. I’m wondering “<strong>who can help me plant a tree</strong>”. There is a simple response and link to the hub page with more information. This helps people understand policies and procedures alongside data exploration.</p>
+
+
+
+<p class="wp-block-paragraph">This is an exciting future and you’ve probably already done the hard work by publishing your data as services and adding terrific metadata that the AI Assistants will include in their reasoning. It’s important to realize that the use of your data in generative AI is happening already and accelerating. We are mitigating the risks by limiting inputs to your curated data and configurable guardrails. There is a lot of work to do here, and we’re being careful about how to respond to conversations outside the scope of the assistant.</p>
+
+
+
+<p class="wp-block-paragraph">For example, someone may say “<strong>my house is on fire</strong>”. The AI Assistant limits its reasoning and information to the curated data and clearly states when a question is outside of its scope. In this case &#8211; call emergency services using 911.</p>
+
+
+
+<p class="wp-block-paragraph">The AI Assistant also helps ensure everyone has easy access to the data using their native language. Parents want to know where their child should attend school, “<strong>¿Cuáles son las escuelas cerca del círculo DuPont?</strong>” The AI Assistant translates questions to query the data and find the best answer. Then it responds in the language the person asked.</p>
+
+
+
+<figure class="wp-block-image size-large"><img data-recalc-dims="1" loading="lazy" decoding="async" width="840" height="684" src="https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-3.png?resize=840%2C684&#038;ssl=1" alt="" class="wp-image-384" srcset="https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-3.png?resize=1024%2C834&amp;ssl=1 1024w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-3.png?resize=300%2C244&amp;ssl=1 300w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-3.png?resize=768%2C626&amp;ssl=1 768w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-3.png?resize=1536%2C1252&amp;ssl=1 1536w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-3.png?resize=2048%2C1669&amp;ssl=1 2048w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-3.png?w=1680&amp;ssl=1 1680w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-3.png?w=2520&amp;ssl=1 2520w" sizes="auto, (max-width: 840px) 100vw, 840px" /><figcaption class="wp-element-caption">The Hub AI Assistant supports any language for requests and information.</figcaption></figure>
+
+
+
+<h2 class="wp-block-heading">Survey123 Assistant</h2>
+
+
+
+<p class="wp-block-paragraph">Survey123 is a powerful capability for creating dynamic forms to gather information. However, researching and formulating questions and answers can take significant time. Then we need to configure the form with all the details.</p>
+
+
+
+<p class="wp-block-paragraph">The upcoming Survey123 Assistant accelerates your work. We can request it to “<strong>create a survey for reporting damage assessments due to flooding</strong>”. The Survey123 Assistant creates a draft survey based on training using domain knowledge relevant to the request and prompt engineering for best practices. Within a few seconds we have a suggested set of questions and answers.</p>
+
+
+
+<figure class="wp-block-image size-large"><img data-recalc-dims="1" loading="lazy" decoding="async" width="840" height="665" src="https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-4.png?resize=840%2C665&#038;ssl=1" alt="" class="wp-image-385" srcset="https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-4.png?resize=1024%2C811&amp;ssl=1 1024w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-4.png?resize=300%2C238&amp;ssl=1 300w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-4.png?resize=768%2C608&amp;ssl=1 768w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-4.png?resize=1536%2C1217&amp;ssl=1 1536w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-4.png?resize=2048%2C1622&amp;ssl=1 2048w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-4.png?resize=150%2C120&amp;ssl=1 150w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-4.png?w=1680&amp;ssl=1 1680w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-4.png?w=2520&amp;ssl=1 2520w" sizes="auto, (max-width: 840px) 100vw, 840px" /></figure>
+
+
+
+<p class="wp-block-paragraph">We can modify this to “<strong>add a map for marking the location</strong>”. The assistant will consider my request, update the questions and answers, then provide a complete draft for me to review.</p>
+
+
+
+<p class="wp-block-paragraph">When we’re satisfied with this draft the Survey123 Assistant can Generate the form automatically. Now we can continue working in the form editor to make changes, share with colleagues and publish when we’re confident.</p>
+
+
+
+<figure class="wp-block-image size-large"><img data-recalc-dims="1" loading="lazy" decoding="async" width="840" height="665" src="https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-5.png?resize=840%2C665&#038;ssl=1" alt="" class="wp-image-386" srcset="https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-5.png?resize=1024%2C811&amp;ssl=1 1024w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-5.png?resize=300%2C238&amp;ssl=1 300w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-5.png?resize=768%2C608&amp;ssl=1 768w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-5.png?resize=1536%2C1217&amp;ssl=1 1536w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-5.png?resize=2048%2C1622&amp;ssl=1 2048w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-5.png?resize=150%2C120&amp;ssl=1 150w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-5.png?w=1680&amp;ssl=1 1680w, https://i0.wp.com/highearthorbit.com/wp-content/uploads/2024/02/image-5.png?w=2520&amp;ssl=1 2520w" sizes="auto, (max-width: 840px) 100vw, 840px" /></figure>
+
+
+
+<p class="wp-block-paragraph">These are just two examples of our research and development efforts integrating generative AI into new AI Assistants.</p>
+
+
+
+<p class="wp-block-paragraph">We are testing these AI Assistants for ArcGIS with different users and organizations to progressively improve their quality, utility, and accessibility. </p>

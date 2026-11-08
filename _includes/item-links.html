@@ -1,0 +1,14 @@
+{%- assign i = include.item -%}
+{%- capture links -%}
+{%- if i.youtube_id or i.video_url %}<a href="{% if i.youtube_id %}https://www.youtube.com/watch?v={{ i.youtube_id }}{% else %}{{ i.video_url }}{% endif %}">Video</a>{% endif -%}
+{%- if i.slides_url %}<a href="{{ i.slides_url }}">Slides</a>{% endif -%}
+{%- if i.repo %}<a href="{{ i.repo }}">Repository</a>{% endif -%}
+{%- if i.demo %}<a href="{{ i.demo }}">Demo</a>{% elsif i.synced.pages_url and i.synced.pages_url != "" %}<a href="{{ i.synced.pages_url }}">Site</a>{% endif -%}
+{%- if i.writeup_url -%}
+  {%- comment %} Link to this build's copy of the write-up when it has one, else to the live site. {% endcomment -%}
+  {%- assign wpath = i.writeup_url | replace: site.url, "" -%}
+  {%- assign wpost = site.posts | where: "url", wpath | first -%}
+  <a href="{% if wpost %}{{ wpath }}{% else %}{{ i.writeup_url }}{% endif %}">Write-up</a>
+{%- endif -%}
+{%- endcapture -%}
+{%- if links != "" %}<p class="item-links">{{ links }}</p>{% endif -%}

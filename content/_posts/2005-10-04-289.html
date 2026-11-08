@@ -1,0 +1,87 @@
+---
+source_id: wp-289
+title: Writing iPhoto Exif Data
+date: 2005-10-04 06:48:25 -0400
+categories:
+- Programming
+- Photography
+- Applescript
+legacy_wp_id: 289
+legacy_url: http://highearthorbit.com/289/
+format: html
+---
+
+<p>Here is some quick Applescript that uses <a href='http://www.sno.phy.queensu.ca/~phil/exiftool/'>ExifTool</a> to write Copyright, Title, Comments, and Keyword exif data to selected photos in iPhoto:</p>
+<p>This script is released under the <a href='http://creativecommons.org/licenses/by/2.5/'>Creative Commons</a>.</p>
+<pre>
+<code><br />
+-- This applescript will set the exif keywords, name,<br />
+--  and comments of all selected iPhoto images using<br />
+--  the information current in iPhoto.<br />
+--<br />
+-- Author: Andrew Turner (http://highearthorbit.com)<br />
+--<br />
+property copyright : &Acirc;&not;<br />
+		"Copyright Andrew Turner, 2005. All Rights Reserved."<br />
+property URL : "http://highearthorbit.com"<br />
+property exifToolOriginal : "_original"</p>
+<p>-- True retains copyright, False means Public Domain<br />
+property Copyrighted : "True"</p>
+<p>tell application "iPhoto"<br />
+	activate<br />
+	try<br />
+		copy (my selected_images()) to these_images<br />
+		if these_images is false or (the count of these_images) &Acirc;&not;<br />
+			is 0 then &Acirc;&not;<br />
+			error "Please select a single image."</p>
+<p>		repeat with i from 1 to the count of these_images<br />
+			set the keywordslist to ""<br />
+			set this_photo to item i of these_images<br />
+			tell this_photo<br />
+				set the image_file to the image path<br />
+				set the image_title to the title<br />
+				set the image_filename to the image filename<br />
+				set the image_comment to the comment<br />
+				set the assigned_keywords to the name of keywords<br />
+			end tell<br />
+			repeat with j from 1 to the count of assigned_keywords<br />
+				set the keywordslist to keywordslist & " -keywords+=" &Acirc;&not;<br />
+					& item j of assigned_keywords<br />
+			end repeat<br />
+			set output to do shell script &Acirc;&not;<br />
+				"exiftool -title='" & image_title & &Acirc;&not;<br />
+				"' " & keywordslist & &Acirc;&not;<br />
+				" " & " -comment='" & image_comment & &Acirc;&not;<br />
+				"' " & " -Copyright='" & copyright & &Acirc;&not;<br />
+				"' " & " -CopyrightNotice='" & copyright & &Acirc;&not;<br />
+				"' " & " -Rights='" & copyright & &Acirc;&not;<br />
+				"' " & " -Marked='" & Copyrighted & &Acirc;&not;<br />
+				"' " & "'" & image_file & "'"<br />
+			do shell script "rm '" & image_file & "'" &Acirc;&not;<br />
+				& exifToolOriginal<br />
+		end repeat</p>
+<p>		display dialog "Exif writing complete."<br />
+	on error error_message number error_number<br />
+		if the error_number is not -128 then<br />
+			display dialog error_message buttons {"Cancel"} &Acirc;&not;<br />
+				default button 1<br />
+		end if<br />
+	end try<br />
+end tell</p>
+<p>on selected_images()<br />
+	tell application "iPhoto"<br />
+		try<br />
+			-- get selection<br />
+			set these_items to the selection<br />
+			-- check for single album selected<br />
+			if the class of item 1 of these_items is album then error<br />
+			-- return the list of selected photos<br />
+			return these_items<br />
+		on error<br />
+			return false<br />
+		end try<br />
+	end tell<br />
+end selected_images<br />
+</code><br />
+</pre></p>
+<p>You can grab this script and a simpler Copyright only, as well as a Location (latitude/longitude/city,region,country) <a href='http://highearthorbit.com/projects/applescript/iPhotoExif.zip'>script here</a>.</p>

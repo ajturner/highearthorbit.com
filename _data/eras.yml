@@ -1,0 +1,15 @@
+# Order and headings for the Projects page. Each project's `era` must be one of these keys.
+- key: esri
+  label: Esri and ArcGIS Hub
+- key: civic
+  label: Civic projects
+- key: personal
+  label: Personal projects
+- key: crisiscommons
+  label: CrisisCommons
+- key: geoiq
+  label: GeoIQ
+- key: neogeography
+  label: Neogeography
+- key: aerospace
+  label: Aerospace

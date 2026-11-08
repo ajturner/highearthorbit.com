@@ -1,0 +1,10 @@
+# Repositories the GitHub sync never adds as projects, even though they have a
+# GitHub Pages site. Use for anything personal or sensitive, and for repos that
+# aren't projects.
+repos:
+  - name: ajturner/plan-stuff-a-thon
+    reason: Troop 380 activity planner (scouting, children)
+  - name: ajturner/highearthorbit.com
+    reason: this site
+  - name: ajturner/ajturner.github.com
+    reason: placeholder GitHub homepage from 2009

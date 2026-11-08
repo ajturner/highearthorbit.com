@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://highearthorbit.com/schemas/project.json",
+  "title": "project",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "source_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9:._/-]{2,120}$",
+      "description": "Stable key used to find the matching WordPress post. Never change it once published."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "summary": {
+      "type": "string",
+      "description": "One or two sentences shown in lists and as the excerpt."
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    },
+    "hidden": {
+      "type": "boolean",
+      "default": false,
+      "description": "true keeps the item off the site (published as a draft)."
+    },
+    "wp_id": {
+      "type": "integer",
+      "description": "Existing WordPress post ID to adopt on first publish."
+    },
+    "synced": {
+      "type": "object",
+      "description": "Written by sync jobs only."
+    },
+    "era": {
+      "enum": [
+        "aerospace",
+        "neogeography",
+        "crisiscommons",
+        "geoiq",
+        "esri",
+        "civic",
+        "personal"
+      ]
+    },
+    "role": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "active",
+        "maintained",
+        "archived"
+      ]
+    },
+    "year": {
+      "type": "integer",
+      "minimum": 1990,
+      "maximum": 2100
+    },
+    "repo": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https?://"
+    },
+    "demo": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https?://"
+    },
+    "writeup_url": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https?://"
+    },
+    "github": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$",
+      "description": "owner/repo for the GitHub sync job"
+    },
+    "format": {
+      "enum": [
+        "markdown",
+        "html"
+      ],
+      "default": "markdown",
+      "description": "Body format. Posts imported from WordPress keep their original HTML."
+    }
+  },
+  "required": [
+    "source_id",
+    "title",
+    "era"
+  ]
+}

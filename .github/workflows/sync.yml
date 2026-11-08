@@ -1,0 +1,86 @@
+name: Weekly sync
+
+# Pulls GitHub, YouTube and Flickr data into content/ and opens one pull request.
+# If the only changes are inside `synced:` blocks, the PR is set to auto-merge
+# once CI passes. Anything else (new items, curated fields) waits for review.
+on:
+  schedule:
+    - cron: "17 10 * * 1" # Mondays 10:17 UTC (05:17 Eastern, standard time)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      HAS_FLICKR: ${{ secrets.FLICKR_API_KEY != '' }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: GitHub repositories
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USER: ajturner
+        run: python -m scripts.heo.sync_github --discover --days 180 --pages --topic portfolio
+      - name: YouTube talks playlist
+        # Works without a key (public feed, playlist page and oEmbed); the key is faster.
+        continue-on-error: true
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: python -m scripts.heo.sync_youtube
+      - name: Flickr albums
+        if: env.HAS_FLICKR == 'true'
+        continue-on-error: true
+        env:
+          FLICKR_API_KEY: ${{ secrets.FLICKR_API_KEY }}
+          FLICKR_USER_ID: "51648834@N00"
+        run: python -m scripts.heo.sync_flickr
+      - name: Validate
+        run: python -m scripts.heo.validate
+
+      - name: Open or update the sync pull request
+        id: pr
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: sync/weekly
+          delete-branch: true
+          commit-message: "Weekly sync: GitHub, YouTube, Flickr"
+          title: "Weekly sync: GitHub, YouTube, Flickr"
+          body: |
+            Automated sync of external sources into `content/`.
+
+            - Changes only inside `synced:` blocks auto-merge after CI passes.
+            - New items arrive with `hidden: true`. Write a summary and set `hidden: false` to publish them.
+          labels: sync
+          add-paths: content/**
+          # A fine-grained token (contents + pull requests: write) lets CI run on this PR
+          # and lets the merge trigger the publish workflow. Without it, the nightly
+          # publish run picks the change up instead.
+          token: ${{ secrets.SYNC_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Auto-merge when only synced data changed
+        if: steps.pr.outputs.pull-request-number != ''
+        env:
+          GH_TOKEN: ${{ secrets.SYNC_TOKEN || secrets.GITHUB_TOKEN }}
+        run: |
+          git fetch origin sync/weekly
+          if python -m scripts.heo.only_synced origin/master origin/sync/weekly; then
+            gh pr merge "${{ steps.pr.outputs.pull-request-number }}" --squash --auto
+          else
+            echo "Curated changes or new items present; leaving the PR for review."
+          fi

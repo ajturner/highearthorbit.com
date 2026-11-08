@@ -1,0 +1,95 @@
+---
+layout: default
+title: High Earth Orbit
+---
+{%- include writing.html -%}
+<div class="wrap">
+  <div class="hero">
+    <div>
+      <p class="kicker">Andrew Turner · Washington, DC</p>
+      <h1>I build the geospatial web: open data, civic technology, and the systems that connect them.</h1>
+      <p class="lede">CTO of ArcGIS Hub and Director of Esri's R&amp;D Center in Washington, DC. Aerospace engineer by training, author of <em>Introduction to Neogeography</em>, and co-founder of CrisisCommons. Writing here since 2004.</p>
+      <p class="links">
+        {%- for l in site.heo.links %}<a href="{{ l.url }}"{% if l.rel %} rel="{{ l.rel }}"{% endif %}>{{ l.label }}</a> · {% endfor %}<a href="/feed.xml">Feed</a>
+      </p>
+    </div>
+    <div class="headshot"><img src="{{ site.heo.headshot }}" alt="Andrew Turner"></div>
+  </div>
+</div>
+
+<div class="now">
+  <div class="wrap">
+    <p class="kicker accent">Now</p>
+    <p>{{ site.data.home.now }}</p>
+    <p><a href="/now/">Full Now page</a></p>
+  </div>
+</div>
+
+<div class="wrap">
+  <section>
+    <div class="section-head"><h2>Writing</h2><a href="/articles/">All writing</a></div>
+    <div class="split">
+      <ul class="list">
+        {%- for w in writing limit: 4 %}{% include writing-item.html item=w %}{% endfor %}
+      </ul>
+      <div class="card drafts">
+        <p class="kicker warm">In draft</p>
+        {%- for t in site.data.home.in_draft %}<p>{{ t }}</p>{% endfor %}
+        <p><a href="/feed.xml">Subscribe to writing</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>Projects</h2><a href="/projects/">All projects by era</a></div>
+    {%- assign featured = site.projects | where: "featured", true %}
+    <div class="grid cols-3">
+      {%- for p in featured limit: 6 %}{% include project-card.html item=p %}{% endfor %}
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>Talks</h2><a href="/talks/">All talks and slides</a></div>
+    {%- assign talks = site.talks | sort: "date" | reverse %}
+    {%- assign lead = talks | where: "featured", true | first | default: talks.first %}
+    <div class="split talks">
+      <div>
+        {% include video.html item=lead %}
+        {% include kicker.html item=lead %}
+        <h3><a href="{{ lead.url }}">{{ lead.title }}</a></h3>
+        {%- if lead.summary %}<p class="summary">{{ lead.summary }}</p>{% endif %}
+        {% include item-links.html item=lead %}
+      </div>
+      <ul class="list compact">
+        {%- assign shown = 0 %}
+        {%- for t in talks %}{% if t.url != lead.url and shown < 4 %}{% assign shown = shown | plus: 1 %}
+        <li>{% include kicker.html item=t %}<h4><a href="{{ t.url }}">{{ t.title }}</a></h4></li>
+        {%- endif %}{% endfor %}
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><h2>Photos</h2><a href="/photos/">All albums</a></div>
+    {%- assign albums = site.photos | sort: "date" | reverse %}
+    <div class="grid cols-4">
+      {%- for a in albums limit: 4 %}{% include album-tile.html item=a %}{% endfor %}
+    </div>
+  </section>
+
+  <section>
+    <div class="card">
+      <div class="split">
+        <div>
+          <h2>Books and background</h2>
+          <p>Author of <em>Introduction to Neogeography</em> (O'Reilly, 2006) and the <em>Where 2.0: The State of the Geospatial Web</em> report. Previously CTO of GeoIQ, acquired by Esri in 2012, and co-founder of Mapufacture and CrisisCommons. OSGeo charter member. BS and MS in aerospace engineering from UVA and Virginia Tech.</p>
+          <p><a href="/about/">Full bio and speaking contact</a></p>
+        </div>
+        <div>
+          <p class="kicker">Feeds</p>
+          <p><a href="/feed.xml">Writing</a><br><a href="/talks/feed.xml">Talks</a><br><a href="/projects/feed.xml">Projects</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

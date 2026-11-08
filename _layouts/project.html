@@ -1,0 +1,14 @@
+---
+layout: default
+---
+<article class="narrow">
+  {% include kicker.html item=page %}
+  <h1>{{ page.title }}{% if page.draft_badge %}<span class="badge">Draft</span>{% endif %}</h1>
+  {%- if page.summary %}<p class="lede">{{ page.summary }}</p>{% endif %}
+  {%- if page.role %}<p class="summary"><strong>Role:</strong> {{ page.role }}</p>{% endif %}
+  {% include item-links.html item=page %}
+  <div class="prose" style="margin-top:1.5rem">
+    {{ content }}
+  </div>
+  <p><a href="/projects/">All projects</a></p>
+</article>

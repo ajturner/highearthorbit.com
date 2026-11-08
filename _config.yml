@@ -1,46 +1,87 @@
-# Welcome to Jekyll!
+# highearthorbit.com: static build of the same content WordPress publishes.
 #
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+# GitHub Pages serves this build as the staging site. Content lives in content/
+# (one Markdown or HTML file per item); see README.md for the fields.
+# Build locally with: bundle exec jekyll serve
 
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
 title: High Earth Orbit
-email: ajturner@highearthorbit.com
-description: > # this means to ignore newlines until "baseurl:"
-  Personal website and blog of Andrew Turner.
-  Articles about open data, civic tech, open-source geospatial, home automation, and neogeography.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://highearthorbit.com" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: ajturner
-github_username:  ajturner
 author: Andrew Turner
-keywords: mapping,gis,cartography,neogeography,arcgis,esri,technology
+email: ajturner@highearthorbit.com
+description: >-
+  Andrew Turner, CTO of ArcGIS Hub, on open data, civic technology, the
+  geospatial web, and the systems that connect them.
+url: "https://highearthorbit.com"
+# The Pages workflow sets --baseurl to the project path; keep this empty here.
+baseurl: ""
+timezone: America/New_York
+lang: en-US
 
-permalink: /articles/:title
+heo:
+  # true on staging: items with `hidden: true` are shown, marked as drafts, and
+  # every page carries noindex. Set false if this build ever serves as the
+  # public fallback for WordPress.
+  staging: true
+  headshot: /assets/images/andrew-turner-640.jpg
+  flickr_profile: https://www.flickr.com/photos/ajturner/
+  links:
+    - { label: Mastodon, url: "https://nullisland.social/@ajturner", rel: me }
+    - { label: GitHub, url: "https://github.com/ajturner", rel: me }
+    - { label: LinkedIn, url: "https://www.linkedin.com/in/ajturner/" }
+  nav:
+    - { label: Writing, url: /articles/ }
+    - { label: Projects, url: /projects/ }
+    - { label: Talks, url: /talks/ }
+    - { label: Photos, url: /photos/ }
+    - { label: About, url: /about/ }
+    - { label: Now, url: /now/ }
 
-# Build settings
+collections_dir: content
+permalink: /articles/:title/
+collections:
+  talks:
+    output: true
+    permalink: /talks/:name/
+  projects:
+    output: true
+    permalink: /projects/:name/
+  photos:
+    output: true
+    permalink: /photos/:name/
+  external:
+    output: false
+
+defaults:
+  - scope: { path: "", type: posts }
+    values: { layout: post, render_with_liquid: false }
+  - scope: { path: "", type: talks }
+    values: { layout: talk }
+  - scope: { path: "", type: projects }
+    values: { layout: project }
+  - scope: { path: "", type: photos }
+    values: { layout: album }
+  - scope: { path: "" }
+    values: { layout: page }
+
 markdown: kramdown
-
 plugins:
   - jekyll-feed
+feed:
+  path: feed.xml
+  posts_limit: 20
+  collections:
+    talks: { path: talks/feed.xml }
+    projects: { path: projects/feed.xml }
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
 exclude:
+  - README.md
   - Gemfile
   - Gemfile.lock
-  - node_modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
+  - vendor/
+  - .bundle/
+  - node_modules/
+  - schemas/
+  - scripts/
+  - tests/
+  - wordpress/
+  - requirements.txt
+  - pytest.ini
