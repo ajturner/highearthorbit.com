@@ -51,6 +51,8 @@ Common to every type: `source_id` (required), `title`, `slug`, `summary`, `tags`
 
 Article file names follow Jekyll's `YYYY-MM-DD-slug.md` (or `.html`). The URL is `/articles/<slug>/`, the same as WordPress. `featured: true` puts a project or talk on the homepage.
 
+**GitHub selection.** A public repository tagged with the `portfolio` topic gets a visible project file on the next sync. Other recent repositories, and those with a Pages site, arrive hidden for review. `_data/github_exclude.yml` overrides both. Private repositories are not read, so add those by hand with `demo` and no `github`.
+
 **YouTube matching.** A playlist video is matched to a talk by its `youtube_id`, then by `_data/youtube_map.yml` (video ID to `source_id`, for recordings titled differently from the talk or second recordings of one talk), then by title. A matched talk without a video gets the `youtube_id`; an unmatched video becomes a new hidden talk file.
 
 **Flickr selection.** Albums whose title starts with `YYYY-MM-DD` are added automatically, minus `_data/flickr_exclude.yml` (troop trips with other families' children, conferences), plus `_data/flickr_include.yml` (older trips without a date prefix). Only public photos are read.

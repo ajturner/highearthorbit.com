@@ -36,7 +36,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_USER: ajturner
-        run: python -m scripts.heo.sync_github --discover --days 180 --pages
+        run: python -m scripts.heo.sync_github --discover --days 180 --pages --topic portfolio
       - name: YouTube talks playlist
         # Works without a key (public feed, playlist page and oEmbed); the key is faster.
         continue-on-error: true

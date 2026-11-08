@@ -6,10 +6,16 @@ With --discover, also create hidden project files for your own public,
 non-fork repositories pushed within --days that no project file covers yet.
 With --pages, do the same for every public, non-fork repository that publishes a
 GitHub Pages site, whatever its age. New files are hidden until you review them.
-Repositories listed in _data/github_exclude.yml are never added.
+With --topic NAME (repeatable), every public, non-fork repository carrying that topic
+gets a project file too. Tagging a repository is the review, so these are created
+visible. Repositories listed in _data/github_exclude.yml are never added.
+
+Private repositories are never read: the workflow token cannot see them. Add a
+project file by hand, with `demo` and no `github`, for a private repository whose
+Pages site is public.
 
 Environment: GITHUB_TOKEN (optional, raises the rate limit), GITHUB_USER (default ajturner)
-Usage: python -m scripts.heo.sync_github [--discover] [--days 365] [--pages]
+Usage: python -m scripts.heo.sync_github [--discover] [--days 365] [--pages] [--topic portfolio]
 """
 from __future__ import annotations
 
@@ -51,11 +57,24 @@ def repo_synced(r: dict) -> dict:
     }
 
 
+def discovery(r: dict, covered: set[str], cutoff: str, recent: bool, pages: bool, topics: list[str]) -> str | None:
+    """Why repository `r` should get a new project file: "labeled" (visible), "found"
+    (hidden for review), or None to skip it."""
+    if r["fork"] or r["private"] or r["full_name"].lower() in covered:
+        return None
+    if topics and set(topics) & set(r.get("topics") or []):
+        return "labeled"
+    if (recent and (r.get("pushed_at") or "")[:10] >= cutoff) or (pages and r.get("has_pages")):
+        return "found"
+    return None
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--discover", action="store_true")
     ap.add_argument("--days", type=int, default=365)
     ap.add_argument("--pages", action="store_true", help="discover repositories with a GitHub Pages site")
+    ap.add_argument("--topic", action="append", default=[], help="add repositories with this topic, visible")
     args = ap.parse_args(argv)
 
     headers = {"Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28"}
@@ -71,7 +90,7 @@ def main(argv: list[str] | None = None) -> int:
     if exclude_file.exists():
         data = yaml.safe_load(exclude_file.read_text()) or {}
         covered |= {str(e["name"]).lower() for e in data.get("repos", []) if e.get("name")}
-    updated = created = 0
+    updated = created = labeled = 0
 
     for item in projects:
         full = item.meta.get("github")
@@ -85,7 +104,7 @@ def main(argv: list[str] | None = None) -> int:
         if save(item):
             updated += 1
 
-    if args.discover or args.pages:
+    if args.discover or args.pages or args.topic:
         cutoff = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=args.days)).isoformat()[:10]
         page = 1
         while True:
@@ -93,10 +112,8 @@ def main(argv: list[str] | None = None) -> int:
             if not repos:
                 break
             for r in repos:
-                if r["fork"] or r["private"] or r["full_name"].lower() in covered:
-                    continue
-                recent = args.discover and (r.get("pushed_at") or "")[:10] >= cutoff
-                if not (recent or (args.pages and r.get("has_pages"))):
+                why = discovery(r, covered, cutoff, args.discover, args.pages, args.topic)
+                if why is None:
                     continue
                 path = CONTENT / "_projects" / f"{slugify(r['name'])}.md"
                 if path.exists():
@@ -104,15 +121,18 @@ def main(argv: list[str] | None = None) -> int:
                 item = Item(path=path, meta={
                     "source_id": f"github:{r['full_name'].lower()}", "title": r["name"], "era": "personal",
                     "status": "active", "github": r["full_name"], "repo": r["html_url"],
-                    "summary": r.get("description") or "", "hidden": True,
+                    "summary": r.get("description") or "",
                 }, body="")
+                if why == "found":
+                    item.meta["hidden"] = True
                 merge_synced(item, repo_synced(r))
                 save(item)
                 covered.add(r["full_name"].lower())
                 created += 1
+                labeled += why == "labeled"
             page += 1
 
-    print(f"GitHub: {updated} projects refreshed, {created} new hidden projects")
+    print(f"GitHub: {updated} projects refreshed, {created} new projects ({labeled} labeled and visible)")
     return 0
 
 
