@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<article class="wrap">
+  <div class="narrow" style="padding:0">
+    {% include kicker.html item=page %}
+    <h1>{{ page.title }}</h1>
+    {%- if page.summary %}<p class="lede">{{ page.summary }}</p>{% endif %}
+    <div class="prose">{{ content }}</div>
+  </div>
+  {%- assign photos = page.synced.photos %}
+  {%- if photos and photos.size > 0 %}
+  <div class="photo-grid">
+    {%- for p in photos %}
+    <figure><a href="{{ p.page_url }}"><img src="{{ p.src }}" alt="{{ p.title | escape }}" loading="lazy"{% if p.width > 0 %} width="{{ p.width }}" height="{{ p.height }}"{% endif %}></a></figure>
+    {%- endfor %}
+  </div>
+  {%- elsif page.synced.cover_url %}
+  <p><a href="{{ page.synced.url }}"><img class="banner" src="{{ page.synced.cover_url }}" alt="{{ page.title | escape }}"></a></p>
+  {%- endif %}
+  <p>{% if page.synced.url %}<a href="{{ page.synced.url }}">{% if page.synced.count %}All {{ page.synced.count }} photos{% else %}The album{% endif %} on Flickr</a> · {% endif %}<a href="/photos/">All albums</a></p>
+</article>

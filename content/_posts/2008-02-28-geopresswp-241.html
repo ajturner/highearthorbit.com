@@ -1,0 +1,26 @@
+---
+source_id: wp-1003
+title: GeoPress/WP 2.4.1
+date: 2008-02-28 19:31:00 -0500
+categories:
+- GeoPress
+- Mapstraction
+tags:
+- Mapstraction
+- GeoPress
+- wordpress
+legacy_wp_id: 1003
+legacy_url: http://highearthorbit.com/geopresswp-241/
+format: html
+---
+
+<p><a href="http://www.flickr.com/photos/51648834@N00/2299280418/"><img src="http://farm3.static.flickr.com/2420/2299280418_90ce23af1b_m.jpg" height="240" width="240" alt="WordPress '&ordm; GeoPress &Acirc;&laquo; WordPress Plugins" align="right" hspace="5px" vspace="5px"/></a><a href="http://wordpress.org/extend/plugins/geopress/" title="WordPress &#8250; GeoPress &laquo; WordPress Plugins">GeoPress</a>, the WordPress plugin that makes it very easy to add location, maps, Microformats, GeoRSS, and KML to your blog, was has been neglected for awhile. Some very nice users have sent in bug reports and I've been working through these and update the v2.4beta to 2.4.1 today. You should be getting it from the <a href="http://wordpress.org/extend/plugins/geopress/" title="WordPress &#8250; GeoPress &laquo; WordPress Plugins">WordPress Plugin repository</a>. This way you get notified when new versions are available. If only WordPress had a simple mechanism for upgrading plugins without requiring downloading zip files and shell/FTP access. </p>
+<p>Please let me know if you run into any issues. There had been numerous bugs in the beta - and I think most of these have been ironed out. I also updated the KML to use KML 2.2 and some simple atom links to your blog and post authors. </p>
+<p>Also, the <code>geopress_map</code> function has some nice functionality for being embeddeable in Archive, Category, and Search pages. Right now the function signature is a little long, but if you want to have all your markers for a category or search show up in the map, you use the following in your template (assuming you want your map to be (200px high, 400px wide)</p>
+<p><code><br />
+<?php echo geopress_map(200, 400, -1, true, true); ?><br />
+</code></p>
+<p>This will embed the map with unlimited (-1) locations from the category (unless you have lots of geo-posts in a single view). Check out <a href="http://highearthorbit.com/category/conference/" title="High Earth Orbit   &raquo; Conference">my conference</a> blog post archive. </p>
+<p>There have been numerous requests for per-item and categorical styling. This shouldn't be too hard to add. And also per-post zoom and map types. Also I will be updated GeoPress/MovableType to converge on the same feature-set. </p>
+<p>Also - if you have any updates/patches/suggestions for GeoPress - chime in (and contribute code :)</p>
+<p>GEOPRESS_LOCATION(150 Taylor St., San Francisco, CA)</p>

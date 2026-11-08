@@ -1,0 +1,62 @@
+---
+source_id: wp-1009
+title: GeoRSS Multiple Locations
+date: 2008-03-17 23:11:25 -0400
+categories:
+- GeoRSS
+- KML
+tags:
+- AdrianHolovaty
+- KML
+- news
+- storymapping
+legacy_wp_id: 1009
+legacy_url: http://highearthorbit.com/georss-multiple-locations/
+format: html
+---
+
+<p>A commonly requested feature addition to <a href="http://www.georss.org/" title="GeoRSS | GeoRSS ::  Geographically Encoded Objects for RSS feeds">GeoRSS</a> has been <em>multiple locations</em> per entry. Currently, GeoRSS only adds a single geometry per RSS or Atom entry. This was pragmatic and served the general goals of GeoRSS. </p>
+<p>There are several commonly encountered use cases. News reports typically mention several locations. Bloggers using <a href="http://www.georss.org/geopress" title="GeoPress | GeoRSS ::  Geographically Encoded Objects for RSS feeds">GeoPress</a> may tell a story about a trip and want to reference several spots along their trip - especially if they are documenting a tour that includes a path and sites along that path such as in <a href="http://www.everytrail.com/" title="EveryTrail - GPS travel community, geotagging, geotagged photos, Google Maps, GPS tracks, waypoints, coordinates">EveryTrail</a>. Dan Schultz talks about why <a href="http://www.pbs.org/idealab/2008/01/one-location-doesnt-cut-it.html" title="MediaShift Idea Lab . One Location Doesn't Cut It | PBS">"One Location Doesn't Cut It"</a>, citing other examples from news journalism.</p>
+<p><a href="http://everyblock.com" title="EveryBlock" rel="met">Adrian</a> and I recently sat down together to quickly brainstorm on what this may look like. The features we were looking to add were: multiple geometries, excerpt for that geometry, and toponym for that location (venue, city, etc.) Additionally, we didn't want to break current compatibility. </p>
+<p>Other services are already including multiple locations in different ways. Flickr outputs a single location in two different formats of GeoRSS: <a href="http://georss.org/simple" title="GeoRSS Simple">Simple</a>, and some odd form of deprecated W3C. <a href="http://labs.metacarta.com/rss-geotagger/" title="MetaCarta Labs: RSS GeoTagger">MetaCarta's RSS-to-GeoRSS</a> converted currently just dumps multiple locations into the entry, but without identifying if these are unique locations, or just variations in format type or hierarchy. </p>
+<p>We wanted to call out that this is in fact a different type of geometry - a multi-geometry. Both KML and WKT support multi-geometry, but without being able to reference what the points are individually about. That's useful if you are, say, marking all the holes in a field, but not for narratives. </p>
+<p>Another feature we wanted to try and support was to be able to reference geometries stored elsewhere. Currently in GeoRSS feeds you'll typically see references to a City or Country just include a point to the center of that geography. Not really indicative of what the article was about, or useful when trying to find all the geographic data about an area. So it's important to include lines and areas as appropriate. However, including huge outlines of states or nations, potentially multiple times within a single feed, can have drastically bad consequences of increasing feed file size and complexity. </p>
+<p>Here is a snippet of what we are proposing:</p>
+<div class="snippet">
+<code class="prettyprint"><br />
+<description><br />
+	We went to visit downtown Cedarburg before<br />
+	the conference. Had some great sandwiches at Joe&#x27;s.<br />
+	If you haven&#x27;t been to Cedarburg, Wisconsin, then<br />
+	you haven&#x27;t really experienced the MidWest...<br />
+</description><br />
+<georss:collection><br />
+	<georss:point<br />
+		excerpt="Went to visit downtown Cedarburg..."<br />
+		featurename="Downtown Cedarburg, Wis."><br />
+			43.296700 -87.987500<br />
+	</georss:point><br />
+	<georss:polygon<br />
+		rel="geometry"<br />
+		src="http://geonames.org/geometries/5867680"<br />
+		excerpt="..."<br />
+		featurename="Cedarburg, Wisconsin"<br />
+		type="application/vnd.google-earth.kml+xml"/><br />
+	<georss:line<br />
+		featurename="Convention Center"><br />
+			43.296700 -87.987500 43.3 -88 -44, -89<br />
+	</georss:line><br />
+</georss:collection><br />
+</code><br />
+</div></p>
+<p>The first part to notice is that we wrapped the multiple geometries in a <code>georss:collection</code>. This allows current parsers to not be confused by encountering multiple georss elements unwrapped and being unclear if they are multiple representations of the same geometry, or different geometries.</p>
+<p>We also included a <code>excerpt</code> attribute that allows you to include some text referencing what this location is specifically about. This can be text from the article itself, or some other useful information. One concept we had considered was using some reference to the text wrapped in the article itself, but this seemed burdensome and prone to problems using an attribute of one element to embedded text in another element.</p>
+<p>The second element is a <code>georss:polygon</code> that includes a <code>src</code> reference to the geometry stored elsewhere. The <code>rel</code> tag specifies that it is the geometry of this element, and the <code>type</code> helps the tool know what the representation is of the stored geometry. This way a tool that is consuming the GeoRSS can go and fetch the geometry if it wants, or if it already has a cached version, say referenced elsewhere in this same feed, then it doesn't have to request it again.</p>
+<p>Of course, with a standards development, it is useful to consider how a user interface might provide for including multiple locations in an entry. Here is a mockup of how I imagine a simple interface would appear, and probably how we'd implement it in something like <a href="http://www.georss.org/geopress" title="GeoPress | GeoRSS ::  Geographically Encoded Objects for RSS feeds">GeoPress</a>:</p>
+<p>Article: We went to visit downtown Cedarburg before the conference. Had some great sandwiches at Joe's. If you haven't been to Cedarburg, Wisconsin, then you haven't really experienced the MidWest...</p>
+<p>Locations:<br />
+ - Excerpt: Went to visit downtown Cedarburg...<br />
+ - Type: Point<br />
+ - Geometry: 43.296700 -87.987500<br />
+ - Name: Cedarburg, Wis. </p>
+<p>To promote ideas and discussion around these and other proposals, I've created proposals at GeoRSS.org on <a href="http://georss.org/proposals/multiple_locations" title="Proposal: Multiple Locations | GeoRSS ::  Geographically Encoded Objects for RSS feeds">multiple location<a/> and <a href="http://georss.org/proposals/external_geometry" title="Referencing External Geometry | GeoRSS ::  Geographically Encoded Objects for RSS feeds">referencing external geometry</a>. Please let us know what you think about the idea and format. We know that we can't please everyone, but like the origins of GeoRSS, we're just trying to address a real need with a simple format.</p>

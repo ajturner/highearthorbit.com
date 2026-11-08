@@ -1,0 +1,32 @@
+---
+source_id: wp-271
+title: Concatenating Strings - a review
+date: 2005-09-12 10:56:32 -0400
+categories:
+- Programming
+legacy_wp_id: 271
+legacy_url: http://highearthorbit.com/concatenating-strings-a-review/
+format: html
+---
+
+<p>As I mentioned, I'm learning/employing a bunch of varied programming languages. In fact, I'm employing several programming languages within a single project. While <em>tabbing</em> betwixt <a href='http://www.codingmonkeys.de/subethaedit/'>editor windows</a> I'll often miss tabbing between programming languages. Fortunately, error codes are as they are and they yell at me promptly.</p>
+<p>To review, concatenating strings:</p>
+<h3>Javascript</h3><br />
+<code>var mystring = string1 + " is " + string2;</code></p>
+<h3>Ruby and Python</h3><br />
+<code>mystring = string1 + " is " + string2;</code></p>
+<h3>PHP</h3><br />
+<code>$mystring = $string1." is ".$string2;</code></p>
+<h3>C</h3></p>
+<pre>
+char mystring[50], string1[10], string2[10];</p>
+<p>strcat(mystring, string1);<br />
+strcat(mystring, " is ");<br />
+strcat(mystring, string2);<br />
+</pre></p>
+<h3>C++</h3></p>
+<pre>
+string mystring, string1,string2;<br />
+mystring = string1 + " is " + string2;<br />
+</pre></p>
+<p>Feel free to add any more you know.</p>

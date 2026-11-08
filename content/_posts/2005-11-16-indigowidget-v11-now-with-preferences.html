@@ -1,0 +1,30 @@
+---
+source_id: wp-313
+title: IndigoWidget v1.1 - now with Preferences!
+date: 2005-11-16 10:22:27 -0500
+categories:
+- Technology
+- Programming
+- Apple
+- Home Automation
+- Javascript
+- Dashboard
+legacy_wp_id: 313
+legacy_url: http://highearthorbit.com/indigowidget-v11-now-with-preferences/
+format: html
+---
+
+<p>Since remote access via the IndigoWidget was such a popular feature - and not everyone is a programmer, I have moved setting remote control via the IndigoWidget as a preference on the backside of the widget.</p>
+<p>You can download the new version from <a href='http://highearthorbit.com/software/indigowidget/'>the software page</a>. There is also an included Readme that discusses setting up your widget over to work over the internet back to your house or office.</p>
+<p>I hope you enjoy! </p>
+<p><img src='http://highearthorbit.com/wp-images/IndigoWidget_Backside.jpg' alt='IndigoWidget backside'/></p>
+<h2>troglogdyte speak</h2><br />
+For those interested, coding up preferences for a Dashboard widget are actually impressively straight-forward and easy. </p>
+<p>The only two lines of code that are <em>special</em> are the following which get and set the preference for the widget:</p>
+<pre><code><br />
+    var IndigoServerIP  = widget.preferenceForKey("serverIP");<br />
+    if(IndigoServerIP  != '')<br />
+        getObj("serverIP").value = IndigoServerIP;  </p>
+<p>    widget.setPreferenceForKey(getObj("serverIP").value, "serverIP");<br />
+</code></pre></p>
+<p>Assumedly these are stored by the name of the widget (e.g. com.highearthorbit.widget.Indigo).</p>

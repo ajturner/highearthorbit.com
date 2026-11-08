@@ -1,0 +1,26 @@
+---
+source_id: wp-400
+title: Javascript XML parsing for GML and you
+date: 2006-04-23 09:11:15 -0400
+categories:
+- Programming
+- Geolocation
+- Javascript
+- Howto
+legacy_wp_id: 400
+legacy_url: http://highearthorbit.com/javascript-xml-parsing-for-gml-and-you/
+format: html
+---
+
+<p>You find the need to determine the locations of your visitors, and you wonder how to do this? Surely it's impossible. Alas, it is not. Services like <a href="http://hostip.info">HostIP</a> provide the ability to locate your users given their IP address. The slick way to do this is via javascript. Unfortunately, the HostIP API doesn't provide a <a href='http://www.json.org/'>JSON</a> interface.</p>
+<p>But of course, the response is in XML, so you're also wondering how to parse this XML response for something meaningful? The answer is the <code>DOMParser</code> and namespaces. There is a really nice function, <code>getElementsByTagNameNS</code> that allows you to parse out elements given a namespace. I kept trying <code>getElementsByTagNameNS("gml","name")</code>, which didn't work. The answer seems to be that you need to include a valid uri for the namespace.</p>
+<p><code></p>
+<pre>
+var dom = new DOMParser ( ) .parseFromString ( responseText,<br />
+                            "application/xml" ) ;</p>
+<p>var location = dom.getElementsByTagNameNS (<br />
+   "http://www.opengis.net/gml", "name" ) [1].firstChild.data<br />
+    if location == " ( Unknown city ) "<br />
+        return "";<br />
+</pre><br />
+</code></p>

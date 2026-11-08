@@ -1,0 +1,6 @@
+{%- assign a = include.item -%}
+<div>
+  <a class="cover" href="{{ a.url }}"><img src="{{ a.synced.cover_url }}" alt="" loading="lazy"></a>
+  <{{ include.h | default: "h4" }}><a href="{{ a.url }}">{{ a.title }}</a></{{ include.h | default: "h4" }}>
+  {% include kicker.html item=a %}
+</div>

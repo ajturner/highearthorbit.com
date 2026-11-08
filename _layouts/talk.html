@@ -1,0 +1,14 @@
+---
+layout: default
+---
+<article class="narrow">
+  {% include video.html item=page %}
+  {% include kicker.html item=page %}
+  <h1>{{ page.title }}{% if page.draft_badge %}<span class="badge">Draft</span>{% endif %}</h1>
+  {%- if page.summary %}<p class="lede">{{ page.summary }}</p>{% endif %}
+  {% include item-links.html item=page %}
+  <div class="prose" style="margin-top:1.5rem">
+    {{ content }}
+  </div>
+  <p><a href="/talks/">All talks</a></p>
+</article>
