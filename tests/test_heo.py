@@ -288,3 +288,25 @@ def test_voice_check_blocks_tk_placeholders(tmp_path):
     p.write_text(("Last week I was in Raleigh for the conference and talked with people about maps and data. " * 12)
                  + "\n\n[TK: who said it]\n")
     assert any("placeholder" in f for f in check(p).failures)
+
+
+def test_notion_editorial_callouts_are_not_published():
+    from scripts.heo.sync_notion import Converter, UNFINISHED
+
+    def rt(text):
+        return [{"plain_text": text, "text": {"content": text}, "annotations": {}, "href": None}]
+
+    def callout(icon, text):
+        return {"type": "callout", "id": "c", "has_children": False,
+                "callout": {"icon": {"type": "emoji", "emoji": icon}, "rich_text": rt(text)}}
+
+    blocks = [
+        callout("\U0001F399\uFE0F", "Voice pass: to fill in nothing"),
+        callout("\U0001F50D", "Review notes"),
+        callout("\U0001F4CA", "Source deck: slides"),
+        {"type": "paragraph", "id": "p", "has_children": False, "paragraph": {"rich_text": rt("Body text.")}},
+    ]
+    out = Converter().convert(blocks)
+    assert "Voice pass" not in out and "Review notes" not in out
+    assert "Source deck" in out and "Body text." in out
+    assert any(m in "a claim [verify] here" for m in UNFINISHED)
