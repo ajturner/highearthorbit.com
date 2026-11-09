@@ -8,14 +8,17 @@ repo: https://github.com/ajturner/geopress
 summary: Mapping and location plugin for WordPress.
 featured: true
 synced:
-  pages_url: ''
+  pages_url: https://ajturner.github.io/geopress/
   description: Mapping and location plugin for WordPress
   stars: 29
   forks: 9
   language: JavaScript
-  homepage: http://georss.org/geopress
-  pushed_at: '2026-09-13'
-  topics: []
+  homepage: https://ajturner.github.io/geopress
+  pushed_at: '2026-11-07'
+  topics:
+  - geospatial
+  - maps
+  - portfolio
   archived: false
   url: https://github.com/ajturner/geopress
 ---

@@ -18,7 +18,8 @@ synced:
   language: TypeScript
   homepage: https://ajturner.github.io/dc-council/
   pushed_at: '2023-02-10'
-  topics: []
+  topics:
+  - portfolio
   archived: false
   url: https://github.com/ajturner/dc-council
 ---

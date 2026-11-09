@@ -9,9 +9,8 @@ summary: 'With Euan Cameron and David Cardella: an introduction to developer res
   SDKs, APIs, open data portals, services and content.'
 synced:
   title: 'Esri Developer Summit 2016: Open Data and Developer Experience'
-  published_at: '2017-07-03'
+  published_at: ''
   channel: Esri Events
-  description: Euan Cameron, David Cardella and Andrew Turner give users an intro to developer resources
-    for ArcGIS, including SDKs, APIs, open data portals, services and content.
+  description: ''
   thumbnail: https://i.ytimg.com/vi/k45-uIRHftE/hqdefault.jpg
 ---

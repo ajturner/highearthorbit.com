@@ -20,6 +20,7 @@ synced:
   topics:
   - components
   - dc
+  - portfolio
   - stencil
   archived: false
   url: https://github.com/ajturner/dc-elections

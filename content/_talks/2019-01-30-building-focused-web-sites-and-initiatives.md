@@ -9,14 +9,9 @@ summary: 'A tour of ArcGIS Enterprise Sites and ArcGIS Hub: showcasing focused c
 hidden: true
 synced:
   title: Building Focused Web Sites & Initiatives
-  published_at: '2019-01-30'
+  published_at: ''
   channel: Esri Events
-  description: "Take a tour through ArcGIS Enterprise Sites and ArcGIS Hub, and learn how easy it is to\
-    \ showcase focused content, share information, and engage your audiences in entirely new ways. \n\n\
-    --------------------------------------------------------------------------------------------------------------------------\
-    \ \nFollow us on Social Media!\nTwitter: https://twitter.com/Esri\nFacebook: https://facebook.com/EsriGIS\n\
-    LinkedIn: https://www.linkedin.com/company/esri\nInstagram: https://www.instagram.com/esrigram  \n\
-    \ \nThe Science of Where: http://www.esri.com"
+  description: ''
   thumbnail: https://i.ytimg.com/vi/yQL7QHe1x2k/hqdefault.jpg
 ---
 

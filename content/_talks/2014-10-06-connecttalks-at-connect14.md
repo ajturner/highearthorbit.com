@@ -8,14 +8,9 @@ summary: Short talks on civic technology alongside Hack Reactor, iConstituent an
 hidden: true
 synced:
   title: Connect14  - ConnectTalks
-  published_at: '2014-10-06'
+  published_at: ''
   channel: ConnectSMC
-  description: |-
-    Shawn Drost, Co-Founder, Hackreactor
-    Hillsborough Girl Scout Troup #31175
-    Zain Kahn, Founder, iConstituent
-    Olatunde Sobomehin & Heather Starnes, Co-Founders, Street Code  Academy
-    Andrew Turner, Chief Technology Officer, Esri R& D
+  description: ''
   thumbnail: https://i.ytimg.com/vi/Hm6oDA7RVRA/hqdefault.jpg
 ---
 
