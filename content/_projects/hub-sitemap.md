@@ -13,9 +13,12 @@ synced:
   stars: 1
   forks: 0
   language: JavaScript
-  homepage: https://ajturner.github.io/hub-sitemap
+  homepage: https://ajturner.github.io/hub-sitemap/
   pushed_at: '2026-06-13'
-  topics: []
+  topics:
+  - arcgis
+  - arcgis-hub
+  - portfolio
   archived: false
   url: https://github.com/ajturner/hub-sitemap
 ---

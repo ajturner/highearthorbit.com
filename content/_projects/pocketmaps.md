@@ -16,7 +16,10 @@ synced:
   language: JavaScript
   homepage: http://ajturner.github.io/pocketmaps/
   pushed_at: '2026-11-06'
-  topics: []
+  topics:
+  - geospatial
+  - maps
+  - portfolio
   archived: false
   url: https://github.com/ajturner/pocketmaps
 ---

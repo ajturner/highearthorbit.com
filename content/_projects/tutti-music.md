@@ -15,7 +15,9 @@ synced:
   language: JavaScript
   homepage: https://ajturner.github.io/tutti-music/
   pushed_at: '2026-09-22'
-  topics: []
+  topics:
+  - music
+  - portfolio
   archived: false
   url: https://github.com/ajturner/tutti-music
 ---
